@@ -1,0 +1,35 @@
+---
+interface RatingItem {
+  label: string;
+  score: number;
+}
+interface Props {
+  ratings: RatingItem[];
+}
+const { ratings } = Astro.props;
+const total = ratings.reduce((sum, r) => sum + r.score, 0);
+const maxTotal = ratings.length * 5;
+const totalDisplay = total.toFixed(1);
+---
+<div class="rating-box">
+  <div class="rating-total">
+    <div class="rating-total-score">{totalDisplay}</div>
+    <div class="rating-total-max">/ {maxTotal}点</div>
+    <div class="stars mt-1">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span>{i < Math.round(total / ratings.length) ? '★' : '☆'}</span>
+      ))}
+    </div>
+  </div>
+  <div class="rating-bars">
+    {ratings.map(r => (
+      <div class="rating-row">
+        <span class="rating-label">{r.label}</span>
+        <div class="rating-bar-bg">
+          <div class="rating-bar-fill" style={`width: ${(r.score / 5) * 100}%`}></div>
+        </div>
+        <span class="rating-val">{r.score}</span>
+      </div>
+    ))}
+  </div>
+</div>

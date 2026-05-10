@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+  label?: string;
+  sub?: string;
+}
+const { href, label = '公式サイトで最安値を確認する →', sub = '※アフィリエイト広告を含みます' } = Astro.props;
+---
+<div class="cta-btn-wrap">
+  <span class="pr-badge">PR</span>
+  <a href={href} target="_blank" rel="noopener noreferrer nofollow" class="cta-btn">
+    {label}
+  </a>
+  <p class="cta-btn-sub">{sub}</p>
+</div>

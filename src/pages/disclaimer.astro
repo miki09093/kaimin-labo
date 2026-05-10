@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+<Layout title="免責事項">
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: '免責事項' }]} />
+        <h1>免責事項</h1>
+      </div>
+    </div>
+    <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+
+      <h2>情報の正確性について</h2>
+      <p>当サイトに掲載している情報は、できる限り正確な情報を提供するよう努めておりますが、正確性・完全性・最新性を保証するものではありません。掲載情報を利用したことにより生じた損害等については、当サイトは一切の責任を負いかねます。</p>
+
+      <h2>商品・サービスの価格について</h2>
+      <p>当サイトに掲載している価格は、記事執筆時点の情報です。実際の価格はメーカー・販売店のサイトをご確認ください。</p>
+
+      <h2>アフィリエイト広告について</h2>
+      <p>当サイトはアフィリエイトプログラムを利用しています。商品リンクには「PR」表記を行っており、リンク経由での購入・申し込みにより当サイトに報酬が発生することがあります。ただし、報酬が評価・ランキングに影響することはなく、ユーザーへの追加費用は一切発生しません。</p>
+
+      <h2>健康・医療情報について</h2>
+      <p>当サイトの情報は一般的な参考情報であり、医療アドバイスではありません。健康に関する判断は必ず専門医にご相談ください。</p>
+
+      <h2>リンクについて</h2>
+      <p>当サイトからリンクしている外部サイトの内容については、当サイトは責任を負いかねます。</p>
+
+      <p class="text-muted" style="margin-top: 2rem; font-size: 0.85rem;">制定日：2024年1月1日</p>
+    </div>
+  </main>
+  <Footer />
+</Layout>

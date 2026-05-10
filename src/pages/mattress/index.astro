@@ -1,0 +1,238 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const products = [
+  {
+    rank: 1, name: 'NELLマットレス', score: 32.5, maxScore: 35,
+    price: '39,800円〜', material: '高反発ウレタン', firmness: 'やわらかめ',
+    priceRange: 'middle', tags: ['高反発', '腰痛対応', '120日お試し'],
+    summary: '高反発ウレタン素材で体圧分散に優れ、腰痛持ちにも人気。120日間の無料お試し期間あり。',
+    affiliateHref: '#', href: '/mattress/nell/'
+  },
+  {
+    rank: 2, name: 'コアラマットレス', score: 31.0, maxScore: 35,
+    price: '59,800円〜', material: '高反発ウレタン', firmness: 'ふつう',
+    priceRange: 'high', tags: ['高反発', '120日お試し', 'ゾーニング'],
+    summary: 'オーストラリア発のブランド。独自のゾーニング技術で部位ごとに適切なサポートを実現。',
+    affiliateHref: '#', href: '/mattress/koala/'
+  },
+  {
+    rank: 3, name: 'エマ・スリープ', score: 30.5, maxScore: 35,
+    price: '49,800円〜', material: '高反発ウレタン', firmness: 'ふつう',
+    priceRange: 'high', tags: ['高反発', '100日お試し', '欧州No.1'],
+    summary: 'ヨーロッパで人気のマットレス。3層構造で寝心地と体圧分散のバランスが良い。',
+    affiliateHref: '#', href: '/mattress/emma/'
+  },
+  {
+    rank: 4, name: 'モットン', score: 29.5, maxScore: 35,
+    price: '29,800円〜', material: '高反発ウレタン', firmness: 'かため',
+    priceRange: 'low', tags: ['高反発', '90日お試し', '日本製'],
+    summary: '日本人の体型に合わせて設計された高反発マットレス。硬さが3種類から選べる。',
+    affiliateHref: '#', href: '/mattress/mouton/'
+  },
+  {
+    rank: 5, name: 'エアウィーヴ', score: 28.5, maxScore: 35,
+    price: '68,000円〜', material: 'エアファイバー', firmness: 'かため',
+    priceRange: 'high', tags: ['エアファイバー', '洗える', '通気性'],
+    summary: '独自素材「エアファイバー」で高い通気性を実現。洗えるマットレスとして人気。',
+    affiliateHref: '#', href: '/mattress/airweave/'
+  },
+];
+---
+<Layout
+  title="マットレスおすすめ比較・ランキング"
+  description="マットレスのおすすめを徹底比較。腰痛・肩こりに効くものからコスパ重視まで、素材・硬さ・価格帯別に選び方とランキングをご紹介します。"
+>
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: 'マットレス' }]} />
+        <h1>マットレス おすすめ比較・ランキング</h1>
+        <p>全商品を実際に試して7項目で採点。あなたの悩みに合ったマットレスが見つかります。</p>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
+      <div class="content-wrap">
+        <div class="main-content">
+
+          <!-- フィルター -->
+          <div class="filter-bar" id="filterBar">
+            <div class="filter-group">
+              <label for="filterPrice">価格帯</label>
+              <select id="filterPrice">
+                <option value="">すべて</option>
+                <option value="low">〜3万円</option>
+                <option value="middle">3〜5万円</option>
+                <option value="high">5万円〜</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filterMaterial">素材</label>
+              <select id="filterMaterial">
+                <option value="">すべて</option>
+                <option value="高反発ウレタン">高反発ウレタン</option>
+                <option value="低反発ウレタン">低反発ウレタン</option>
+                <option value="エアファイバー">エアファイバー</option>
+                <option value="ポケットコイル">ポケットコイル</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filterFirmness">硬さ</label>
+              <select id="filterFirmness">
+                <option value="">すべて</option>
+                <option value="やわらかめ">やわらかめ</option>
+                <option value="ふつう">ふつう</option>
+                <option value="かため">かため</option>
+              </select>
+            </div>
+            <button class="filter-reset" id="filterReset">リセット</button>
+          </div>
+
+          <!-- 結果件数 -->
+          <p class="filter-count" id="filterCount">{products.length}件表示中</p>
+
+          <!-- ランキングリスト -->
+          <div class="product-list" id="productList">
+            {products.map(p => (
+              <div
+                class="product-card"
+                data-price={p.priceRange}
+                data-material={p.material}
+                data-firmness={p.firmness}
+              >
+                <div class="product-card-rank-row">
+                  <span class={`product-card-rank ${p.rank <= 3 ? `rank-${p.rank}` : 'rank-other'}`}>{p.rank}</span>
+                  <span class={`rank-badge rank-badge-${p.rank <= 3 ? p.rank : 'other'}`}>
+                    {p.rank === 1 ? '🥇 第1位' : p.rank === 2 ? '🥈 第2位' : p.rank === 3 ? '🥉 第3位' : `第${p.rank}位`}
+                  </span>
+                </div>
+                <a href={p.href} class="product-card-name">{p.name}</a>
+                <div class="product-card-score">総合スコア {p.score} / {p.maxScore}点</div>
+                <div class="product-card-tags">
+                  {p.tags.map(tag => <span class="tag">{tag}</span>)}
+                </div>
+                <p style="font-size:1rem; color: var(--color-primary); font-weight:700; margin-bottom:0.5rem;">{p.price}</p>
+                <p style="font-size:0.88rem; color: var(--color-text-muted); margin-bottom: 1rem;">{p.summary}</p>
+                <div class="cta-btn-wrap" style="margin-top: 0.5rem;">
+                  <span class="pr-badge">PR</span>
+                  <a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="cta-btn" style="font-size:0.9rem; padding: 0.7rem 1.25rem;">
+                    公式サイトで確認する →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p class="no-results hidden" id="noResults">条件に一致する商品が見つかりませんでした。</p>
+
+          <!-- 比較表 -->
+          <h2 style="margin-top: 3rem;">マットレス比較表</h2>
+          <div class="compare-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th class="row-label">項目</th>
+                  {products.slice(0, 5).map(p => <th>{p.name}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="row-label">総合スコア</td>
+                  {products.slice(0, 5).map(p => <td><strong>{p.score}</strong>/35点</td>)}
+                </tr>
+                <tr>
+                  <td class="row-label">価格</td>
+                  {products.slice(0, 5).map(p => <td>{p.price}</td>)}
+                </tr>
+                <tr>
+                  <td class="row-label">素材</td>
+                  {products.slice(0, 5).map(p => <td>{p.material}</td>)}
+                </tr>
+                <tr>
+                  <td class="row-label">硬さ</td>
+                  {products.slice(0, 5).map(p => <td>{p.firmness}</td>)}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- サイドバー -->
+        <aside class="sidebar">
+          <div class="sidebar-box">
+            <h3>カテゴリー</h3>
+            <ul class="sidebar-list">
+              <li><a href="/mattress/">マットレス</a></li>
+              <li><a href="/pillow/">枕</a></li>
+              <li><a href="/futon/">布団</a></li>
+              <li><a href="/cover/">カバー・シーツ</a></li>
+              <li><a href="/column/">コラム</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>悩みから探す</h3>
+            <ul class="sidebar-list">
+              <li><a href="/column/low-back-pain/">腰痛対策</a></li>
+              <li><a href="/column/shoulder/">肩こり対策</a></li>
+              <li><a href="/column/insomnia/">不眠改善</a></li>
+              <li><a href="/column/trial/">お試しできる寝具</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const priceSelect = document.getElementById('filterPrice') as HTMLSelectElement;
+  const materialSelect = document.getElementById('filterMaterial') as HTMLSelectElement;
+  const firmnessSelect = document.getElementById('filterFirmness') as HTMLSelectElement;
+  const resetBtn = document.getElementById('filterReset');
+  const productList = document.getElementById('productList');
+  const countEl = document.getElementById('filterCount');
+  const noResults = document.getElementById('noResults');
+
+  function applyFilters() {
+    const price = priceSelect.value;
+    const material = materialSelect.value;
+    const firmness = firmnessSelect.value;
+    const cards = productList?.querySelectorAll('.product-card') ?? [];
+    let visible = 0;
+    cards.forEach(card => {
+      const el = card as HTMLElement;
+      const matchPrice = !price || el.dataset.price === price;
+      const matchMaterial = !material || el.dataset.material === material;
+      const matchFirmness = !firmness || el.dataset.firmness === firmness;
+      const show = matchPrice && matchMaterial && matchFirmness;
+      el.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    if (countEl) countEl.textContent = `${visible}件表示中`;
+    noResults?.classList.toggle('hidden', visible > 0);
+  }
+
+  priceSelect?.addEventListener('change', applyFilters);
+  materialSelect?.addEventListener('change', applyFilters);
+  firmnessSelect?.addEventListener('change', applyFilters);
+  resetBtn?.addEventListener('click', () => {
+    priceSelect.value = '';
+    materialSelect.value = '';
+    firmnessSelect.value = '';
+    applyFilters();
+  });
+</script>
+
+<style>
+  .product-list { display: flex; flex-direction: column; gap: 1.25rem; }
+  .filter-count { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1rem; }
+  .no-results { text-align: center; padding: 2rem; color: var(--color-text-muted); }
+  .product-card-rank-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .rank-badge-other { background: #F3F4F6; color: #374151; }
+</style>

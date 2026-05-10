@@ -1,0 +1,24 @@
+---
+interface Props {
+  items: { label: string; href?: string }[];
+}
+const { items } = Astro.props;
+---
+<nav aria-label="パンくずリスト">
+  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/" itemprop="item"><span itemprop="name">ホーム</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+    {items.map((item, i) => (
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="breadcrumb-sep">›</span>
+        {item.href
+          ? <a href={item.href} itemprop="item"><span itemprop="name">{item.label}</span></a>
+          : <span itemprop="name">{item.label}</span>
+        }
+        <meta itemprop="position" content={String(i + 2)} />
+      </li>
+    ))}
+  </ol>
+</nav>

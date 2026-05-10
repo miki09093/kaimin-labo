@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+<Layout title="睡眠コラム一覧" description="腰痛・肩こり・不眠など睡眠の悩みを解決するコラム記事一覧です。">
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: 'コラム' }]} />
+        <h1>睡眠コラム</h1>
+        <p>腰痛・肩こり・不眠などの悩み別に、睡眠と寝具に関する情報をお届けします。</p>
+      </div>
+    </div>
+    <div class="container" style="padding: 2rem 1rem 3rem;">
+      <p style="color: var(--color-text-muted);">記事を準備中です。しばらくお待ちください。</p>
+    </div>
+  </main>
+  <Footer />
+</Layout>

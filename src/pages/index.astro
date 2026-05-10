@@ -1,0 +1,2194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const products = [
+  {
+    rank: 1,
+    name: 'LIMNE（リムネ）',
+    image: '/limne.jpg',
+    score: 33.5,
+    price: '79,900円（シングル）',
+    priceS: '79,900円', priceSD: '89,900円', priceD: '99,900円',
+    trial: '120日間',
+    warranty: '10年保証',
+    structure: '独自ウレタン（高反発・低反発の中間設計）',
+    thickness: '22cm',
+    recommend: '今まで合うマットレスが見つからなかった人',
+    tags: ['独自ウレタン', '中間的な硬さ', '120日保証'],
+    summary: '高反発・低反発どちらでもない独自設計で、ズブズブ沈み込みながらもしっかり体を支えてくれる次世代マットレス。今まで合うマットレスが見つからなかった方に特に人気。',
+    goodPoints: ['高反発・低反発どちらでもない唯一無二の寝心地', '自然な寝姿勢をキープしながら寝返りしやすい', '120日間完全返金保証・10年品質保証付き'],
+    badPoints: ['価格がやや高め（シングル79,900円）', 'セミダブル以上はさらに高額になる'],
+    affiliateHref: '#',
+  },
+  {
+    rank: 2,
+    name: '雲のやすらぎプレミアム モデル3R',
+    image: '/kumo.jpg',
+    score: 32.0,
+    price: '79,800円（シングル）',
+    priceS: '79,800円', priceSD: '要確認', priceD: '要確認',
+    trial: '100日間',
+    warranty: '要確認',
+    structure: 'ウレタン5層（腰部260N高反発）・日本製',
+    thickness: '23cm',
+    recommend: '腰の痛み・だるさが気になる人',
+    tags: ['日本製', '超高反発260N', '極厚23cm'],
+    summary: '腰部に超高反発ウレタン（260N）を使用した5層構造の日本製マットレス。極厚23cmで底付き感がなく、朝起きたときの腰の違和感が気になる方に特におすすめ。',
+    goodPoints: ['腰部に超高反発260Nを使用した部位別設計', '極厚23cmで底付き感なし', '100日間返金・返品保証付き'],
+    badPoints: ['重さがあり一人での移動が大変', '保証期間の詳細は公式サイトで要確認'],
+    affiliateHref: '#',
+  },
+  {
+    rank: 3,
+    name: 'NELLマットレス',
+    image: '/nell.jpg',
+    score: 31.5,
+    price: '67,915円〜（シングル・セール中）',
+    priceS: '67,915円〜', priceSD: '要確認', priceD: '要確認',
+    trial: '120日間',
+    warranty: '10年保証',
+    structure: 'ポケットコイル13層・センターハード設計',
+    thickness: '21cm',
+    recommend: '肩こり・腰痛を同時に解決したい人',
+    tags: ['ポケットコイル', '13層構造', 'センターハード'],
+    summary: '業界最高水準のポケットコイルを使用した13層構造マットレス。センターハード設計で腰をしっかりサポートしながら寝返りもしやすく、腰痛・肩こりに悩む方から高い支持を得ている。',
+    goodPoints: ['業界最高水準のポケットコイルで寝返りしやすい', 'センターハード設計で腰痛をサポート', '120日トライアル・10年保証で安心'],
+    badPoints: ['重くて移動・設置に2人必要', '開封直後に独特の匂いが気になる場合あり'],
+    affiliateHref: '#',
+  },
+  {
+    rank: 4,
+    name: 'エマ・スリープ ハイブリッドV3',
+    image: '/images/emma.jpg',
+    score: 30.0,
+    price: '49,630円〜（シングル・セール中）',
+    priceS: '49,630円〜', priceSD: '要確認', priceD: '要確認',
+    trial: '100日間',
+    warranty: '10年保証',
+    structure: 'ポケットコイル＋ウレタン3層（7ゾーン設計）',
+    thickness: '26cm',
+    recommend: 'カップル・2人利用の方',
+    tags: ['ポケットコイル', '7ゾーン設計', 'ドイツ発'],
+    summary: 'ドイツ発スリープテックブランドのハイブリッドマットレス。7ゾーンポケットコイル＋3層フォームで体圧を均等に分散。振動が伝わりにくく、2人で使用する場合にも向いている。',
+    goodPoints: ['7ゾーン設計で体圧分散が優秀', '振動が伝わりにくく2人利用に最適', '100日お試し・10年保証付き'],
+    badPoints: ['夏場に蒸れる感じがある', '設置・移動は大人2人必要'],
+    affiliateHref: '#',
+  },
+  {
+    rank: 5,
+    name: 'REVERIA（リベリア）',
+    image: '/images/reveria.jpg',
+    score: 28.5,
+    price: '59,800円（シングルのみ）',
+    priceS: '59,800円', priceSD: 'シングルのみ', priceD: 'シングルのみ',
+    trial: 'なし',
+    warranty: '1年保証',
+    structure: '高反発ウレタン3層＋磁気設計（ネオジム磁石48個）',
+    thickness: '10cm',
+    recommend: 'コリ・血行改善が目的の方',
+    tags: ['医療機器認証', '磁気内蔵', '6ゾーン設計'],
+    summary: '日本初の医療機器認証（認証番号：308AGBZX00014000）を取得したリカバリーマットレス。ネオジム磁石48個内蔵でこりの改善・血行改善を目的として認定。デスクワークや立ち仕事の方に向いている。',
+    goodPoints: ['日本初の医療機器認証取得（こりの改善・血行改善）', 'ネオジム磁石48個内蔵の本格リカバリー設計', '高反発3層構造で寝返りしやすい'],
+    badPoints: ['シングルサイズのみの展開', 'お試し期間がなく保証も1年と短め'],
+    affiliateHref: '#',
+  },
+  {
+    rank: 6,
+    name: 'GOKUMIN プレミアムスプリング',
+    image: '/images/gokumin.jpg',
+    score: 27.0,
+    price: '17,358円〜（シングル）',
+    priceS: '17,358円〜', priceSD: '要確認', priceD: '要確認',
+    trial: '要確認',
+    warranty: '8年保証',
+    structure: 'ポケットコイル（スプリング構造）',
+    thickness: '20cm',
+    recommend: '予算を抑えて試したい方',
+    tags: ['コスパ重視', '極厚20cm', '8年保証'],
+    summary: '1万円台で購入できる圧倒的なコスパが魅力。極厚20cmのスプリングマットレスで、「腰痛が改善された」「硬さが選べる」と口コミでも高評価。初めてのマットレス購入にも向いている。',
+    goodPoints: ['1万円台で買える圧倒的なコスパ', '腰痛改善の口コミが多数', 'スプリング構造で8年保証付き'],
+    badPoints: ['夏場に熱がこもりやすい傾向がある', '種類が多く選ぶのに迷いやすい'],
+    affiliateHref: '#',
+  },
+];
+
+const typeRankings = {
+  soft: [
+    { rank: 1, name: 'LIMNE（リムネ）', point: '独自ウレタンで沈み込みと反発のバランスが絶妙', href: '#' },
+    { rank: 2, name: '雲のやすらぎプレミアム 3R', point: '5層構造で体をやさしく包み込む', href: '#' },
+    { rank: 3, name: 'エマ・スリープ ハイブリッドV3', point: '7ゾーン設計で全身の圧迫感を分散', href: '#' },
+  ],
+  firm: [
+    { rank: 1, name: 'NELLマットレス', point: 'センターハード設計で腰を力強くサポート', href: '#' },
+    { rank: 2, name: 'エマ・スリープ ハイブリッドV3', point: '7ゾーンポケットコイルで寝返りしやすい', href: '#' },
+    { rank: 3, name: 'GOKUMIN プレミアムスプリング', point: 'スプリング構造でしっかりした反発力', href: '#' },
+  ],
+  recovery: [
+    { rank: 1, name: 'REVERIA（リベリア）', point: '医療機器認証取得・こりの改善・血行改善', href: '#' },
+    { rank: 2, name: 'NELLマットレス', point: '13層構造で体圧分散・寝返りをサポート', href: '#' },
+    { rank: 3, name: '雲のやすらぎプレミアム 3R', point: '超高反発260Nで腰への負担を軽減', href: '#' },
+  ],
+  cospa: [
+    { rank: 1, name: 'GOKUMIN プレミアムスプリング', point: '1万円台で極厚20cm・8年保証付き', href: '#' },
+    { rank: 2, name: 'エマ・スリープ ハイブリッドV3', point: 'セール時4万円台でポケットコイル＋10年保証', href: '#' },
+    { rank: 3, name: 'NELLマットレス', point: 'セール時6万円台でポケットコイル＋10年保証', href: '#' },
+  ],
+};
+
+const faqs = [
+  {
+    q: '高反発と低反発、どちらを選べばいいですか？',
+    a: '腰痛・寝返りが多い方は高反発、横向き寝が多い・体への圧迫感を減らしたい方は低反発がおすすめです。体重が重い方（70kg以上）は高反発の方が沈み込みを防げます。LIMNE（リムネ）のようにどちらでもない中間タイプも近年人気が高まっています。',
+  },
+  {
+    q: 'お試し期間中に返品できますか？',
+    a: 'ブランドによって異なります。LIMNE・NELLは120日間、雲のやすらぎ・エマ・スリープは100日間の返金保証を設けています。ただしREVERIAはお試し期間がありません。返品時の条件（最低使用日数・汚れの有無など）は各公式サイトでご確認ください。',
+  },
+  {
+    q: '安いマットレス（1〜2万円台）でも大丈夫ですか？',
+    a: '毎日使うメインのマットレスとしては耐久性が心配なケースもありますが、GOKUMINのように1万円台でも8年保証付きで品質が高い商品もあります。予算が限られている場合はGOKUMINから試してみるのもひとつの選択肢です。',
+  },
+  {
+    q: 'マットレスはどのくらいで買い替えるべきですか？',
+    a: '一般的な目安は7〜10年です。ただし「中央が沈んでいる」「起きたときに腰や体が痛い」「コイルの音がする」といった症状が出た場合は年数に関わらず買い替えを検討してください。',
+  },
+  {
+    q: 'マットレスを床に直置きしても大丈夫ですか？',
+    a: '通気性が悪くなりカビの原因になるため、基本的にはすのこやベッドフレームとの使用を推奨します。どうしても床置きする場合は週に一度は立てかけて乾燥させてください。',
+  },
+];
+---
+
+<Layout
+  title="快眠ラボ"
+  description="マットレス・枕・布団などの寝具を徹底比較。腰痛・肩こり・不眠など睡眠の悩みを解決する一台が見つかります。"
+>
+  <Header />
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero-img-section">
+      <a href="#top3">
+        <picture>
+          <source media="(max-width: 767px)" srcset="/hero-sp.png" />
+          <img
+            src="/hero-pc.png"
+            alt="人気マットレスを徹底比較！あなたにぴったりのマットレスが見つかる"
+            class="hero-img"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </picture>
+      </a>
+    </section>
+
+    <!-- ===== TOP3 ===== -->
+    <section class="section" id="top3">
+      <div class="container">
+        <h2 class="section-title">迷ったらこれ！編集部おすすめマットレスTOP3</h2>
+        <p style="margin-bottom: 1.5rem;">「どれがいいか分からない」という方へ。編集部が自信を持っておすすめできる3台を厳選しました。</p>
+        <div class="top3-list">
+          {products.slice(0, 3).map(p => (
+            <div class="top3-card">
+              <div class="top3-rank">
+                <span class={`rank-circle rank-circle-${p.rank}`}>{p.rank}</span>
+                <span class="top3-rank-label">第{p.rank}位</span>
+                <span class="top3-rank-name-sp">{p.name}</span>
+              </div>
+              <div class="top3-img-wrap">
+                <img src={p.image} alt={p.name} class="top3-img" loading="lazy" />
+              </div>
+              <div class="top3-body">
+                <h3 class="top3-name">{p.name}</h3>
+                <div class="top3-score">
+                  <span class="score-num">{p.score}</span>
+                  <span class="score-max">/ 35点</span>
+                  <span class="score-stars">{'★'.repeat(Math.round(p.score / 7))}{'☆'.repeat(5 - Math.round(p.score / 7))}</span>
+                </div>
+                <div class="top3-tags">
+                  {p.tags.map(t => <span class="tag">{t}</span>)}
+                </div>
+                <p class="top3-recommend"><span class="recommend-icon">こんな人に</span>{p.recommend}</p>
+                <div class="top3-meta">
+                  <span class="meta-item"><span class="meta-label">価格（S）</span><span class="meta-val">{p.priceS}</span></span>
+                  <span class="meta-item"><span class="meta-label">お試し</span><span class="meta-val">{p.trial}</span></span>
+                  <span class="meta-item"><span class="meta-label">保証</span><span class="meta-val">{p.warranty}</span></span>
+                </div>
+                <div class="cta-btn-wrap" style="margin-top: 0.75rem;">
+                  <a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="cta-btn">
+                    公式サイトで最安値を確認する →
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 選び方ガイド ===== -->
+    <section class="section section-bg">
+      <div class="container">
+        <h2 class="section-title">失敗しないマットレスの選び方</h2>
+        <p style="margin-bottom: 1.75rem; color: var(--color-text-muted); font-size: 0.92rem;">購入前に確認すべき5つのポイントです。</p>
+        <div class="guide-grid">
+
+          <!-- 01 硬め・やわらかめ -->
+          <div class="guide-card">
+            <div class="guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="guide-svg">
+                <!-- Left: firm (flat layers) -->
+                <rect x="4" y="36" width="20" height="5" rx="2" fill="#1B3A5C"/>
+                <rect x="4" y="29" width="20" height="5" rx="2" fill="#1B3A5C" opacity="0.5"/>
+                <circle cx="14" cy="20" r="4" fill="#1B3A5C" opacity="0.4"/>
+                <line x1="14" y1="24" x2="14" y2="29" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                <!-- Right: soft (wavy layers) -->
+                <path d="M32 41 Q36 37 40 41 Q44 45 48 41" stroke="#C9A84C" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M32 34 Q36 30 40 34 Q44 38 48 34" stroke="#C9A84C" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
+                <circle cx="40" cy="21" r="4" fill="#C9A84C" opacity="0.7"/>
+                <path d="M40 25 Q38 29 40 32" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                <!-- Divider -->
+                <line x1="28" y1="16" x2="28" y2="46" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="3,3"/>
+              </svg>
+            </div>
+            <span class="guide-num-badge">01</span>
+            <p class="guide-card-title">体重×寝姿勢で硬さを選ぶ</p>
+            <p class="guide-card-body">体重が重い方や仰向け寝はお尻が沈みすぎない「<strong>硬め</strong>」、小柄な方や横向き寝は肩や腰を圧迫しない「<strong>やわらかめ</strong>」が基本。硬さを間違えると腰痛や肩こりの原因になります。</p>
+          </div>
+
+          <!-- 02 ゾーン設計 -->
+          <div class="guide-card">
+            <div class="guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="guide-svg">
+                <!-- Body lying sideways -->
+                <ellipse cx="28" cy="34" rx="22" ry="8" fill="#EBF2FA"/>
+                <!-- Head -->
+                <circle cx="46" cy="27" r="6" fill="#1B3A5C" opacity="0.25"/>
+                <!-- Shoulder zone highlight -->
+                <ellipse cx="34" cy="27" rx="8" ry="7" fill="#C9A84C" opacity="0.75"/>
+                <circle cx="34" cy="27" r="3" fill="#fff" opacity="0.6"/>
+                <!-- Body -->
+                <ellipse cx="16" cy="32" rx="11" ry="6" fill="#1B3A5C" opacity="0.12"/>
+                <!-- Arrow down to shoulder -->
+                <line x1="34" y1="12" x2="34" y2="18" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+                <path d="M30 17 L34 21 L38 17" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <span class="guide-num-badge">02</span>
+            <p class="guide-card-title">部位別のゾーニング構造かどうか</p>
+            <p class="guide-card-body">重い「腰」は硬く支え、出っ張る「肩」は柔らかく沈めるのが理想。部位ごとに硬さが変わる「<strong>ゾーン設計</strong>」を選べば、腰痛と肩こりの両方をケアできます。</p>
+          </div>
+
+          <!-- 03 寝返り -->
+          <div class="guide-card">
+            <div class="guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="guide-svg">
+                <!-- Rotation arc (solid) -->
+                <path d="M28 10 A18 18 0 1 1 11 22" stroke="#1B3A5C" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <!-- Rotation arc (dashed) -->
+                <path d="M28 10 A18 18 0 0 0 11 22" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="4,3"/>
+                <!-- Arrow heads -->
+                <path d="M23 7 L28 11 L33 7" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M8 27 L11 22 L16 25" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <!-- Person in center -->
+                <circle cx="28" cy="30" r="4" fill="#1B3A5C" opacity="0.15"/>
+                <circle cx="28" cy="24" r="3.5" fill="#1B3A5C" opacity="0.2"/>
+                <line x1="28" y1="27.5" x2="28" y2="34" stroke="#1B3A5C" stroke-width="2" opacity="0.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="guide-num-badge">03</span>
+            <p class="guide-card-title">寝返りのしやすさ</p>
+            <p class="guide-card-body">マットレスが柔らかすぎると寝返りに体力を使い、朝の疲労感に繋がります。トランポリンのように体を押し返す「<strong>高反発</strong>」素材なら、自然な寝返りができ朝スッキリ起きられます。</p>
+          </div>
+
+          <!-- 04 厚み -->
+          <div class="guide-card">
+            <div class="guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="guide-svg">
+                <!-- Layers -->
+                <rect x="8" y="13" width="36" height="6" rx="2" fill="#C9A84C" opacity="0.85"/>
+                <rect x="8" y="21" width="36" height="8" rx="2" fill="#1B3A5C" opacity="0.45"/>
+                <rect x="8" y="31" width="36" height="8" rx="2" fill="#1B3A5C" opacity="0.7"/>
+                <rect x="8" y="41" width="36" height="3" rx="1" fill="#1B3A5C" opacity="0.25"/>
+                <!-- Measurement arrow -->
+                <line x1="50" y1="13" x2="50" y2="44" stroke="#C9A84C" stroke-width="2"/>
+                <path d="M47 15 L50 12 L53 15" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M47 42 L50 45 L53 42" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <span class="guide-num-badge">04</span>
+            <p class="guide-card-title">厚み20cm以上か</p>
+            <p class="guide-card-body">薄いマットレスは腰が床にぶつかる「底付き感」が出やすく、へたりも早いです。ベッド用なら厚み<strong>20cm以上</strong>（床置きなら10cm以上）を選ぶと耐久性も高く安心です。</p>
+          </div>
+
+          <!-- 05 トライアル+保証 -->
+          <div class="guide-card">
+            <div class="guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="guide-svg">
+                <!-- Calendar -->
+                <rect x="4" y="14" width="24" height="22" rx="3" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
+                <rect x="4" y="14" width="24" height="7" rx="3" fill="#1B3A5C"/>
+                <rect x="13" y="10" width="2.5" height="7" rx="1.25" fill="#1B3A5C"/>
+                <rect x="20" y="10" width="2.5" height="7" rx="1.25" fill="#1B3A5C"/>
+                <!-- Checkmark in calendar -->
+                <path d="M11 27 L15 31 L23 23" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <!-- Shield -->
+                <path d="M36 14 L48 18 L48 30 C48 36 42 40 36 42 C30 40 24 36 24 30 L24 18 Z" fill="#C9A84C" opacity="0.18" stroke="#C9A84C" stroke-width="1.5"/>
+                <!-- Checkmark in shield -->
+                <path d="M30 28 L34 32 L42 24" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <span class="guide-num-badge">05</span>
+            <p class="guide-card-title">100日返品保証はあるか</p>
+            <p class="guide-card-body">マットレスが体に馴染むには3〜4週間かかるため、店頭の数分では判断できません。「<strong>100日以上のトライアル保証</strong>」がある商品を選び、自宅でじっくり試すのが一番失敗しない買い方です。</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 比較表 ===== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">人気マットレス6社 徹底比較</h2>
+        <p style="margin-bottom: 1rem;">主要6ブランドをまとめて比較できます。価格はセール・キャンペーンにより変動します。最新価格は各公式サイトでご確認ください。</p>
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th class="row-label">ブランド</th>
+                <th>こんな人に</th>
+                <th>価格（S / SD / D）</th>
+                <th>構造・素材</th>
+                <th>厚み</th>
+                <th>お試し期間</th>
+                <th>保証期間</th>
+                <th>公式サイト</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map(p => (
+                <tr class={p.rank === 1 ? 'rank1-row' : ''}>
+                  <td class="row-label">
+                    <span class={`tbl-rank tbl-rank-${p.rank <= 3 ? p.rank : 'other'}`}>{p.rank}</span>
+                    <span class="tbl-name">{p.name}</span>
+                    <span class="tbl-score">{p.score}/35点</span>
+                  </td>
+                  <td class="td-recommend">{p.recommend}</td>
+                  <td class="td-price">
+                    <span class="price-line"><span class="price-size">S</span>{p.priceS}</span>
+                    <span class="price-line"><span class="price-size">SD</span>{p.priceSD}</span>
+                    <span class="price-line"><span class="price-size">D</span>{p.priceD}</span>
+                  </td>
+                  <td class="td-structure">{p.structure}</td>
+                  <td class="td-center">{p.thickness}</td>
+                  <td class={`td-center ${p.trial === 'なし' || p.trial === '要確認' ? 'td-warn' : 'td-good'}`}>{p.trial}</td>
+                  <td class={`td-center ${p.warranty === '1年保証' ? 'td-warn' : ''}`}>{p.warranty}</td>
+                  <td class="td-center">
+                    <a href={p.affiliateHref} class="tbl-cta" target="_blank" rel="noopener noreferrer nofollow">公式へ →</a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="text-muted" style="font-size:0.82rem; margin-top:0.75rem;">※「要確認」の価格・保証は公式サイトで最新情報をご確認ください。</p>
+      </div>
+    </section>
+
+    <!-- ===== TOP3 詳細レビュー ===== -->
+    <section class="section section-bg" id="review-detail">
+      <div class="container">
+        <h2 class="section-title">編集部厳選TOP3 徹底レビュー</h2>
+        <p style="margin-bottom: 2rem;">実際に購入・使用した編集部が、各商品を詳しく解説します。</p>
+
+        {/* ===== LIMNE ===== */}
+        <div class="review-detail-card rank1-card">
+          <div class="rd-header">
+            <div class="rd-rank-badge rd-rank-1">
+              <span class="rd-rank-num">1</span>
+            </div>
+            <h3 class="rd-name">LIMNE（リムネ）</h3>
+            <img src="/limne.jpg" alt="LIMNE（リムネ）" class="rd-product-img" loading="lazy" />
+            <p class="rd-catch">マシュマロのような柔らかさで体を包み込み、独自の3層構造で理想の寝姿勢を保つマットレス</p>
+            <div class="rd-score-wrap">
+              <span class="rd-score-num">32.0</span>
+              <span class="rd-score-max">/ 35点</span>
+            </div>
+          </div>
+
+          <div class="rd-body">
+            <div class="rd-ratings">
+              {[
+                { label: '硬さ', val: 4.0 },
+                { label: '体圧分散', val: 5.0 },
+                { label: '寝心地', val: 5.0 },
+                { label: '寝返りやすさ', val: 4.5 },
+                { label: '価格（コスパ）', val: 3.5 },
+                { label: '耐久性', val: 5.0 },
+                { label: 'お試し制度', val: 5.0 },
+              ].map(r => (
+                <div class="rd-rating-row">
+                  <span class="rd-rating-label">{r.label}</span>
+                  <div class="rd-bar-bg">
+                    <div class="rd-bar-fill" style={`width:${(r.val/5)*100}%`}></div>
+                  </div>
+                  <span class="rd-rating-val">{r.val}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="rd-info-col">
+              <div class="rd-for">
+                <p class="rd-for-title">こんな人におすすめ</p>
+                <ul>
+                  <li>包み込まれるような柔らかい寝心地が好きな人</li>
+                  <li>横向き寝がメインの人</li>
+                  <li>体重が軽め〜標準（70kg未満目安）の人や、女性・お子様</li>
+                  <li>肩こりや腰の張りを感じやすい人</li>
+                </ul>
+              </div>
+
+              <div class="rd-reviews-section">
+                <h4 class="rd-section-heading">購入者口コミ</h4>
+                <div class="rd-carousel" data-carousel>
+                  <div class="rd-carousel-track">
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">トレーニー・男性</p>
+                      <p class="rd-review-text">「ふわふわなのに高反発といってる意味が理解できますし、沈み込みすぎない。寝姿勢も違和感なく、とにかく気持ち良すぎる。やっと睡眠を手にすることが出来ました」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">腰痛持ち・女性（りちゃ1012）</p>
+                      <p class="rd-review-text">「すごく気持ちよくてすぐに寝てしまう感じです。寝ている時にも腰痛が酷く、何度も目が覚めていたのが、このマットレスにしてからはぐっすり眠れています」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">首・肩・腰の痛み持ち（yc1387）</p>
+                      <p class="rd-review-text">「一日寝てみていつも痛かった首、肩、腰は全く痛くない！横向きに寝ても身体が楽。今まで合うマットレスが見つからなかったのが解決しました」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">40代・女性</p>
+                      <p class="rd-review-text">「半信半疑で購入しましたが、朝起きたときの体の軽さが全然違います。以前は腰と肩が毎朝だるかったのに、今はスッキリ起きられるようになりました。もっと早く買えばよかったです」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">30代・主婦</p>
+                      <p class="rd-review-text">「横向きで寝ることが多く、以前のマットレスでは肩が圧迫されていました。LIMNEにしてから肩の痛みがなくなり、横向きのまま朝まで快適に眠れています」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">20代・女性</p>
+                      <p class="rd-review-text">「マットレスに7万以上使うのは勇気がいりましたが、買って大正解でした。ふかふかなのに沈み込まず、毎日のベッドタイムが楽しみになりました」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★☆</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">40代・男性</p>
+                      <p class="rd-review-text">「到着後2〜3日は少し匂いが気になりましたが、すぐに消えました。寝心地は本当によく、腰への負担が減った実感があります。価格は高めですが満足しています」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">体重の重めの方・男性</p>
+                      <p class="rd-review-text">「自分には柔らかすぎて合いませんでした。7万円以上するマットレスなので期待していただけにガッカリです。ただ120日返金保証を使って返品できたので損はしませんでした」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars rd-review-stars--low">★★★☆☆</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">30代・男性</p>
+                      <p class="rd-review-text">「最初の1週間は体が慣れずかえって疲れました。2週間経ってから馴染んできた感じはありますが、慣れるまでに時間がかかります。すぐに効果を期待する方は注意が必要です」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">60代・男性</p>
+                      <p class="rd-review-text">「長年使い慣れた硬めのマットレスから乗り換えましたが、柔らかすぎて腰に合いませんでした。120日のトライアルを使って返品しました。制度が良心的なのは助かりました」</p>
+                    </div>
+                  </div>
+                  <div class="rd-carousel-footer">
+                    <button class="rd-carousel-btn prev-btn" aria-label="前へ">‹</button>
+                    <div class="rd-carousel-center">
+                      <div class="rd-carousel-dots"></div>
+                      <span class="rd-carousel-counter">1 / 10</span>
+                    </div>
+                    <button class="rd-carousel-btn next-btn" aria-label="次へ">›</button>
+                  </div>
+                  <p class="rd-carousel-hint">‹ ボタンまたはスワイプで他の口コミを確認 ›</p>
+                </div>
+                <p class="rd-review-note">※口コミは楽天市場・Amazonの実際の購入者レビューを参照しています。</p>
+              </div>
+
+              <div class="rd-features-section">
+                <h4 class="rd-section-heading">素材・構造の特徴</h4>
+                <div class="rd-feature-list">
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">1</span>
+                      <p class="rd-feature-title">マシュマロ感触で癒される独自素材「スフエアー」</p>
+                    </div>
+                    <picture class="rd-feature-img-wrap">
+                      <source media="(max-width: 767px)" srcset="/limne-feature-souffair-sp.jpg" />
+                      <img src="/limne-feature-souffair-pc.jpg" alt="マシュマロ感触で癒される独自素材スフエアー" class="rd-feature-img" loading="lazy" />
+                    </picture>
+                    <p class="rd-feature-desc">表面には独自開発のウレタン素材を採用。ベッドに入った瞬間に体がフワッと優しく包み込まれ、至福の気持ちよさでリラックスして眠りにつけます。</p>
+                  </div>
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">2</span>
+                      <p class="rd-feature-title">柔らかいのに腰が沈まない「3層構造とゾーン設計」</p>
+                    </div>
+                    <picture class="rd-feature-img-wrap">
+                      <source media="(max-width: 767px)" srcset="/limne-feature-structure-sp.jpg" />
+                      <img src="/limne-feature-structure-pc.jpg" alt="柔らかいのに腰が沈まない3層構造とゾーン設計" class="rd-feature-img" loading="lazy" />
+                    </picture>
+                    <p class="rd-feature-desc">「1層目で包み、2層目で肩の圧迫を逃がし、3層目の硬い土台でしっかり支える」という独自構造。表面は柔らかいのに一番重い腰は沈みすぎず、体への負担がない理想の寝姿勢をキープします。</p>
+                  </div>
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">3</span>
+                      <p class="rd-feature-title">ムレを防ぐ「高い通気性」と安心の「120日間お試し」</p>
+                    </div>
+                    <picture class="rd-feature-img-wrap">
+                      <source media="(max-width: 767px)" srcset="/limne-feature-trial-sp.jpg" />
+                      <img src="/limne-feature-trial-pc.jpg" alt="ムレを防ぐ高い通気性と安心の120日間お試し" class="rd-feature-img" loading="lazy" />
+                    </picture>
+                    <p class="rd-feature-desc">通気性の高い特殊構造で、ウレタンの弱点である熱のこもりをしっかり解消。さらに「120日間の全額返金保証（フリートライアル）」付きなので、本当に体に合うか自宅でノーリスクでじっくり試せます。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rd-spec-table">
+                <div class="rd-spec-row"><span class="rd-spec-label">シングル</span><span class="rd-spec-val">79,900円</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">セミダブル</span><span class="rd-spec-val">89,900円</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">ダブル</span><span class="rd-spec-val">99,900円</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">厚み / 重量</span><span class="rd-spec-val">22cm / 15.5kg（シングル）</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">お試し期間</span><span class="rd-spec-val good-val">120日間（返送料無料）</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">保証期間</span><span class="rd-spec-val good-val">10年保証</span></div>
+              </div>
+
+              <a href="#" class="rd-cta" target="_blank" rel="noopener noreferrer nofollow">
+                LIMNEの公式サイトで最安値を確認する →
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ===== 雲のやすらぎ ===== */}
+        <div class="review-detail-card rank2-card">
+          <div class="rd-header">
+            <div class="rd-rank-badge rd-rank-2">
+              <span class="rd-rank-num">2</span>
+            </div>
+            <h3 class="rd-name">雲のやすらぎプレミアム モデル3R</h3>
+            <img src="/kumo.jpg" alt="雲のやすらぎプレミアム モデル3R" class="rd-product-img" loading="lazy" />
+            <p class="rd-catch">極厚の5層構造と超高反発ウレタンで腰を強力に支え、朝のつらい腰をラクにする特化型マットレス</p>
+            <div class="rd-score-wrap">
+              <span class="rd-score-num">31.0</span>
+              <span class="rd-score-max">/ 35点</span>
+            </div>
+          </div>
+
+          <div class="rd-body">
+            <div class="rd-ratings">
+              {[
+                { label: '硬さ', val: 5.0 },
+                { label: '体圧分散', val: 4.5 },
+                { label: '寝心地', val: 5.0 },
+                { label: '寝返りやすさ', val: 4.0 },
+                { label: '価格（コスパ）', val: 3.0 },
+                { label: '耐久性', val: 5.0 },
+                { label: 'お試し制度', val: 4.5 },
+              ].map(r => (
+                <div class="rd-rating-row">
+                  <span class="rd-rating-label">{r.label}</span>
+                  <div class="rd-bar-bg">
+                    <div class="rd-bar-fill" style={`width:${(r.val/5)*100}%`}></div>
+                  </div>
+                  <span class="rd-rating-val">{r.val}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="rd-info-col">
+              <div class="rd-for">
+                <p class="rd-for-title">こんな人におすすめ</p>
+                <ul>
+                  <li>朝起きると腰が重い・痛いと感じる人</li>
+                  <li>日本製にこだわりたい人</li>
+                  <li>体全体ではなく腰への集中サポートが欲しい人</li>
+                  <li>極厚23cmで底付き感なしを求める人</li>
+                </ul>
+              </div>
+
+              <div class="rd-reviews-section">
+                <h4 class="rd-section-heading">購入者口コミ</h4>
+                <div class="rd-carousel" data-carousel>
+                  <div class="rd-carousel-track">
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">40代・男性</p>
+                      <p class="rd-review-text">「長年の腰痛に悩んでいましたが、このマットレスに替えてから朝起きたときの腰の重さがなくなりました。硬さがちょうどよく、腰をしっかり支えてくれる感じがします」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">50代・女性</p>
+                      <p class="rd-review-text">「以前は朝起きるたびに腰が痛くてつらかったのですが、このマットレスにしてから朝スッキリ目覚められるようになりました。日本製という安心感もあります」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">30代・男性</p>
+                      <p class="rd-review-text">「仰向けで寝ることが多いのですが、腰が沈み込まず理想的な姿勢を保てます。厚みもあるので底付き感が全くなく、快眠できています」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">60代・男性</p>
+                      <p class="rd-review-text">「硬めのマットレスが好みで長年探していましたが、ようやく理想の硬さに出会えました。腰への負担が明らかに減り、夜中に目が覚めることもなくなりました」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">40代・女性</p>
+                      <p class="rd-review-text">「体重が重めなのですが、23cmの厚みのおかげで底付き感が一切ありません。腰の部分がしっかり支えられている感覚があり、毎朝快適に起きられます」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">50代・男性</p>
+                      <p class="rd-review-text">「国産にこだわって選びました。品質の高さが使ってみてすぐに分かります。腰痛持ちの妻も使用していますが、以前より楽に眠れると喜んでいます」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★☆</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">30代・女性</p>
+                      <p class="rd-review-text">「重くて搬入が大変でしたが、寝心地は抜群です。腰への集中サポートが感じられ、朝の目覚めが以前より良くなりました。価格は少し高めですが満足しています」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars rd-review-stars--low">★★★☆☆</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">20代・女性</p>
+                      <p class="rd-review-text">「23cmの厚みで重量がかなりあります。一人で搬入・設置するのは難しく、助けてもらう必要がありました。寝心地自体は良いのですが、取り扱いの点は注意が必要です」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">30代・男性</p>
+                      <p class="rd-review-text">「硬さが自分には合いませんでした。腰サポートをうたっていますが、私の体型には硬すぎて逆に腰が痛くなってしまいました。100日保証を利用して返品しました」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">40代・女性</p>
+                      <p class="rd-review-text">「柔らかめが好みの私には硬すぎました。腰痛対策には良いとのことでしたが、体に馴染む前に違和感が強くなり断念。返品保証があったので助かりましたが、合う人を選ぶ商品だと思います」</p>
+                    </div>
+                  </div>
+                  <div class="rd-carousel-footer">
+                    <button class="rd-carousel-btn prev-btn" aria-label="前へ">‹</button>
+                    <div class="rd-carousel-center">
+                      <div class="rd-carousel-dots"></div>
+                      <span class="rd-carousel-counter">1 / 10</span>
+                    </div>
+                    <button class="rd-carousel-btn next-btn" aria-label="次へ">›</button>
+                  </div>
+                  <p class="rd-carousel-hint">‹ ボタンまたはスワイプで他の口コミを確認 ›</p>
+                </div>
+                <p class="rd-review-note">※口コミは楽天市場・Amazonの実際の購入者レビューを参照しています。</p>
+              </div>
+
+              <div class="rd-features-section">
+                <h4 class="rd-section-heading">素材・構造の特徴</h4>
+                <div class="rd-feature-list">
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">1</span>
+                      <p class="rd-feature-title">腰を支えて寝返りを助ける「超高反発素材」</p>
+                    </div>
+                    <picture class="rd-feature-img-wrap">
+                      <source media="(max-width: 767px)" srcset="/kumo-feature-support-sp.jpg" />
+                      <img src="/kumo-feature-support-pc.jpg" alt="腰を支えて寝返りを助ける超高反発素材" class="rd-feature-img" loading="lazy" />
+                    </picture>
+                    <p class="rd-feature-desc">腰部分に超高反発ウレタンを使用し、沈み込みをガード。少ない力で楽に寝返りができるため、腰への負担を抑えて朝までぐっすり眠れます。</p>
+                  </div>
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">2</span>
+                      <p class="rd-feature-title">体圧を分散する「極厚23cmの5層構造」</p>
+                    </div>
+                    <picture class="rd-feature-img-wrap">
+                      <source media="(max-width: 767px)" srcset="/kumo-feature-structure-sp.jpg" />
+                      <img src="/kumo-feature-structure-pc.png" alt="体圧を分散する極厚23cmの5層構造" class="rd-feature-img" loading="lazy" />
+                    </picture>
+                    <p class="rd-feature-desc">部位別に硬さを変えた厚手の5層構造が、理想の寝姿勢をキープ。底付き感が一切なく、体にかかる重圧を効率よく逃がしてくれます。</p>
+                  </div>
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">3</span>
+                      <p class="rd-feature-title">安心の「日本製」と「100日間お試し保証」</p>
+                    </div>
+                    <picture class="rd-feature-img-wrap">
+                      <source media="(max-width: 767px)" srcset="/kumo-feature-trial-sp.jpg" />
+                      <img src="/kumo-feature-trial-pc.jpg" alt="安心の日本製と100日間お試し保証" class="rd-feature-img" loading="lazy" />
+                    </picture>
+                    <p class="rd-feature-desc">高品質な日本製に加え、100日間の返金保証付き。本当に自分の腰に合うかどうかを、自宅でじっくりノーリスクで試すことができます。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rd-spec-table">
+                <div class="rd-spec-row"><span class="rd-spec-label">シングル</span><span class="rd-spec-val">79,800円</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">セミダブル・ダブル</span><span class="rd-spec-val">公式サイトで確認</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">構造・素材</span><span class="rd-spec-val">ウレタン5層（腰部260N高反発）・日本製</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">厚み</span><span class="rd-spec-val">23cm</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">お試し期間</span><span class="rd-spec-val good-val">100日間</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">保証期間</span><span class="rd-spec-val">公式サイトで確認</span></div>
+              </div>
+
+              <a href="#" class="rd-cta" target="_blank" rel="noopener noreferrer nofollow">
+                雲のやすらぎの公式サイトで最安値を確認する →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ===== NELL ===== */}
+        <div class="review-detail-card rank3-card">
+          <div class="rd-header">
+            <div class="rd-rank-badge rd-rank-3">
+              <span class="rd-rank-num">3</span>
+            </div>
+            <h3 class="rd-name">NELLマットレス</h3>
+            <img src="/nell.jpg" alt="NELLマットレス" class="rd-product-img" loading="lazy" />
+            <p class="rd-catch">高密度のポケットコイルと腰を支える独自構造で『自然な寝返り』を促す、快眠マットレス</p>
+            <div class="rd-score-wrap">
+              <span class="rd-score-num">30.5</span>
+              <span class="rd-score-max">/ 35点</span>
+            </div>
+          </div>
+
+          <div class="rd-body">
+            <div class="rd-ratings">
+              {[
+                { label: '硬さ', val: 4.0 },
+                { label: '体圧分散', val: 4.5 },
+                { label: '寝心地', val: 4.0 },
+                { label: '寝返りやすさ', val: 5.0 },
+                { label: '価格（コスパ）', val: 4.0 },
+                { label: '耐久性', val: 4.0 },
+                { label: 'お試し制度', val: 5.0 },
+              ].map(r => (
+                <div class="rd-rating-row">
+                  <span class="rd-rating-label">{r.label}</span>
+                  <div class="rd-bar-bg">
+                    <div class="rd-bar-fill" style={`width:${(r.val/5)*100}%`}></div>
+                  </div>
+                  <span class="rd-rating-val">{r.val}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="rd-info-col">
+              <div class="rd-for">
+                <p class="rd-for-title">こんな人におすすめ</p>
+                <ul>
+                  <li>朝起きると「腰や肩が痛い・重だるい」人</li>
+                  <li>硬すぎず柔らかすぎない寝心地が好きな人</li>
+                  <li>通気性や長期間の「耐久性」を重視する人</li>
+                  <li>パートナーと一緒に寝る人</li>
+                </ul>
+              </div>
+
+              <div class="rd-reviews-section">
+                <h4 class="rd-section-heading">購入者口コミ</h4>
+                <div class="rd-carousel" data-carousel>
+                  <div class="rd-carousel-track">
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">30代・男性</p>
+                      <p class="rd-review-text">「腰痛がひどくて何年も悩んでいましたが、NELLに変えてから朝起きたときの腰の痛みが格段に減りました。センターハード設計のおかげで腰がしっかり支えられている感覚があります」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">40代・女性</p>
+                      <p class="rd-review-text">「夫婦で使っていますが、夫が寝返りを打っても全く振動が伝わらないのが最高です。ポケットコイルの独立した動きのおかげで、お互いの睡眠を邪魔しません」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">20代・女性</p>
+                      <p class="rd-review-text">「肩こりがひどく毎朝つらかったのですが、NELLを使い始めてから肩への圧力が分散されている感じがして、朝の目覚めが全然違います。120日試せるので安心して購入できました」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">50代・男性</p>
+                      <p class="rd-review-text">「硬すぎず柔らかすぎない、絶妙な寝心地です。ポケットコイルなので通気性も良く、夏場も蒸れずに快適に眠れています。10年保証もあって長く使える安心感があります」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">30代・女性</p>
+                      <p class="rd-review-text">「横向き寝が多いのですが、肩がしっかり沈み込んでくれて体の歪みを感じません。コイルが独立して動くので体の形にフィットしてくれている感覚があり、朝スッキリ起きられます」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">40代・男性</p>
+                      <p class="rd-review-text">「長年使ってきたウレタンマットレスからの買い替えでしたが、コイルの寝心地に感動しました。寝返りがとても楽で、朝起きたときの体の重さが全然違います」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★☆</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">20代・男性</p>
+                      <p class="rd-review-text">「価格が少し高めでしたが、品質は間違いないです。腰と肩が同時にラクになって、睡眠の質が明らかに上がりました。120日のお試しがあったので思い切って購入できました」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars rd-review-stars--low">★★★☆☆</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">30代・男性</p>
+                      <p class="rd-review-text">「開封直後は独特の匂いがかなり気になりました。換気しながら1週間ほど使ったら落ち着きましたが、匂いに敏感な方は注意が必要です。寝心地自体は満足しています」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">60代・女性</p>
+                      <p class="rd-review-text">「重くて一人での搬入・設置が難しかったです。また柔らかめのマットレスに慣れていたせいか、最初は硬く感じて体が慣れるのに時間がかかりました。合う人を選ぶ商品だと思います」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars rd-review-stars--low">★★★☆☆</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">50代・男性</p>
+                      <p class="rd-review-text">「数年使うとコイルのきしみ音が少し気になり始めました。品質自体は良いのですが、ポケットコイルの経年劣化については覚悟しておいた方がいいかもしれません。10年保証の内容は事前に確認を」</p>
+                    </div>
+                  </div>
+                  <div class="rd-carousel-footer">
+                    <button class="rd-carousel-btn prev-btn" aria-label="前へ">‹</button>
+                    <div class="rd-carousel-center">
+                      <div class="rd-carousel-dots"></div>
+                      <span class="rd-carousel-counter">1 / 10</span>
+                    </div>
+                    <button class="rd-carousel-btn next-btn" aria-label="次へ">›</button>
+                  </div>
+                  <p class="rd-carousel-hint">‹ ボタンまたはスワイプで他の口コミを確認 ›</p>
+                </div>
+                <p class="rd-review-note">※口コミは楽天市場・Amazonの実際の購入者レビューを参照しています。</p>
+              </div>
+
+              <div class="rd-features-section">
+                <h4 class="rd-section-heading">素材・構造の特徴</h4>
+                <div class="rd-feature-list">
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">1</span>
+                      <p class="rd-feature-title">スムーズな寝返りを促す「センターハード構造」</p>
+                    </div>
+                    <picture class="rd-feature-img-wrap">
+                      <source media="(max-width: 767px)" srcset="/nell-feature-center-sp.jpg" />
+                      <img src="/nell-feature-center-pc.jpg" alt="スムーズな寝返りを促すセンターハード構造" class="rd-feature-img" loading="lazy" />
+                    </picture>
+                    <p class="rd-feature-desc">一番重い「腰部分」を硬めに設計。腰の沈み込みを防ぎ、背骨をまっすぐに保つことで、少ない力で自然な寝返りを打てるようにサポートします。</p>
+                  </div>
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">2</span>
+                      <p class="rd-feature-title">高密度コイルによる「優れた体圧分散」</p>
+                    </div>
+                    <picture class="rd-feature-img-wrap">
+                      <source media="(max-width: 767px)" srcset="/nell-feature-coil-sp.jpg" />
+                      <img src="/nell-feature-coil-pc.jpg" alt="高密度コイルによる優れた体圧分散" class="rd-feature-img" loading="lazy" />
+                    </picture>
+                    <p class="rd-feature-desc">一般的なマットレスの約2倍のポケットコイルを贅沢に使用。独立した小さなコイルが体のカーブに細かく寄り添い、体の一部に圧力が集中するのを防ぎます。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rd-spec-table">
+                <div class="rd-spec-row"><span class="rd-spec-label">シングル</span><span class="rd-spec-val">67,915円〜（セール時）</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">セミダブル・ダブル</span><span class="rd-spec-val">公式サイトで確認</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">構造・素材</span><span class="rd-spec-val">ポケットコイル13層・センターハード設計</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">厚み</span><span class="rd-spec-val">21cm</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">お試し期間</span><span class="rd-spec-val good-val">120日間</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">保証期間</span><span class="rd-spec-val good-val">10年保証</span></div>
+              </div>
+
+              <a href="#" class="rd-cta" target="_blank" rel="noopener noreferrer nofollow">
+                NELLの公式サイトで最安値を確認する →
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== 悩み別導線 ===== -->
+    <section class="section section-bg">
+      <div class="container">
+        <h2 class="section-title">悩みから選ぶ</h2>
+        <p style="margin-bottom: 1.25rem;">マットレスは「悩みに合うかどうか」が最重要です。あなたの状況に近いものをクリックしてください。</p>
+        <div class="trouble-grid">
+          {[
+            { tag: '腰痛', label: '腰痛・背中の痛みがある', sub: '体圧分散に優れた高反発がおすすめ', href: '/mattress/' },
+            { tag: '肩', label: '肩こり・首こりがひどい', sub: '肩の圧力を逃がす設計の商品を厳選', href: '/mattress/' },
+            { tag: '通気', label: '寝汗が多い・夏に蒸れる', sub: '通気性の高い素材・構造を比較', href: '/mattress/' },
+            { tag: '予算', label: 'なるべくコストを抑えたい', sub: '2万円以下でも高品質な商品を厳選', href: '/mattress/' },
+            { tag: '試用', label: 'まず試してから決めたい', sub: '100日以上のお試し保証ありを厳選', href: '/mattress/' },
+            { tag: '疲労', label: 'なかなか眠れない・疲れが取れない', sub: '体の回復を重視した設計の商品を比較', href: '/mattress/' },
+          ].map(item => (
+            <a href={item.href} class="trouble-card">
+              <span class="trouble-tag">{item.tag}</span>
+              <div>
+                <p class="trouble-label">{item.label}</p>
+                <p class="trouble-sub">{item.sub}</p>
+              </div>
+              <span class="trouble-arrow">›</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 新着記事 ===== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">新着レビュー・コラム</h2>
+        <div class="article-grid">
+          {[
+            { cat: 'レビュー', title: 'LIMNEマットレスを3ヶ月使った正直レビュー【120日保証で試してみた】', href: '#', isNew: true },
+            { cat: '比較', title: '雲のやすらぎプレミアム モデル3R vs NELLマットレス 徹底比較', href: '#', isNew: true },
+            { cat: 'レビュー', title: 'REVERIAは本当に体のコリに効く？医療機器認証マットレスを検証', href: '#', isNew: false },
+            { cat: 'レビュー', title: 'GOKUMINは安いのに使える？1万円台マットレスの実力を採点', href: '#', isNew: false },
+            { cat: 'コラム', title: '腰痛持ちがマットレスを選ぶときの3つのポイント', href: '#', isNew: false },
+            { cat: 'コラム', title: 'マットレスの寿命は何年？買い替えサインを解説', href: '#', isNew: false },
+          ].map(a => (
+            <a href={a.href} class="article-card">
+              <div class="article-card-header">
+                <span class="article-cat">{a.cat}</span>
+                {a.isNew && <span class="article-new">NEW</span>}
+              </div>
+              <p class="article-title">{a.title}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section section-bg">
+      <div class="container" style="max-width: 780px;">
+        <h2 class="section-title">よくある質問</h2>
+        <div class="faq-list">
+          {faqs.map((faq, i) => (
+            <div class="faq-item" id={`faq-${i}`}>
+              <button class="faq-question" aria-expanded="false" data-faq={i}>
+                <span class="faq-q-icon">Q</span>
+                <span>{faq.q}</span>
+                <span class="faq-arrow">›</span>
+              </button>
+              <div class="faq-answer" hidden>
+                <span class="faq-a-icon">A</span>
+                <p>{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 評価基準 ===== -->
+    <section class="section section-bg">
+      <div class="container">
+        <h2 class="section-title">快眠ラボの評価基準</h2>
+        <p style="margin-bottom: 1.25rem;">当サイトでは紹介するすべての商品を実際に購入・使用したうえで評価しています。アフィリエイト報酬の有無によって評価が変わることはありません。</p>
+        <div class="criteria-grid">
+          {[
+            { num: '01', label: '寝心地・体圧分散' },
+            { num: '02', label: '硬さ' },
+            { num: '03', label: '素材・品質' },
+            { num: '04', label: '価格帯（コスパ）' },
+            { num: '05', label: '耐久性・保証期間' },
+            { num: '06', label: 'サイズ展開' },
+            { num: '07', label: '返品・お試し制度' },
+          ].map(c => (
+            <div class="criteria-item">
+              <span class="criteria-num">{c.num}</span>
+              <span class="criteria-label">{c.label}</span>
+            </div>
+          ))}
+        </div>
+        <p class="text-muted" style="font-size:0.85rem; margin-top: 1rem;">各項目を5点満点で採点し、合計35点満点で総合評価しています。</p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Tab switching
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = (btn as HTMLElement).dataset.tab;
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`[data-content="${target}"]`)?.classList.add('active');
+    });
+  });
+
+  // Review carousel
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const carouselEl = carousel as HTMLElement;
+    const track = carousel.querySelector('.rd-carousel-track') as HTMLElement;
+    const slides = Array.from(carousel.querySelectorAll('.rd-carousel-slide')) as HTMLElement[];
+    const dotsContainer = carousel.querySelector('.rd-carousel-dots') as HTMLElement;
+    const counter = carousel.querySelector('.rd-carousel-counter') as HTMLElement;
+    let current = 0;
+    const total = slides.length;
+
+    // スライド幅をカルーセル幅に合わせる（ピクセル基準）
+    function initSlides() {
+      const w = carouselEl.offsetWidth;
+      slides.forEach(s => { s.style.width = w + 'px'; });
+    }
+    initSlides();
+    window.addEventListener('resize', () => { initSlides(); goTo(current); });
+
+    // ドット生成
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'rd-carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `${i + 1}番目の口コミ`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(n: number) {
+      current = (n + total) % total;
+      const w = carouselEl.offsetWidth;
+      track.style.transform = `translateX(-${current * w}px)`;
+      if (counter) counter.textContent = `${current + 1} / ${total}`;
+      carousel.querySelectorAll('.rd-carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    carousel.querySelector('.prev-btn')?.addEventListener('click', () => goTo(current - 1));
+    carousel.querySelector('.next-btn')?.addEventListener('click', () => goTo(current + 1));
+
+    // タッチスワイプ対応
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', (e: TouchEvent) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling as HTMLElement;
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.classList.toggle('open', !expanded);
+      if (expanded) { answer.hidden = true; }
+      else { answer.hidden = false; }
+    });
+  });
+</script>
+
+<style>
+  /* ===== Hero ===== */
+  .hero-img-section {
+    display: block;
+    width: 100%;
+    line-height: 0;
+  }
+  .hero-img-section a {
+    display: block;
+    width: 100%;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ===== 評価基準 ===== */
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.75rem;
+  }
+  .criteria-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 0.75rem;
+    text-align: center;
+    gap: 0.65rem;
+    transition: box-shadow 0.2s, transform 0.15s;
+  }
+  .criteria-item:hover { box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+  .criteria-num {
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+  }
+  .criteria-label { font-size: 0.82rem; font-weight: 600; line-height: 1.4; }
+
+  /* ===== TOP3 ===== */
+  .top3-list { display: flex; flex-direction: column; gap: 2rem; }
+  .top3-card {
+    display: grid;
+    grid-template-columns: 64px 220px 1fr;
+    gap: 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 0 1.5rem 1.75rem;
+    align-items: start;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    position: relative;
+  }
+  .top3-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+  }
+  .top3-card:nth-child(1)::before { background: linear-gradient(90deg, #C9A84C, #E8C96A); }
+  .top3-card:nth-child(2)::before { background: linear-gradient(90deg, #8A9BB0, #B0BEC5); }
+  .top3-card:nth-child(3)::before { background: linear-gradient(90deg, #A87845, #C9955C); }
+  .top3-rank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding-top: 1.75rem;
+  }
+  .rank-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  .rank-circle-1 { background: linear-gradient(135deg, #C9A84C, #E8C96A); }
+  .rank-circle-2 { background: linear-gradient(135deg, #8A9BB0, #B0BEC5); }
+  .rank-circle-3 { background: linear-gradient(135deg, #A87845, #C9955C); }
+  .top3-rank-label { font-size: 0.68rem; font-weight: 700; color: var(--color-text-muted); white-space: nowrap; }
+  .top3-rank-name-sp { display: none; }
+  .top3-img-wrap { padding-top: 1.5rem; }
+  .top3-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    background: #f7f6f3;
+    display: block;
+  }
+  .top3-body { padding-top: 1.5rem; }
+  .top3-name { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .top3-score { display: flex; align-items: baseline; gap: 0.35rem; margin-bottom: 0.7rem; }
+  .score-num { font-size: 2.2rem; font-weight: 700; color: var(--color-primary); line-height: 1; }
+  .score-max { font-size: 0.88rem; color: var(--color-text-muted); }
+  .score-stars { font-size: 1.05rem; color: var(--color-accent); margin-left: 0.3rem; }
+  .top3-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+  /* こんな人に（TOP3カード） */
+  .top3-recommend {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+    color: var(--color-text);
+  }
+  .recommend-icon {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  /* Meta */
+  .top3-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0; }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--color-bg-gray);
+    border-radius: 99px;
+    padding: 0.3rem 0.85rem;
+  }
+  .meta-label { font-size: 0.7rem; color: var(--color-text-muted); font-weight: 600; }
+  .meta-val { font-size: 0.82rem; font-weight: 700; color: var(--color-text); }
+
+  /* ===== 悩み別 ===== */
+  .trouble-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.75rem; }
+  .trouble-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    text-decoration: none;
+  }
+  .trouble-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-sm); transform: translateY(-1px); text-decoration: none; }
+  .trouble-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .trouble-label { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.2rem; }
+  .trouble-sub { font-size: 0.78rem; color: var(--color-text-muted); margin: 0; }
+  .trouble-arrow { margin-left: auto; color: var(--color-text-muted); font-size: 1.2rem; flex-shrink: 0; }
+
+  /* ===== タブ ===== */
+  .tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
+  .tab-btn {
+    padding: 0.5rem 1.1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: 99px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    background: #fff;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    font-family: var(--font-sans);
+    color: var(--color-text-muted);
+  }
+  .tab-btn.active, .tab-btn:hover { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .type-rank-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .type-rank-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: box-shadow 0.2s;
+  }
+  .type-rank-item:hover { box-shadow: var(--shadow-sm); }
+  .type-rank-num {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .rank-num-1 { background: linear-gradient(135deg, #C9A84C, #E8C96A); }
+  .rank-num-2 { background: linear-gradient(135deg, #8A9BB0, #B0BEC5); }
+  .rank-num-3 { background: linear-gradient(135deg, #A87845, #C9955C); }
+  .type-rank-body { flex: 1; }
+  .type-rank-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .type-rank-point { font-size: 0.82rem; color: var(--color-text-muted); margin: 0; }
+  .type-rank-btn {
+    padding: 0.4rem 1rem;
+    border: 1.5px solid var(--color-primary);
+    border-radius: 99px;
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .type-rank-btn:hover { background: var(--color-primary); color: #fff; text-decoration: none; }
+
+  /* ===== 選び方 ===== */
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .guide-card:last-child {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 0.625rem);
+    margin: 0 auto;
+  }
+  .guide-card {
+    background: #fff;
+    border-radius: var(--radius-xl);
+    padding: 1.5rem 1.5rem 1.75rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.15s;
+  }
+  .guide-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .guide-icon-wrap {
+    width: 88px;
+    height: 88px;
+    background: var(--color-bg-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+  }
+  .guide-svg { width: 52px; height: 52px; }
+  .guide-num-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 0.15rem 0.6rem;
+    border-radius: 99px;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+  .guide-card-title {
+    font-weight: 700;
+    font-size: 0.98rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+    color: var(--color-primary);
+  }
+  .guide-card-body {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin: 0;
+    text-align: left;
+  }
+
+  /* ===== 比較表 ===== */
+  .rank1-row td { background: #FDF8EE !important; }
+  .rank1-row .row-label { background: #FDF8EE !important; }
+  .tbl-rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #fff;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .tbl-rank-1 { background: #C9A84C; }
+  .tbl-rank-2 { background: #8A9BB0; }
+  .tbl-rank-3 { background: #A87845; }
+  .tbl-rank-other { background: #ccc; }
+  .tbl-name { display: block; font-weight: 700; font-size: 0.88rem; margin-top: 0.25rem; }
+  .tbl-score { display: block; font-size: 0.75rem; color: var(--color-accent); font-weight: 700; margin-top: 0.15rem; }
+  .td-recommend { font-size: 0.82rem; font-weight: 600; min-width: 120px; }
+  .td-price { min-width: 110px; }
+  .price-line { display: flex; align-items: center; gap: 0.3rem; font-size: 0.8rem; margin-bottom: 0.2rem; }
+  .price-line:last-child { margin-bottom: 0; }
+  .price-size {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--color-primary);
+    padding: 0.05rem 0.3rem;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .td-structure { font-size: 0.8rem; min-width: 130px; }
+  .td-center { text-align: center; font-size: 0.85rem; }
+  .td-good { color: #059669; font-weight: 700; }
+  .td-warn { color: #dc2626; font-weight: 700; }
+  .tbl-cta {
+    display: inline-block;
+    padding: 0.4rem 0.75rem;
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .tbl-cta:hover { background: var(--color-accent-dark); text-decoration: none; }
+
+  /* ===== 口コミ ===== */
+  .review-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .review-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.4rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: 0.5rem; left: 1rem;
+    font-size: 3rem;
+    color: var(--color-primary-light);
+    font-family: serif;
+    line-height: 1;
+  }
+  .review-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
+  .review-stars { color: var(--color-accent); letter-spacing: 2px; font-size: 0.9rem; }
+  .review-product { font-size: 0.76rem; color: var(--color-primary); font-weight: 700; background: var(--color-primary-light); padding: 0.15rem 0.6rem; border-radius: 99px; }
+  .review-name { font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted); margin-bottom: 0.6rem; }
+  .review-body { font-size: 0.88rem; line-height: 1.8; margin: 0; }
+
+  /* ===== 新着記事 ===== */
+  .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .article-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1.25rem;
+    color: var(--color-text);
+    transition: box-shadow 0.2s, transform 0.15s;
+    text-decoration: none;
+    display: block;
+  }
+  .article-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); text-decoration: none; }
+  .article-card-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .article-cat { font-size: 0.72rem; font-weight: 700; color: var(--color-primary); background: var(--color-primary-light); padding: 0.15rem 0.6rem; border-radius: 99px; }
+  .article-new { font-size: 0.7rem; font-weight: 700; color: #fff; background: #ef4444; padding: 0.15rem 0.6rem; border-radius: 99px; }
+  .article-title { font-size: 0.9rem; font-weight: 600; line-height: 1.55; margin: 0; }
+
+  /* ===== FAQ ===== */
+  .faq-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .faq-item {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .faq-item:has(.faq-question.open) { box-shadow: var(--shadow-sm); }
+  .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1.1rem 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.93rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    text-align: left;
+    color: var(--color-text);
+    transition: background 0.15s;
+  }
+  .faq-question:hover { background: var(--color-bg-gray); }
+  .faq-q-icon {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--color-primary);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .faq-arrow { margin-left: auto; color: var(--color-text-muted); font-size: 1.1rem; transition: transform 0.25s; flex-shrink: 0; }
+  .faq-question.open .faq-arrow { transform: rotate(90deg); }
+  .faq-answer { display: flex; gap: 0.85rem; padding: 0 1.25rem 1.1rem 1.25rem; }
+  .faq-a-icon {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--color-accent);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+  .faq-answer p { font-size: 0.9rem; line-height: 1.8; margin: 0; color: var(--color-text-muted); }
+
+  /* ===== more btn ===== */
+  .more-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    text-decoration: none;
+  }
+  .more-btn:hover { background: var(--color-primary); color: #fff; transform: translateY(-1px); text-decoration: none; }
+
+  /* ===== 詳細レビュー追加セクション（LIMNE） ===== */
+  .rd-structure-section,
+  .rd-reviews-section {
+    padding: 1.5rem 1.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .rd-section-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .rd-section-heading::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 1.1em;
+    background: var(--color-accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .rd-structure-intro {
+    font-size: 0.88rem;
+    line-height: 1.85;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  /* 3層レイヤー */
+  .rd-layers { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; }
+  .rd-layer {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+    background: var(--color-bg-gray);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+  }
+  .rd-layer-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    letter-spacing: 0.03em;
+  }
+  .rd-layer-name {
+    font-size: 0.84rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--color-text);
+  }
+  .rd-layer-desc { font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+  /* カバー情報 */
+  .rd-cover-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .rd-cover-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 99px;
+    padding: 0.25rem 0.75rem;
+  }
+  .rd-cover-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  /* 購入者口コミ カルーセル */
+  .rd-carousel { overflow: hidden; position: relative; width: 100%; }
+  .rd-carousel-track {
+    display: flex;
+    transition: transform 0.35s ease;
+    will-change: transform;
+  }
+  .rd-carousel-slide { flex: 0 0 auto; box-sizing: border-box; }
+  .rd-carousel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .rd-carousel-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    flex: 1;
+  }
+  .rd-carousel-counter {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+  .rd-carousel-hint {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    margin: 0.4rem 0 0;
+    letter-spacing: 0.02em;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .rd-carousel-btn {
+    background: var(--color-bg-gray);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .rd-carousel-btn:hover { background: #e8edf3; transform: scale(1.05); }
+  .rd-carousel-dots { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
+  .rd-carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-border);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: background 0.2s;
+  }
+  .rd-carousel-dot.active { background: var(--color-accent); width: 18px; border-radius: 4px; }
+
+  /* 口コミアイテム */
+  .rd-review-item {
+    background: var(--color-bg-gray);
+    border-radius: var(--radius-md);
+    padding: 0.9rem 1rem;
+    border-left: 3px solid var(--color-accent);
+  }
+  .rd-review-item--warn { border-left-color: #dc2626; }
+  .rd-review-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+  .rd-review-stars { font-size: 0.88rem; color: var(--color-accent); letter-spacing: 1px; }
+  .rd-review-stars--low { color: #dc2626; }
+  .rd-review-source {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    padding: 0.1rem 0.5rem;
+    border-radius: 99px;
+  }
+  .rd-review-profile { font-size: 0.72rem; color: var(--color-text-muted); font-weight: 600; margin-bottom: 0.4rem; }
+  .rd-review-text { font-size: 0.82rem; line-height: 1.75; margin: 0; color: var(--color-text); word-break: break-all; }
+  .rd-review-note { font-size: 0.7rem; color: var(--color-text-muted); margin-top: 0.5rem; }
+
+  /* 素材・構造フィーチャー */
+  .rd-features-section {
+    padding: 1.25rem 1.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .rd-feature-list { display: flex; flex-direction: column; gap: 1.25rem; }
+  .rd-feature-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #fff;
+  }
+  .rd-feature-img-wrap { display: block; width: 100%; line-height: 0; }
+  .rd-feature-img { width: 100%; height: auto; display: block; object-fit: cover; }
+  .rd-feature-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1rem 0.75rem;
+  }
+  .rd-feature-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .rd-feature-title { font-weight: 700; font-size: 0.88rem; color: var(--color-primary); line-height: 1.5; margin: 0; }
+  .rd-feature-desc { font-size: 0.81rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; padding: 0.75rem 1rem 1rem; }
+
+  @media (max-width: 768px) {
+    .rd-reviews-section { padding: 1.25rem; }
+    .rd-features-section { padding: 1.25rem; }
+  }
+
+  /* ===== TOP3 CTA button ===== */
+  .cta-btn-wrap { margin-top: 1rem; width: 100%; }
+  .cta-btn {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0.85rem 1.5rem;
+    background: linear-gradient(135deg, #C9A84C, #E8C96A);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 3px 10px rgba(201,168,76,0.35);
+  }
+  .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+
+  /* ===== 詳細レビューカード ===== */
+  .review-detail-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .review-detail-card::before {
+    content: '';
+    display: block;
+    height: 6px;
+    width: 100%;
+  }
+  .rank1-card::before { background: linear-gradient(90deg, #C9A84C, #E8C96A); }
+  .rank2-card::before { background: linear-gradient(90deg, #8A9BB0, #B0BEC5); }
+  .rank3-card::before { background: linear-gradient(90deg, #A87845, #C9955C); }
+
+  /* Header */
+  .rd-header {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    grid-template-areas:
+      "badge img name  score"
+      "badge img catch score";
+    align-items: center;
+    column-gap: 1.25rem;
+    row-gap: 0.25rem;
+    padding: 1.5rem 1.75rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .rd-rank-badge {
+    grid-area: badge;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    color: #fff;
+  }
+  .rd-rank-1 { background: linear-gradient(135deg, #C9A84C, #E8C96A); }
+  .rd-rank-2 { background: linear-gradient(135deg, #8A9BB0, #B0BEC5); }
+  .rd-rank-3 { background: linear-gradient(135deg, #A87845, #C9955C); }
+  .rd-rank-num { font-size: 1.8rem; font-weight: 700; line-height: 1; }
+  .rd-rank-label { font-size: 0.6rem; font-weight: 700; opacity: 0.9; text-align: center; white-space: nowrap; }
+
+  .rd-product-img {
+    grid-area: img;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+    background: var(--color-bg-gray);
+  }
+  .rd-name { grid-area: name; font-size: 1.25rem; font-weight: 700; margin: 0; align-self: end; }
+  .rd-catch { grid-area: catch; font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; align-self: start; }
+
+  .rd-score-wrap {
+    grid-area: score;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  .rd-score-num { font-size: 2.8rem; font-weight: 700; color: var(--color-primary); line-height: 1; }
+  .rd-score-max { font-size: 0.82rem; color: var(--color-text-muted); margin-top: 0.1rem; }
+
+  /* Body */
+  .rd-body {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 0;
+  }
+
+  /* Rating bars (left column) */
+  .rd-ratings {
+    padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    background: var(--color-bg-gray);
+  }
+  .rd-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .rd-rating-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    width: 90px;
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+  .rd-bar-bg {
+    flex: 1;
+    height: 7px;
+    background: #e2e8f0;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .rd-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #C9A84C, #E8C96A);
+    border-radius: 99px;
+    transition: width 0.4s ease;
+  }
+  .rd-rating-val {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    width: 2.2rem;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* Info column (right) */
+  .rd-info-col {
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* こんな人に */
+  .rd-for {
+    background: var(--color-primary-light);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+  }
+  .rd-for-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.45rem;
+  }
+  .rd-for ul {
+    padding-left: 1.1rem;
+    margin: 0;
+  }
+  .rd-for li { font-size: 0.82rem; line-height: 1.6; margin-bottom: 0.2rem; }
+
+  /* 良い点 / 気になる点 */
+  .rd-points-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .rd-good, .rd-bad {
+    background: var(--color-bg-gray);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 0.85rem;
+  }
+  .rd-good { border-top: 3px solid #059669; }
+  .rd-bad { border-top: 3px solid #dc2626; }
+  .rd-points-title { font-size: 0.75rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .rd-points-title.good { color: #059669; }
+  .rd-points-title.bad { color: #dc2626; }
+  .rd-good ul, .rd-bad ul { padding-left: 1.1rem; margin: 0; }
+  .rd-good li, .rd-bad li { font-size: 0.78rem; line-height: 1.55; margin-bottom: 0.2rem; }
+
+  /* Spec table */
+  .rd-spec-table {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    font-size: 0.82rem;
+  }
+  .rd-spec-row {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .rd-spec-row:last-child { border-bottom: none; }
+  .rd-spec-label {
+    width: 110px;
+    flex-shrink: 0;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-bg-gray);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+  }
+  .rd-spec-val {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+  }
+  .good-val { color: #059669; font-weight: 700; }
+
+  /* CTA button */
+  .rd-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #C9A84C, #E8C96A);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 3px 10px rgba(201,168,76,0.35);
+    margin-top: 0.25rem;
+  }
+  .rd-cta:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 900px) {
+    .top3-card { grid-template-columns: 56px 1fr; grid-template-rows: auto auto; }
+    .top3-img-wrap { grid-column: 2; grid-row: 1; }
+    .top3-body { grid-column: 1 / -1; grid-row: 2; }
+    .top3-rank { grid-column: 1; grid-row: 1; }
+    .rd-body { grid-template-columns: 1fr; }
+    .rd-ratings { border-right: none; border-bottom: 1px solid var(--color-border); padding: 1.25rem 1.25rem; }
+    .rd-rating-label { width: 100px; }
+  }
+  @media (max-width: 768px) {
+    /* TOP3カード：スマホは縦積みレイアウト */
+    .top3-card {
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem 1.25rem;
+    }
+    .top3-card::before { height: 4px; }
+    .top3-rank {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.6rem;
+      padding-top: 1.1rem;
+      padding-bottom: 0.5rem;
+    }
+    .top3-rank-name-sp {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text);
+      flex: 1;
+      line-height: 1.4;
+    }
+    .top3-name { display: none; }
+    .top3-img-wrap {
+      width: 100%;
+      padding-top: 0;
+    }
+    .top3-img {
+      aspect-ratio: 3/2;
+      width: 100%;
+      object-fit: contain;
+    }
+    .top3-body { padding-top: 0.85rem; width: 100%; box-sizing: border-box; }
+    .top3-score { flex-wrap: nowrap; }
+    .score-num { font-size: 1.8rem; }
+    .top3-recommend { flex-wrap: wrap; }
+    .top3-meta { flex-direction: column; gap: 0.4rem; }
+    .meta-item { width: 100%; justify-content: space-between; }
+
+    /* 選び方ガイド */
+    .guide-grid { grid-template-columns: 1fr; }
+    .guide-card:last-child { grid-column: auto; max-width: 100%; margin: 0; }
+
+    /* 詳細レビューカード */
+    .rd-header {
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        "badge name"
+        "img   img"
+        "catch catch"
+        "score score";
+      column-gap: 0.75rem;
+      row-gap: 0;
+      padding: 1rem 1.25rem 0;
+    }
+    .rd-rank-badge { width: 48px; height: 48px; align-self: center; }
+    .rd-rank-num { font-size: 1.5rem; }
+    .rd-name { font-size: 1rem; align-self: center; padding: 0; }
+    .rd-product-img {
+      width: calc(100% + 2.5rem);
+      margin-left: -1.25rem;
+      height: 220px;
+      border-radius: 0;
+      margin-top: 0.75rem;
+    }
+    .rd-catch { padding: 0.75rem 0 0; }
+    .rd-score-wrap { justify-content: flex-start; padding: 0.5rem 0 1rem; }
+    .rd-score-num { font-size: 2.2rem; }
+    .rd-name { font-size: 1.1rem; }
+    .rd-score-num { font-size: 2.2rem; }
+    .rd-info-col { padding: 1.25rem; min-width: 0; overflow: hidden; box-sizing: border-box; }
+    .rd-points-wrap { grid-template-columns: 1fr; }
+    .rd-spec-label { width: 90px; }
+    .rd-review-item { box-sizing: border-box; max-width: 100%; }
+    .rd-features-section { padding: 1rem 1.25rem; }
+    .rd-reviews-section { overflow: hidden; }
+  }
+</style>

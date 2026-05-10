@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+<Layout title="プライバシーポリシー">
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: 'プライバシーポリシー' }]} />
+        <h1>プライバシーポリシー</h1>
+      </div>
+    </div>
+    <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+      <p>快眠ラボ（以下「当サイト」）は、ユーザーの個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。</p>
+
+      <h2>個人情報の収集について</h2>
+      <p>当サイトでは、お問い合わせフォームからのご連絡の際に、お名前・メールアドレス等の個人情報をご提供いただく場合があります。これらの情報は、お問い合わせへの返答のみに使用し、第三者へ提供することはありません。</p>
+
+      <h2>アクセス解析ツールについて</h2>
+      <p>当サイトでは、Googleが提供するアクセス解析ツール「Google Analytics 4」を使用しています。Google Analytics はCookieを使用してデータを収集します。このデータは匿名で収集されており、個人を特定するものではありません。Cookieを無効にすることで収集を拒否できます。詳細は<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googleのプライバシーポリシー</a>をご確認ください。</p>
+
+      <h2>広告について</h2>
+      <p>当サイトはアフィリエイトプログラムを利用しており、商品・サービスのリンクから購入が発生した場合、当サイトに報酬が支払われることがあります。これはユーザーへの追加費用は一切発生しません。</p>
+
+      <h2>Cookieについて</h2>
+      <p>当サイトでは、利便性向上のためCookieを使用しています。ブラウザの設定でCookieを無効にすることができますが、一部機能が利用できなくなる場合があります。</p>
+
+      <h2>プライバシーポリシーの変更</h2>
+      <p>本ポリシーの内容は、法令の変更等を理由に予告なく変更することがあります。変更後のポリシーは当ページに掲載した時点で効力を生じます。</p>
+
+      <h2>お問い合わせ</h2>
+      <p>個人情報に関するお問い合わせは、<a href="/contact/">お問い合わせページ</a>よりご連絡ください。</p>
+
+      <p class="text-muted" style="margin-top: 2rem; font-size: 0.85rem;">制定日：2024年1月1日</p>
+    </div>
+  </main>
+  <Footer />
+</Layout>

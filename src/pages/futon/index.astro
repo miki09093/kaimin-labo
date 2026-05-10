@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+<Layout title="布団おすすめ比較・ランキング" description="布団のおすすめを徹底比較。羽毛・綿・合繊など素材別に選び方とランキングをご紹介します。">
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: '布団' }]} />
+        <h1>布団 おすすめ比較・ランキング</h1>
+        <p>羽毛・綿・合繊など素材別に、布団を徹底比較しています。</p>
+      </div>
+    </div>
+    <div class="container" style="padding: 2rem 1rem 3rem;">
+      <p style="color: var(--color-text-muted);">記事を準備中です。しばらくお待ちください。</p>
+    </div>
+  </main>
+  <Footer />
+</Layout>

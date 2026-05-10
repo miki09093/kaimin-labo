@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+<Layout title="運営者情報">
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: '運営者情報' }]} />
+        <h1>運営者情報</h1>
+      </div>
+    </div>
+    <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+
+      <h2>サイトについて</h2>
+      <p>快眠ラボは、枕・マットレス・布団などの寝具を実際に購入・使用して徹底的に比較するメディアです。腰痛・肩こり・不眠など睡眠の悩みを抱える方が、自分に合った寝具を選べるよう情報をお届けします。</p>
+
+      <h2>運営者情報</h2>
+      <table>
+        <tr><th>サイト名</th><td>快眠ラボ</td></tr>
+        <tr><th>運営者名</th><td>（運営者名を記入してください）</td></tr>
+        <tr><th>所在地</th><td>（所在地を記入してください）</td></tr>
+        <tr><th>お問い合わせ</th><td><a href="/contact/">お問い合わせフォーム</a></td></tr>
+      </table>
+
+      <h2>評価・比較の方針</h2>
+      <p>当サイトでは、すべての商品を実際に購入・使用した上で評価しています。以下の7項目を各5点満点（合計35点）で採点し、公正な評価を心がけています。</p>
+      <ul>
+        <li>寝心地・体圧分散</li>
+        <li>硬さ</li>
+        <li>素材・品質</li>
+        <li>価格帯（コスパ）</li>
+        <li>耐久性・保証期間</li>
+        <li>サイズ展開</li>
+        <li>返品・お試し制度</li>
+      </ul>
+      <p>アフィリエイト報酬の有無によって評価が変わることはありません。</p>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,42 @@
+---
+interface Props {
+  rank: number;
+  name: string;
+  href: string;
+  score: number;
+  maxScore: number;
+  tags: string[];
+  price: string;
+  summary: string;
+  affiliateHref: string;
+}
+const { rank, name, href, score, maxScore, tags, price, summary, affiliateHref } = Astro.props;
+const rankClass = rank <= 3 ? `rank-${rank}` : 'rank-other';
+---
+<div class="product-card" data-rank={rank}>
+  <div class="product-card-rank-row">
+    <span class={`product-card-rank ${rankClass}`}>{rank}</span>
+    <span class="rank-badge rank-badge-${rank <= 3 ? rank : 'other'}">
+      {rank === 1 ? '🥇 第1位' : rank === 2 ? '🥈 第2位' : rank === 3 ? '🥉 第3位' : `第${rank}位`}
+    </span>
+  </div>
+  <a href={href} class="product-card-name">{name}</a>
+  <div class="product-card-score">総合スコア {score} / {maxScore}点</div>
+  <div class="product-card-tags">
+    {tags.map(tag => <span class="tag">{tag}</span>)}
+  </div>
+  <p class="product-card-price"><strong>{price}</strong></p>
+  <p class="product-card-summary">{summary}</p>
+  <div class="cta-btn-wrap" style="margin-top: 1rem;">
+    <span class="pr-badge">PR</span>
+    <a href={affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="cta-btn" style="font-size:0.9rem; padding: 0.7rem 1.25rem;">
+      公式サイトで確認する →
+    </a>
+  </div>
+</div>
+
+<style>
+  .product-card-rank-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .product-card-price { font-size: 1rem; margin-bottom: 0.5rem; color: var(--color-primary); }
+  .product-card-summary { font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 0; }
+</style>

@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+<Layout title="ボックスシーツ・カバーおすすめ比較" description="ボックスシーツ・掛け布団カバーのおすすめを比較。素材・サイズ別に選び方をご紹介します。">
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: 'カバー・シーツ' }]} />
+        <h1>カバー・シーツ おすすめ比較</h1>
+        <p>素材・サイズ別に、ボックスシーツと掛け布団カバーを比較します。</p>
+      </div>
+    </div>
+    <div class="container" style="padding: 2rem 1rem 3rem;">
+      <p style="color: var(--color-text-muted);">記事を準備中です。しばらくお待ちください。</p>
+    </div>
+  </main>
+  <Footer />
+</Layout>

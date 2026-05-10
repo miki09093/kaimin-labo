@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+<Layout title="枕おすすめ比較・ランキング" description="枕のおすすめを徹底比較。首こり・肩こりに効くものからオーダーメイドまで、素材・高さ別に選び方とランキングをご紹介します。">
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: '枕' }]} />
+        <h1>枕 おすすめ比較・ランキング</h1>
+        <p>首こり・肩こりに悩む方向けに、枕を7項目で徹底比較しています。</p>
+      </div>
+    </div>
+    <div class="container" style="padding: 2rem 1rem 3rem;">
+      <p style="color: var(--color-text-muted);">記事を準備中です。しばらくお待ちください。</p>
+    </div>
+  </main>
+  <Footer />
+</Layout>
