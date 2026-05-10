@@ -1071,31 +1071,6 @@ const faqs = [
       </div>
     </section>
 
-    <!-- ===== 評価基準 ===== -->
-    <section class="section section-bg">
-      <div class="container">
-        <h2 class="section-title">快眠ラボの評価基準</h2>
-        <p style="margin-bottom: 1.25rem;">当サイトでは紹介するすべての商品を実際に購入・使用したうえで評価しています。アフィリエイト報酬の有無によって評価が変わることはありません。</p>
-        <div class="criteria-grid">
-          {[
-            { num: '01', label: '寝心地・体圧分散' },
-            { num: '02', label: '硬さ' },
-            { num: '03', label: '素材・品質' },
-            { num: '04', label: '価格帯（コスパ）' },
-            { num: '05', label: '耐久性・保証期間' },
-            { num: '06', label: 'サイズ展開' },
-            { num: '07', label: '返品・お試し制度' },
-          ].map(c => (
-            <div class="criteria-item">
-              <span class="criteria-num">{c.num}</span>
-              <span class="criteria-label">{c.label}</span>
-            </div>
-          ))}
-        </div>
-        <p class="text-muted" style="font-size:0.85rem; margin-top: 1rem;">各項目を5点満点で採点し、合計35点満点で総合評価しています。</p>
-      </div>
-    </section>
-
   </main>
   <Footer />
 </Layout>
