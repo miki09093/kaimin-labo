@@ -8,7 +8,7 @@ const products = [
     rank: 1,
     name: '雲のやすらぎプレミアム モデル3R',
     image: '/kumo.jpg',
-    score: 33.5,
+    score: 25.5,
     price: '79,800円（シングル）',
     priceS: '79,800円', priceSD: '要確認', priceD: '要確認',
     trial: '100日間',
@@ -35,7 +35,7 @@ const products = [
     rank: 2,
     name: 'REVERIA（リベリア）',
     image: '/reveria.jpg',
-    score: 32.0,
+    score: 24.0,
     price: '59,800円（シングルのみ）',
     priceS: '59,800円', priceSD: 'シングルのみ', priceD: 'シングルのみ',
     trial: 'なし',
@@ -62,7 +62,7 @@ const products = [
     rank: 3,
     name: 'NELLマットレス',
     image: '/nell.jpg',
-    score: 31.0,
+    score: 23.0,
     price: '67,915円〜（シングル・セール中）',
     priceS: '67,915円〜', priceSD: '要確認', priceD: '要確認',
     trial: '120日間',
@@ -89,7 +89,7 @@ const products = [
     rank: 4,
     name: 'LIMNE（リムネ）',
     image: '/limne.jpg',
-    score: 30.0,
+    score: 20.0,
     price: '79,900円（シングル）',
     priceS: '79,900円', priceSD: '89,900円', priceD: '99,900円',
     trial: '120日間',
@@ -116,7 +116,7 @@ const products = [
     rank: 5,
     name: 'エマ・スリープ ハイブリッドV3',
     image: '/images/emma.jpg',
-    score: 28.5,
+    score: 21.5,
     price: '49,630円〜（シングル・セール中）',
     priceS: '49,630円〜', priceSD: '要確認', priceD: '要確認',
     trial: '100日間',
@@ -143,7 +143,7 @@ const products = [
     rank: 6,
     name: 'GOKUMIN プレミアムスプリング',
     image: '/images/gokumin.jpg',
-    score: 27.0,
+    score: 18.0,
     price: '17,358円〜（シングル）',
     priceS: '17,358円〜', priceSD: '要確認', priceD: '要確認',
     trial: '要確認',
@@ -319,8 +319,8 @@ const faqs = [
                 <h3 class="top3-name">{p.name}</h3>
                 <div class="top3-score">
                   <span class="score-num">{p.score}</span>
-                  <span class="score-max">/ 35点</span>
-                  <span class="score-stars">{'★'.repeat(Math.round(p.score / 7))}{'☆'.repeat(5 - Math.round(p.score / 7))}</span>
+                  <span class="score-max">/ 30点</span>
+                  <span class="score-stars">{'★'.repeat(Math.round(p.score / 6))}{'☆'.repeat(5 - Math.round(p.score / 6))}</span>
                 </div>
                 <div class="top3-tags">
                   {p.tags.map(t => <span class="tag">{t}</span>)}
@@ -524,20 +524,20 @@ const faqs = [
             <img src="/limne.jpg" alt="LIMNE（リムネ）" class="rd-product-img" loading="lazy" />
             <p class="rd-catch">肩こり・腰の重さ・朝のだるさが気になる40代へ。唯一無二の寝心地</p>
             <div class="rd-score-wrap">
-              <span class="rd-score-num">32.0</span>
-              <span class="rd-score-max">/ 35点</span>
+              <span class="rd-score-num">20.0</span>
+              <span class="rd-score-max">/ 30点</span>
             </div>
           </div>
 
           <div class="rd-body">
             <div class="rd-ratings">
               {[
-                { label: '①硬さ・反発力', val: 5.0 },
-                { label: '②ゾーン設計', val: 4.5 },
-                { label: '③リカバリー機能', val: 3.0 },
-                { label: '④使いやすさ', val: 3.5 },
-                { label: '⑤保証・認証', val: 4.0 },
-                { label: '価格（コスパ）', val: 3.5 },
+                { label: '①硬さ・反発力', val: 3.0 },
+                { label: '②ゾーン設計', val: 3.5 },
+                { label: '③リカバリー機能', val: 2.0 },
+                { label: '④使いやすさ', val: 4.0 },
+                { label: '⑤保証・認証', val: 4.5 },
+                { label: '価格（コスパ）', val: 3.0 },
               ].map(r => (
                 <div class="rd-rating-row">
                   <span class="rd-rating-label">{r.label}</span>
@@ -729,8 +729,8 @@ const faqs = [
             <img src="/kumo.jpg" alt="雲のやすらぎプレミアム モデル3R" class="rd-product-img" loading="lazy" />
             <p class="rd-catch">朝の腰痛・重だるさを根本から変えたい方へ。超高反発260Nが腰を強力に支える腰痛特化設計</p>
             <div class="rd-score-wrap">
-              <span class="rd-score-num">33.5</span>
-              <span class="rd-score-max">/ 35点</span>
+              <span class="rd-score-num">25.5</span>
+              <span class="rd-score-max">/ 30点</span>
             </div>
           </div>
 
@@ -738,11 +738,11 @@ const faqs = [
             <div class="rd-ratings">
               {[
                 { label: '①硬さ・反発力', val: 5.0 },
-                { label: '②ゾーン設計', val: 4.5 },
+                { label: '②ゾーン設計', val: 5.0 },
                 { label: '③リカバリー機能', val: 3.0 },
-                { label: '④使いやすさ', val: 3.5 },
-                { label: '⑤保証・認証', val: 4.0 },
-                { label: '価格（コスパ）', val: 3.5 },
+                { label: '④使いやすさ', val: 4.0 },
+                { label: '⑤保証・認証', val: 4.5 },
+                { label: '価格（コスパ）', val: 4.0 },
               ].map(r => (
                 <div class="rd-rating-row">
                   <span class="rd-rating-label">{r.label}</span>
@@ -929,20 +929,20 @@ const faqs = [
             <img src="/reveria.jpg" alt="REVERIA（リベリア）" class="rd-product-img" loading="lazy" />
             <p class="rd-catch">寝るだけで腰回りの血行を改善。日本初の医療機器認証を取得したリカバリーマットレス</p>
             <div class="rd-score-wrap">
-              <span class="rd-score-num">32.0</span>
-              <span class="rd-score-max">/ 35点</span>
+              <span class="rd-score-num">24.0</span>
+              <span class="rd-score-max">/ 30点</span>
             </div>
           </div>
 
           <div class="rd-body">
             <div class="rd-ratings">
               {[
-                { label: '①硬さ・反発力', val: 4.5 },
-                { label: '②ゾーン設計', val: 4.5 },
+                { label: '①硬さ・反発力', val: 4.0 },
+                { label: '②ゾーン設計', val: 4.0 },
                 { label: '③リカバリー機能', val: 5.0 },
-                { label: '④使いやすさ', val: 4.5 },
-                { label: '⑤保証・認証', val: 4.0 },
-                { label: '価格（コスパ）', val: 4.0 },
+                { label: '④使いやすさ', val: 4.0 },
+                { label: '⑤保証・認証', val: 3.5 },
+                { label: '価格（コスパ）', val: 3.5 },
               ].map(r => (
                 <div class="rd-rating-row">
                   <span class="rd-rating-label">{r.label}</span>
@@ -1075,18 +1075,18 @@ const faqs = [
             <img src="/nell.jpg" alt="NELLマットレス" class="rd-product-img" loading="lazy" />
             <p class="rd-catch">腰痛・肩こり両方が気になる方へ。センターハード設計で腰を支え、寝返りをサポートする上質な寝心地</p>
             <div class="rd-score-wrap">
-              <span class="rd-score-num">31.0</span>
-              <span class="rd-score-max">/ 35点</span>
+              <span class="rd-score-num">23.0</span>
+              <span class="rd-score-max">/ 30点</span>
             </div>
           </div>
 
           <div class="rd-body">
             <div class="rd-ratings">
               {[
-                { label: '①硬さ・反発力', val: 4.5 },
-                { label: '②ゾーン設計', val: 5.0 },
-                { label: '③リカバリー機能', val: 2.5 },
-                { label: '④使いやすさ', val: 4.0 },
+                { label: '①硬さ・反発力', val: 4.0 },
+                { label: '②ゾーン設計', val: 4.5 },
+                { label: '③リカバリー機能', val: 2.0 },
+                { label: '④使いやすさ', val: 3.5 },
                 { label: '⑤保証・認証', val: 5.0 },
                 { label: '価格（コスパ）', val: 4.0 },
               ].map(r => (
