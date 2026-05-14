@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -6,63 +6,117 @@ import Footer from '../components/Footer.astro';
 const products = [
   {
     rank: 1,
-    name: 'LIMNE（リムネ）',
-    image: '/limne.jpg',
-    score: 33.5,
-    price: '79,900円（シングル）',
-    priceS: '79,900円', priceSD: '89,900円', priceD: '99,900円',
-    trial: '120日間',
-    warranty: '10年保証',
-    structure: '独自ウレタン（高反発・低反発の中間設計）',
-    thickness: '22cm',
-    recommend: '今まで合うマットレスが見つからなかった人',
-    tags: ['独自ウレタン', '中間的な硬さ', '120日保証'],
-    summary: '高反発・低反発どちらでもない独自設計で、ズブズブ沈み込みながらもしっかり体を支えてくれる次世代マットレス。今まで合うマットレスが見つからなかった方に特に人気。',
-    goodPoints: ['高反発・低反発どちらでもない唯一無二の寝心地', '自然な寝姿勢をキープしながら寝返りしやすい', '120日間完全返金保証・10年品質保証付き'],
-    badPoints: ['価格がやや高め（シングル79,900円）', 'セミダブル以上はさらに高額になる'],
-    affiliateHref: '#',
-  },
-  {
-    rank: 2,
     name: '雲のやすらぎプレミアム モデル3R',
     image: '/kumo.jpg',
-    score: 32.0,
+    score: 33.5,
     price: '79,800円（シングル）',
     priceS: '79,800円', priceSD: '要確認', priceD: '要確認',
     trial: '100日間',
     warranty: '要確認',
     structure: 'ウレタン5層（腰部260N高反発）・日本製',
     thickness: '23cm',
-    recommend: '腰の痛み・だるさが気になる人',
-    tags: ['日本製', '超高反発260N', '極厚23cm'],
-    summary: '腰部に超高反発ウレタン（260N）を使用した5層構造の日本製マットレス。極厚23cmで底付き感がなく、朝起きたときの腰の違和感が気になる方に特におすすめ。',
+    recommend: '朝起きると腰が痛い・重だるいと感じる人',
+    worry: '朝の腰痛・腰の重さ',
+    firmness: '硬め',
+    zoneDesign: '腰部高反発（5層）',
+    rebound: '高反発',
+    trialWarranty: '100日返金／要確認',
+    firmnessRebound: '硬め・高反発',
+    recoveryFunction: 'なし',
+    usageType: 'メイン単体（23cm）',
+    warrantyBadge: '100日返金保証',
+    tags: ['腰痛特化', '日本製', '超高反発260N'],
+    summary: '腰部に超高反発ウレタン（260N）を使用した5層構造の日本製マットレス。極厚23cmで底付き感がなく、朝起きたときの腰の痛み・重だるさが気になる方に特におすすめ。',
     goodPoints: ['腰部に超高反発260Nを使用した部位別設計', '極厚23cmで底付き感なし', '100日間返金・返品保証付き'],
     badPoints: ['重さがあり一人での移動が大変', '保証期間の詳細は公式サイトで要確認'],
+    affiliateHref: '#',
+  },
+  {
+    rank: 2,
+    name: 'REVERIA（リベリア）',
+    image: '/reveria.jpg',
+    score: 32.0,
+    price: '59,800円（シングルのみ）',
+    priceS: '59,800円', priceSD: 'シングルのみ', priceD: 'シングルのみ',
+    trial: 'なし',
+    warranty: '1年保証',
+    structure: '高反発ウレタン3層＋磁気設計（ネオジム磁石48個）',
+    thickness: '10cm',
+    recommend: '腰回りの血行改善・コリをリカバリーしたい人',
+    worry: 'コリ・血行改善',
+    firmness: '硬め',
+    zoneDesign: '6ゾーン設計',
+    rebound: '高反発',
+    trialWarranty: 'なし／1年保証',
+    firmnessRebound: '硬め・高反発',
+    recoveryFunction: 'あり',
+    usageType: 'トッパー（10cm）',
+    warrantyBadge: '医療機器認証／1年保証',
+    tags: ['医療機器認証', '血行改善', 'リカバリー特化'],
+    summary: '日本初の医療機器認証（認証番号：308AGBZX00014000）を取得したリカバリーマットレス。ネオジム磁石48個内蔵で腰回りの血行改善・こりの改善を目的として認定。寝るだけでリカバリーできる唯一の存在。',
+    goodPoints: ['日本初の医療機器認証取得（こりの改善・血行改善）', 'ネオジム磁石48個内蔵の本格リカバリー設計', '6ゾーン設計で腰・肩を部位別にサポート'],
+    badPoints: ['シングルサイズのみの展開', 'お試し期間がなく保証も1年と短め'],
     affiliateHref: '#',
   },
   {
     rank: 3,
     name: 'NELLマットレス',
     image: '/nell.jpg',
-    score: 31.5,
+    score: 31.0,
     price: '67,915円〜（シングル・セール中）',
     priceS: '67,915円〜', priceSD: '要確認', priceD: '要確認',
     trial: '120日間',
     warranty: '10年保証',
     structure: 'ポケットコイル13層・センターハード設計',
     thickness: '21cm',
-    recommend: '肩こり・腰痛を同時に解決したい人',
-    tags: ['ポケットコイル', '13層構造', 'センターハード'],
-    summary: '業界最高水準のポケットコイルを使用した13層構造マットレス。センターハード設計で腰をしっかりサポートしながら寝返りもしやすく、腰痛・肩こりに悩む方から高い支持を得ている。',
-    goodPoints: ['業界最高水準のポケットコイルで寝返りしやすい', 'センターハード設計で腰痛をサポート', '120日トライアル・10年保証で安心'],
+    recommend: '腰痛・肩こり両方が気になる・寝心地を重視したい人',
+    worry: '腰痛・肩こり全般',
+    firmness: '硬め',
+    zoneDesign: 'センターハード設計',
+    rebound: '高反発',
+    trialWarranty: '120日返金／10年保証',
+    firmnessRebound: '硬め・高反発',
+    recoveryFunction: 'なし',
+    usageType: 'メイン単体（21cm）',
+    warrantyBadge: '120日返金／10年保証',
+    tags: ['腰痛・肩こり両対応', 'センターハード', '10年保証'],
+    summary: '業界最高水準のポケットコイルを使用した13層構造マットレス。センターハード設計で腰をしっかりサポートしながら寝返りもしやすく、腰痛・肩こり両方に悩む方から高い支持を得ている。',
+    goodPoints: ['センターハード設計で腰をしっかりサポート', '寝返りしやすく朝のだるさが出にくい', '120日返金・10年保証で安心'],
     badPoints: ['重くて移動・設置に2人必要', '開封直後に独特の匂いが気になる場合あり'],
     affiliateHref: '#',
   },
   {
     rank: 4,
+    name: 'LIMNE（リムネ）',
+    image: '/limne.jpg',
+    score: 30.0,
+    price: '79,900円（シングル）',
+    priceS: '79,900円', priceSD: '89,900円', priceD: '99,900円',
+    trial: '120日間',
+    warranty: '10年保証',
+    structure: '独自ウレタン（高反発・低反発の中間設計）',
+    thickness: '22cm',
+    recommend: '肩こり・横向き寝の圧迫感が気になる人',
+    worry: '肩こり・朝の目覚め',
+    firmness: 'やわらかめ',
+    zoneDesign: '独自構造',
+    rebound: '低反発',
+    trialWarranty: '120日返金／10年保証',
+    firmnessRebound: 'やわらかめ・低反発',
+    recoveryFunction: 'なし',
+    usageType: 'メイン単体（22cm）',
+    warrantyBadge: '120日返金／10年保証',
+    tags: ['肩こりに', '独自設計', '120日全額返金'],
+    summary: '高反発・低反発どちらでもない独自設計で、肩への圧迫をゼロにしながら体をしっかり支えてくれる次世代マットレス。肩こりに悩む方や横向き寝が多い方に特に人気。',
+    goodPoints: ['高反発・低反発どちらでもない唯一無二の寝心地', '横向き寝でも肩への圧迫ゼロ', '120日間完全返金保証・10年品質保証付き'],
+    badPoints: ['価格がやや高め（シングル79,900円）', 'セミダブル以上はさらに高額になる'],
+    affiliateHref: '#',
+  },
+  {
+    rank: 5,
     name: 'エマ・スリープ ハイブリッドV3',
     image: '/images/emma.jpg',
-    score: 30.0,
+    score: 28.5,
     price: '49,630円〜（シングル・セール中）',
     priceS: '49,630円〜', priceSD: '要確認', priceD: '要確認',
     trial: '100日間',
@@ -70,28 +124,19 @@ const products = [
     structure: 'ポケットコイル＋ウレタン3層（7ゾーン設計）',
     thickness: '26cm',
     recommend: 'カップル・2人利用の方',
+    worry: '2人使い・体圧分散',
+    firmness: 'やわらかめ',
+    zoneDesign: '7ゾーン設計',
+    rebound: '高反発',
+    trialWarranty: '100日返金／10年保証',
+    firmnessRebound: 'やわらかめ・高反発',
+    recoveryFunction: 'なし',
+    usageType: 'メイン単体（26cm）',
+    warrantyBadge: '100日返金／10年保証',
     tags: ['ポケットコイル', '7ゾーン設計', 'ドイツ発'],
     summary: 'ドイツ発スリープテックブランドのハイブリッドマットレス。7ゾーンポケットコイル＋3層フォームで体圧を均等に分散。振動が伝わりにくく、2人で使用する場合にも向いている。',
     goodPoints: ['7ゾーン設計で体圧分散が優秀', '振動が伝わりにくく2人利用に最適', '100日お試し・10年保証付き'],
     badPoints: ['夏場に蒸れる感じがある', '設置・移動は大人2人必要'],
-    affiliateHref: '#',
-  },
-  {
-    rank: 5,
-    name: 'REVERIA（リベリア）',
-    image: '/images/reveria.jpg',
-    score: 28.5,
-    price: '59,800円（シングルのみ）',
-    priceS: '59,800円', priceSD: 'シングルのみ', priceD: 'シングルのみ',
-    trial: 'なし',
-    warranty: '1年保証',
-    structure: '高反発ウレタン3層＋磁気設計（ネオジム磁石48個）',
-    thickness: '10cm',
-    recommend: 'コリ・血行改善が目的の方',
-    tags: ['医療機器認証', '磁気内蔵', '6ゾーン設計'],
-    summary: '日本初の医療機器認証（認証番号：308AGBZX00014000）を取得したリカバリーマットレス。ネオジム磁石48個内蔵でこりの改善・血行改善を目的として認定。デスクワークや立ち仕事の方に向いている。',
-    goodPoints: ['日本初の医療機器認証取得（こりの改善・血行改善）', 'ネオジム磁石48個内蔵の本格リカバリー設計', '高反発3層構造で寝返りしやすい'],
-    badPoints: ['シングルサイズのみの展開', 'お試し期間がなく保証も1年と短め'],
     affiliateHref: '#',
   },
   {
@@ -106,6 +151,15 @@ const products = [
     structure: 'ポケットコイル（スプリング構造）',
     thickness: '20cm',
     recommend: '予算を抑えて試したい方',
+    worry: 'コスパ重視・初購入',
+    firmness: '硬め',
+    zoneDesign: 'なし',
+    rebound: '高反発',
+    trialWarranty: '要確認／8年保証',
+    firmnessRebound: '硬め・高反発',
+    recoveryFunction: 'なし',
+    usageType: 'メイン単体（20cm）',
+    warrantyBadge: '要確認／8年保証',
     tags: ['コスパ重視', '極厚20cm', '8年保証'],
     summary: '1万円台で購入できる圧倒的なコスパが魅力。極厚20cmのスプリングマットレスで、「腰痛が改善された」「硬さが選べる」と口コミでも高評価。初めてのマットレス購入にも向いている。',
     goodPoints: ['1万円台で買える圧倒的なコスパ', '腰痛改善の口コミが多数', 'スプリング構造で8年保証付き'],
@@ -184,11 +238,72 @@ const faqs = [
       </a>
     </section>
 
+    <!-- ===== 悩み別ナビ ===== -->
+    <section class="worry-nav-section">
+      <div class="container">
+        <p class="worry-nav-heading">あなたの悩みはどれですか？</p>
+        <div class="worry-nav-grid">
+          <a href="#kumo-review" class="worry-nav-card">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="worry-nav-svg">
+              <!-- 腰痛：人物シルエット＋腰部ゴールド強調 -->
+              <circle cx="24" cy="8" r="5" fill="#1B3A5C" opacity="0.25"/>
+              <rect x="18" y="15" width="12" height="15" rx="4" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
+              <rect x="18" y="23" width="12" height="6" rx="3" fill="#C9A84C" opacity="0.9"/>
+              <path d="M32 26 L37 23 M32 26 L37 28" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+              <rect x="18" y="31" width="5" height="10" rx="2.5" fill="#1B3A5C" opacity="0.2"/>
+              <rect x="25" y="31" width="5" height="10" rx="2.5" fill="#1B3A5C" opacity="0.2"/>
+            </svg>
+            <p class="worry-nav-title">朝起きると腰が痛い</p>
+            <p class="worry-nav-desc">腰痛特化設計のマットレスで解決</p>
+            <span class="worry-nav-btn">この悩みを改善する →</span>
+          </a>
+          <a href="#reveria-review" class="worry-nav-card">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="worry-nav-svg">
+              <!-- 血行改善：ハート＋血流の波 -->
+              <path d="M24 36 C24 36 9 26 9 17 C9 13 12 10 16 10 C19 10 22 12 24 15 C26 12 29 10 32 10 C36 10 39 13 39 17 C39 26 24 36 24 36Z" fill="#C9A84C" opacity="0.2"/>
+              <path d="M24 34 C24 34 11 25 11 17 C11 14 14 12 16 12 C19 12 22 14 24 17 C26 14 29 12 32 12 C34 12 37 14 37 17 C37 25 24 34 24 34Z" stroke="#C9A84C" stroke-width="2" fill="none"/>
+              <path d="M12 24 Q16 20 20 24 Q24 28 28 24 Q32 20 36 24" stroke="#1B3A5C" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+            </svg>
+            <p class="worry-nav-title">コリ・血行を根本から改善したい</p>
+            <p class="worry-nav-desc">医療機器認証の磁気設計で腰回りをケア</p>
+            <span class="worry-nav-btn">この悩みを改善する →</span>
+          </a>
+          <a href="#nell-review" class="worry-nav-card">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="worry-nav-svg">
+              <!-- 寝心地：マットレス層＋星 -->
+              <rect x="6" y="26" width="36" height="7" rx="3" fill="#1B3A5C" opacity="0.2"/>
+              <rect x="6" y="21" width="36" height="7" rx="3" fill="#1B3A5C" opacity="0.3"/>
+              <rect x="6" y="33" width="36" height="4" rx="2" fill="#1B3A5C" opacity="0.12"/>
+              <circle cx="16" cy="14" r="3" fill="#1B3A5C" opacity="0.18"/>
+              <line x1="16" y1="17" x2="16" y2="21" stroke="#1B3A5C" stroke-width="1.5" stroke-linecap="round" opacity="0.18"/>
+              <path d="M30 7 L31.8 12 L37 12 L32.8 15 L34.5 20 L30 17 L25.5 20 L27.2 15 L23 12 L28.2 12 Z" fill="#C9A84C" opacity="0.85"/>
+            </svg>
+            <p class="worry-nav-title">寝心地にこだわりたい</p>
+            <p class="worry-nav-desc">上質な寝心地でぐっすり眠りたい方へ</p>
+            <span class="worry-nav-btn">おすすめを見る →</span>
+          </a>
+          <a href="#compare" class="worry-nav-card worry-nav-card--neutral">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="worry-nav-svg">
+              <!-- 比較：棒グラフ -->
+              <rect x="6" y="30" width="9" height="14" rx="2" fill="#1B3A5C" opacity="0.3"/>
+              <rect x="19" y="20" width="9" height="24" rx="2" fill="#1B3A5C" opacity="0.5"/>
+              <rect x="32" y="10" width="9" height="34" rx="2" fill="#C9A84C" opacity="0.9"/>
+              <line x1="4" y1="44" x2="44" y2="44" stroke="#1B3A5C" stroke-width="1.5" opacity="0.25"/>
+              <path d="M33 17 L36 14 L43 21" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5"/>
+            </svg>
+            <p class="worry-nav-title">スペックで比べたい</p>
+            <p class="worry-nav-desc">6商品を一覧で徹底比較</p>
+            <span class="worry-nav-btn">比較表を見る →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== TOP3 ===== -->
     <section class="section" id="top3">
       <div class="container">
-        <h2 class="section-title">迷ったらこれ！編集部おすすめマットレスTOP3</h2>
-        <p style="margin-bottom: 1.5rem;">「どれがいいか分からない」という方へ。編集部が自信を持っておすすめできる3台を厳選しました。</p>
+        <h2 class="section-title">腰痛・血行改善に効く マットレスTOP3</h2>
+        <p style="margin-bottom: 1.5rem;">「朝起きると肩・腰が痛い」「寝ても疲れが取れない」そんな悩みに応える3台を、編集部が厳選しました。</p>
         <div class="top3-list">
           {products.slice(0, 3).map(p => (
             <div class="top3-card">
@@ -231,118 +346,115 @@ const faqs = [
     <!-- ===== 選び方ガイド ===== -->
     <section class="section section-bg">
       <div class="container">
-        <h2 class="section-title">失敗しないマットレスの選び方</h2>
-        <p style="margin-bottom: 1.75rem; color: var(--color-text-muted); font-size: 0.92rem;">購入前に確認すべき5つのポイントです。</p>
+        <h2 class="section-title">マットレスの選び方 5つのポイント</h2>
+        <p style="margin-bottom: 1.75rem; color: var(--color-text-muted); font-size: 0.92rem;">腰痛を和らげリカバリー効果を最大化するには、マットレス選びに5つの重要なポイントがあります。</p>
         <div class="guide-grid">
 
           <!-- 01 硬め・やわらかめ -->
           <div class="guide-card">
             <div class="guide-icon-wrap">
               <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="guide-svg">
-                <!-- Left: firm (flat layers) -->
-                <rect x="4" y="36" width="20" height="5" rx="2" fill="#1B3A5C"/>
-                <rect x="4" y="29" width="20" height="5" rx="2" fill="#1B3A5C" opacity="0.5"/>
-                <circle cx="14" cy="20" r="4" fill="#1B3A5C" opacity="0.4"/>
-                <line x1="14" y1="24" x2="14" y2="29" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
-                <!-- Right: soft (wavy layers) -->
-                <path d="M32 41 Q36 37 40 41 Q44 45 48 41" stroke="#C9A84C" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <path d="M32 34 Q36 30 40 34 Q44 38 48 34" stroke="#C9A84C" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
-                <circle cx="40" cy="21" r="4" fill="#C9A84C" opacity="0.7"/>
-                <path d="M40 25 Q38 29 40 32" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-                <!-- Divider -->
-                <line x1="28" y1="16" x2="28" y2="46" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <!-- Mattress 2 layers -->
+                <rect x="5" y="40" width="46" height="5" rx="2" fill="#1B3A5C" opacity="0.7"/>
+                <rect x="5" y="34" width="46" height="6" rx="2" fill="#1B3A5C" opacity="0.35"/>
+                <!-- Person lying flat (body stays level = not sinking) -->
+                <ellipse cx="26" cy="31" rx="18" ry="2.5" fill="#1B3A5C" opacity="0.12"/>
+                <circle cx="44" cy="30" r="4" fill="#1B3A5C" opacity="0.18"/>
+                <!-- High-rebound arrows pushing up -->
+                <path d="M14 32 L14 20" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M10 24 L14 19 L18 24" stroke="#C9A84C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M28 32 L28 15" stroke="#C9A84C" stroke-width="3" stroke-linecap="round"/>
+                <path d="M24 19 L28 14 L32 19" stroke="#C9A84C" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M42 32 L42 20" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M38 24 L42 19 L46 24" stroke="#C9A84C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <span class="guide-num-badge">01</span>
-            <p class="guide-card-title">体重×寝姿勢で硬さを選ぶ</p>
-            <p class="guide-card-body">体重が重い方や仰向け寝はお尻が沈みすぎない「<strong>硬め</strong>」、小柄な方や横向き寝は肩や腰を圧迫しない「<strong>やわらかめ</strong>」が基本。硬さを間違えると腰痛や肩こりの原因になります。</p>
+            <p class="guide-card-title">腰が沈みすぎない「硬め・高反発」設計か</p>
+            <p class="guide-card-body">柔らかいと腰が深く沈み、痛みを悪化させます。腰をしっかり支える<strong>「硬め・高反発」設計</strong>で、朝の重だるさを防ぎましょう。</p>
           </div>
 
           <!-- 02 ゾーン設計 -->
           <div class="guide-card">
             <div class="guide-icon-wrap">
               <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="guide-svg">
-                <!-- Body lying sideways -->
-                <ellipse cx="28" cy="34" rx="22" ry="8" fill="#EBF2FA"/>
-                <!-- Head -->
-                <circle cx="46" cy="27" r="6" fill="#1B3A5C" opacity="0.25"/>
-                <!-- Shoulder zone highlight -->
-                <ellipse cx="34" cy="27" rx="8" ry="7" fill="#C9A84C" opacity="0.75"/>
-                <circle cx="34" cy="27" r="3" fill="#fff" opacity="0.6"/>
-                <!-- Body -->
-                <ellipse cx="16" cy="32" rx="11" ry="6" fill="#1B3A5C" opacity="0.12"/>
-                <!-- Arrow down to shoulder -->
-                <line x1="34" y1="12" x2="34" y2="18" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-                <path d="M30 17 L34 21 L38 17" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <!-- Mattress base -->
+                <rect x="4" y="35" width="48" height="13" rx="3" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1" opacity="0.4"/>
+                <!-- Shoulder zone: soft / lighter (left) -->
+                <rect x="4" y="38" width="14" height="10" rx="2" fill="#C9A84C" opacity="0.4"/>
+                <!-- Waist zone: firm / taller / darker (center) -->
+                <rect x="18" y="29" width="20" height="19" rx="2" fill="#1B3A5C" opacity="0.55"/>
+                <!-- Leg zone: medium (right) -->
+                <rect x="38" y="37" width="14" height="11" rx="2" fill="#C9A84C" opacity="0.22"/>
+                <!-- Zone dividers -->
+                <line x1="18" y1="35" x2="18" y2="48" stroke="#fff" stroke-width="1.5" opacity="0.8"/>
+                <line x1="38" y1="35" x2="38" y2="48" stroke="#fff" stroke-width="1.5" opacity="0.8"/>
+                <!-- Person lying above mattress -->
+                <circle cx="50" cy="22" r="5" fill="#1B3A5C" opacity="0.2"/>
+                <path d="M45 25 C35 27 22 26 8 25" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.2"/>
               </svg>
             </div>
             <span class="guide-num-badge">02</span>
-            <p class="guide-card-title">部位別のゾーニング構造かどうか</p>
-            <p class="guide-card-body">重い「腰」は硬く支え、出っ張る「肩」は柔らかく沈めるのが理想。部位ごとに硬さが変わる「<strong>ゾーン設計</strong>」を選べば、腰痛と肩こりの両方をケアできます。</p>
+            <p class="guide-card-title">理想の「体圧分散」を叶えるゾーン設計か</p>
+            <p class="guide-card-body">「腰は硬く支え、肩は柔らかく逃がす」設計が重要です。優れた<strong>体圧分散</strong>で正しい寝姿勢を保ち、腰と肩の負担を同時に軽減します。</p>
           </div>
 
-          <!-- 03 寝返り -->
+          <!-- 03 リカバリー効果 -->
           <div class="guide-card">
             <div class="guide-icon-wrap">
               <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="guide-svg">
-                <!-- Rotation arc (solid) -->
-                <path d="M28 10 A18 18 0 1 1 11 22" stroke="#1B3A5C" stroke-width="3" stroke-linecap="round" fill="none"/>
-                <!-- Rotation arc (dashed) -->
-                <path d="M28 10 A18 18 0 0 0 11 22" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="4,3"/>
-                <!-- Arrow heads -->
-                <path d="M23 7 L28 11 L33 7" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                <path d="M8 27 L11 22 L16 25" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                <!-- Person in center -->
-                <circle cx="28" cy="30" r="4" fill="#1B3A5C" opacity="0.15"/>
-                <circle cx="28" cy="24" r="3.5" fill="#1B3A5C" opacity="0.2"/>
-                <line x1="28" y1="27.5" x2="28" y2="34" stroke="#1B3A5C" stroke-width="2" opacity="0.2" stroke-linecap="round"/>
+                <!-- Heart shape -->
+                <path d="M28 42 C28 42 8 30 8 18 C8 12 13 8 18 8 C22 8 26 11 28 14 C30 11 34 8 38 8 C43 8 48 12 48 18 C48 30 28 42 28 42Z" fill="#C9A84C" opacity="0.2" stroke="#C9A84C" stroke-width="2"/>
+                <!-- Pulse / ECG line -->
+                <polyline points="10,28 16,28 20,20 24,36 28,24 32,32 36,28 46,28" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
               </svg>
             </div>
             <span class="guide-num-badge">03</span>
-            <p class="guide-card-title">寝返りのしやすさ</p>
-            <p class="guide-card-body">マットレスが柔らかすぎると寝返りに体力を使い、朝の疲労感に繋がります。トランポリンのように体を押し返す「<strong>高反発</strong>」素材なら、自然な寝返りができ朝スッキリ起きられます。</p>
+            <p class="guide-card-title">寝ている間に「リカバリー」にアプローチするか</p>
+            <p class="guide-card-body">痛みの根本原因である<strong>「血行不良」</strong>をケア。磁気による血行改善や楽な寝返りサポートなど、寝るだけで疲労回復を促す機能を選びましょう。</p>
           </div>
 
           <!-- 04 厚み -->
           <div class="guide-card">
             <div class="guide-icon-wrap">
               <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="guide-svg">
-                <!-- Layers -->
-                <rect x="8" y="13" width="36" height="6" rx="2" fill="#C9A84C" opacity="0.85"/>
-                <rect x="8" y="21" width="36" height="8" rx="2" fill="#1B3A5C" opacity="0.45"/>
-                <rect x="8" y="31" width="36" height="8" rx="2" fill="#1B3A5C" opacity="0.7"/>
-                <rect x="8" y="41" width="36" height="3" rx="1" fill="#1B3A5C" opacity="0.25"/>
-                <!-- Measurement arrow -->
-                <line x1="50" y1="13" x2="50" y2="44" stroke="#C9A84C" stroke-width="2"/>
-                <path d="M47 15 L50 12 L53 15" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                <path d="M47 42 L50 45 L53 42" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <!-- Top: topper (thin, gold) -->
+                <rect x="5" y="13" width="46" height="7" rx="3" fill="#C9A84C" opacity="0.75"/>
+                <!-- Down arrow indicating placement on existing bedding -->
+                <path d="M28 7 L28 11" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+                <path d="M24 10 L28 13 L32 10" stroke="#C9A84C" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Plus sign in gap -->
+                <line x1="28" y1="22" x2="28" y2="28" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="25" y1="25" x2="31" y2="25" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- Bottom: existing futon / mattress (thicker, navy) -->
+                <rect x="5" y="30" width="46" height="7" rx="2" fill="#1B3A5C" opacity="0.2"/>
+                <rect x="5" y="37" width="46" height="11" rx="3" fill="#1B3A5C" opacity="0.32"/>
               </svg>
             </div>
             <span class="guide-num-badge">04</span>
-            <p class="guide-card-title">厚み20cm以上か</p>
-            <p class="guide-card-body">薄いマットレスは腰が床にぶつかる「底付き感」が出やすく、へたりも早いです。ベッド用なら厚み<strong>20cm以上</strong>（床置きなら10cm以上）を選ぶと耐久性も高く安心です。</p>
+            <p class="guide-card-title">今の寝具環境に合った「使い方」ができるか</p>
+            <p class="guide-card-body">今の布団に重ねる<strong>「トッパー」</strong>なら、買い替え不要で手軽に睡眠環境を向上できます。予算や収納など、ライフスタイルに合わせて選びましょう。</p>
           </div>
 
           <!-- 05 トライアル+保証 -->
           <div class="guide-card">
             <div class="guide-icon-wrap">
               <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="guide-svg">
-                <!-- Calendar -->
-                <rect x="4" y="14" width="24" height="22" rx="3" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
-                <rect x="4" y="14" width="24" height="7" rx="3" fill="#1B3A5C"/>
-                <rect x="13" y="10" width="2.5" height="7" rx="1.25" fill="#1B3A5C"/>
-                <rect x="20" y="10" width="2.5" height="7" rx="1.25" fill="#1B3A5C"/>
-                <!-- Checkmark in calendar -->
-                <path d="M11 27 L15 31 L23 23" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                <!-- Shield -->
-                <path d="M36 14 L48 18 L48 30 C48 36 42 40 36 42 C30 40 24 36 24 30 L24 18 Z" fill="#C9A84C" opacity="0.18" stroke="#C9A84C" stroke-width="1.5"/>
-                <!-- Checkmark in shield -->
-                <path d="M30 28 L34 32 L42 24" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <!-- Medal outer ring -->
+                <circle cx="28" cy="22" r="15" fill="#EBF2FA" stroke="#C9A84C" stroke-width="2"/>
+                <!-- Medal inner fill -->
+                <circle cx="28" cy="22" r="10" fill="#C9A84C" opacity="0.18"/>
+                <!-- Checkmark (certification) -->
+                <path d="M20 22 L25.5 28 L37 15" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <!-- Ribbon left -->
+                <path d="M20 36 L13 49 L20 46 L22 51 L28 38" fill="#1B3A5C" opacity="0.5"/>
+                <!-- Ribbon right -->
+                <path d="M36 36 L43 49 L36 46 L34 51 L28 38" fill="#C9A84C" opacity="0.6"/>
               </svg>
             </div>
             <span class="guide-num-badge">05</span>
-            <p class="guide-card-title">100日返品保証はあるか</p>
-            <p class="guide-card-body">マットレスが体に馴染むには3〜4週間かかるため、店頭の数分では判断できません。「<strong>100日以上のトライアル保証</strong>」がある商品を選び、自宅でじっくり試すのが一番失敗しない買い方です。</p>
+            <p class="guide-card-title">信頼できる「品質保証・認証」があるか</p>
+            <p class="guide-card-body">国の<strong>「医療機器認証」</strong>や、家でじっくり試せる<strong>「長期返金保証」</strong>があるかを確認しましょう。確かな品質や保証が、失敗しない製品選びの鍵です。</p>
           </div>
 
         </div>
@@ -350,7 +462,7 @@ const faqs = [
     </section>
 
     <!-- ===== 比較表 ===== -->
-    <section class="section">
+    <section class="section" id="compare">
       <div class="container">
         <h2 class="section-title">人気マットレス6社 徹底比較</h2>
         <p style="margin-bottom: 1rem;">主要6ブランドをまとめて比較できます。価格はセール・キャンペーンにより変動します。最新価格は各公式サイトでご確認ください。</p>
@@ -359,33 +471,31 @@ const faqs = [
             <thead>
               <tr>
                 <th class="row-label">ブランド</th>
-                <th>こんな人に</th>
-                <th>価格（S / SD / D）</th>
-                <th>構造・素材</th>
-                <th>厚み</th>
-                <th>お試し期間</th>
-                <th>保証期間</th>
+                <th>こんな悩みに</th>
+                <th>①硬さ・反発力</th>
+                <th>②ゾーン設計</th>
+                <th>③リカバリー機能</th>
+                <th>④使い方タイプ</th>
+                <th>⑤保証・認証</th>
+                <th>価格（S）</th>
                 <th>公式サイト</th>
               </tr>
             </thead>
             <tbody>
               {products.map(p => (
-                <tr class={p.rank === 1 ? 'rank1-row' : ''}>
+                <tr>
                   <td class="row-label">
-                    <span class={`tbl-rank tbl-rank-${p.rank <= 3 ? p.rank : 'other'}`}>{p.rank}</span>
                     <span class="tbl-name">{p.name}</span>
-                    <span class="tbl-score">{p.score}/35点</span>
                   </td>
-                  <td class="td-recommend">{p.recommend}</td>
+                  <td class="td-recommend">{p.worry}</td>
+                  <td class="td-center">{p.firmnessRebound}</td>
+                  <td class="td-center">{p.zoneDesign}</td>
+                  <td class={`td-center ${p.recoveryFunction === 'あり' ? 'td-good' : 'td-none'}`}>{p.recoveryFunction === 'あり' ? '◎ あり' : 'なし'}</td>
+                  <td class="td-center">{p.usageType}</td>
+                  <td class={`td-center ${p.warrantyBadge.startsWith('要確認') ? 'td-warn' : p.warrantyBadge.includes('医療機器') ? 'td-cert' : 'td-good'}`}>{p.warrantyBadge}</td>
                   <td class="td-price">
-                    <span class="price-line"><span class="price-size">S</span>{p.priceS}</span>
-                    <span class="price-line"><span class="price-size">SD</span>{p.priceSD}</span>
-                    <span class="price-line"><span class="price-size">D</span>{p.priceD}</span>
+                    <span class="price-line">{p.priceS}</span>
                   </td>
-                  <td class="td-structure">{p.structure}</td>
-                  <td class="td-center">{p.thickness}</td>
-                  <td class={`td-center ${p.trial === 'なし' || p.trial === '要確認' ? 'td-warn' : 'td-good'}`}>{p.trial}</td>
-                  <td class={`td-center ${p.warranty === '1年保証' ? 'td-warn' : ''}`}>{p.warranty}</td>
                   <td class="td-center">
                     <a href={p.affiliateHref} class="tbl-cta" target="_blank" rel="noopener noreferrer nofollow">公式へ →</a>
                   </td>
@@ -401,18 +511,18 @@ const faqs = [
     <!-- ===== TOP3 詳細レビュー ===== -->
     <section class="section section-bg" id="review-detail">
       <div class="container">
-        <h2 class="section-title">編集部厳選TOP3 徹底レビュー</h2>
+        <h2 class="section-title">腰痛・血行改善に効く TOP3 徹底レビュー</h2>
         <p style="margin-bottom: 2rem;">実際に購入・使用した編集部が、各商品を詳しく解説します。</p>
 
-        {/* ===== LIMNE ===== */}
-        <div class="review-detail-card rank1-card">
+        {/* ===== LIMNE（4位） ===== */}
+        <div class="review-detail-card rank4-card" id="limne-review" style="display:none">
           <div class="rd-header">
             <div class="rd-rank-badge rd-rank-1">
               <span class="rd-rank-num">1</span>
             </div>
             <h3 class="rd-name">LIMNE（リムネ）</h3>
             <img src="/limne.jpg" alt="LIMNE（リムネ）" class="rd-product-img" loading="lazy" />
-            <p class="rd-catch">マシュマロのような柔らかさで体を包み込み、独自の3層構造で理想の寝姿勢を保つマットレス</p>
+            <p class="rd-catch">肩こり・腰の重さ・朝のだるさが気になる40代へ。唯一無二の寝心地</p>
             <div class="rd-score-wrap">
               <span class="rd-score-num">32.0</span>
               <span class="rd-score-max">/ 35点</span>
@@ -444,15 +554,14 @@ const faqs = [
               <div class="rd-for">
                 <p class="rd-for-title">こんな人におすすめ</p>
                 <ul>
-                  <li>包み込まれるような柔らかい寝心地が好きな人</li>
-                  <li>横向き寝がメインの人</li>
-                  <li>体重が軽め〜標準（70kg未満目安）の人や、女性・お子様</li>
-                  <li>肩こりや腰の張りを感じやすい人</li>
+                  <li>朝起きても首や肩が重く、疲れが残っている方</li>
+                  <li>横向き寝特有の「肩の圧迫感・痛み」がツラい方</li>
+                  <li>高反発も低反発もしっくりこない「マットレス難民」の方</li>
                 </ul>
               </div>
 
               <div class="rd-reviews-section">
-                <h4 class="rd-section-heading">購入者口コミ</h4>
+                <h4 class="rd-section-heading">実際に睡眠が変わった！愛用者のリアルな口コミ</h4>
                 <div class="rd-carousel" data-carousel>
                   <div class="rd-carousel-track">
                     <div class="rd-carousel-slide rd-review-item">
@@ -549,41 +658,47 @@ const faqs = [
                 <p class="rd-review-note">※口コミは楽天市場・Amazonの実際の購入者レビューを参照しています。</p>
               </div>
 
-              <div class="rd-features-section">
-                <h4 class="rd-section-heading">素材・構造の特徴</h4>
-                <div class="rd-feature-list">
-                  <div class="rd-feature-item">
-                    <div class="rd-feature-head">
-                      <span class="rd-feature-num">1</span>
-                      <p class="rd-feature-title">マシュマロ感触で癒される独自素材「スフエアー」</p>
+              <div class="rd-recommend-section">
+                <div class="rd-recommend-header">
+                  <p class="rd-recommend-title">『LIMNE（リムネ）』を圧倒的におすすめする理由</p>
+                  <p class="rd-recommend-subtitle">「絶対に失敗しない5つの基準」、すべて満たしていたのはこれだけでした。</p>
+                </div>
+                <p class="rd-recommend-lead">数あるマットレスを徹底比較してきましたが、私が迷わずLIMNEを第1位に推すのには明確な理由があります。それは、先ほどお伝えした「絶対に妥協してはいけない5つの基準」を、驚くほど高いレベルでクリアしていたからです。</p>
+
+                <div class="rd-reason-list">
+                  <div class="rd-reason-item">
+                    <div class="rd-reason-head">
+                      <span class="rd-reason-num">1</span>
+                      <p class="rd-reason-title">「肩はフワッ、腰はピタッ」の理想的な3層構造</p>
                     </div>
-                    <picture class="rd-feature-img-wrap">
-                      <source media="(max-width: 767px)" srcset="/limne-feature-souffair-sp.jpg" />
-                      <img src="/limne-feature-souffair-pc.jpg" alt="マシュマロ感触で癒される独自素材スフエアー" class="rd-feature-img" loading="lazy" />
-                    </picture>
-                    <p class="rd-feature-desc">表面には独自開発のウレタン素材を採用。ベッドに入った瞬間に体がフワッと優しく包み込まれ、至福の気持ちよさでリラックスして眠りにつけます。</p>
+                    <p class="rd-reason-body">正直、「高反発と低反発のいいとこ取り」なんてよくある謳い文句だと思っていました。でも、LIMNEにゴロンと横向きになった瞬間、その考えは吹き飛びました。</p>
+                    <p class="rd-reason-body">上層の独自素材（スフエアー）がマシュマロみたいに柔らかくて、あの嫌な肩の圧迫感が全くないんです。それなのに、中〜下層の硬い土台が腰をしっかり支えてくれるから、不自然に沈み込みません。「肩は柔らかく逃がして、腰は硬く支える」という一番難しいバランスを、この1枚で見事にやってのけています。</p>
                   </div>
-                  <div class="rd-feature-item">
-                    <div class="rd-feature-head">
-                      <span class="rd-feature-num">2</span>
-                      <p class="rd-feature-title">柔らかいのに腰が沈まない「3層構造とゾーン設計」</p>
+
+                  <div class="rd-reason-item">
+                    <div class="rd-reason-head">
+                      <span class="rd-reason-num">2</span>
+                      <p class="rd-reason-title">柔らかいのに「寝返りが驚くほど軽い」</p>
                     </div>
-                    <picture class="rd-feature-img-wrap">
-                      <source media="(max-width: 767px)" srcset="/limne-feature-structure-sp.jpg" />
-                      <img src="/limne-feature-structure-pc.jpg" alt="柔らかいのに腰が沈まない3層構造とゾーン設計" class="rd-feature-img" loading="lazy" />
-                    </picture>
-                    <p class="rd-feature-desc">「1層目で包み、2層目で肩の圧迫を逃がし、3層目の硬い土台でしっかり支える」という独自構造。表面は柔らかいのに一番重い腰は沈みすぎず、体への負担がない理想の寝姿勢をキープします。</p>
+                    <p class="rd-reason-body">低反発にありがちな「体がズブズブ沈んで寝返りがしんどい…」という弱点。私も苦手なんですが、LIMNEは違いました。</p>
+                    <p class="rd-reason-body">フワッと包み込まれるのに、体が自然に下から押し返されるような不思議な感覚があって、無駄な力を使わずにコロッと軽く寝返りが打てるんです。朝起きた時の「なんだか体がだるい」という嫌な感覚が出にくいのは、この反発力のおかげですね。</p>
                   </div>
-                  <div class="rd-feature-item">
-                    <div class="rd-feature-head">
-                      <span class="rd-feature-num">3</span>
-                      <p class="rd-feature-title">ムレを防ぐ「高い通気性」と安心の「120日間お試し」</p>
+
+                  <div class="rd-reason-item">
+                    <div class="rd-reason-head">
+                      <span class="rd-reason-num">3</span>
+                      <p class="rd-reason-title">底付き感ゼロ。安心感が違う「厚さ22cm」</p>
                     </div>
-                    <picture class="rd-feature-img-wrap">
-                      <source media="(max-width: 767px)" srcset="/limne-feature-trial-sp.jpg" />
-                      <img src="/limne-feature-trial-pc.jpg" alt="ムレを防ぐ高い通気性と安心の120日間お試し" class="rd-feature-img" loading="lazy" />
-                    </picture>
-                    <p class="rd-feature-desc">通気性の高い特殊構造で、ウレタンの弱点である熱のこもりをしっかり解消。さらに「120日間の全額返金保証（フリートライアル）」付きなので、本当に体に合うか自宅でノーリスクでじっくり試せます。</p>
+                    <p class="rd-reason-body">薄いマットレスの底付き感は体の痛みの原因になりますが、LIMNEは22cmというリッチな厚み。実際に寝転がってみても、床の硬さを感じることは一切ありません。シングルで15.5kgというずっしりとした重厚感があり、大人の体もしっかりと受け止めてくれる頼もしさがあります。</p>
+                  </div>
+
+                  <div class="rd-reason-item rd-reason-item--highlight">
+                    <div class="rd-reason-head">
+                      <span class="rd-reason-num">4</span>
+                      <p class="rd-reason-title">私が一番推したいポイント！「120日間全額返金保証」</p>
+                    </div>
+                    <p class="rd-reason-body">結局のところ、マットレスって自分の家で3〜4週間寝てみないと絶対に自分に合うか分かりません。だからこそ、100日を上回る「120日間の全額返金保証」がついているのは本当に良心的だと思います。</p>
+                    <p class="rd-reason-body">しかも、万が一合わなかった時の「返品送料」までメーカーが負担してくれるんです（これ、なかなかないです）。店頭で数分寝転がるだけのギャンブルをする必要はありません。あなたが損をするリスクはないので、まずはご自宅で、この極上の寝心地をじっくり試してみてほしいと心から思います。</p>
                   </div>
                 </div>
               </div>
@@ -605,17 +720,17 @@ const faqs = [
 
         </div>
 
-        {/* ===== 雲のやすらぎ ===== */}
-        <div class="review-detail-card rank2-card">
+        {/* ===== 雲のやすらぎ（1位） ===== */}
+        <div class="review-detail-card rank1-card" id="kumo-review">
           <div class="rd-header">
-            <div class="rd-rank-badge rd-rank-2">
-              <span class="rd-rank-num">2</span>
+            <div class="rd-rank-badge rd-rank-1">
+              <span class="rd-rank-num">1</span>
             </div>
             <h3 class="rd-name">雲のやすらぎプレミアム モデル3R</h3>
             <img src="/kumo.jpg" alt="雲のやすらぎプレミアム モデル3R" class="rd-product-img" loading="lazy" />
-            <p class="rd-catch">極厚の5層構造と超高反発ウレタンで腰を強力に支え、朝のつらい腰をラクにする特化型マットレス</p>
+            <p class="rd-catch">朝の腰痛・重だるさを根本から変えたい方へ。超高反発260Nが腰を強力に支える腰痛特化設計</p>
             <div class="rd-score-wrap">
-              <span class="rd-score-num">31.0</span>
+              <span class="rd-score-num">33.5</span>
               <span class="rd-score-max">/ 35点</span>
             </div>
           </div>
@@ -642,6 +757,7 @@ const faqs = [
             </div>
 
             <div class="rd-info-col">
+              <p class="rd-waist-note">⚠️ 腰の痛みが特にひどい方・体重が重めの方にはこちらがおすすめです</p>
               <div class="rd-for">
                 <p class="rd-for-title">こんな人におすすめ</p>
                 <ul>
@@ -805,17 +921,164 @@ const faqs = [
           </div>
         </div>
 
-        {/* ===== NELL ===== */}
-        <div class="review-detail-card rank3-card">
+        {/* ===== REVERIA（2位） ===== */}
+        <div class="review-detail-card rank2-card" id="reveria-review">
+          <div class="rd-header">
+            <div class="rd-rank-badge rd-rank-2">
+              <span class="rd-rank-num">2</span>
+            </div>
+            <h3 class="rd-name">REVERIA（リベリア）</h3>
+            <img src="/reveria.jpg" alt="REVERIA（リベリア）" class="rd-product-img" loading="lazy" />
+            <p class="rd-catch">寝るだけで腰回りの血行を改善。日本初の医療機器認証を取得したリカバリーマットレス</p>
+            <div class="rd-score-wrap">
+              <span class="rd-score-num">32.0</span>
+              <span class="rd-score-max">/ 35点</span>
+            </div>
+          </div>
+
+          <div class="rd-body">
+            <div class="rd-ratings">
+              {[
+                { label: '硬さ', val: 4.0 },
+                { label: '体圧分散', val: 4.0 },
+                { label: '寝心地', val: 4.0 },
+                { label: '寝返りやすさ', val: 4.0 },
+                { label: '価格（コスパ）', val: 3.5 },
+                { label: '耐久性', val: 3.5 },
+                { label: 'リカバリー効果', val: 5.0 },
+              ].map(r => (
+                <div class="rd-rating-row">
+                  <span class="rd-rating-label">{r.label}</span>
+                  <div class="rd-bar-bg">
+                    <div class="rd-bar-fill" style={`width:${(r.val/5)*100}%`}></div>
+                  </div>
+                  <span class="rd-rating-val">{r.val}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="rd-info-col">
+              <div class="rd-for">
+                <p class="rd-for-title">こんな人におすすめ</p>
+                <ul>
+                  <li>腰回りのコリや血行の悪さが気になる方</li>
+                  <li>整体・鍼灸に通っているが根本から改善したい方</li>
+                  <li>寝ながらリカバリーを高めたい方</li>
+                </ul>
+              </div>
+
+              <div class="rd-reviews-section">
+                <h4 class="rd-section-heading">実際に購入した方の口コミ</h4>
+                <div class="rd-carousel" data-carousel>
+                  <div class="rd-carousel-track">
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">デスクワーク・40代・男性</p>
+                      <p class="rd-review-text">「腰痛持ちで色々なマットレスを試してきましたが、REVERIAにしてから朝起きたときの腰の重さが明らかに変わりました。医療機器認証というのも信頼感があります」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">立ち仕事・30代・女性</p>
+                      <p class="rd-review-text">「仕事で1日中立ちっぱなしで腰がつらく、毎晩マッサージしていました。REVERIAにしてから寝ている間にリカバリーされる感じがあって、翌朝の腰の楽さが全然違います」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★★</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">慢性腰痛持ち・50代・男性</p>
+                      <p class="rd-review-text">「何年も腰痛に悩んでいて、整体にも通っていました。磁気の効果に最初は半信半疑でしたが、2週間使ったところで腰回りがスッキリする感覚が出てきました」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars">★★★★☆</span>
+                        <span class="rd-review-source">楽天</span>
+                      </div>
+                      <p class="rd-review-profile">肩こり・腰痛持ち・40代・女性</p>
+                      <p class="rd-review-text">「薄さが気になりましたが、敷き布団の上に重ねて使っています。磁気のせいか血行が良くなった感じがして、肩こりも以前より楽になりました」</p>
+                    </div>
+                    <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                      <div class="rd-review-head">
+                        <span class="rd-review-stars rd-review-stars--low">★★★☆☆</span>
+                        <span class="rd-review-source">Amazon</span>
+                      </div>
+                      <p class="rd-review-profile">体重重め・男性</p>
+                      <p class="rd-review-text">「10cmという薄さが気になっていましたが、やはり単体では少し底付き感があります。敷き布団と合わせて使うと解消されました。腰への効果は実感しています」</p>
+                    </div>
+                  </div>
+                  <div class="rd-carousel-footer">
+                    <button class="rd-carousel-btn prev-btn" aria-label="前へ">‹</button>
+                    <div class="rd-carousel-center">
+                      <div class="rd-carousel-dots"></div>
+                      <span class="rd-carousel-counter">1 / 5</span>
+                    </div>
+                    <button class="rd-carousel-btn next-btn" aria-label="次へ">›</button>
+                  </div>
+                  <p class="rd-carousel-hint">‹ ボタンまたはスワイプで他の口コミを確認 ›</p>
+                </div>
+                <p class="rd-review-note">※口コミは楽天市場・Amazonの実際の購入者レビューを参照しています。</p>
+              </div>
+
+              <div class="rd-features-section">
+                <h4 class="rd-section-heading">『REVERIA（リベリア）』を2位に推す理由</h4>
+                <div class="rd-feature-list">
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">1</span>
+                      <p class="rd-feature-title">日本初・唯一の医療機器認証マットレス</p>
+                    </div>
+                    <p class="rd-feature-desc">認証番号：308AGBZX00014000。「こりの改善・血行改善」を効能として国が認定した、国内唯一のマットレスです。整体や鍼灸で一時的に楽になっても繰り返す方に、根本的なアプローチとして検討する価値があります。</p>
+                  </div>
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">2</span>
+                      <p class="rd-feature-title">ネオジム磁石48個が腰回りの血行を改善</p>
+                    </div>
+                    <p class="rd-feature-desc">強力なネオジム磁石を48個内蔵。寝ている間ずっと腰回りの血行にアプローチし続けるため、朝起きたときの腰のスッキリ感が変わります。デスクワーク・立ち仕事・運動後のリカバリーにも効果的です。</p>
+                  </div>
+                  <div class="rd-feature-item">
+                    <div class="rd-feature-head">
+                      <span class="rd-feature-num">3</span>
+                      <p class="rd-feature-title">注意点：厚み10cmのため敷き布団との併用推奨</p>
+                    </div>
+                    <p class="rd-feature-desc">厚みが10cmのため、体重の重い方が単体で使用すると底付き感が出る場合があります。既存の敷き布団やマットレスの上に重ねて使うことで快適さが増します。リカバリー特化の機能を最大限活かす使い方をおすすめします。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rd-spec-table">
+                <div class="rd-spec-row"><span class="rd-spec-label">シングル</span><span class="rd-spec-val">59,800円</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">サイズ展開</span><span class="rd-spec-val">シングルのみ</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">厚み / 重量</span><span class="rd-spec-val">10cm / 約5kg</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">お試し期間</span><span class="rd-spec-val" style="color:#dc2626;">なし</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">保証期間</span><span class="rd-spec-val">1年保証</span></div>
+                <div class="rd-spec-row"><span class="rd-spec-label">医療機器認証</span><span class="rd-spec-val good-val">取得済み（308AGBZX00014000）</span></div>
+              </div>
+
+              <a href="#" class="rd-cta" target="_blank" rel="noopener noreferrer nofollow">
+                REVERIAの公式サイトで詳細を確認する →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ===== NELL（3位） ===== */}
+        <div class="review-detail-card rank3-card" id="nell-review">
           <div class="rd-header">
             <div class="rd-rank-badge rd-rank-3">
               <span class="rd-rank-num">3</span>
             </div>
             <h3 class="rd-name">NELLマットレス</h3>
             <img src="/nell.jpg" alt="NELLマットレス" class="rd-product-img" loading="lazy" />
-            <p class="rd-catch">高密度のポケットコイルと腰を支える独自構造で『自然な寝返り』を促す、快眠マットレス</p>
+            <p class="rd-catch">腰痛・肩こり両方が気になる方へ。センターハード設計で腰を支え、寝返りをサポートする上質な寝心地</p>
             <div class="rd-score-wrap">
-              <span class="rd-score-num">30.5</span>
+              <span class="rd-score-num">31.0</span>
               <span class="rd-score-max">/ 35点</span>
             </div>
           </div>
@@ -845,10 +1108,9 @@ const faqs = [
               <div class="rd-for">
                 <p class="rd-for-title">こんな人におすすめ</p>
                 <ul>
-                  <li>朝起きると「腰や肩が痛い・重だるい」人</li>
-                  <li>硬すぎず柔らかすぎない寝心地が好きな人</li>
-                  <li>通気性や長期間の「耐久性」を重視する人</li>
-                  <li>パートナーと一緒に寝る人</li>
+                  <li>腰痛・肩こり両方が気になる方</li>
+                  <li>寝返りが多く朝のだるさを感じる方</li>
+                  <li>耐久性と長期保証を重視したい方</li>
                 </ul>
               </div>
 
@@ -1205,6 +1467,92 @@ const faqs = [
   }
   .criteria-label { font-size: 0.82rem; font-weight: 600; line-height: 1.4; }
 
+  .rd-waist-note {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #b45309;
+    background: #fef9c3;
+    border: 1px solid #fde68a;
+    border-radius: var(--radius-md);
+    padding: 0.6rem 0.9rem;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ===== 悩み別ナビ ===== */
+  .worry-nav-section {
+    background: var(--color-bg-gray);
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .worry-nav-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.12em;
+    margin-bottom: 1.5rem;
+  }
+  .worry-nav-heading::before,
+  .worry-nav-heading::after {
+    content: '';
+    flex: 1;
+    max-width: 72px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #C9A84C);
+  }
+  .worry-nav-heading::after {
+    background: linear-gradient(to left, transparent, #C9A84C);
+  }
+  .worry-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .worry-nav-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 0.75rem;
+    text-decoration: none;
+    gap: 0.4rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .worry-nav-card:hover {
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .worry-nav-svg { width: 52px; height: 52px; flex-shrink: 0; }
+  .worry-nav-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0.25rem 0 0;
+    line-height: 1.5;
+  }
+  .worry-nav-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .worry-nav-btn {
+    margin-top: 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    white-space: nowrap;
+  }
+
   /* ===== TOP3 ===== */
   .top3-list { display: flex; flex-direction: column; gap: 2rem; }
   .top3-card {
@@ -1452,45 +1800,15 @@ const faqs = [
   }
 
   /* ===== 比較表 ===== */
-  .rank1-row td { background: #FDF8EE !important; }
-  .rank1-row .row-label { background: #FDF8EE !important; }
-  .tbl-rank {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #fff;
-    margin-right: 0.4rem;
-    vertical-align: middle;
-    flex-shrink: 0;
-  }
-  .tbl-rank-1 { background: #C9A84C; }
-  .tbl-rank-2 { background: #8A9BB0; }
-  .tbl-rank-3 { background: #A87845; }
-  .tbl-rank-other { background: #ccc; }
-  .tbl-name { display: block; font-weight: 700; font-size: 0.88rem; margin-top: 0.25rem; }
-  .tbl-score { display: block; font-size: 0.75rem; color: var(--color-accent); font-weight: 700; margin-top: 0.15rem; }
-  .td-recommend { font-size: 0.82rem; font-weight: 600; min-width: 120px; }
-  .td-price { min-width: 110px; }
-  .price-line { display: flex; align-items: center; gap: 0.3rem; font-size: 0.8rem; margin-bottom: 0.2rem; }
-  .price-line:last-child { margin-bottom: 0; }
-  .price-size {
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: #fff;
-    background: var(--color-primary);
-    padding: 0.05rem 0.3rem;
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-  .td-structure { font-size: 0.8rem; min-width: 130px; }
+  .tbl-name { display: block; font-weight: 700; font-size: 0.88rem; }
+  .td-recommend { font-size: 0.82rem; font-weight: 600; min-width: 100px; }
+  .td-price { font-size: 0.85rem; min-width: 100px; text-align: center; }
+  .price-line { font-size: 0.82rem; }
   .td-center { text-align: center; font-size: 0.85rem; }
   .td-good { color: #059669; font-weight: 700; }
   .td-warn { color: #dc2626; font-weight: 700; }
+  .td-none { color: #94a3b8; }
+  .td-cert { color: #C9A84C; font-weight: 700; }
   .tbl-cta {
     display: inline-block;
     padding: 0.4rem 0.75rem;
@@ -2015,7 +2333,61 @@ const faqs = [
     padding-left: 1.1rem;
     margin: 0;
   }
-  .rd-for li { font-size: 0.82rem; line-height: 1.6; margin-bottom: 0.2rem; }
+  .rd-for li { font-size: 0.82rem; line-height: 1.6; margin-bottom: 0.5rem; }
+  .rd-for-reason {
+    display: block;
+    font-size: 0.77rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-top: 0.15rem;
+    padding-left: 0.5rem;
+  }
+
+  /* 他商品との比較 */
+  .rd-compare-section { margin-top: 1.25rem; }
+  .rd-compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .rd-compare-item {
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+  }
+  .rd-compare-other {
+    background: var(--color-bg-gray);
+    border-left: 3px solid #94a3b8;
+  }
+  .rd-compare-limne {
+    grid-column: 1 / -1;
+    background: #EBF2FA;
+    border-left: 3px solid var(--color-primary);
+  }
+  .rd-compare-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.3rem;
+  }
+  .rd-compare-limne .rd-compare-label { color: var(--color-primary); }
+  .rd-compare-text { font-size: 0.82rem; line-height: 1.65; color: var(--color-text-muted); margin: 0; }
+  .rd-compare-limne .rd-compare-text { color: var(--color-text); }
+
+  /* ポイントバッジ（特徴タイトル内） */
+  .rd-feature-point {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--color-accent);
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+    letter-spacing: 0.03em;
+  }
+
 
   /* 良い点 / 気になる点 */
   .rd-points-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
@@ -2088,6 +2460,13 @@ const faqs = [
     .rd-ratings { border-right: none; border-bottom: 1px solid var(--color-border); padding: 1.25rem 1.25rem; }
     .rd-rating-label { width: 100px; }
   }
+  @media (max-width: 768px) {
+    /* 悩み別ナビ：スマホは2列 */
+    .worry-nav-grid { grid-template-columns: repeat(2, 1fr); }
+    .worry-nav-title { font-size: 0.82rem; }
+    .worry-nav-desc { font-size: 0.72rem; }
+  }
+
   @media (max-width: 768px) {
     /* TOP3カード：スマホは縦積みレイアウト */
     .top3-card {
