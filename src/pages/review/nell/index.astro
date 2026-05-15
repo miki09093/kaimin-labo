@@ -1,0 +1,478 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+const affiliateHref = 'https://px.a8.net/svt/ejp?a8mat=4B3N6X+EPVT6A+4KD8+5ZMCI';
+
+const scores = [
+  { label: '①硬さ・反発力', val: 4.0 },
+  { label: '②ゾーン設計', val: 4.5 },
+  { label: '③リカバリー機能', val: 2.0 },
+  { label: '④使いやすさ', val: 3.5 },
+  { label: '⑤保証・認証', val: 5.0 },
+  { label: '⑥価格（コスパ）', val: 4.0 },
+];
+const total = scores.reduce((a, b) => a + b.val, 0);
+
+const goodReviews = [
+  { text: '寝返りのしやすさで選びました。マットレスを変えただけで「寝返りで起きる」がなくなり、朝までぐっすり。コイルが多いとここまで違うのかと驚いてます。', who: '30代男性／SE' },
+  { text: '120日もの長期トライアルがあったので、迷いなくポチれました。実際に使って2週間で「これは合う」と確信。返品しなかった自分を褒めたい。', who: '40代女性／会社員' },
+  { text: 'ポケットコイル1,173個の存在感、すごいです。隣で夫が寝返りしても揺れがほぼ伝わってこない。これは夫婦やカップルにめちゃくちゃおすすめ。', who: '30代女性／主婦' },
+  { text: '腰のセンターハード構造が想像以上に効きました。柔らかすぎず、硬すぎず、絶妙なバランス。朝の腰の重さが消えてビックリ。', who: '40代男性／管理職' },
+  { text: 'NELLにしてから子供の寝相が悪くてもベッドから落ちにくくなりました。マットレスの端までしっかり詰まってる感じ。', who: '30代女性／会社員' },
+  { text: '10年保証はやっぱり安心感が違います。3cm以上ヘタったら交換してくれるって、長く使う前提のマットレスとしては最高条件。', who: '50代男性／自営業' },
+  { text: '医師推奨というのを見て購入を決意。実際使ってみて、整形外科の先生にも「これは姿勢が崩れないからいいね」と言われました。', who: '40代女性／看護師' },
+  { text: '寝つきが悪かった私が、NELLに変えた翌日から本当によく眠れるようになりました。寝具で人生変わるってマジだったんですね。', who: '20代女性／会社員' },
+  { text: 'ベッドフレームに置いて使ってますが、フィット感が抜群。サイズもピッタリで、寝てる間にずれる心配もなし。', who: '30代男性／公務員' },
+  { text: 'コイル独立式なので、横向き寝でも肩が痛くなりにくいです。肩の凹みをコイルが拾ってくれる感じで、めっちゃ快適。', who: '40代男性／会社員' },
+  { text: '夫婦で寝返り頻度が違っても、お互いに気にならないのがすごい。ぐっすり眠れる夜が増えました。買って後悔なし。', who: '30代女性／主婦' },
+  { text: 'JIS規格合格と聞いて品質面で安心しました。やっぱり国の基準クリアしてるって、ネット通販マットレスとしては大事。', who: '50代女性／会社員' },
+  { text: '配送のスピード感もよかったです。注文から3日で届いて、開封からセッティングまでスムーズでした。', who: '30代男性／会社員' },
+  { text: 'デスクワークで首肩がガチガチだった私が、NELLにしてから朝のコリがマシになりました。寝姿勢ってここまで大事だったとは。', who: '40代女性／Web編集' },
+  { text: '体重80kgオーバーですが、しっかり支えてくれてヘタる気配なし。体格大きめの人にも安心しておすすめできます。', who: '40代男性／自営業' },
+  { text: 'ペイディの後払いが使えたので、給料日まで待たずに購入できました。決済方法の選択肢が豊富なのは助かります。', who: '20代女性／会社員' },
+  { text: '価格は安くないですが、120日試せて、10年保証もついて、これだけのコイル数があると考えるとむしろコスパいい買い物。', who: '30代男性／ベンチャー' },
+  { text: 'マットレスをポチる勇気がなかなか出なかったけど、返金保証があったから決断できました。試した結果、返品ボタンを押す日は来ませんでした。', who: '40代女性／フリーランス' },
+  { text: '初めて高級マットレスを買いましたが、寝心地の世界が変わりました。「寝具に投資する」意味がようやく理解できた気がします。', who: '30代男性／会社員' },
+  { text: '産後の腰痛がひどくて夫が買ってくれました。寝返りがラクになって、夜中に痛みで起きることが減りました。本当に感謝。', who: '30代女性／主婦' },
+];
+
+const badReviews = [
+  { text: '寝心地は最高なんですが、シングルでも22kgあって超重い。シーツ替えのときに毎回筋トレ状態です…一人だとかなりキツイ。', who: '30代女性／会社員' },
+  { text: '思ったより厚みがあって（21cm）、家にあったベッドフレームに乗せたら高さがすごいことに。ベッドフレームの高さは購入前に要確認。', who: '40代女性／パート' },
+  { text: '120日トライアルを使って返品しました。返品自体はスムーズでしたが、申請から集荷まで2週間ほどかかったので、急ぎたい人は注意。', who: '40代男性／会社員' },
+  { text: 'ベッドフレーム必須なので、フレームも合わせて買うと結構な出費。床に直接置きたかった私には向きませんでした。', who: '20代男性／一人暮らし' },
+  { text: '価格は決して安くない8万円。120日トライアルがあるとはいえ、即決には勇気が要りました。じっくり比較検討推奨。', who: '40代女性／自営業' },
+  { text: 'センターハード構造が私には硬すぎたみたいで、最終的に返品しました。柔らかめが好みの人は要注意。', who: '30代女性／看護師' },
+  { text: '配送に立ち会いが必要ですが、不在対応が少しスムーズに行かなかった印象。連絡をマメに取る必要があります。', who: '30代男性／会社員' },
+  { text: 'マットレスの匂いが届いた当初少しありました。換気して3日くらいでほぼ消えましたが、敏感な人は注意。', who: '20代女性／学生' },
+  { text: '体重40kg台の小柄な体型だと、コイルの反発が少し強く感じます。慣れれば気にならないけど、最初は浮く感じ。', who: '20代女性／会社員' },
+  { text: '夏場は背中側がほんのり蒸れる気がします。コイル式だけど密度高いので、湿気対策はそれなりに必要かも。', who: '40代男性／会社員' },
+  { text: '10年保証は3cm以上のヘタリ限定。「劣化したから交換」ではなく、明確な基準があるので過度な期待はせず。', who: '50代男性／自営業' },
+  { text: '組み立て不要で届くのは便利ですが、玄関から寝室まで運ぶのが本当に大変。マンション住みは要対策。', who: '30代女性／会社員' },
+  { text: '商品自体は満足だけど、サイズ展開が多くて選ぶの迷いました。シングルとセミダブル、両方試したい欲が出ました。', who: '30代男性／会社員' },
+  { text: '猫を飼ってますが、ウレタンより爪が引っかかりやすい気がします。生地保護のシーツは必須です。', who: '40代女性／自営業' },
+  { text: '返品時の状態（汚れ・破損）に厳しめなチェックがあると説明されました。試用中も丁寧に扱うのが前提です。', who: '30代女性／会社員' },
+  { text: 'シングル22kgなので、引っ越し時の運搬が大変でした。今後の引っ越しを考えると、ちょっと萎えるポイント。', who: '40代男性／会社員' },
+  { text: '寝返りのしやすさは確かにあるんだけど、私の場合「ふわっと包まれる感」が欲しかったので、低反発派には合わないかも。', who: '30代女性／パート' },
+  { text: '120日トライアルの「最低14日試用」を知らずに早めに返品しようとしたら断られました。条件は最初に確認すべし。', who: '40代男性／会社員' },
+  { text: '実店舗で試せないのが唯一の不満。120日トライアルがあるとはいえ、買う前に一度寝てみたかった。', who: '50代女性／主婦' },
+  { text: 'ベッドフレームが必要な分、トータルコストが上がります。フレームの選び方や予算配分も要検討。', who: '20代男性／会社員' },
+];
+
+const faqs = [
+  { q: '120日トライアルはどんな仕組みですか？', a: '商品到着後、14日以上試用したうえで「合わなかった」と感じた場合、120日以内であれば全額返金・返品が可能です。返品時は集荷手配があり、商品の状態によっては返品不可となる場合もあります。' },
+  { q: '10年保証の対象になる「ヘタリ」とは？', a: 'マットレスの一部に3cm以上の凹み（ヘタリ）が生じた場合に保証対象となります。通常使用での経年劣化や軽微なへたりは対象外です。詳細は公式サイトの保証規定をご確認ください。' },
+  { q: 'ベッドフレームなしで床に直接敷いても大丈夫？', a: '床直置きは推奨されていません。通気性確保のため、必ずベッドフレームやすのこの上でご使用ください。床直置きするとコイルやウレタンが湿気でカビる原因になります。' },
+  { q: 'サイズ展開はどんな種類がありますか？', a: 'シングル／セミダブル／ダブル／クイーン／キングの5サイズ展開です（シングルは95×195×21cm／重量約22kg）。サイズが大きくなるほどコイル数も増えます。' },
+  { q: '寝返りはなぜしやすいのですか？', a: 'シングルで1,173個ものポケットコイルが独立して動く設計と、腰部を硬めにした「センターハード構造」により、寝返りに必要な力を最小限に抑える設計になっています。' },
+  { q: '配送はどれくらいで届きますか？', a: '在庫がある場合、注文から3〜4日程度で配送されます。送料は沖縄・離島を除き無料。配送日時の指定も可能です。' },
+  { q: '支払い方法は何がありますか？', a: 'クレジットカード／ペイディ（後払い）／Apple Pay／Amazon Payに対応しています。一括・分割払いの選択も可能です。' },
+  { q: '夫婦やカップルで使えますか？', a: 'はい、コイル独立式なので隣で寝返りしても揺れが伝わりにくく、夫婦・カップル使用に向いています。サイズはダブル・クイーン・キングがおすすめです。' },
+];
+---
+<Layout
+  title="NELLマットレス徹底レビュー｜1,173個ポケットコイルと120日返金保証を試した"
+  description="ランキング3位のNELLマットレスを徹底レビュー。シングル1,173個ポケットコイル・センターハード構造・120日トライアル・10年保証の実力を、当サイト独自の評価で検証しました。"
+>
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: 'レビュー', href: '/review/' }, { label: 'NELLマットレス' }]} />
+        <h1>NELLマットレス徹底レビュー｜1,173個ポケットコイルと120日返金保証を試した</h1>
+        <p style="margin-top: 0.5rem; color: var(--color-text-muted);">公開日：2026.05.15 ／ カテゴリ：レビュー</p>
+      </div>
+    </div>
+
+    <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+
+      <img src="/nell.jpg" alt="NELLマットレス" class="article-hero-img" loading="eager" />
+
+      <p><span class="marker-yellow">「寝返りで何度も目が覚める」「マットレス選びで失敗したくない」</span>――そんな悩みを持つ方の選択肢として人気なのが <strong class="text-navy">NELLマットレス</strong>。シングルだけで <span class="text-navy-bold">1,173個のポケットコイル</span> を採用し、当サイトランキングでも <span class="badge-gold">3位（30点満点中23.0点）</span> を獲得しています。</p>
+      <p>この記事では、NELL最大の強みである「寝返りサポート設計」「業界最長クラスの120日トライアル＆10年保証」の実際を、ポイント別評価・口コミ・FAQまで掘り下げて検証します。</p>
+
+      <h2>結論：寝返りで眠りを妨げたくない人の決定版</h2>
+      <div class="conclusion-box">
+        <p><span class="marker-yellow"><strong>「夜中に寝返りで目が覚める」「失敗したくないから試して決めたい」</strong></span>という方の<span class="text-emphasis">「最初の本格マットレス」</span>として本気でおすすめできます。理由は次の3点。</p>
+        <ul class="conclusion-list">
+          <li><span class="check-icon">✓</span><span class="text-navy-bold">1,173個のポケットコイル</span>＋センターハード構造で寝返りがスムーズ</li>
+          <li><span class="check-icon">✓</span><span class="text-navy-bold">120日トライアル</span>付きで「合わなかったら全額返金」できる</li>
+          <li><span class="check-icon">✓</span><span class="text-navy-bold">10年品質保証</span>で長く使う前提のマットレスとして安心</li>
+        </ul>
+        <p>「業界最長クラスの保証で、長期的に失敗しないマットレス選びをしたい」――そんな方にぴったりの、<span class="text-emphasis">安心と性能を両立した1台</span>です。</p>
+      </div>
+
+      <div class="score-box">
+        <p class="score-box-title">当サイト独自スコア</p>
+        <p class="score-box-total"><span class="score-box-num">{total.toFixed(1)}</span><span class="score-box-max">/ 30点</span></p>
+        <ul class="score-box-list">
+          {scores.map(s => (
+            <li><span>{s.label}</span><strong>{s.val.toFixed(1)}</strong></li>
+          ))}
+        </ul>
+      </div>
+
+      <h2>商品ダイジェスト</h2>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>価格（税込）</th><td>79,900円〜（シングル・送料無料）</td></tr>
+          <tr><th>サイズ展開</th><td>シングル／セミダブル／ダブル／クイーン／キング</td></tr>
+          <tr><th>厚さ</th><td>21cm（13層構造）</td></tr>
+          <tr><th>硬さ</th><td>センターハード構造（腰部硬め）</td></tr>
+          <tr><th>保証・お試し</th><td>120日トライアル＋10年品質保証</td></tr>
+        </tbody>
+      </table>
+
+      <h2>ポイント別に実際どうなの？を本音で評価</h2>
+
+      <h3>① 寝返りサポート設計：1,173個のコイルが「揺れない・起こさない」</h3>
+      <p>NELLが世に広めたコンセプトが「寝返りのしやすさ」。シングルでも <span class="text-navy-bold">1,173個のポケットコイル</span> が独立して動くため、<span class="marker-yellow">隣の人の動きが伝わりにくく、寝返りで自分も目が覚めない</span>構造になっています。</p>
+      <p>一般的なポケットコイルマットレスのコイル数は500〜800個程度。NELLの1,173個は <span class="text-navy-bold">業界最高水準のコイル密度</span>で、体の凹凸を細かく拾って支えてくれます。</p>
+      <div class="info-card">
+        <p class="info-card-title">寝返りがラクになる仕組み</p>
+        <ul class="info-card-list">
+          <li><span class="check-mini">◎</span>コイルが独立して動く → 体重移動の力が最小限</li>
+          <li><span class="check-mini">◎</span>センターハードで腰の沈み込みを防ぐ</li>
+          <li><span class="check-mini">◎</span>振動が隣に伝わらず、夫婦・カップルでも快適</li>
+        </ul>
+      </div>
+
+      <h3>② 13層構造×1,173個ポケットコイル：圧倒的な構造美</h3>
+      <img src="/nell-feature-coil-pc.jpg" alt="NELLマットレスのポケットコイル構造" class="article-inline-img" loading="lazy" />
+      <p>マットレス内部は <span class="text-navy-bold">13層構造</span> で、上層のクッション素材・中層のポケットコイル・下層のサポート材が積み重なる設計。<span class="marker-yellow">体圧分散と耐久性を両立</span>しています。</p>
+      <p>各コイルは「不織布の袋」に1つずつ包まれて独立。これにより、点で体を支えながらも、コイル同士の干渉でギシギシ音がする心配がありません。<span class="text-navy-bold">JIS規格合格</span>＋医師推奨という客観的な裏付けもあります。</p>
+
+      <h3>③ センターハード構造：腰が沈まず寝姿勢キープ</h3>
+      <img src="/nell-feature-center-pc.jpg" alt="NELLマットレスのセンターハード構造" class="article-inline-img" loading="lazy" />
+      <p>NELLの大きな特徴がこの「センターハード」。<span class="marker-yellow">マットレス中央（腰部）のコイルだけ硬めにすることで、腰の沈み込みを防ぎ、自然なS字カーブを保つ</span>設計です。</p>
+      <p>柔らかいマットレスだと腰が深く沈み込んで背骨がくの字になりますが、NELLは中央が踏ん張ってくれるので、<span class="text-navy-bold">仰向け寝・横向き寝のどちらでも寝姿勢が崩れにくい</span>仕様になっています。</p>
+      <div class="tip-box">
+        <p class="tip-box-title"><span class="tip-icon">🩺</span>医師推奨マットレス</p>
+        <p>NELLは複数の医師が推奨する寝姿勢サポート設計。腰痛・肩こりに悩む方の「寝姿勢の改善」に着目して設計されています。</p>
+      </div>
+
+      <h3>④ 120日トライアル＋10年保証：業界最長クラスの安心感</h3>
+      <p>NELLが他社と一線を画すのが、<span class="text-navy-bold">120日トライアル</span> と <span class="text-navy-bold">10年品質保証</span> の組み合わせ。「実際に寝てみないとわからない」というマットレス選びの不安を、両方の保証で完全にカバーします。</p>
+      <p class="layer-intro"><strong>保証の内訳：</strong></p>
+      <div class="layer-list">
+        <div class="layer-item"><span class="layer-num">1</span><span class="layer-name">120日トライアル</span><span class="layer-role">合わなければ全額返金</span></div>
+        <div class="layer-item highlight"><span class="layer-num">2</span><span class="layer-name">10年品質保証</span><span class="layer-role"><span class="text-emphasis">3cm以上のヘタリで交換対応</span></span></div>
+      </div>
+      <p><span class="marker-yellow">「試してから判断＋長期保証」のセット</span>で、購入時のリスクをほぼゼロにしています。ただし120日トライアルは「最低14日試用後」が条件なので、すぐ返品はできない点だけ注意。</p>
+
+      <h2>あなたに向いてる？タイプ別チェック</h2>
+
+      <div class="fit-block fit-good">
+        <p class="fit-title"><span class="fit-icon-good">✓</span>NELLが<span class="text-navy-bold">向いてる人</span></p>
+        <ul class="fit-list">
+          <li>
+            <p class="fit-target">寝返りで夜中に目が覚めることがある</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">1,173個のコイル独立構造</span>で寝返りの力が最小限</p>
+          </li>
+          <li>
+            <p class="fit-target">夫婦・カップルで同じベッドで寝ている</p>
+            <p class="fit-reason"><span class="reason-label">理由</span>コイル独立式で<span class="marker-yellow">相手の寝返りが伝わりにくい</span></p>
+          </li>
+          <li>
+            <p class="fit-target">マットレス選びで失敗したくない</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">120日トライアル＋10年保証</span>でリスクがほぼゼロ</p>
+          </li>
+          <li>
+            <p class="fit-target">腰の沈み込みを防ぎたい</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">センターハード構造</span>で腰部だけ硬めにサポート</p>
+          </li>
+          <li>
+            <p class="fit-target">ベッドフレーム上で本格的なマットレスを使いたい</p>
+            <p class="fit-reason"><span class="reason-label">理由</span>厚さ21cm・コイル独立式で<span class="marker-yellow">ベッドフレームでの使用に最適化</span></p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="fit-block fit-bad">
+        <p class="fit-title"><span class="fit-icon-bad">✗</span>NELLが<span class="text-navy-bold">向かない人</span></p>
+        <ul class="fit-list">
+          <li>
+            <p class="fit-target">フローリングに直接敷いて使いたい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>床直置きは非推奨。ベッドフレーム・すのこ必須</p>
+          </li>
+          <li>
+            <p class="fit-target">一人で頻繁にマットレスを動かしたい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>シングルでも約22kgと重く、運用がやや大変</p>
+          </li>
+          <li>
+            <p class="fit-target">柔らかいマットレスでふわっと包まれたい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>センターハード構造で硬め。低反発派には不向き</p>
+          </li>
+          <li>
+            <p class="fit-target">トッパー用途（今の寝具に重ねる）で使いたい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>厚さ21cmのメイン単体タイプ。重ね使いには不向き</p>
+          </li>
+        </ul>
+      </div>
+
+      <h2>実際に使った人の口コミ・評判</h2>
+      <p>主要ECサイトのレビューから、良い口コミ・気になる口コミを20件ずつご紹介します。購入判断の参考にしてください。</p>
+
+      <h3 class="review-h3 good">良い口コミ（全20件）</h3>
+      <div class="review-carousel" data-review-carousel>
+        <div class="review-carousel-track">
+          {goodReviews.map((r) => (
+            <div class="review-carousel-slide">
+              <blockquote class="review-quote good">
+                <p>「{r.text}」</p>
+                <cite>― {r.who}</cite>
+              </blockquote>
+            </div>
+          ))}
+        </div>
+        <div class="review-carousel-controls">
+          <button class="review-carousel-prev" aria-label="前の口コミ">‹</button>
+          <span class="review-carousel-counter">1 / {goodReviews.length}</span>
+          <button class="review-carousel-next" aria-label="次の口コミ">›</button>
+        </div>
+      </div>
+
+      <h3 class="review-h3 bad">気になる口コミ（全20件）</h3>
+      <div class="review-carousel" data-review-carousel>
+        <div class="review-carousel-track">
+          {badReviews.map((r) => (
+            <div class="review-carousel-slide">
+              <blockquote class="review-quote bad">
+                <p>「{r.text}」</p>
+                <cite>― {r.who}</cite>
+              </blockquote>
+            </div>
+          ))}
+        </div>
+        <div class="review-carousel-controls">
+          <button class="review-carousel-prev" aria-label="前の口コミ">‹</button>
+          <span class="review-carousel-counter">1 / {badReviews.length}</span>
+          <button class="review-carousel-next" aria-label="次の口コミ">›</button>
+        </div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.5rem;">※口コミは個人の感想であり、効果・寝心地を保証するものではありません。</p>
+
+      <h2>詳細スペック</h2>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>商品名</th><td>NELLマットレス</td></tr>
+          <tr><th>サイズ詳細</th><td>シングル：95×195×21cm／他にセミダブル・ダブル・クイーン・キング展開</td></tr>
+          <tr><th>重量</th><td>シングル 約22kg</td></tr>
+          <tr><th>素材・構造</th><td>13層構造／ポケットコイル独立式／センターハード構造</td></tr>
+          <tr><th>コイル数（シングル）</th><td>1,173個（サイズが大きくなるほど増加）</td></tr>
+          <tr><th>硬さ</th><td>センターハード（腰部硬め設定）</td></tr>
+          <tr><th>使い方タイプ</th><td>ベッドフレーム・すのこ推奨（床直置き不可）</td></tr>
+          <tr><th>保証・お試し</th><td>120日トライアル（最低14日試用後）／10年品質保証（3cm以上のヘタリ）</td></tr>
+          <tr><th>認証・品質</th><td>JIS規格合格／医師推奨</td></tr>
+          <tr><th>配送</th><td>送料無料（沖縄・離島除く）／3〜4日で配送</td></tr>
+          <tr><th>支払い方法</th><td>クレジットカード／ペイディ／Apple Pay／Amazon Pay</td></tr>
+        </tbody>
+      </table>
+
+      <h2>よくある質問</h2>
+      <div class="faq-list">
+        {faqs.map((faq, i) => (
+          <div class="faq-item" id={`faq-${i}`}>
+            <button class="faq-question" aria-expanded="false" data-faq={i}>
+              <span class="faq-q-icon">Q</span>
+              <span>{faq.q}</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <span class="faq-a-icon">A</span>
+              <p>{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <a href={affiliateHref} class="rd-cta" target="_blank" rel="noopener noreferrer nofollow" style="display: block; max-width: 480px; margin: 2rem auto;">
+        NELL公式サイトで詳細を見る →
+      </a>
+
+      <h2>関連記事</h2>
+      <ul class="related-list">
+        <li><a href="/review/kumo-yasuragi/">雲のやすらぎプレミアム モデル3Rを徹底レビュー｜腰部超高反発260Nの寝心地は？</a></li>
+        <li><a href="/review/reveria/">REVERIAは本当に体のコリに効く？医療機器認証マットレスを検証</a></li>
+        <li><a href="/column/back-pain-tips/">腰痛持ちがマットレスを選ぶときの3つのポイント</a></li>
+      </ul>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll('[data-review-carousel]').forEach(carousel => {
+    const carouselEl = carousel as HTMLElement;
+    const track = carousel.querySelector('.review-carousel-track') as HTMLElement;
+    const slides = Array.from(carousel.querySelectorAll('.review-carousel-slide')) as HTMLElement[];
+    const counter = carousel.querySelector('.review-carousel-counter') as HTMLElement;
+    const prevBtn = carousel.querySelector('.review-carousel-prev') as HTMLButtonElement;
+    const nextBtn = carousel.querySelector('.review-carousel-next') as HTMLButtonElement;
+    let current = 0;
+    const total = slides.length;
+
+    function initSlides() {
+      const w = carouselEl.offsetWidth;
+      slides.forEach(s => { s.style.width = w + 'px'; });
+    }
+    initSlides();
+    window.addEventListener('resize', () => { initSlides(); goTo(current); });
+
+    function goTo(n: number) {
+      current = (n + total) % total;
+      const w = carouselEl.offsetWidth;
+      track.style.transform = `translateX(-${current * w}px)`;
+      if (counter) counter.textContent = `${current + 1} / ${total}`;
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', (e: TouchEvent) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  });
+
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling as HTMLElement;
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.classList.toggle('open', !expanded);
+      if (expanded) { answer.hidden = true; }
+      else { answer.hidden = false; }
+    });
+  });
+</script>
+
+<style>
+  .article-body h2 { margin-top: 2.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #1B3A5C; font-size: 1.4rem; }
+  .article-body h3 { margin-top: 1.75rem; padding-left: 0.75rem; border-left: 4px solid #C9A84C; font-size: 1.15rem; }
+  .article-body p { line-height: 1.9; margin: 0.75rem 0; }
+  .article-body ul, .article-body ol { line-height: 1.9; padding-left: 1.25rem; }
+  .article-body table { width: 100%; margin: 1rem 0; border-collapse: collapse; }
+  .article-body table th, .article-body table td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; }
+  .article-body table tbody th { background: #F7F4EC; color: #1B3A5C; font-weight: 700; width: 30%; text-align: left; vertical-align: middle; }
+  .article-body table thead th { background: #1B3A5C; color: #fff; text-align: center; font-weight: 700; }
+
+  .marker-yellow { background: linear-gradient(transparent 60%, #FFF066 60%); padding: 0 2px; }
+  .text-navy { color: #1B3A5C; }
+  .text-navy-bold { color: #1B3A5C; font-weight: 700; }
+  .text-emphasis { color: #1B3A5C; font-weight: 700; background: linear-gradient(transparent 88%, #C9A84C 88%, #C9A84C 96%, transparent 96%); padding: 0 2px; }
+  .badge-gold { display: inline-block; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.9em; font-weight: 700; margin: 0 0.15rem; }
+
+  .conclusion-box { margin: 1.25rem 0 2rem; padding: 1.5rem 1.75rem; background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border: 2px solid #C9A84C; border-radius: 14px; box-shadow: 0 6px 20px rgba(201, 168, 76, 0.12); position: relative; }
+  .conclusion-box::before { content: "結論"; position: absolute; top: -14px; left: 1.25rem; background: #1B3A5C; color: #fff; padding: 0.2rem 0.9rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; }
+  .conclusion-list { list-style: none; padding: 0; margin: 1rem 0; }
+  .conclusion-list li { padding: 0.6rem 0; border-bottom: 1px dashed #e5d8b3; display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.8; }
+  .conclusion-list li:last-child { border-bottom: none; }
+  .check-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: #C9A84C; color: #fff; border-radius: 50%; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  .score-box { margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: linear-gradient(135deg, #F7F4EC 0%, #ffffff 100%); border: 2px solid #C9A84C; border-radius: 12px; }
+  .score-box-title { font-weight: 700; color: #1B3A5C; margin: 0 0 0.5rem; }
+  .score-box-total { margin: 0 0 0.75rem; }
+  .score-box-num { font-size: 2.2rem; font-weight: 800; color: #1B3A5C; }
+  .score-box-max { margin-left: 0.25rem; color: var(--color-text-muted); }
+  .score-box-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
+  .score-box-list li { display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px dashed #e5e7eb; }
+  .score-box-list strong { color: #C9A84C; }
+
+  .rd-cta { background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; text-align: center; padding: 1rem 1.5rem; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 6px 16px rgba(201,168,76,0.35); }
+  .rd-cta:hover { opacity: 0.9; }
+
+  .related-list { list-style: none; padding: 0; }
+  .related-list li { padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; }
+  .related-list a { color: #1B3A5C; text-decoration: none; font-weight: 600; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .fit-block { margin: 1.25rem 0; padding: 1.25rem 1.5rem; border-radius: 12px; }
+  .fit-good { background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border: 2px solid #C9A84C; box-shadow: 0 4px 14px rgba(201, 168, 76, 0.12); }
+  .fit-bad { background: #FBF6F3; border: 2px solid #E5C8B8; }
+  .fit-title { margin: 0 0 1rem; font-size: 1.1rem; font-weight: 700; color: #1B3A5C; display: flex; align-items: center; gap: 0.5rem; }
+  .fit-icon-good, .fit-icon-bad { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; color: #fff; font-weight: 700; }
+  .fit-icon-good { background: #C9A84C; }
+  .fit-icon-bad { background: #C46B4E; }
+  .fit-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.85rem; }
+  .fit-list li { padding: 0.85rem 1rem; background: #fff; border-radius: 8px; border-left: 4px solid #C9A84C; }
+  .fit-bad .fit-list li { border-left-color: #C46B4E; }
+  .fit-target { margin: 0 0 0.4rem; font-weight: 700; color: #1B3A5C; line-height: 1.5; }
+  .fit-reason { margin: 0; font-size: 0.92rem; line-height: 1.7; color: #333; display: flex; align-items: flex-start; gap: 0.5rem; }
+  .reason-label { display: inline-block; background: #C9A84C; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.55rem; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .reason-label.warn { background: #C46B4E; }
+
+  .layer-intro { margin-top: 1.25rem; }
+  .layer-list { margin: 0.75rem 0 1.25rem; display: grid; gap: 0.4rem; }
+  .layer-item { display: flex; align-items: center; gap: 0.7rem; padding: 0.5rem 0.85rem; background: #F7F4EC; border-left: 4px solid #C9A84C; border-radius: 6px; }
+  .layer-item.highlight { background: linear-gradient(135deg, #FFFBF0 0%, #FFF8E0 100%); border-left-color: #1B3A5C; border: 2px solid #C9A84C; }
+  .layer-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: #1B3A5C; color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .layer-item.highlight .layer-num { background: #C9A84C; }
+  .layer-name { font-weight: 700; color: #1B3A5C; font-size: 0.95rem; }
+  .layer-role { font-size: 0.82rem; color: var(--color-text-muted); margin-left: auto; text-align: right; }
+  @media (max-width: 480px) { .layer-role { font-size: 0.78rem; } .layer-name { font-size: 0.9rem; } }
+
+  .tip-box { margin: 1.25rem 0; padding: 1.1rem 1.4rem; background: #FFFAEC; border: 1px dashed #C9A84C; border-radius: 10px; }
+  .tip-box-title { margin: 0 0 0.5rem; font-weight: 700; color: #1B3A5C; display: flex; align-items: center; gap: 0.35rem; }
+  .tip-box p:last-child { margin: 0; }
+  .tip-icon { font-size: 1.1rem; }
+
+  .info-card { margin: 1.25rem 0; padding: 1.1rem 1.4rem; background: #F7F4EC; border-left: 4px solid #1B3A5C; border-radius: 8px; }
+  .info-card-title { font-weight: 700; color: #1B3A5C; margin: 0 0 0.6rem; font-size: 1rem; }
+  .info-card-list { list-style: none; padding: 0; margin: 0; }
+  .info-card-list li { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.35rem 0; line-height: 1.7; }
+  .check-mini { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: #C9A84C; color: #fff; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0 2rem; }
+  .faq-item { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; transition: box-shadow 0.2s; }
+  .faq-item:has(.faq-question.open) { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .faq-question { width: 100%; display: flex; align-items: center; gap: 0.85rem; padding: 1.1rem 1.25rem; background: none; border: none; cursor: pointer; font-size: 0.95rem; font-weight: 600; text-align: left; color: #1B3A5C; transition: background 0.15s; }
+  .faq-question:hover { background: #F7F4EC; }
+  .faq-q-icon { font-size: 0.78rem; font-weight: 700; color: #fff; background: #1B3A5C; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .faq-toggle { margin-left: auto; width: 14px; height: 14px; flex-shrink: 0; position: relative; }
+  .faq-toggle::before, .faq-toggle::after { content: ""; position: absolute; background: #1B3A5C; transition: transform 0.25s; }
+  .faq-toggle::before { top: 50%; left: 0; width: 100%; height: 2px; transform: translateY(-50%); }
+  .faq-toggle::after { left: 50%; top: 0; width: 2px; height: 100%; transform: translateX(-50%); }
+  .faq-question.open .faq-toggle::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+  .faq-answer { display: flex; gap: 0.85rem; padding: 0 1.25rem 1.1rem 1.25rem; }
+  .faq-answer[hidden] { display: none; }
+  .faq-a-icon { font-size: 0.78rem; font-weight: 700; color: #fff; background: #C9A84C; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.2rem; }
+  .faq-answer p { font-size: 0.92rem; line-height: 1.8; margin: 0; color: #333; }
+
+  .article-body h3.review-h3 { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem 0.5rem 0.85rem; margin-top: 1.75rem; border-left: none; border-radius: 999px; font-size: 1rem; color: #fff; }
+  .article-body h3.review-h3::before { content: ""; display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+  .article-body h3.review-h3.good { background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3); }
+  .article-body h3.review-h3.good::before { content: "👍"; background: transparent; font-size: 1rem; }
+  .article-body h3.review-h3.bad { background: linear-gradient(135deg, #C46B4E 0%, #A85A40 100%); box-shadow: 0 4px 12px rgba(196, 107, 78, 0.3); }
+  .article-body h3.review-h3.bad::before { content: "💭"; background: transparent; font-size: 1rem; }
+
+  .review-carousel { position: relative; overflow: hidden; margin: 1rem 0; }
+  .review-carousel-track { display: flex; transition: transform 0.4s ease; }
+  .review-carousel-slide { flex-shrink: 0; padding: 0.5rem; box-sizing: border-box; }
+  .review-quote { margin: 0; padding: 1.25rem 1.5rem; background: #F7F4EC; border-left: 4px solid #C9A84C; border-radius: 8px; min-height: 160px; }
+  .review-quote.bad { background: #FBF6F1; border-left-color: #C46B4E; }
+  .review-quote p { margin: 0 0 0.75rem; line-height: 1.8; }
+  .review-quote cite { font-size: 0.85rem; color: var(--color-text-muted); font-style: normal; }
+  .review-carousel-controls { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 0.75rem; }
+  .review-carousel-prev, .review-carousel-next { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #1B3A5C; background: #fff; color: #1B3A5C; font-size: 1.5rem; line-height: 1; cursor: pointer; transition: background 0.2s; }
+  .review-carousel-prev:hover, .review-carousel-next:hover { background: #1B3A5C; color: #fff; }
+  .review-carousel-counter { font-weight: 700; color: #1B3A5C; min-width: 60px; text-align: center; }
+
+  .article-hero-img { width: 100%; height: auto; border-radius: 12px; margin: 0 0 1.5rem; box-shadow: 0 8px 24px rgba(27, 58, 92, 0.12); }
+  .article-inline-img { display: block; width: 100%; max-width: 720px; height: auto; margin: 1.25rem auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(27, 58, 92, 0.08); }
+</style>
