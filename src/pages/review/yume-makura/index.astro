@@ -1,0 +1,490 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+// TODO: アフィリエイトリンク取得後に差し替え
+const affiliateHref = '#';
+
+const scores = [
+  { label: '①フィット感', val: 4.0 },
+  { label: '②高さ調整', val: 3.0 },
+  { label: '③通気性', val: 3.5 },
+  { label: '④素材・耐久性', val: 4.0 },
+  { label: '⑤お手入れ', val: 3.5 },
+  { label: '⑥価格（コスパ）', val: 4.0 },
+];
+const total = scores.reduce((a, b) => a + b.val, 0);
+
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "王様の夢枕",
+  "description": "累計100万個以上売れているロングセラー枕。独自開発の極小ビーズ素材で頭の形にフィットし、ふわっとした寝心地。日本製・1万円前後の手の届く価格帯。",
+  "brand": { "@type": "Brand", "name": "王様の夢枕" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "JPY",
+    "price": "7000",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.3",
+    "bestRating": "5",
+    "reviewCount": "20"
+  }
+};
+
+const goodReviews = [
+  { text: '初めての高機能枕がコレでしたが、安価で買えて十分な性能。「やっぱり夢枕」と納得の寝心地です。', who: '30代女性／会社員' },
+  { text: 'ふわっとビーズが頭にフィットする感覚が新鮮。今までのフラットな枕には戻れません。', who: '40代男性／会社員' },
+  { text: '累計100万個売れていると聞いて納得の安定感。失敗のない買い物でした。', who: '50代女性／パート' },
+  { text: '父の日に父にプレゼント。「これは寝やすい」と毎日使ってくれていて、購入してよかった。', who: '30代女性／会社員' },
+  { text: '価格と寝心地のバランスが秀逸。高級枕にステップアップする前のお試しにも良い1台。', who: '20代男性／一人暮らし' },
+  { text: '日本製というのが安心ポイント。長年売れているだけのことはあると感じます。', who: '40代女性／自営業' },
+  { text: 'ビーズが流動的に動くので、寝返りしても頭にフィットし続けてくれます。', who: '30代男性／SE' },
+  { text: '硬すぎず柔らかすぎないちょうど良い寝心地。色んな枕を試した結論として落ち着きました。', who: '50代男性／会社員' },
+  { text: '一人暮らしを始めた娘にプレゼント。「枕に1万円も？」と疑ってましたが、寝てから納得してました。', who: '50代女性／主婦' },
+  { text: 'カバーが取り外して洗えるのが衛生的でうれしい。汗っかきにもおすすめ。', who: '20代女性／看護師' },
+  { text: '横向き寝・仰向け寝のどちらでも頭がフィットする感覚。寝相が悪い私にもありがたい。', who: '30代男性／公務員' },
+  { text: 'パイプ枕の硬さが苦手で、低反発の沈み込みも苦手な私にぴったり。中間的な寝心地。', who: '40代女性／パート' },
+  { text: '楽天セールでさらに安く買えたのでコスパは抜群。リピートしてもいいかもと考えてます。', who: '30代女性／会社員' },
+  { text: '梱包もきれいで、ギフトでもらって嫌な気持ちにならない品質。プレゼントに最適。', who: '40代男性／自営業' },
+  { text: 'CMで知って気になって購入。期待通りの寝心地で、宣伝通りという感想です。', who: '50代男性／会社員' },
+  { text: '高機能枕の中では破格の値段。「枕で1万円超は高い」と感じる人の最初の1台にぴったり。', who: '20代男性／会社員' },
+  { text: '実家に帰省したときに使った祖母の家にあるこの枕がきっかけで購入。世代を超えて愛されてるんですね。', who: '30代女性／パート' },
+  { text: '夫婦で同じものを2つ購入。違うブランドより安定感があって、家計にも優しい。', who: '40代女性／主婦' },
+  { text: 'まくら難民を10年やっていた私が、ようやく辿り着いた1台。シンプルなのに完成度が高い。', who: '50代男性／自営業' },
+  { text: 'ちょっと頭の形に偏りがある私でも、ビーズが自然に合わせてくれて気持ちいいです。', who: '40代女性／会社員' },
+];
+
+const badReviews = [
+  { text: '本体は洗濯できないのが残念。汗っかきの私にはカバーだけ洗えても衛生的に不安。', who: '30代男性／会社員' },
+  { text: '高さ調整シートはあるものの、5段階のような細かい調整はできません。微調整したい人は注意。', who: '40代女性／会社員' },
+  { text: '極小ビーズなので使い込むと中身が偏ることがあります。たまにほぐして整える必要があり。', who: '50代女性／パート' },
+  { text: 'ふんわり寝心地が好みでない人には合わないかも。「しっかり支えてほしい」派には物足りない。', who: '30代男性／自営業' },
+  { text: 'ブレインスリープと比較すると、通気性は劣ります。夏場は若干蒸れ感あり。', who: '40代男性／管理職' },
+  { text: '横向き寝の時に肩への圧迫感が少し気になります。仰向け寝メインの人向けかも。', who: '30代女性／看護師' },
+  { text: 'ビーズの「シャカシャカ」音が静かな部屋では少し気になります。慣れれば気にならないですが。', who: '20代女性／会社員' },
+  { text: 'ヘタリは比較的早めかも。1〜2年でだいぶ高さが落ち着いてきました。買い替えサイクルは早め想定。', who: '40代男性／会社員' },
+  { text: 'デザインが地味で、インテリア重視の人には物足りないかも。機能優先で割り切れる人向け。', who: '30代男性／SE' },
+  { text: 'カバーの素材が好みが分かれます。私には少しザラついて感じました。', who: '50代女性／主婦' },
+  { text: 'お試し返金保証がないので、合わなかったときに困ります。慎重に検討してから購入推奨。', who: '40代女性／パート' },
+  { text: '形状が万人向けで個性が薄い。「自分専用の特別感」を求める人には物足りないかも。', who: '20代男性／会社員' },
+  { text: '硬めの枕に慣れている人には、最初フィット感が物足りないかもしれません。慣れるまで時間が必要。', who: '50代男性／自営業' },
+  { text: '送料は別途かかる場合があります。購入時の合計金額を要確認。', who: '30代女性／会社員' },
+  { text: 'メーカー保証はあるが、長期使用の交換保証ではないので、ヘタリ自体は保証対象外です。', who: '40代男性／会社員' },
+  { text: '極小ビーズが万が一こぼれると掃除が大変。子供やペットがいる家庭は要注意。', who: '30代女性／主婦' },
+  { text: 'カラー展開が少なめ（白〜ベージュ系）。寝室のインテリアに合わせて選びたい人には物足りない。', who: '40代女性／会社員' },
+  { text: '体格の良い男性には、頭が大きすぎてビーズが偏りやすい可能性。標準体型向けの設計感。', who: '50代男性／建設業' },
+  { text: '1万円弱で「夢の枕」と呼べるかは個人差。高級枕に比べると寝心地の天井は感じます。', who: '30代男性／会社員' },
+  { text: '取り扱い店舗が限定的で、実店舗で試してから買いたい派の私には敷居が高めでした。', who: '40代男性／自営業' },
+];
+
+const faqs = [
+  { q: '本体は洗濯できますか？', a: '本体は洗濯できません。カバーは取り外して家庭用洗濯機で洗濯可能です。お手入れの際は、月に一度カバーを洗濯することをおすすめします。' },
+  { q: '高さ調整はどうやって行いますか？', a: '付属の高さ調整シートを枕の下に出し入れすることで、おおまかな高さ調整が可能です。細かい段階調整というよりは「やや高く／低く」する程度です。' },
+  { q: 'ヘタリ・寿命の目安は？', a: '通常使用で2〜3年程度が買い替えの目安です。ビーズが偏ってきたり、ふくらみが減ってきたら交換のタイミングです。' },
+  { q: '返金保証はありますか？', a: '原則として返金保証制度はありません。販売店によっては独自の保証がある場合があるため、購入前にご確認ください。' },
+  { q: '横向き寝でも使えますか？', a: 'ビーズが流動して頭にフィットするため、横向き寝・仰向け寝のどちらでも使用可能です。ただし、しっかり支える感覚を求める方には別タイプの枕も検討候補に。' },
+  { q: 'サイズはどんな種類がありますか？', a: '基本はスタンダードサイズ（横長・標準）です。サイズや種類の詳細は公式サイトをご確認ください。' },
+  { q: 'カバーは別売りで購入できますか？', a: 'カバーは別売りでも購入可能です。汚れた場合や複数枚揃えたい場合に便利です。' },
+  { q: '配送はどれくらいで届きますか？', a: '注文から3〜5日程度で配送されるのが目安です。地域や在庫状況により変動します。' },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+---
+<Layout
+  title="王様の夢枕を徹底レビュー｜累計100万個突破のロングセラー枕の実力は？"
+  description="ランキング2位の王様の夢枕を徹底レビュー。累計100万個販売の独自ビーズ素材＋日本製＋手の届く価格の実力を、当サイト独自の30点満点で採点しました。"
+  jsonLd={[productJsonLd, faqJsonLd]}
+>
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: 'レビュー', href: '/review/' }, { label: '王様の夢枕' }]} />
+        <h1>王様の夢枕を徹底レビュー｜累計100万個突破のロングセラー枕の実力は？</h1>
+        <p style="margin-top: 0.5rem; color: var(--color-text-muted);">公開日：2026.05.16 ／ カテゴリ：レビュー</p>
+      </div>
+    </div>
+
+    <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+
+      <div class="hero-placeholder">
+        <span class="hero-placeholder-tag">レビュー</span>
+        <p class="hero-placeholder-title">王様の夢枕</p>
+        <p class="hero-placeholder-sub">累計100万個突破 × 極小ビーズ素材 × 日本製</p>
+      </div>
+
+      <p><span class="marker-yellow">「初めて高機能枕を試してみたい」「高い枕は買えないけど良い寝心地が欲しい」</span>――そんな方の入り口として定番なのが <strong class="text-navy">王様の夢枕</strong>。累計100万個以上売れているロングセラー枕で、当サイトの枕ランキングでは <span class="badge-gold">2位（30点満点中22.0点）</span> にランクイン。</p>
+      <p>この記事では、王様の夢枕最大の特徴である「極小ビーズ素材」「日本製の安心感」「コスパの良さ」を、ポイント別評価・口コミ・FAQまで掘り下げて検証します。</p>
+
+      <h2>結論：「初めての高機能枕」として失敗しない1台</h2>
+      <div class="conclusion-box">
+        <p><span class="marker-yellow"><strong>「枕に1万円超はちょっと…でもペラペラの枕は嫌」</strong></span>という方の<span class="text-emphasis">「最初の高機能枕」</span>として本気でおすすめできます。理由は次の3点。</p>
+        <ul class="conclusion-list">
+          <li><span class="check-icon">✓</span><span class="text-navy-bold">極小ビーズ素材</span>で頭の形に自然にフィット</li>
+          <li><span class="check-icon">✓</span><span class="text-navy-bold">累計100万個販売</span>の安心感とロングセラー実績</li>
+          <li><span class="check-icon">✓</span><span class="text-navy-bold">7,000〜10,000円</span>と手の届きやすい価格</li>
+        </ul>
+        <p>1万円超の高級枕（ブレインスリープ等）と比べると機能はマイルドですが、その分<span class="text-emphasis">「失敗しても傷が浅い」</span>のが王様の夢枕の隠れた魅力です。</p>
+      </div>
+
+      <div class="score-box">
+        <p class="score-box-title">当サイト独自スコア</p>
+        <p class="score-box-total"><span class="score-box-num">{total.toFixed(1)}</span><span class="score-box-max">/ 30点</span></p>
+        <ul class="score-box-list">
+          {scores.map(s => (
+            <li><span>{s.label}</span><strong>{s.val.toFixed(1)}</strong></li>
+          ))}
+        </ul>
+      </div>
+
+      <h2>商品ダイジェスト</h2>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>価格（税込）</th><td>7,000円〜10,000円（販売店により異なる）</td></tr>
+          <tr><th>素材</th><td>極小ビーズ（ストロー状）</td></tr>
+          <tr><th>高さ調整</th><td>付属シートで簡易調整</td></tr>
+          <tr><th>お手入れ</th><td>本体不可／カバーのみ洗濯可</td></tr>
+          <tr><th>製造</th><td>日本製</td></tr>
+        </tbody>
+      </table>
+
+      <h2>ポイント別に実際どうなの？を本音で評価</h2>
+
+      <h3>① 極小ビーズ素材：流動性のあるフィット感</h3>
+      <p>王様の夢枕の特徴は、<span class="text-navy-bold">「ストロー状の極小ビーズ」</span>を使用した独自素材。<span class="marker-yellow">頭を乗せるとビーズが流動的に動き、頭の形に自然にフィット</span>する寝心地です。</p>
+      <p>「ふんわり包まれる感覚」と「適度な支え」のバランスが絶妙で、低反発の沈み込みや、パイプ枕の硬さが苦手な方の中間解として人気があります。</p>
+      <div class="info-card">
+        <p class="info-card-title">こんな寝心地が好きな方に</p>
+        <ul class="info-card-list">
+          <li><span class="check-mini">◎</span>ふわっと包まれる柔らかい寝心地</li>
+          <li><span class="check-mini">◎</span>頭の形に自然にフィットする枕がほしい</li>
+          <li><span class="check-mini">◎</span>低反発・パイプの中間的な感触を求めている</li>
+        </ul>
+      </div>
+
+      <h3>② 累計100万個販売：信頼のロングセラー実績</h3>
+      <p>長年にわたって <span class="text-navy-bold">累計100万個以上</span> 売れ続けている、まさに「枕業界のロングセラー」。<span class="marker-yellow">CMやTV番組でも度々紹介されており、知名度・信頼性ともに業界トップクラス</span>です。</p>
+      <p>新興ブランドの枕にありがちな「品質バラつき」「販売終了リスク」が低く、安心して長く愛用できるブランド力があります。</p>
+
+      <h3>③ 日本製＋手の届く価格：コスパで選ぶ堅実枠</h3>
+      <p>製造は <span class="text-navy-bold">日本国内</span>。にもかかわらず、<span class="marker-yellow">7,000円〜10,000円という価格</span>で購入できるのは、ロングセラー商品ならではの強み。</p>
+      <p>「とりあえずまともな枕を試したい」「家族分まとめて買い替えたい」というニーズに最適。<span class="text-navy-bold">プレゼント・ギフトとしての需要も高い</span>のが特徴です。</p>
+
+      <h3>④ 高さ調整シートで微調整可能</h3>
+      <p>付属の<span class="text-navy-bold">高さ調整シート</span>を枕の下に出し入れすることで、簡易的な高さ調整が可能。<span class="marker-yellow">体格や寝姿勢に合わせて2〜3段階程度の調整</span>ができます。</p>
+      <p>ブレインスリープのような「5段階調整＋形状カット」と比べると控えめですが、初心者ユーザーには十分実用的な機能です。</p>
+
+      <h2>あなたに向いてる？タイプ別チェック</h2>
+
+      <div class="fit-block fit-good">
+        <p class="fit-title"><span class="fit-icon-good">✓</span>王様の夢枕が<span class="text-navy-bold">向いてる人</span></p>
+        <ul class="fit-list">
+          <li>
+            <p class="fit-target">初めて高機能枕を試したい</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">7,000〜10,000円</span>の手の届く価格で失敗リスクが低い</p>
+          </li>
+          <li>
+            <p class="fit-target">ふわっとした寝心地が好み</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">流動性ある極小ビーズ</span>で頭の形に優しくフィット</p>
+          </li>
+          <li>
+            <p class="fit-target">プレゼントやギフトで選びたい</p>
+            <p class="fit-reason"><span class="reason-label">理由</span>知名度・信頼性が高く<span class="marker-yellow">「外しにくい定番ギフト」</span></p>
+          </li>
+          <li>
+            <p class="fit-target">日本製にこだわりたい</p>
+            <p class="fit-reason"><span class="reason-label">理由</span>製造は<span class="marker-yellow">日本国内</span>で品質も安定</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="fit-block fit-bad">
+        <p class="fit-title"><span class="fit-icon-bad">✗</span>王様の夢枕が<span class="text-navy-bold">向かない人</span></p>
+        <ul class="fit-list">
+          <li>
+            <p class="fit-target">通気性・蒸れにくさを重視したい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>ブレインスリープのような90%空気層素材には及ばない</p>
+          </li>
+          <li>
+            <p class="fit-target">本体を丸洗いして清潔に保ちたい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>本体は洗濯不可（カバーのみ洗濯可能）</p>
+          </li>
+          <li>
+            <p class="fit-target">5段階・カスタム性の高い調整がほしい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>付属シートでの簡易調整のみ</p>
+          </li>
+          <li>
+            <p class="fit-target">しっかり頭を支える硬めの枕が好み</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>ふんわり系の柔らかな寝心地のため</p>
+          </li>
+        </ul>
+      </div>
+
+      <h2>実際に使った人の口コミ・評判</h2>
+      <p>主要ECサイトのレビューから、良い口コミ・気になる口コミを20件ずつご紹介します。購入判断の参考にしてください。</p>
+
+      <h3 class="review-h3 good">良い口コミ（全20件）</h3>
+      <div class="review-carousel" data-review-carousel>
+        <div class="review-carousel-track">
+          {goodReviews.map((r) => (
+            <div class="review-carousel-slide">
+              <blockquote class="review-quote good">
+                <p>「{r.text}」</p>
+                <cite>― {r.who}</cite>
+              </blockquote>
+            </div>
+          ))}
+        </div>
+        <div class="review-carousel-controls">
+          <button class="review-carousel-prev" aria-label="前の口コミ">‹</button>
+          <span class="review-carousel-counter">1 / {goodReviews.length}</span>
+          <button class="review-carousel-next" aria-label="次の口コミ">›</button>
+        </div>
+      </div>
+
+      <h3 class="review-h3 bad">気になる口コミ（全20件）</h3>
+      <div class="review-carousel" data-review-carousel>
+        <div class="review-carousel-track">
+          {badReviews.map((r) => (
+            <div class="review-carousel-slide">
+              <blockquote class="review-quote bad">
+                <p>「{r.text}」</p>
+                <cite>― {r.who}</cite>
+              </blockquote>
+            </div>
+          ))}
+        </div>
+        <div class="review-carousel-controls">
+          <button class="review-carousel-prev" aria-label="前の口コミ">‹</button>
+          <span class="review-carousel-counter">1 / {badReviews.length}</span>
+          <button class="review-carousel-next" aria-label="次の口コミ">›</button>
+        </div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.5rem;">※口コミは個人の感想であり、効果・寝心地を保証するものではありません。</p>
+
+      <h2>詳細スペック</h2>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>商品名</th><td>王様の夢枕</td></tr>
+          <tr><th>素材</th><td>極小ビーズ（独自開発・ストロー状）</td></tr>
+          <tr><th>高さ調整</th><td>付属シートによる簡易調整</td></tr>
+          <tr><th>カバー</th><td>取り外し可能・洗濯機OK</td></tr>
+          <tr><th>本体お手入れ</th><td>本体は洗濯不可・陰干し推奨</td></tr>
+          <tr><th>耐用年数の目安</th><td>2〜3年程度</td></tr>
+          <tr><th>製造国</th><td>日本製</td></tr>
+          <tr><th>累計販売実績</th><td>100万個以上</td></tr>
+          <tr><th>保証</th><td>原則として返金保証なし（販売店により異なる）</td></tr>
+        </tbody>
+      </table>
+
+      <h2>よくある質問</h2>
+      <div class="faq-list">
+        {faqs.map((faq, i) => (
+          <div class="faq-item" id={`faq-${i}`}>
+            <button class="faq-question" aria-expanded="false" data-faq={i}>
+              <span class="faq-q-icon">Q</span>
+              <span>{faq.q}</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <span class="faq-a-icon">A</span>
+              <p>{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <a href={affiliateHref} class="rd-cta" target="_blank" rel="noopener noreferrer nofollow" style="display: block; max-width: 480px; margin: 2rem auto;">
+        王様の夢枕公式サイトで詳細を見る →
+      </a>
+
+      <h2>関連記事</h2>
+      <ul class="related-list">
+        <li><a href="/review/brain-sleep-pillow/">ブレインスリープ ピロー徹底レビュー｜「脳が眠る枕」科学設計の実力は？</a></li>
+        <li><a href="/pillow/">枕おすすめ比較・ランキング</a></li>
+        <li><a href="/review/kumo-yasuragi/">雲のやすらぎプレミアム モデル3R 徹底レビュー</a></li>
+      </ul>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll('[data-review-carousel]').forEach(carousel => {
+    const carouselEl = carousel as HTMLElement;
+    const track = carousel.querySelector('.review-carousel-track') as HTMLElement;
+    const slides = Array.from(carousel.querySelectorAll('.review-carousel-slide')) as HTMLElement[];
+    const counter = carousel.querySelector('.review-carousel-counter') as HTMLElement;
+    const prevBtn = carousel.querySelector('.review-carousel-prev') as HTMLButtonElement;
+    const nextBtn = carousel.querySelector('.review-carousel-next') as HTMLButtonElement;
+    let current = 0;
+    const total = slides.length;
+
+    function initSlides() {
+      const w = carouselEl.offsetWidth;
+      slides.forEach(s => { s.style.width = w + 'px'; });
+    }
+    initSlides();
+    window.addEventListener('resize', () => { initSlides(); goTo(current); });
+
+    function goTo(n: number) {
+      current = (n + total) % total;
+      const w = carouselEl.offsetWidth;
+      track.style.transform = `translateX(-${current * w}px)`;
+      if (counter) counter.textContent = `${current + 1} / ${total}`;
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', (e: TouchEvent) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  });
+
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling as HTMLElement;
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.classList.toggle('open', !expanded);
+      if (expanded) { answer.hidden = true; }
+      else { answer.hidden = false; }
+    });
+  });
+</script>
+
+<style>
+  .article-body h2 { margin-top: 2.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #1B3A5C; font-size: 1.4rem; }
+  .article-body h3 { margin-top: 1.75rem; padding-left: 0.75rem; border-left: 4px solid #C9A84C; font-size: 1.15rem; }
+  .article-body p { line-height: 1.9; margin: 0.75rem 0; }
+  .article-body ul, .article-body ol { line-height: 1.9; padding-left: 1.25rem; }
+  .article-body table { width: 100%; margin: 1rem 0; border-collapse: collapse; }
+  .article-body table th, .article-body table td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; }
+  .article-body table tbody th { background: #F7F4EC; color: #1B3A5C; font-weight: 700; width: 30%; text-align: left; vertical-align: middle; }
+  .article-body table thead th { background: #1B3A5C; color: #fff; text-align: center; font-weight: 700; }
+
+  .marker-yellow { background: linear-gradient(transparent 60%, #FFF066 60%); padding: 0 2px; }
+  .text-navy { color: #1B3A5C; }
+  .text-navy-bold { color: #1B3A5C; font-weight: 700; }
+  .text-emphasis { color: #1B3A5C; font-weight: 700; background: linear-gradient(transparent 88%, #C9A84C 88%, #C9A84C 96%, transparent 96%); padding: 0 2px; }
+  .badge-gold { display: inline-block; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.9em; font-weight: 700; margin: 0 0.15rem; }
+
+  .conclusion-box { margin: 1.25rem 0 2rem; padding: 1.5rem 1.75rem; background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border: 2px solid #C9A84C; border-radius: 14px; box-shadow: 0 6px 20px rgba(201, 168, 76, 0.12); position: relative; }
+  .conclusion-box::before { content: "結論"; position: absolute; top: -14px; left: 1.25rem; background: #1B3A5C; color: #fff; padding: 0.2rem 0.9rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; }
+  .conclusion-list { list-style: none; padding: 0; margin: 1rem 0; }
+  .conclusion-list li { padding: 0.6rem 0; border-bottom: 1px dashed #e5d8b3; display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.8; }
+  .conclusion-list li:last-child { border-bottom: none; }
+  .check-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: #C9A84C; color: #fff; border-radius: 50%; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  .score-box { margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: linear-gradient(135deg, #F7F4EC 0%, #ffffff 100%); border: 2px solid #C9A84C; border-radius: 12px; }
+  .score-box-title { font-weight: 700; color: #1B3A5C; margin: 0 0 0.5rem; }
+  .score-box-total { margin: 0 0 0.75rem; }
+  .score-box-num { font-size: 2.2rem; font-weight: 800; color: #1B3A5C; }
+  .score-box-max { margin-left: 0.25rem; color: var(--color-text-muted); }
+  .score-box-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
+  .score-box-list li { display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px dashed #e5e7eb; }
+  .score-box-list strong { color: #C9A84C; }
+
+  .rd-cta { background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; text-align: center; padding: 1rem 1.5rem; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 6px 16px rgba(201,168,76,0.35); }
+  .rd-cta:hover { opacity: 0.9; }
+
+  .related-list { list-style: none; padding: 0; }
+  .related-list li { padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; }
+  .related-list a { color: #1B3A5C; text-decoration: none; font-weight: 600; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .fit-block { margin: 1.25rem 0; padding: 1.25rem 1.5rem; border-radius: 12px; }
+  .fit-good { background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border: 2px solid #C9A84C; box-shadow: 0 4px 14px rgba(201, 168, 76, 0.12); }
+  .fit-bad { background: #FBF6F3; border: 2px solid #E5C8B8; }
+  .fit-title { margin: 0 0 1rem; font-size: 1.1rem; font-weight: 700; color: #1B3A5C; display: flex; align-items: center; gap: 0.5rem; }
+  .fit-icon-good, .fit-icon-bad { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; color: #fff; font-weight: 700; }
+  .fit-icon-good { background: #C9A84C; }
+  .fit-icon-bad { background: #C46B4E; }
+  .fit-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.85rem; }
+  .fit-list li { padding: 0.85rem 1rem; background: #fff; border-radius: 8px; border-left: 4px solid #C9A84C; }
+  .fit-bad .fit-list li { border-left-color: #C46B4E; }
+  .fit-target { margin: 0 0 0.4rem; font-weight: 700; color: #1B3A5C; line-height: 1.5; }
+  .fit-reason { margin: 0; font-size: 0.92rem; line-height: 1.7; color: #333; display: flex; align-items: flex-start; gap: 0.5rem; }
+  .reason-label { display: inline-block; background: #C9A84C; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.55rem; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .reason-label.warn { background: #C46B4E; }
+
+  .tip-box { margin: 1.25rem 0; padding: 1.1rem 1.4rem; background: #FFFAEC; border: 1px dashed #C9A84C; border-radius: 10px; }
+  .tip-box-title { margin: 0 0 0.5rem; font-weight: 700; color: #1B3A5C; display: flex; align-items: center; gap: 0.35rem; }
+  .tip-box p:last-child { margin: 0; }
+  .tip-icon { font-size: 1.1rem; }
+
+  .info-card { margin: 1.25rem 0; padding: 1.1rem 1.4rem; background: #F7F4EC; border-left: 4px solid #1B3A5C; border-radius: 8px; }
+  .info-card-title { font-weight: 700; color: #1B3A5C; margin: 0 0 0.6rem; font-size: 1rem; }
+  .info-card-list { list-style: none; padding: 0; margin: 0; }
+  .info-card-list li { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.35rem 0; line-height: 1.7; }
+  .check-mini { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: #C9A84C; color: #fff; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0 2rem; }
+  .faq-item { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; transition: box-shadow 0.2s; }
+  .faq-item:has(.faq-question.open) { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .faq-question { width: 100%; display: flex; align-items: center; gap: 0.85rem; padding: 1.1rem 1.25rem; background: none; border: none; cursor: pointer; font-size: 0.95rem; font-weight: 600; text-align: left; color: #1B3A5C; transition: background 0.15s; }
+  .faq-question:hover { background: #F7F4EC; }
+  .faq-q-icon { font-size: 0.78rem; font-weight: 700; color: #fff; background: #1B3A5C; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .faq-toggle { margin-left: auto; width: 14px; height: 14px; flex-shrink: 0; position: relative; }
+  .faq-toggle::before, .faq-toggle::after { content: ""; position: absolute; background: #1B3A5C; transition: transform 0.25s; }
+  .faq-toggle::before { top: 50%; left: 0; width: 100%; height: 2px; transform: translateY(-50%); }
+  .faq-toggle::after { left: 50%; top: 0; width: 2px; height: 100%; transform: translateX(-50%); }
+  .faq-question.open .faq-toggle::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+  .faq-answer { display: flex; gap: 0.85rem; padding: 0 1.25rem 1.1rem 1.25rem; }
+  .faq-answer[hidden] { display: none; }
+  .faq-a-icon { font-size: 0.78rem; font-weight: 700; color: #fff; background: #C9A84C; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.2rem; }
+  .faq-answer p { font-size: 0.92rem; line-height: 1.8; margin: 0; color: #333; }
+
+  .article-body h3.review-h3 { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem 0.5rem 0.85rem; margin-top: 1.75rem; border-left: none; border-radius: 999px; font-size: 1rem; color: #fff; }
+  .article-body h3.review-h3::before { content: ""; display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+  .article-body h3.review-h3.good { background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3); }
+  .article-body h3.review-h3.good::before { content: "👍"; background: transparent; font-size: 1rem; }
+  .article-body h3.review-h3.bad { background: linear-gradient(135deg, #C46B4E 0%, #A85A40 100%); box-shadow: 0 4px 12px rgba(196, 107, 78, 0.3); }
+  .article-body h3.review-h3.bad::before { content: "💭"; background: transparent; font-size: 1rem; }
+
+  .review-carousel { position: relative; overflow: hidden; margin: 1rem 0; }
+  .review-carousel-track { display: flex; transition: transform 0.4s ease; }
+  .review-carousel-slide { flex-shrink: 0; padding: 0.5rem; box-sizing: border-box; }
+  .review-quote { margin: 0; padding: 1.25rem 1.5rem; background: #F7F4EC; border-left: 4px solid #C9A84C; border-radius: 8px; min-height: 160px; }
+  .review-quote.bad { background: #FBF6F1; border-left-color: #C46B4E; }
+  .review-quote p { margin: 0 0 0.75rem; line-height: 1.8; }
+  .review-quote cite { font-size: 0.85rem; color: var(--color-text-muted); font-style: normal; }
+  .review-carousel-controls { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 0.75rem; }
+  .review-carousel-prev, .review-carousel-next { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #1B3A5C; background: #fff; color: #1B3A5C; font-size: 1.5rem; line-height: 1; cursor: pointer; transition: background 0.2s; }
+  .review-carousel-prev:hover, .review-carousel-next:hover { background: #1B3A5C; color: #fff; }
+  .review-carousel-counter { font-weight: 700; color: #1B3A5C; min-width: 60px; text-align: center; }
+
+  .hero-placeholder { width: 100%; aspect-ratio: 16/9; max-height: 360px; border-radius: 12px; margin: 0 0 1.5rem; background: linear-gradient(135deg, #1B3A5C 0%, #2C5780 60%, #C9A84C 140%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(27, 58, 92, 0.18); }
+  .hero-placeholder-tag { display: inline-block; background: rgba(255,255,255,0.18); padding: 0.25rem 0.85rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+  .hero-placeholder-title { margin: 0 0 0.4rem; font-size: 1.6rem; font-weight: 800; letter-spacing: 0.02em; }
+  .hero-placeholder-sub { margin: 0; font-size: 0.95rem; opacity: 0.9; }
+  @media (max-width: 480px) { .hero-placeholder-title { font-size: 1.2rem; } .hero-placeholder-sub { font-size: 0.85rem; } }
+</style>

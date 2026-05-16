@@ -16,6 +16,29 @@ const scores = [
 ];
 const total = scores.reduce((a, b) => a + b.val, 0);
 
+const productName = '雲のやすらぎプレミアム モデル3R';
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": productName,
+  "image": new URL('/images/kumo-yasuragi-hero.png', Astro.site).toString(),
+  "description": '腰部260Nの超高反発と5層構造ゾーン設計、極厚23cm・100日返金保証付きの日本製マットレス。',
+  "brand": { "@type": "Brand", "name": "雲のやすらぎ" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "JPY",
+    "price": "79800",
+    "availability": "https://schema.org/InStock",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4B3N6X+EOOXYQ+2DDC+B8V6SI"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "bestRating": "5",
+    "reviewCount": "20"
+  }
+};
+
 const faqs = [
   { q: 'お届けの状態はどんな状態ですか？', a: 'モデル3Rは圧縮した状態でコンパクトにお届けします。' },
   { q: 'シーツ（カバー）は着脱できますか？', a: 'マットレスカバーは360度開閉式で取り外しが簡単。カバーのみ洗濯することが可能です。' },
@@ -26,6 +49,16 @@ const faqs = [
   { q: 'シングルとセミダブル、どちらを選ぶべき？', a: '一人用ならシングル（97×200cm）、寝返りを大きく取りたい方や体格が大きい方はセミダブル（120×200cm）が目安です。' },
   { q: '体重が軽くても硬すぎませんか？', a: '腰部260Nの超高反発は「硬め」の設計ですが、体への馴染み方には個人差があります。100日間の返金保証があるので、合わない場合は返品可能です。' },
 ];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 
 const goodReviews = [
   { text: '正直、半信半疑で買ったんですが…完全にナメてました。届いて2週間くらいで、毎朝感じてた腰の重だるさが消えてビックリ。もっと早く替えればよかったって今になって思います。', who: '40代男性／会社員' },
@@ -76,6 +109,7 @@ const badReviews = [
 <Layout
   title="雲のやすらぎプレミアム モデル3R 徹底レビュー｜腰部超高反発260Nの寝心地は？"
   description="ランキング1位の雲のやすらぎプレミアム モデル3Rを徹底レビュー。腰部超高反発260N・5層構造・100日返金保証の実力を、当サイト独自の5ポイントで採点しました。"
+  jsonLd={[productJsonLd, faqJsonLd]}
 >
   <Header />
   <main>

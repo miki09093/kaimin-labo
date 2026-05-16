@@ -4,19 +4,69 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 ---
-<Layout title="布団おすすめ比較・ランキング" description="布団のおすすめを徹底比較。羽毛・綿・合繊など素材別に選び方とランキングをご紹介します。">
+<Layout title="布団おすすめ比較・ランキング" description="羽毛・綿・合繊など素材別の布団比較ランキングを準備中です。マットレスとあわせて快眠環境を整えたい方は当サイトのマットレス徹底レビューもご覧ください。">
   <Header />
   <main>
     <div class="page-header">
       <div class="container">
         <Breadcrumb items={[{ label: '布団' }]} />
         <h1>布団 おすすめ比較・ランキング</h1>
-        <p>羽毛・綿・合繊など素材別に、布団を徹底比較しています。</p>
+        <p>羽毛・綿・合繊など素材別に、布団を当サイト独自の基準で徹底比較します。</p>
       </div>
     </div>
-    <div class="container" style="padding: 2rem 1rem 3rem;">
-      <p style="color: var(--color-text-muted);">記事を準備中です。しばらくお待ちください。</p>
+
+    <div class="container" style="padding: 3rem 1rem 4rem; max-width: 880px;">
+      <div class="coming-hero">
+        <div class="coming-icon">🛌</div>
+        <p class="coming-badge">COMING SOON</p>
+        <h2 class="coming-title">布団のレビュー記事を準備中です</h2>
+        <p class="coming-sub">羽毛・綿・合繊など素材別の布団を、実際に試して<br class="hide-sp">当サイト独自の30点満点スコアで採点中です。</p>
+      </div>
+
+      <div class="coming-preview">
+        <h3 class="coming-preview-title">公開予定のコンテンツ</h3>
+        <ul class="coming-list">
+          <li><span class="coming-num">①</span>羽毛布団・合繊布団の徹底ランキング</li>
+          <li><span class="coming-num">②</span>素材別の選び方ガイド（暖かさ・通気性・洗濯性）</li>
+          <li><span class="coming-num">③</span>季節別おすすめ布団（冬用・春秋用・夏用）</li>
+          <li><span class="coming-num">④</span>マットレスとの相性・組み合わせ提案</li>
+        </ul>
+      </div>
+
+      <div class="coming-cta-box">
+        <p class="coming-cta-title">先に「マットレス」のレビューはご覧いただけます</p>
+        <p class="coming-cta-sub">腰痛・コリ対策のマットレスから検討してみませんか？</p>
+        <div class="coming-cta-row">
+          <a href="/mattress/" class="coming-cta-btn primary">マットレス比較を見る →</a>
+          <a href="/column/" class="coming-cta-btn secondary">睡眠コラムを読む →</a>
+        </div>
+      </div>
     </div>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .coming-hero { text-align: center; padding: 2.5rem 1.5rem; background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border: 2px solid #C9A84C; border-radius: 16px; margin-bottom: 2rem; box-shadow: 0 8px 24px rgba(201, 168, 76, 0.12); }
+  .coming-icon { font-size: 4rem; line-height: 1; margin-bottom: 0.5rem; }
+  .coming-badge { display: inline-block; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; padding: 0.3rem 1rem; border-radius: 999px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.15em; margin: 0 0 1rem; box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3); }
+  .coming-title { margin: 0 0 0.75rem; color: #1B3A5C; font-size: 1.5rem; font-weight: 700; }
+  .coming-sub { margin: 0; color: #555; line-height: 1.8; font-size: 0.95rem; }
+  .hide-sp { display: inline; }
+  @media (max-width: 480px) { .hide-sp { display: none; } .coming-title { font-size: 1.25rem; } }
+
+  .coming-preview { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 2rem; }
+  .coming-preview-title { margin: 0 0 1rem; color: #1B3A5C; font-size: 1.1rem; font-weight: 700; padding-bottom: 0.5rem; border-bottom: 2px solid #1B3A5C; }
+  .coming-list { list-style: none; padding: 0; margin: 0; }
+  .coming-list li { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.5rem 0; line-height: 1.7; color: #333; }
+  .coming-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: #C9A84C; color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.82rem; flex-shrink: 0; }
+
+  .coming-cta-box { padding: 1.75rem 1.5rem; background: #F7F4EC; border-radius: 12px; text-align: center; }
+  .coming-cta-title { margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 700; color: #1B3A5C; }
+  .coming-cta-sub { margin: 0 0 1.25rem; color: #555; font-size: 0.92rem; }
+  .coming-cta-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  .coming-cta-btn { display: inline-block; padding: 0.85rem 1.5rem; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 0.92rem; transition: opacity 0.2s, transform 0.15s; }
+  .coming-cta-btn.primary { background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3); }
+  .coming-cta-btn.secondary { background: #fff; color: #1B3A5C; border: 2px solid #1B3A5C; }
+  .coming-cta-btn:hover { transform: translateY(-1px); }
+</style>

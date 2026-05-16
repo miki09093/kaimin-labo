@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- 背景グラデーション -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B3A5C;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#2C5780;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1B3A5C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C9A84C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B8973B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- 装飾的な円 -->
+  <circle cx="100" cy="100" r="80" fill="#C9A84C" opacity="0.08"/>
+  <circle cx="1100" cy="530" r="120" fill="#C9A84C" opacity="0.08"/>
+  <circle cx="1050" cy="80" r="40" fill="#C9A84C" opacity="0.12"/>
+
+  <!-- 月アイコン（円形背景） -->
+  <circle cx="600" cy="200" r="60" fill="url(#goldGrad)"/>
+  <text x="600" y="225" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="55" fill="#fff" text-anchor="middle">🌙</text>
+
+  <!-- メインタイトル -->
+  <text x="600" y="340" font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="78" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing="0.05em">快眠ラボ</text>
+
+  <!-- キャッチコピー -->
+  <text x="600" y="410" font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="600" fill="#fff" opacity="0.95" text-anchor="middle">マットレス徹底比較メディア</text>
+
+  <!-- サブテキスト -->
+  <text x="600" y="465" font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#C9A84C" text-anchor="middle">腰痛・コリ・寝返り問題を解決する1台が見つかる</text>
+
+  <!-- 下部ボタン風要素 -->
+  <rect x="450" y="510" width="300" height="60" rx="30" fill="url(#goldGrad)"/>
+  <text x="600" y="550" font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">kaimin-labo.com</text>
+</svg>

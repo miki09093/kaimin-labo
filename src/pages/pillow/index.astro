@@ -3,20 +3,617 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const products = [
+  {
+    rank: 1,
+    name: 'ブレインスリープ ピロー',
+    score: 26.0,
+    price: '11,000円〜33,000円',
+    priceS: '11,000円', priceM: '13,000円', priceL: '33,000円',
+    material: '3次元ファイバー',
+    firmness: 'やや硬め',
+    height: '高さ5段階＋形状カスタム',
+    care: 'シャワー水洗いOK',
+    warranty: '原則保証なし',
+    recommend: '通気性・衛生面・首こり対策を重視する人',
+    worry: '首こり・蒸れ・衛生',
+    summary: '「脳が眠る枕」をコンセプトに開発された科学設計枕。90%空気層の3次元ファイバー素材で通気性に優れ、シャワーで水洗い可能。5段階高さ調整＋形状カスタムで首にぴったりフィット。',
+    goodPoints: ['90%空気層で抜群の通気性', '5段階高さ調整＋形状カスタム可能', 'シャワー水洗いOKの衛生設計'],
+    badPoints: ['価格はやや高め（1万円超〜）', '原則として返金保証なし'],
+    tags: ['医師推奨', '通気性抜群', '高さ調整可'],
+    href: '/review/brain-sleep-pillow/',
+    affiliateHref: '#',
+  },
+  {
+    rank: 2,
+    name: '王様の夢枕',
+    score: 22.0,
+    price: '7,000円〜10,000円',
+    priceS: '7,000円〜', priceM: '8,000円〜', priceL: '10,000円〜',
+    material: '極小ビーズ',
+    firmness: 'やわらかめ',
+    height: '付属シートで簡易調整',
+    care: 'カバーのみ洗濯可',
+    warranty: '販売店により異なる',
+    recommend: '初めての高機能枕を試したい人',
+    worry: '初購入・コスパ重視',
+    summary: '累計販売100万個超のロングセラー枕。極小ビーズ素材で頭の形にフィットし、ふわっとした寝心地。「初めての高機能枕」としても入りやすい価格設定。',
+    goodPoints: ['累計100万個販売の信頼性', '7,000円〜の手の届く価格', '日本製の安心感'],
+    badPoints: ['本体は洗濯不可（カバーのみ）', '高さ調整は簡易的'],
+    tags: ['累計100万個突破', '日本製', 'コスパ◎'],
+    href: '/review/yume-makura/',
+    affiliateHref: '#',
+  },
+  {
+    rank: 3,
+    name: 'ヒツジのいらない枕',
+    score: 20.0,
+    price: '13,000円〜20,000円',
+    priceS: '13,000円〜', priceM: '15,000円〜', priceL: '20,000円〜',
+    material: '独自TPE素材',
+    firmness: 'やわらかめ',
+    height: '高さ違い種類あり',
+    care: '本体洗濯不可',
+    warranty: '返金保証あり',
+    recommend: 'SNSで話題の枕を試したい人',
+    worry: '話題性・3Dフィット',
+    summary: 'SNS・YouTubeで急成長した新進ブランド。「Air Fit構造」と呼ばれる独自TPE素材で、頭部のフィット感に特化した3D形状。返金保証付きで試しやすい。',
+    goodPoints: ['SNSで話題の独自TPE素材', '3D形状で頭にしっかりフィット', '返金保証付きで試しやすい'],
+    badPoints: ['素材の好みが分かれる', '通気性は高機能枕の中では平均的'],
+    tags: ['SNS人気', '独自3D形状', '返金保証あり'],
+    href: '/review/hitsuji-no-iranai-pillow/',
+    affiliateHref: 'https://hitsuji-zzz.com/products/ht-001',
+  },
+  {
+    rank: 4,
+    name: 'テンピュール オリジナルピロー',
+    score: 18.5,
+    price: '14,000円〜25,000円',
+    priceS: '14,000円〜', priceM: '18,000円〜', priceL: '25,000円〜',
+    material: '低反発ウレタン',
+    firmness: 'やわらかめ',
+    height: 'サイズ別固定',
+    care: '本体洗濯不可',
+    warranty: '3年品質保証',
+    recommend: '低反発派・海外ブランド志向',
+    worry: '世界的ブランドを使いたい',
+    summary: 'NASAが開発した素材を採用する世界的な低反発枕の定番。頭部の形にゆっくり沈み込む独特の寝心地。海外でも認知度が高い王道ブランド。',
+    goodPoints: ['世界的に認知された老舗ブランド', 'NASA素材の確かな品質', '3年品質保証付き'],
+    badPoints: ['低反発で蒸れやすい', '高さ調整不可', '価格が高め'],
+    tags: ['世界的ブランド', '低反発', 'NASA素材'],
+    href: '#',
+    affiliateHref: 'https://jp.tempur.com/',
+  },
+  {
+    rank: 5,
+    name: 'ニトリ Nホテルピロー',
+    score: 17.0,
+    price: '1,500円〜3,000円',
+    priceS: '1,500円〜', priceM: '2,500円〜', priceL: '3,000円〜',
+    material: 'ポリエステル綿',
+    firmness: 'やわらかめ',
+    height: '調整不可',
+    care: '本体洗濯不可',
+    warranty: 'なし',
+    recommend: 'お試し・予算重視・来客用',
+    worry: '予算重視・気軽に試したい',
+    summary: 'ホテルの枕のような柔らかい寝心地を再現した、ニトリの定番ベーシック枕。低価格で買い替えやすく、専門枕にこだわらない方の入門用として選ばれる1台。',
+    goodPoints: ['1,500円〜の圧倒的な低価格', 'ニトリの安心感・全国の店舗で実店試し可', '気軽に買い替えできる'],
+    badPoints: ['機能性は専門枕に劣る', '高さ調整不可', '本体は洗濯不可'],
+    tags: ['ホテル仕様', '低価格', 'お試し用'],
+    href: '#',
+    affiliateHref: 'https://www.nitori-net.jp/',
+  },
+];
+
+const typeRankings = {
+  soft: [
+    { rank: 1, name: '王様の夢枕', point: '極小ビーズで包み込まれる柔らか感', href: '/review/yume-makura/' },
+    { rank: 2, name: 'テンピュール オリジナル', point: '低反発でゆっくり沈み込む寝心地', href: '#' },
+    { rank: 3, name: 'ヒツジのいらない枕', point: '独自TPE素材で頭にフィット', href: '/review/hitsuji-no-iranai-pillow/' },
+  ],
+  firm: [
+    { rank: 1, name: 'ブレインスリープ ピロー', point: '3次元ファイバーで適度な硬さ＋反発', href: '/review/brain-sleep-pillow/' },
+    { rank: 2, name: '王様の夢枕', point: 'ビーズの量で硬さ調整可能', href: '/review/yume-makura/' },
+  ],
+  cool: [
+    { rank: 1, name: 'ブレインスリープ ピロー', point: '90%空気層で抜群の通気性', href: '/review/brain-sleep-pillow/' },
+    { rank: 2, name: '王様の夢枕', point: 'ビーズ素材で蒸れにくい', href: '/review/yume-makura/' },
+    { rank: 3, name: 'ニトリ Nホテルピロー', point: '化繊綿で通気性は標準的', href: '#' },
+  ],
+  cospa: [
+    { rank: 1, name: 'ニトリ Nホテルピロー', point: '1,500円〜の圧倒的コスパ', href: '#' },
+    { rank: 2, name: '王様の夢枕', point: '7,000円〜で本格機能枕', href: '/review/yume-makura/' },
+    { rank: 3, name: 'ヒツジのいらない枕', point: '返金保証付きでリスクゼロ', href: '/review/hitsuji-no-iranai-pillow/' },
+  ],
+};
+
+const faqs = [
+  { q: '枕の選び方で一番重要なポイントは何ですか？', a: '「高さ」と「素材」の2点です。高さは仰向け・横向き寝で首の自然なカーブを支えられる高さを選び、素材は通気性・お手入れ性・寝心地の好みで決めましょう。' },
+  { q: '高機能枕（1万円超）と普通の枕、何が違いますか？', a: '高機能枕は「素材」「高さ調整」「お手入れ性」「耐久性」が大きく異なります。1日30分以上頭を乗せる時間が長いほど投資効果が大きく、長期的にはコスパが良い場合も。' },
+  { q: '枕の寿命は何年くらいですか？', a: '一般的に2〜3年が目安です。ヘタリ・カビ・嫌な臭いが出てきたら買い替えのサイン。ブレインスリープのような高機能枕でも、寿命の目安は3年程度です。' },
+  { q: '横向き寝でも使える枕はどれですか？', a: '高さ調整＋頭にフィットする素材の枕がおすすめ。ブレインスリープ（5段階調整）、王様の夢枕（ビーズが流動的にフィット）が横向き寝でも使いやすい設計です。' },
+  { q: '本体を丸洗いできる枕はありますか？', a: 'ブレインスリープ ピローはシャワーで水洗いが可能です。他の枕は基本的にカバーのみ洗濯可能で、本体は陰干しでケアします。' },
+  { q: '低反発と高反発、どちらが首こりに効きますか？', a: '個人差がありますが、首こりには「適度な硬さがあり、頭の重さで沈み込みすぎない」設計がおすすめ。テンピュール（低反発）よりブレインスリープ（やや硬め）の方が首コリ対策には向くケースが多いです。' },
+];
 ---
-<Layout title="枕おすすめ比較・ランキング" description="枕のおすすめを徹底比較。首こり・肩こりに効くものからオーダーメイドまで、素材・高さ別に選び方とランキングをご紹介します。">
+<Layout
+  title="枕おすすめランキング2026｜首こり・肩こり対策で徹底比較"
+  description="首こり・肩こりに効く枕5商品を徹底比較。ブレインスリープ・王様の夢枕など人気枕を、フィット感・高さ調整・通気性・お手入れ・価格の6軸で30点満点採点しました。"
+>
   <Header />
   <main>
+
+    <!-- ===== パンくず ===== -->
     <div class="page-header">
       <div class="container">
         <Breadcrumb items={[{ label: '枕' }]} />
-        <h1>枕 おすすめ比較・ランキング</h1>
-        <p>首こり・肩こりに悩む方向けに、枕を7項目で徹底比較しています。</p>
       </div>
     </div>
-    <div class="container" style="padding: 2rem 1rem 3rem;">
-      <p style="color: var(--color-text-muted);">記事を準備中です。しばらくお待ちください。</p>
-    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-badge">PILLOW RANKING 2026</p>
+          <h1 class="hero-title">首こり・肩こりに効く<br><span class="hero-title-em">枕</span>を徹底比較</h1>
+          <p class="hero-sub">人気5商品を6つの基準で30点満点採点。<br class="hide-sp">あなたに合う1台が見つかります。</p>
+          <a href="#top3" class="hero-cta">ランキングを見る ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 悩み別ナビ ===== -->
+    <section class="worry-nav-section">
+      <div class="container">
+        <p class="worry-nav-heading">あなたの悩みはどれですか？</p>
+        <div class="worry-nav-grid">
+          <a href="#brain-sleep-review" class="worry-nav-card">
+            <div class="worry-nav-icon">💤</div>
+            <p class="worry-nav-title">朝の首こり・肩こり</p>
+            <p class="worry-nav-desc">科学設計＋通気性で首をサポート</p>
+            <span class="worry-nav-btn">この悩みを改善する →</span>
+          </a>
+          <a href="#yume-review" class="worry-nav-card">
+            <div class="worry-nav-icon">💰</div>
+            <p class="worry-nav-title">予算1万円以下で良い枕</p>
+            <p class="worry-nav-desc">累計100万個のロングセラー</p>
+            <span class="worry-nav-btn">この悩みを改善する →</span>
+          </a>
+          <a href="#brain-sleep-review" class="worry-nav-card">
+            <div class="worry-nav-icon">🌬️</div>
+            <p class="worry-nav-title">枕の蒸れ・暑さが気になる</p>
+            <p class="worry-nav-desc">90%空気層の通気性抜群素材</p>
+            <span class="worry-nav-btn">おすすめを見る →</span>
+          </a>
+          <a href="#compare" class="worry-nav-card worry-nav-card--neutral">
+            <div class="worry-nav-icon">📊</div>
+            <p class="worry-nav-title">スペックで比べたい</p>
+            <p class="worry-nav-desc">5商品を一覧で徹底比較</p>
+            <span class="worry-nav-btn">比較表を見る →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TOP3 ===== -->
+    <section class="section" id="top3">
+      <div class="container">
+        <h2 class="section-title">首こり・肩こり対策に効く 枕TOP3</h2>
+        <p style="margin-bottom: 1.5rem;">「朝起きると首がだるい」「枕が合っているか分からない」――そんな悩みに応える3台を、編集部が厳選しました。</p>
+        <div class="top3-list">
+          {products.slice(0, 3).map(p => (
+            <div class="top3-card">
+              <div class="top3-rank">
+                <span class={`rank-circle rank-circle-${p.rank}`}>{p.rank}</span>
+                <span class="rank-emoji">{p.rank === 1 ? '🥇' : p.rank === 2 ? '🥈' : '🥉'}</span>
+              </div>
+              <p class="top3-name">{p.name}</p>
+              <div class="top3-score-row">
+                <span class="top3-score">{p.score.toFixed(1)}</span>
+                <span class="top3-score-max">/ 30点</span>
+              </div>
+              <p class="top3-price">{p.price}</p>
+              <ul class="top3-tags">
+                {p.tags.map(tag => <li>#{tag}</li>)}
+              </ul>
+              <p class="top3-summary">{p.summary}</p>
+              <div class="top3-cta-row">
+                {p.href !== '#' && (
+                  <a href={p.href} class="top3-review-btn">レビュー記事 →</a>
+                )}
+                <a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="top3-cta-btn">
+                  公式サイトを見る →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== タブ別ランキング ===== -->
+    <section class="section section-bg">
+      <div class="container">
+        <h2 class="section-title">タイプ別おすすめ枕</h2>
+        <p style="margin-bottom: 1.5rem;">寝心地の好みや重視ポイントで、おすすめの枕は変わります。あなたに合うタイプから選んでみてください。</p>
+
+        <div class="tab-wrap">
+          <div class="tab-btns" role="tablist">
+            <button class="tab-btn active" data-tab="soft">やわらか系</button>
+            <button class="tab-btn" data-tab="firm">しっかり系</button>
+            <button class="tab-btn" data-tab="cool">通気性重視</button>
+            <button class="tab-btn" data-tab="cospa">コスパ重視</button>
+          </div>
+
+          {Object.entries(typeRankings).map(([key, list]) => (
+            <div class={`tab-content ${key === 'soft' ? 'active' : ''}`} data-content={key}>
+              <div class="type-ranking-list">
+                {list.map(item => (
+                  <a href={item.href} class="type-ranking-item">
+                    <span class={`type-ranking-rank rank-${item.rank}`}>{item.rank}</span>
+                    <div>
+                      <p class="type-ranking-name">{item.name}</p>
+                      <p class="type-ranking-point">{item.point}</p>
+                    </div>
+                    {item.href !== '#' && <span class="type-ranking-arrow">›</span>}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 比較表 ===== -->
+    <section class="section" id="compare">
+      <div class="container">
+        <h2 class="section-title">人気枕 5商品 徹底比較表</h2>
+        <p style="margin-bottom: 1.5rem;">価格・素材・高さ・お手入れ・保証など、購入判断に必要な情報を一覧化しました。</p>
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th class="row-label">項目</th>
+                {products.map(p => <th>{p.name}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label">総合スコア</td>
+                {products.map(p => <td><strong>{p.score.toFixed(1)}</strong>/30点</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">価格</td>
+                {products.map(p => <td>{p.price}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">素材</td>
+                {products.map(p => <td>{p.material}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">硬さ</td>
+                {products.map(p => <td>{p.firmness}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">高さ調整</td>
+                {products.map(p => <td>{p.height}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">お手入れ</td>
+                {products.map(p => <td>{p.care}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">保証</td>
+                {products.map(p => <td>{p.warranty}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">公式サイト</td>
+                {products.map(p => (
+                  <td><a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="compare-btn">公式へ →</a></td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 各商品 詳細レビュー ===== -->
+    <section class="section section-bg" id="reviews-detail">
+      <div class="container">
+        <h2 class="section-title">TOP3 各商品の詳細レビュー</h2>
+
+        {products.slice(0, 3).map(p => (
+          <div class="review-detail-card" id={p.rank === 1 ? 'brain-sleep-review' : p.rank === 2 ? 'yume-review' : 'hitsuji-review'}>
+            <div class="rd-header">
+              <span class={`rd-rank rd-rank-${p.rank}`}>第{p.rank}位</span>
+              <h3 class="rd-name">{p.name}</h3>
+              <div class="rd-score-block">
+                <span class="rd-score-num">{p.score.toFixed(1)}</span>
+                <span class="rd-score-max">/ 30点</span>
+              </div>
+            </div>
+
+            <p class="rd-summary">{p.summary}</p>
+
+            <div class="rd-tags">
+              {p.tags.map(tag => <span class="tag">{tag}</span>)}
+            </div>
+
+            <div class="rd-spec-grid">
+              <div class="rd-spec-row"><span class="rd-spec-label">価格</span><span class="rd-spec-val">{p.price}</span></div>
+              <div class="rd-spec-row"><span class="rd-spec-label">素材</span><span class="rd-spec-val">{p.material}</span></div>
+              <div class="rd-spec-row"><span class="rd-spec-label">高さ調整</span><span class="rd-spec-val">{p.height}</span></div>
+              <div class="rd-spec-row"><span class="rd-spec-label">お手入れ</span><span class="rd-spec-val">{p.care}</span></div>
+            </div>
+
+            <div class="rd-points">
+              <div class="rd-point-good">
+                <p class="rd-point-title">✓ 良い点</p>
+                <ul>
+                  {p.goodPoints.map(pt => <li>{pt}</li>)}
+                </ul>
+              </div>
+              <div class="rd-point-bad">
+                <p class="rd-point-title">✗ 気になる点</p>
+                <ul>
+                  {p.badPoints.map(pt => <li>{pt}</li>)}
+                </ul>
+              </div>
+            </div>
+
+            <div class="rd-cta-row">
+              {p.href !== '#' && (
+                <a href={p.href} class="rd-review-btn">徹底レビューを読む →</a>
+              )}
+              <a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="rd-cta">
+                {p.name}公式サイトを見る →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ===== 悩みから選ぶ ===== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">悩みから選ぶ</h2>
+        <p style="margin-bottom: 1.25rem;">あなたの状況に合う枕がすぐ見つかります。</p>
+        <div class="trouble-grid">
+          {[
+            { tag: '首こり', label: '朝起きると首が痛い・だるい', sub: '3次元ファイバー＋5段階高さ調整のブレインスリープ', href: '/review/brain-sleep-pillow/' },
+            { tag: '蒸れ', label: '枕が蒸れる・暑い', sub: '90%空気層のブレインスリープが圧倒的に通気性◎', href: '/review/brain-sleep-pillow/' },
+            { tag: '初心者', label: '初めての高機能枕を試したい', sub: '累計100万個・7,000円〜の王様の夢枕', href: '/review/yume-makura/' },
+            { tag: '横向き寝', label: '横向き寝で肩が痛い', sub: '高さ調整＋頭フィット感のブレインスリープ', href: '/review/brain-sleep-pillow/' },
+            { tag: '予算', label: 'なるべく安く試したい', sub: '1,500円〜のニトリ Nホテルピローから検討', href: '#compare' },
+            { tag: 'ギフト', label: 'プレゼント用に選びたい', sub: '知名度・信頼性◎の王様の夢枕がおすすめ', href: '/review/yume-makura/' },
+          ].map(item => (
+            <a href={item.href} class="trouble-card">
+              <span class="trouble-tag">{item.tag}</span>
+              <div>
+                <p class="trouble-label">{item.label}</p>
+                <p class="trouble-sub">{item.sub}</p>
+              </div>
+              <span class="trouble-arrow">›</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section section-bg">
+      <div class="container" style="max-width: 780px;">
+        <h2 class="section-title">よくある質問</h2>
+        <div class="faq-list">
+          {faqs.map((faq, i) => (
+            <div class="faq-item" id={`faq-${i}`}>
+              <button class="faq-question" aria-expanded="false" data-faq={i}>
+                <span class="faq-q-icon">Q</span>
+                <span>{faq.q}</span>
+                <span class="faq-toggle" aria-hidden="true"></span>
+              </button>
+              <div class="faq-answer" hidden>
+                <span class="faq-a-icon">A</span>
+                <p>{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </Layout>
+
+<script>
+  // タブ切り替え
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = (btn as HTMLElement).dataset.tab;
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`[data-content="${target}"]`)?.classList.add('active');
+    });
+  });
+
+  // FAQ
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling as HTMLElement;
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.classList.toggle('open', !expanded);
+      if (expanded) { answer.hidden = true; }
+      else { answer.hidden = false; }
+    });
+  });
+</script>
+
+<style>
+  /* ===== Hero ===== */
+  .hero-section { background: linear-gradient(135deg, #1B3A5C 0%, #2C5780 60%, #C9A84C 200%); color: #fff; padding: 3rem 1rem; }
+  .hero-content { max-width: 720px; margin: 0 auto; text-align: center; }
+  .hero-badge { display: inline-block; background: rgba(255,255,255,0.18); padding: 0.3rem 1rem; border-radius: 999px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.15em; margin: 0 0 1.25rem; }
+  .hero-title { margin: 0 0 1rem; font-size: 2.2rem; font-weight: 800; line-height: 1.4; letter-spacing: 0.02em; }
+  .hero-title-em { color: #FFD966; }
+  .hero-sub { margin: 0 0 1.75rem; font-size: 1rem; line-height: 1.8; opacity: 0.95; }
+  .hide-sp { display: inline; }
+  .hero-cta { display: inline-block; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; padding: 0.85rem 2rem; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,0.18); transition: transform 0.15s; }
+  .hero-cta:hover { transform: translateY(-2px); text-decoration: none; }
+  @media (max-width: 640px) {
+    .hero-title { font-size: 1.5rem; }
+    .hero-sub { font-size: 0.92rem; }
+    .hide-sp { display: none; }
+  }
+
+  /* ===== 悩み別ナビ ===== */
+  .worry-nav-section { background: #F7F4EC; padding: 2.5rem 1rem; }
+  .worry-nav-heading { text-align: center; font-size: 1.2rem; font-weight: 700; color: #1B3A5C; margin: 0 0 1.5rem; }
+  .worry-nav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1080px; margin: 0 auto; }
+  .worry-nav-card { display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem; background: #fff; border: 2px solid transparent; border-radius: 12px; text-align: center; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s; }
+  .worry-nav-card:hover { border-color: #C9A84C; transform: translateY(-3px); box-shadow: 0 6px 16px rgba(201,168,76,0.18); text-decoration: none; }
+  .worry-nav-icon { font-size: 2.4rem; margin-bottom: 0.5rem; line-height: 1; }
+  .worry-nav-title { margin: 0 0 0.4rem; font-weight: 700; font-size: 0.95rem; color: #1B3A5C; line-height: 1.4; }
+  .worry-nav-desc { margin: 0 0 0.85rem; font-size: 0.82rem; color: #555; line-height: 1.55; }
+  .worry-nav-btn { font-size: 0.78rem; color: #C9A84C; font-weight: 700; margin-top: auto; }
+  @media (max-width: 768px) {
+    .worry-nav-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ===== セクション共通 ===== */
+  .section { padding: 3rem 1rem; }
+  .section-bg { background: #F7F4EC; }
+  .section-title { font-size: 1.5rem; font-weight: 800; color: #1B3A5C; margin: 0 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 3px solid #1B3A5C; }
+  @media (max-width: 640px) { .section-title { font-size: 1.25rem; } .section { padding: 2rem 1rem; } }
+
+  /* ===== TOP3 ===== */
+  .top3-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .top3-card { background: #fff; border: 2px solid #e5e7eb; border-radius: 14px; padding: 1.5rem 1.25rem; position: relative; transition: border-color 0.2s, box-shadow 0.2s; }
+  .top3-card:hover { border-color: #C9A84C; box-shadow: 0 8px 20px rgba(201,168,76,0.15); }
+  .top3-rank { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .rank-circle { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: #fff; font-weight: 800; font-size: 1.2rem; }
+  .rank-circle-1 { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); box-shadow: 0 3px 8px rgba(255,165,0,0.35); }
+  .rank-circle-2 { background: linear-gradient(135deg, #C0C0C0 0%, #808080 100%); box-shadow: 0 3px 8px rgba(128,128,128,0.3); }
+  .rank-circle-3 { background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%); box-shadow: 0 3px 8px rgba(139,69,19,0.3); }
+  .rank-emoji { font-size: 1.4rem; }
+  .top3-name { margin: 0 0 0.5rem; font-weight: 700; color: #1B3A5C; font-size: 1.05rem; line-height: 1.4; }
+  .top3-score-row { display: flex; align-items: baseline; gap: 0.3rem; margin-bottom: 0.4rem; }
+  .top3-score { font-size: 1.8rem; font-weight: 800; color: #C9A84C; }
+  .top3-score-max { font-size: 0.85rem; color: var(--color-text-muted); }
+  .top3-price { font-weight: 700; color: #1B3A5C; margin: 0 0 0.75rem; font-size: 0.95rem; }
+  .top3-tags { list-style: none; padding: 0; margin: 0 0 0.85rem; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .top3-tags li { font-size: 0.72rem; color: #C9A84C; font-weight: 700; }
+  .top3-summary { font-size: 0.86rem; line-height: 1.7; color: #555; margin: 0 0 1rem; }
+  .top3-cta-row { display: flex; flex-direction: column; gap: 0.5rem; }
+  .top3-review-btn { display: block; padding: 0.6rem; background: #fff; color: #1B3A5C; border: 2px solid #1B3A5C; border-radius: 8px; font-size: 0.85rem; font-weight: 700; text-align: center; text-decoration: none; }
+  .top3-review-btn:hover { background: #1B3A5C; color: #fff; text-decoration: none; }
+  .top3-cta-btn { display: block; padding: 0.7rem; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; border-radius: 8px; font-size: 0.88rem; font-weight: 700; text-align: center; text-decoration: none; box-shadow: 0 3px 8px rgba(201,168,76,0.3); }
+  .top3-cta-btn:hover { opacity: 0.92; text-decoration: none; }
+  @media (max-width: 900px) { .top3-list { grid-template-columns: 1fr; } }
+
+  /* ===== タブ ===== */
+  .tab-wrap { background: #fff; border-radius: 12px; padding: 1.25rem; }
+  .tab-btns { display: flex; gap: 0.4rem; margin-bottom: 1.25rem; flex-wrap: wrap; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.4rem; }
+  .tab-btn { padding: 0.5rem 1rem; background: transparent; border: none; cursor: pointer; font-weight: 700; color: #888; font-size: 0.92rem; border-radius: 6px 6px 0 0; transition: color 0.15s, background 0.15s; }
+  .tab-btn:hover { background: #F7F4EC; color: #1B3A5C; }
+  .tab-btn.active { color: #1B3A5C; background: #F7F4EC; border-bottom: 3px solid #C9A84C; margin-bottom: -2px; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .type-ranking-list { display: grid; gap: 0.6rem; }
+  .type-ranking-item { display: flex; align-items: center; gap: 0.85rem; padding: 0.85rem 1rem; background: #F7F4EC; border-radius: 8px; text-decoration: none; color: inherit; transition: background 0.2s; }
+  .type-ranking-item:hover { background: #f0e9d4; text-decoration: none; }
+  .type-ranking-rank { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #C9A84C; color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .type-ranking-rank.rank-1 { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); }
+  .type-ranking-rank.rank-2 { background: linear-gradient(135deg, #C0C0C0 0%, #808080 100%); }
+  .type-ranking-rank.rank-3 { background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%); }
+  .type-ranking-name { margin: 0 0 0.2rem; font-weight: 700; color: #1B3A5C; font-size: 0.95rem; }
+  .type-ranking-point { margin: 0; font-size: 0.85rem; color: #555; }
+  .type-ranking-arrow { margin-left: auto; color: #C9A84C; font-size: 1.4rem; }
+
+  /* ===== 比較表 ===== */
+  .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare-table { min-width: 720px; width: 100%; border-collapse: collapse; }
+  .compare-table th, .compare-table td { border: 1px solid #e5e7eb; padding: 0.65rem 0.85rem; text-align: center; font-size: 0.88rem; }
+  .compare-table thead th { background: #1B3A5C; color: #fff; font-weight: 700; }
+  .compare-table .row-label { background: #F7F4EC; color: #1B3A5C; font-weight: 700; text-align: left; }
+  .compare-btn { display: inline-block; padding: 0.4rem 0.8rem; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; border-radius: 6px; font-size: 0.78rem; font-weight: 700; text-decoration: none; }
+  .compare-btn:hover { opacity: 0.9; text-decoration: none; }
+
+  /* ===== 詳細レビューカード ===== */
+  .review-detail-card { background: #fff; border: 2px solid #e5e7eb; border-radius: 14px; padding: 1.75rem; margin-bottom: 1.5rem; }
+  .rd-header { display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 0.85rem; padding-bottom: 0.85rem; border-bottom: 2px solid #f0e9d4; }
+  .rd-rank { display: inline-block; padding: 0.3rem 0.85rem; border-radius: 999px; color: #fff; font-weight: 800; font-size: 0.82rem; letter-spacing: 0.05em; }
+  .rd-rank-1 { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); }
+  .rd-rank-2 { background: linear-gradient(135deg, #C0C0C0 0%, #808080 100%); }
+  .rd-rank-3 { background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%); }
+  .rd-name { margin: 0; font-size: 1.2rem; color: #1B3A5C; }
+  .rd-score-block { margin-left: auto; display: flex; align-items: baseline; gap: 0.25rem; }
+  .rd-score-num { font-size: 1.8rem; font-weight: 800; color: #C9A84C; line-height: 1; }
+  .rd-score-max { font-size: 0.85rem; color: var(--color-text-muted); }
+  .rd-summary { margin: 0 0 1rem; line-height: 1.85; color: #333; font-size: 0.95rem; }
+  .rd-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+  .rd-tags .tag { background: #F7F4EC; color: #1B3A5C; padding: 0.2rem 0.65rem; border-radius: 999px; font-size: 0.78rem; font-weight: 700; }
+  .rd-spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1.25rem; margin-bottom: 1.25rem; }
+  .rd-spec-row { display: flex; padding: 0.4rem 0; border-bottom: 1px dashed #e5e7eb; font-size: 0.88rem; }
+  .rd-spec-label { color: var(--color-text-muted); width: 95px; flex-shrink: 0; }
+  .rd-spec-val { color: #333; font-weight: 600; }
+  .rd-points { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .rd-point-good, .rd-point-bad { padding: 1rem 1.1rem; border-radius: 8px; }
+  .rd-point-good { background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border-left: 4px solid #C9A84C; }
+  .rd-point-bad { background: #FBF6F3; border-left: 4px solid #C46B4E; }
+  .rd-point-title { margin: 0 0 0.5rem; font-weight: 700; color: #1B3A5C; font-size: 0.92rem; }
+  .rd-point-good ul, .rd-point-bad ul { margin: 0; padding-left: 1.1rem; font-size: 0.86rem; line-height: 1.7; color: #333; }
+  .rd-cta-row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+  .rd-review-btn { padding: 0.7rem 1.25rem; background: #fff; color: #1B3A5C; border: 2px solid #1B3A5C; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+  .rd-review-btn:hover { background: #1B3A5C; color: #fff; text-decoration: none; }
+  .rd-cta { flex: 1; min-width: 220px; padding: 0.85rem 1.25rem; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; border-radius: 8px; font-weight: 700; text-align: center; text-decoration: none; box-shadow: 0 4px 12px rgba(201,168,76,0.3); }
+  .rd-cta:hover { opacity: 0.92; text-decoration: none; }
+  @media (max-width: 640px) {
+    .review-detail-card { padding: 1.25rem; }
+    .rd-header { gap: 0.5rem; }
+    .rd-name { font-size: 1.05rem; flex-basis: 100%; }
+    .rd-score-block { margin-left: 0; }
+    .rd-score-num { font-size: 1.5rem; }
+    .rd-spec-grid { grid-template-columns: 1fr; }
+    .rd-points { grid-template-columns: 1fr; }
+  }
+
+  /* ===== 悩みから選ぶグリッド ===== */
+  .trouble-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+  .trouble-card { display: flex; align-items: center; gap: 0.85rem; padding: 1rem 1.25rem; background: #fff; border: 2px solid #e5e7eb; border-radius: 10px; text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s; }
+  .trouble-card:hover { border-color: #C9A84C; box-shadow: 0 4px 12px rgba(201,168,76,0.12); text-decoration: none; }
+  .trouble-tag { background: #1B3A5C; color: #fff; padding: 0.25rem 0.7rem; border-radius: 6px; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; }
+  .trouble-label { margin: 0 0 0.25rem; font-weight: 700; color: #1B3A5C; font-size: 0.95rem; }
+  .trouble-sub { margin: 0; font-size: 0.82rem; color: #555; line-height: 1.5; }
+  .trouble-arrow { margin-left: auto; color: #C9A84C; font-size: 1.4rem; flex-shrink: 0; }
+  @media (max-width: 640px) { .trouble-grid { grid-template-columns: 1fr; } }
+
+  /* ===== FAQ ===== */
+  .faq-list { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0 2rem; }
+  .faq-item { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; transition: box-shadow 0.2s; }
+  .faq-item:has(.faq-question.open) { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .faq-question { width: 100%; display: flex; align-items: center; gap: 0.85rem; padding: 1.1rem 1.25rem; background: none; border: none; cursor: pointer; font-size: 0.95rem; font-weight: 600; text-align: left; color: #1B3A5C; transition: background 0.15s; }
+  .faq-question:hover { background: #F7F4EC; }
+  .faq-q-icon { font-size: 0.78rem; font-weight: 700; color: #fff; background: #1B3A5C; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .faq-toggle { margin-left: auto; width: 14px; height: 14px; flex-shrink: 0; position: relative; }
+  .faq-toggle::before, .faq-toggle::after { content: ""; position: absolute; background: #1B3A5C; transition: transform 0.25s; }
+  .faq-toggle::before { top: 50%; left: 0; width: 100%; height: 2px; transform: translateY(-50%); }
+  .faq-toggle::after { left: 50%; top: 0; width: 2px; height: 100%; transform: translateX(-50%); }
+  .faq-question.open .faq-toggle::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+  .faq-answer { display: flex; gap: 0.85rem; padding: 0 1.25rem 1.1rem 1.25rem; }
+  .faq-answer[hidden] { display: none; }
+  .faq-a-icon { font-size: 0.78rem; font-weight: 700; color: #fff; background: #C9A84C; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.2rem; }
+  .faq-answer p { font-size: 0.92rem; line-height: 1.8; margin: 0; color: #333; }
+
+  /* タグ汎用 */
+  .tag { display: inline-block; padding: 0.2rem 0.55rem; background: #F7F4EC; color: #1B3A5C; border-radius: 4px; font-size: 0.78rem; font-weight: 700; }
+</style>

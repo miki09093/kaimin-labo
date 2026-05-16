@@ -6,45 +6,82 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const products = [
   {
-    rank: 1, name: 'NELLマットレス', score: 32.5, maxScore: 35,
-    price: '39,800円〜', material: '高反発ウレタン', firmness: 'やわらかめ',
-    priceRange: 'middle', tags: ['高反発', '腰痛対応', '120日お試し'],
-    summary: '高反発ウレタン素材で体圧分散に優れ、腰痛持ちにも人気。120日間の無料お試し期間あり。',
-    affiliateHref: '#', href: '/mattress/nell/'
+    rank: 1,
+    name: '雲のやすらぎプレミアム モデル3R',
+    score: 25.5, maxScore: 30,
+    price: '79,800円〜',
+    material: '高反発ウレタン', firmness: 'かため',
+    priceRange: 'high',
+    tags: ['腰痛特化', '腰部260N', '100日返金保証'],
+    summary: '腰部に超高反発ウレタン（260N）を使用した5層構造の日本製マットレス。極厚23cmで底つき感がなく、朝の腰の痛み・重だるさが気になる方に特におすすめ。',
+    href: '/review/kumo-yasuragi/',
+    affiliateHref: 'https://px.a8.net/svt/ejp?a8mat=4B3N6X+EOOXYQ+2DDC+B8V6SI',
   },
   {
-    rank: 2, name: 'コアラマットレス', score: 31.0, maxScore: 35,
-    price: '59,800円〜', material: '高反発ウレタン', firmness: 'ふつう',
-    priceRange: 'high', tags: ['高反発', '120日お試し', 'ゾーニング'],
-    summary: 'オーストラリア発のブランド。独自のゾーニング技術で部位ごとに適切なサポートを実現。',
-    affiliateHref: '#', href: '/mattress/koala/'
+    rank: 2,
+    name: 'REVERIA（リヴェリア）',
+    score: 24.0, maxScore: 30,
+    price: '59,800円',
+    material: '高反発ウレタン', firmness: 'かため',
+    priceRange: 'middle',
+    tags: ['医療機器認証', 'リカバリー', 'トッパー対応'],
+    summary: '日本初・唯一の医療機器認証マットレス。ネオジム磁石48個を内蔵し、腰回りの血行ケアをサポート。今の寝具に重ねて使えるトッパー10cmタイプ。',
+    href: '/review/reveria/',
+    affiliateHref: 'https://px.a8.net/svt/ejp?a8mat=4B3N6X+EIQLWY+4TX4+ZQ80I',
   },
   {
-    rank: 3, name: 'エマ・スリープ', score: 30.5, maxScore: 35,
-    price: '49,800円〜', material: '高反発ウレタン', firmness: 'ふつう',
-    priceRange: 'high', tags: ['高反発', '100日お試し', '欧州No.1'],
-    summary: 'ヨーロッパで人気のマットレス。3層構造で寝心地と体圧分散のバランスが良い。',
-    affiliateHref: '#', href: '/mattress/emma/'
+    rank: 3,
+    name: 'NELLマットレス',
+    score: 23.0, maxScore: 30,
+    price: '79,900円〜',
+    material: 'ポケットコイル', firmness: 'かため',
+    priceRange: 'high',
+    tags: ['1,173個コイル', 'センターハード', '120日返金＋10年保証'],
+    summary: '業界最高水準のポケットコイル1,173個＋センターハード構造で寝返りを快適にサポート。120日トライアル＋10年品質保証で「失敗しないマットレス選び」を実現。',
+    href: '/review/nell/',
+    affiliateHref: 'https://px.a8.net/svt/ejp?a8mat=4B3N6X+EPVT6A+4KD8+5ZMCI',
   },
   {
-    rank: 4, name: 'モットン', score: 29.5, maxScore: 35,
-    price: '29,800円〜', material: '高反発ウレタン', firmness: 'かため',
-    priceRange: 'low', tags: ['高反発', '90日お試し', '日本製'],
-    summary: '日本人の体型に合わせて設計された高反発マットレス。硬さが3種類から選べる。',
-    affiliateHref: '#', href: '/mattress/mouton/'
+    rank: 4,
+    name: 'LIMNE（リムネ）',
+    score: 20.0, maxScore: 30,
+    price: '79,900円〜',
+    material: '低反発ウレタン', firmness: 'やわらかめ',
+    priceRange: 'high',
+    tags: ['肩こり対応', '120日返金', '独自設計'],
+    summary: '高反発・低反発の中間設計で、肩への圧迫感ゼロを実現する独自ウレタンマットレス。横向き寝が多い方や肩こりに悩む方に好相性。',
+    href: '#',
+    affiliateHref: 'https://limne.jp/products/limne-the-mattress',
   },
   {
-    rank: 5, name: 'エアウィーヴ', score: 28.5, maxScore: 35,
-    price: '68,000円〜', material: 'エアファイバー', firmness: 'かため',
-    priceRange: 'high', tags: ['エアファイバー', '洗える', '通気性'],
-    summary: '独自素材「エアファイバー」で高い通気性を実現。洗えるマットレスとして人気。',
-    affiliateHref: '#', href: '/mattress/airweave/'
+    rank: 5,
+    name: 'エマ・スリープ ハイブリッドV3',
+    score: 21.5, maxScore: 30,
+    price: '49,630円〜',
+    material: 'ハイブリッド', firmness: 'やわらかめ',
+    priceRange: 'middle',
+    tags: ['7ゾーン設計', '2人利用OK', '100日返金＋10年保証'],
+    summary: 'ドイツ発のスリープテックブランド。7ゾーンポケットコイル＋3層ウレタンで体圧を均等に分散。振動が伝わりにくく、夫婦・カップル使用にも向いています。',
+    href: '/review/emma/',
+    affiliateHref: 'https://www.emma-sleep-japan.com/products/mattress-luxury?view_product=mattress-luxury-v2',
+  },
+  {
+    rank: 6,
+    name: 'GOKUMIN プレミアムスプリング',
+    score: 17.5, maxScore: 30,
+    price: '21,698円〜',
+    material: 'ハイブリッド', firmness: 'かため',
+    priceRange: 'low',
+    tags: ['1万円台〜', '6サイズ展開', '8年保証'],
+    summary: '1万円台〜で買える高反発スプリング＋ウレタンのハイブリッドマットレス。8年保証付きで「マットレスデビュー」や来客用としてコスパ最強。',
+    href: '/review/gokumin/',
+    affiliateHref: 'https://px.a8.net/svt/ejp?a8mat=4B3N6X+EJXH4I+539S+5YZ77',
   },
 ];
 ---
 <Layout
-  title="マットレスおすすめ比較・ランキング"
-  description="マットレスのおすすめを徹底比較。腰痛・肩こりに効くものからコスパ重視まで、素材・硬さ・価格帯別に選び方とランキングをご紹介します。"
+  title="マットレスおすすめランキング｜腰痛・リカバリー対応で徹底比較"
+  description="腰痛・コリ・寝返り問題などに対応した人気マットレスを徹底比較。当サイト独自の30点満点スコアで、雲のやすらぎ・REVERIA・NELLなど6商品をランキング形式で紹介します。"
 >
   <Header />
   <main>
@@ -52,7 +89,7 @@ const products = [
       <div class="container">
         <Breadcrumb items={[{ label: 'マットレス' }]} />
         <h1>マットレス おすすめ比較・ランキング</h1>
-        <p>全商品を実際に試して7項目で採点。あなたの悩みに合ったマットレスが見つかります。</p>
+        <p>腰痛・コリ・寝返り問題などに対応する人気マットレスを、当サイト独自の30点満点スコアで徹底比較。あなたの悩みに合う1台が見つかります。</p>
       </div>
     </div>
 
@@ -67,8 +104,8 @@ const products = [
               <select id="filterPrice">
                 <option value="">すべて</option>
                 <option value="low">〜3万円</option>
-                <option value="middle">3〜5万円</option>
-                <option value="high">5万円〜</option>
+                <option value="middle">3〜6万円</option>
+                <option value="high">6万円〜</option>
               </select>
             </div>
             <div class="filter-group">
@@ -77,8 +114,8 @@ const products = [
                 <option value="">すべて</option>
                 <option value="高反発ウレタン">高反発ウレタン</option>
                 <option value="低反発ウレタン">低反発ウレタン</option>
-                <option value="エアファイバー">エアファイバー</option>
                 <option value="ポケットコイル">ポケットコイル</option>
+                <option value="ハイブリッド">ハイブリッド（コイル＋ウレタン）</option>
               </select>
             </div>
             <div class="filter-group">
@@ -111,18 +148,27 @@ const products = [
                     {p.rank === 1 ? '🥇 第1位' : p.rank === 2 ? '🥈 第2位' : p.rank === 3 ? '🥉 第3位' : `第${p.rank}位`}
                   </span>
                 </div>
-                <a href={p.href} class="product-card-name">{p.name}</a>
+                {p.href !== '#' ? (
+                  <a href={p.href} class="product-card-name">{p.name}</a>
+                ) : (
+                  <span class="product-card-name">{p.name}</span>
+                )}
                 <div class="product-card-score">総合スコア {p.score} / {p.maxScore}点</div>
                 <div class="product-card-tags">
                   {p.tags.map(tag => <span class="tag">{tag}</span>)}
                 </div>
                 <p style="font-size:1rem; color: var(--color-primary); font-weight:700; margin-bottom:0.5rem;">{p.price}</p>
                 <p style="font-size:0.88rem; color: var(--color-text-muted); margin-bottom: 1rem;">{p.summary}</p>
-                <div class="cta-btn-wrap" style="margin-top: 0.5rem;">
-                  <span class="pr-badge">PR</span>
-                  <a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="cta-btn" style="font-size:0.9rem; padding: 0.7rem 1.25rem;">
-                    公式サイトで確認する →
-                  </a>
+                <div class="cta-row">
+                  {p.href !== '#' && (
+                    <a href={p.href} class="review-btn">レビュー記事を読む →</a>
+                  )}
+                  <div class="cta-btn-wrap">
+                    <span class="pr-badge">PR</span>
+                    <a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="cta-btn" style="font-size:0.9rem; padding: 0.7rem 1.25rem;">
+                      公式サイトで確認する →
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -131,7 +177,7 @@ const products = [
           <p class="no-results hidden" id="noResults">条件に一致する商品が見つかりませんでした。</p>
 
           <!-- 比較表 -->
-          <h2 style="margin-top: 3rem;">マットレス比較表</h2>
+          <h2 style="margin-top: 3rem;">マットレス比較表（TOP5）</h2>
           <div class="compare-wrap">
             <table class="compare-table">
               <thead>
@@ -143,7 +189,7 @@ const products = [
               <tbody>
                 <tr>
                   <td class="row-label">総合スコア</td>
-                  {products.slice(0, 5).map(p => <td><strong>{p.score}</strong>/35点</td>)}
+                  {products.slice(0, 5).map(p => <td><strong>{p.score}</strong>/30点</td>)}
                 </tr>
                 <tr>
                   <td class="row-label">価格</td>
@@ -175,12 +221,20 @@ const products = [
             </ul>
           </div>
           <div class="sidebar-box">
+            <h3>レビュー記事</h3>
+            <ul class="sidebar-list">
+              <li><a href="/review/kumo-yasuragi/">雲のやすらぎプレミアム モデル3R</a></li>
+              <li><a href="/review/reveria/">REVERIA（リヴェリア）</a></li>
+              <li><a href="/review/nell/">NELLマットレス</a></li>
+              <li><a href="/review/gokumin/">GOKUMIN プレミアムスプリング</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
             <h3>悩みから探す</h3>
             <ul class="sidebar-list">
-              <li><a href="/column/low-back-pain/">腰痛対策</a></li>
-              <li><a href="/column/shoulder/">肩こり対策</a></li>
-              <li><a href="/column/insomnia/">不眠改善</a></li>
-              <li><a href="/column/trial/">お試しできる寝具</a></li>
+              <li><a href="/column/back-pain-tips/">腰痛持ちが選ぶポイント</a></li>
+              <li><a href="/column/topper-vs-main/">トッパー vs メイン</a></li>
+              <li><a href="/column/mattress-lifespan/">マットレスの寿命</a></li>
             </ul>
           </div>
         </aside>
@@ -235,4 +289,7 @@ const products = [
   .no-results { text-align: center; padding: 2rem; color: var(--color-text-muted); }
   .product-card-rank-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
   .rank-badge-other { background: #F3F4F6; color: #374151; }
+  .cta-row { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+  .review-btn { display: inline-block; padding: 0.6rem 1rem; background: #fff; color: #1B3A5C; border: 2px solid #1B3A5C; border-radius: 8px; font-size: 0.88rem; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+  .review-btn:hover { background: #1B3A5C; color: #fff; }
 </style>

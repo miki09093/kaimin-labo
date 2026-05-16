@@ -62,6 +62,27 @@ const badReviews = [
   { text: '価格を比較したら、楽天セールやAmazonタイムセールでもっと安くなることもあるので、購入タイミングは見極めて。', who: '20代女性／パート' },
 ];
 
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "GOKUMIN プレミアムスプリングマットレス",
+  "description": "1万円台で買える高反発スプリング＋ウレタンのハイブリッド構造。極厚20cm・8年保証・6サイズ展開のコスパ重視マットレス。",
+  "brand": { "@type": "Brand", "name": "GOKUMIN" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "JPY",
+    "price": "21698",
+    "availability": "https://schema.org/InStock",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4B3N6X+EJXH4I+539S+5YZ77"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "3.8",
+    "bestRating": "5",
+    "reviewCount": "20"
+  }
+};
+
 const faqs = [
   { q: '何年くらい使えますか？耐久性は？', a: '8年間の品質保証があり、通常使用であれば長期的にお使いいただけます。ただし、3cm以上のヘタリなどの明確な品質不良の場合に保証対象となります。' },
   { q: 'お試し期間（返金保証）はありますか？', a: '返金保証制度はありません。8年間の品質保証のみとなります。購入前に他社の口コミ・レビューを十分にチェックされることをおすすめします。' },
@@ -72,10 +93,21 @@ const faqs = [
   { q: '支払い方法は何がありますか？', a: 'クレジットカード／コンビニ決済／PayPay等スマホ決済／ペイディ（後払い）に対応しています。' },
   { q: '他社マットレスとどう違う？', a: 'NELLや雲のやすらぎなど5〜8万円台のマットレスと比べると寝心地は一段落ちますが、1万円台で買えるコスパが最大の魅力。「まずはマットレスを試してみたい」「来客用・客間用」など割り切った用途に向いています。' },
 ];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 <Layout
   title="GOKUMINマットレス徹底レビュー｜1万円台で買える高反発の実力は？"
   description="ランキング6位のGOKUMINプレミアムスプリングマットレスを徹底レビュー。1万円台の圧倒的コスパ・8年保証・極厚20cmの実力を、当サイト独自の評価で検証しました。"
+  jsonLd={[productJsonLd, faqJsonLd]}
 >
   <Header />
   <main>
@@ -89,7 +121,11 @@ const faqs = [
 
     <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
 
-      <img src="/images/gokumin-hero.png" alt="GOKUMINプレミアムスプリングマットレス" class="article-hero-img" loading="eager" />
+      <div class="hero-placeholder">
+        <span class="hero-placeholder-tag">レビュー</span>
+        <p class="hero-placeholder-title">GOKUMIN プレミアムスプリング</p>
+        <p class="hero-placeholder-sub">極厚20cm × 8年保証付き × 1万円台〜</p>
+      </div>
 
       <p><span class="marker-yellow">「マットレスにそんなにお金かけられない」「とりあえず試したい」</span>――そんな方の入門マットレスとして人気なのが <strong class="text-navy">GOKUMINプレミアムスプリングマットレス</strong>。<span class="text-navy-bold">1万円台〜で買える</span> 高反発スプリングとして、累計2,000万枚販売の実績を誇ります。</p>
       <p>この記事では、当サイトランキング <span class="badge-gold">6位（30点満点中17.5点）</span> のGOKUMINが「価格相応か、それ以上か」を、ポイント別評価・口コミ・FAQまで掘り下げて検証します。</p>
@@ -477,5 +513,10 @@ const faqs = [
   .review-carousel-counter { font-weight: 700; color: #1B3A5C; min-width: 60px; text-align: center; }
 
   .article-hero-img { width: 100%; height: auto; border-radius: 12px; margin: 0 0 1.5rem; box-shadow: 0 8px 24px rgba(27, 58, 92, 0.12); }
+  .hero-placeholder { width: 100%; aspect-ratio: 16/9; max-height: 360px; border-radius: 12px; margin: 0 0 1.5rem; background: linear-gradient(135deg, #1B3A5C 0%, #2C5780 60%, #C9A84C 140%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(27, 58, 92, 0.18); }
+  .hero-placeholder-tag { display: inline-block; background: rgba(255,255,255,0.18); padding: 0.25rem 0.85rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+  .hero-placeholder-title { margin: 0 0 0.4rem; font-size: 1.6rem; font-weight: 800; letter-spacing: 0.02em; }
+  .hero-placeholder-sub { margin: 0; font-size: 0.95rem; opacity: 0.9; }
+  @media (max-width: 480px) { .hero-placeholder-title { font-size: 1.2rem; } .hero-placeholder-sub { font-size: 0.85rem; } }
   .article-inline-img { display: block; width: 100%; max-width: 720px; height: auto; margin: 1.25rem auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(27, 58, 92, 0.08); }
 </style>

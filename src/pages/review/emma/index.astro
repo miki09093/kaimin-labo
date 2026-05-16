@@ -1,0 +1,523 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+
+const affiliateHref = 'https://www.emma-sleep-japan.com/products/mattress-luxury?view_product=mattress-luxury-v2';
+
+const scores = [
+  { label: '①硬さ・反発力', val: 3.5 },
+  { label: '②ゾーン設計', val: 5.0 },
+  { label: '③リカバリー機能', val: 1.5 },
+  { label: '④使いやすさ', val: 3.5 },
+  { label: '⑤保証・認証', val: 4.5 },
+  { label: '⑥価格（コスパ）', val: 3.5 },
+];
+const total = scores.reduce((a, b) => a + b.val, 0);
+
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "エマ・スリープ ハイブリッドV3（プレミアム）",
+  "description": "ドイツ発のスリープテックブランドが開発した7ゾーン設計のハイブリッドマットレス。ポケットコイル＋ウレタン4層で体圧分散と振動吸収を両立。",
+  "brand": { "@type": "Brand", "name": "Emma Sleep" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "JPY",
+    "price": "49630",
+    "availability": "https://schema.org/InStock",
+    "url": affiliateHref
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.3",
+    "bestRating": "5",
+    "reviewCount": "20"
+  }
+};
+
+const goodReviews = [
+  { text: '夫婦でダブルサイズを購入。隣で寝返りしても揺れがほぼ伝わってこないので、お互いに眠りを邪魔されず快適です。', who: '30代女性／会社員' },
+  { text: '7ゾーン設計が想像以上に効果的でした。肩はふんわり、腰はしっかり支えてくれて、朝のだるさが消えました。', who: '40代男性／管理職' },
+  { text: 'ドイツ発のブランドというだけで安心感がありました。実際に寝てみると、寝心地のレベルが他社と違うのが分かります。', who: '50代女性／自営業' },
+  { text: '100日のお試し期間があったので、迷わず購入。1ヶ月で「これは合う」と確信して返品手続きはしませんでした。', who: '30代男性／SE' },
+  { text: '厚さ27cmで底つき感ゼロ。極厚マットレスを探していた私にぴったりでした。重厚感のある寝心地で満足です。', who: '40代男性／会社員' },
+  { text: '夏場でもグラファイト粒子のおかげか、想像より蒸れにくいです。ドイツの技術を日本の気候に合わせて調整しているのを実感。', who: '30代女性／看護師' },
+  { text: 'ペイディの分割払いが使えたので、給料前でも購入できました。決済方法が豊富なのは助かります。', who: '20代女性／会社員' },
+  { text: '低アレルギー認証（OEKO-TEX）取得済みなのも安心。子供と一緒に寝るときも安心して使えます。', who: '30代女性／主婦' },
+  { text: '腰のヘルニア持ちの私が、整形外科の先生に相談して購入。ゾーン設計で腰への負担が減った気がします。', who: '50代男性／会社員' },
+  { text: '送料無料・配送スピードもよかった。注文から1週間以内に届いたので、引っ越し直後でもすぐ使えました。', who: '20代男性／一人暮らし' },
+  { text: '10年保証は他社と同等ですが、ブランドとしての歴史と実績があるので安心感が違います。', who: '40代男性／自営業' },
+  { text: 'プロテクター無料付属でした。カバーが汚れる心配が減って、買ってよかった特典のひとつ。', who: '30代女性／パート' },
+  { text: 'クーリングカバーは取り外して洗濯機で洗えるので清潔。汗っかきの夫にもおすすめできます。', who: '40代女性／会社員' },
+  { text: 'ヨーロッパで人気というのを聞いて購入。実際の寝心地は期待通りで、もう以前のマットレスには戻れません。', who: '50代女性／パート' },
+  { text: '体重70kg台の私にちょうどよい硬さでした。柔らかすぎず、硬すぎずのバランスが絶妙。', who: '30代男性／会社員' },
+  { text: 'Apple Payで支払えたのが便利でした。スマホ決済対応の通販は地味にありがたいです。', who: '20代女性／会社員' },
+  { text: '梱包がコンパクトで搬入もスムーズ。マンションの狭い玄関でも問題なく運べました。', who: '30代男性／配送業' },
+  { text: '寝返りの振動吸収はガチで効きます。子供と一緒に寝てても、子供の動きで起きることがほぼなくなりました。', who: '30代女性／主婦' },
+  { text: '夫が寝相が悪くて、毎晩布団を取られていた問題が、エマに変えてから減りました。クイーンサイズで快適。', who: '40代女性／自営業' },
+  { text: '海外赴任から帰国して、日本のマットレスは硬すぎると感じていましたが、エマはちょうどいい。海外仕様に近い寝心地。', who: '40代男性／商社' },
+];
+
+const badReviews = [
+  { text: '価格はやはり安くないです。セール時は4万円台でしたが、通常価格だと8万円超で、ちょっと躊躇する金額。', who: '30代女性／会社員' },
+  { text: '製造国が中国というのが少し気になりました。ドイツ発ブランドだから本国製と思ってましたが…品質は問題なし。', who: '40代男性／管理職' },
+  { text: '27cm厚はやはり重い。シングルでも21kg、ダブルだと31kg超。一人での移動は厳しいです。', who: '50代女性／主婦' },
+  { text: '100日トライアルは「15日以降から受付」が条件。すぐ返品したいと思っても最低2週間は試さないといけません。', who: '30代男性／会社員' },
+  { text: '柔らかめの寝心地なので、硬めのマットレスが好みの腰痛持ちには合わないかも。私は最終的に返品しました。', who: '40代男性／自営業' },
+  { text: '配送に3〜7日かかりました。すぐ使いたい人にはちょっと待ち時間がある印象。', who: '20代女性／一人暮らし' },
+  { text: '夏場、蒸れにくいとは言うものの、長時間横になっていると背中側がやや暑く感じることがあります。', who: '30代男性／SE' },
+  { text: 'ベッドフレームに乗せると、27cmで全体の高さが結構出ます。ベッドが思ったより高くなり、立ち上がりにくい。', who: '60代女性／パート' },
+  { text: '低反発要素もあるので、寝返りしにくいと感じる時もあります。アクティブに動きたいタイプには合わないかも。', who: '30代女性／看護師' },
+  { text: '梱包から開封して数日は、ウレタン特有の匂いがありました。換気必須です。', who: '20代男性／学生' },
+  { text: '返品手続きはオンラインで完結しますが、集荷の日程調整に少し時間がかかりました。', who: '40代女性／パート' },
+  { text: 'シングルサイズだと、夫婦で寝るには手狭。最初からクイーン以上を選んだほうが満足度高いです。', who: '40代女性／自営業' },
+  { text: '低アレルギー対応はありがたいけど、過度に期待は禁物。アレルギー症状がある人は別途確認推奨。', who: '30代女性／看護師' },
+  { text: '価格に対して、リカバリー機能（磁気など）はないので、慢性的なコリには別の解決策が必要。', who: '50代男性／会社員' },
+  { text: 'カバーは洗濯機OKですが、サイズが大きいので家庭用の洗濯機にギリギリ。乾燥にも時間がかかります。', who: '30代女性／会社員' },
+  { text: 'ベッドフレームなしでフローリング直敷きは推奨されていません。すのこかフレームが必要なので追加コスト。', who: '20代男性／一人暮らし' },
+  { text: 'グラファイトの体温調節は効果あるけど、過度な期待は禁物。エアコン併用前提と考えたほうがいいです。', who: '30代男性／会社員' },
+  { text: 'マットレス本体の保証はしっかりしてますが、カバーは保証範囲外。長く使うなら買い替えコストも要検討。', who: '40代男性／自営業' },
+  { text: 'お試しできるとはいえ、返品時の梱包は手間。元の箱を取っておくか、新たに用意する必要があります。', who: '30代女性／会社員' },
+  { text: '同価格帯のNELLや雲のやすらぎと比較すると、好みは分かれるかも。実際に試してから決めるのが安心。', who: '40代男性／会社員' },
+];
+
+const faqs = [
+  { q: '100日トライアルはどんな仕組みですか？', a: '商品到着後、最低15日間試用したうえで「合わなかった」と感じた場合、100日以内であれば全額返金・返品が可能です。返品時は集荷手配があり、過去にエマ製品の返品をした方は対象外となります。' },
+  { q: '10年保証の内容は？', a: 'マットレスの製造上の不具合・通常使用での明確な品質不良に対して、10年間の品質保証が付帯します。詳細条件は公式サイトをご確認ください。' },
+  { q: '7ゾーン設計とは何ですか？', a: '頭・首・肩・腰・太もも・ふくらはぎ・足の7部位ごとに、ポケットコイルとウレタンの反発力を最適化する設計です。「AeroFlex®テクノロジー」と呼ばれる独自設計で、自然な寝姿勢をサポートします。' },
+  { q: '夫婦やカップルで使えますか？', a: 'はい、振動吸収設計が採用されているため、隣の人の寝返りで起きにくい仕様。サイズはダブル・クイーン・キングがおすすめです。' },
+  { q: 'サイズ展開はどんな種類がありますか？', a: 'シングル・セミダブル・ダブル・クイーン・キングの5サイズ展開です（全サイズ厚さ27cm）。' },
+  { q: 'ベッドフレームなしで床に直接敷いても大丈夫？', a: '床直置きは推奨されていません。通気性確保のため、ベッドフレームまたはすのこの上でご使用ください。' },
+  { q: '配送はどれくらいで届きますか？', a: '送料無料（沖縄除く）で、注文から3〜7日以内に配送されます。' },
+  { q: '支払い方法は何がありますか？', a: 'クレジットカード（VISA/Mastercard/JCB）／Apple Pay／Google Pay／Paidy（分割払い・手数料無料）に対応しています。' },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+---
+<Layout
+  title="エマ・スリープ ハイブリッドV3 徹底レビュー｜7ゾーン設計＋振動吸収マットレスの実力は？"
+  description="ランキング5位のエマ・スリープ ハイブリッドV3を徹底レビュー。ドイツ発の7ゾーンポケットコイル＋ウレタン4層・100日返金保証＋10年保証の実力を、当サイト独自の評価で検証しました。"
+  jsonLd={[productJsonLd, faqJsonLd]}
+>
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: 'レビュー', href: '/review/' }, { label: 'エマ・スリープ ハイブリッドV3' }]} />
+        <h1>エマ・スリープ ハイブリッドV3 徹底レビュー｜7ゾーン設計＋振動吸収マットレスの実力は？</h1>
+        <p style="margin-top: 0.5rem; color: var(--color-text-muted);">公開日：2026.05.16 ／ カテゴリ：レビュー</p>
+      </div>
+    </div>
+
+    <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+
+      <div class="hero-placeholder">
+        <span class="hero-placeholder-tag">レビュー</span>
+        <p class="hero-placeholder-title">エマ・スリープ ハイブリッドV3</p>
+        <p class="hero-placeholder-sub">7ゾーン設計 × 振動吸収 × ドイツ発スリープテック</p>
+      </div>
+
+      <p><span class="marker-yellow">「夫婦で寝ても揺れない」「7ゾーンで体全体をしっかり支えてほしい」</span>――そんなカップル・夫婦使用に強いマットレスとして人気のドイツ発ブランドが <strong class="text-navy">エマ・スリープ ハイブリッドV3</strong> です。当サイトランキングでも <span class="badge-gold">5位（30点満点中21.5点）</span> にランクイン。</p>
+      <p>この記事では、エマ最大の特徴である「7ゾーン設計」と「100日トライアル＋10年保証」の実際を、ポイント別評価・口コミ・FAQまで掘り下げて検証します。</p>
+
+      <h2>結論：夫婦・カップルで「揺れない眠り」を求めるならコレ</h2>
+      <div class="conclusion-box">
+        <p><span class="marker-yellow"><strong>「パートナーの寝返りで目が覚める」「同じベッドで快適に眠りたい」</strong></span>という方の<span class="text-emphasis">「2人使い最適化マットレス」</span>として本気でおすすめできます。理由は次の3点。</p>
+        <ul class="conclusion-list">
+          <li><span class="check-icon">✓</span><span class="text-navy-bold">7ゾーン設計（AeroFlex®）</span>で部位別に最適サポート</li>
+          <li><span class="check-icon">✓</span><span class="text-navy-bold">振動吸収設計</span>で隣の寝返りが伝わりにくい</li>
+          <li><span class="check-icon">✓</span><span class="text-navy-bold">100日返金保証＋10年品質保証</span>で長期的に安心</li>
+        </ul>
+        <p>「カップル・夫婦使い」「ヨーロッパ仕様の寝心地が好み」という方に、<span class="text-emphasis">最初の本格マットレス</span>として向いています。</p>
+      </div>
+
+      <div class="score-box">
+        <p class="score-box-title">当サイト独自スコア</p>
+        <p class="score-box-total"><span class="score-box-num">{total.toFixed(1)}</span><span class="score-box-max">/ 30点</span></p>
+        <ul class="score-box-list">
+          {scores.map(s => (
+            <li><span>{s.label}</span><strong>{s.val.toFixed(1)}</strong></li>
+          ))}
+        </ul>
+      </div>
+
+      <h2>商品ダイジェスト</h2>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>価格（税込）</th><td>49,630円〜（セール時）／通常 85,700円〜</td></tr>
+          <tr><th>サイズ展開</th><td>シングル／セミダブル／ダブル／クイーン／キング</td></tr>
+          <tr><th>厚さ</th><td>27cm（極厚ハイブリッド構造）</td></tr>
+          <tr><th>硬さ</th><td>やや柔らかめ・高反発</td></tr>
+          <tr><th>保証・お試し</th><td>100日返金保証＋10年品質保証</td></tr>
+        </tbody>
+      </table>
+
+      <h2>ポイント別に実際どうなの？を本音で評価</h2>
+
+      <h3>① 7ゾーン設計：AeroFlex®で部位ごとに最適サポート</h3>
+      <p>エマ最大の特徴が<span class="text-navy-bold">「AeroFlex®」と呼ばれる7ゾーン設計</span>。頭・首・肩・腰・太もも・ふくらはぎ・足の7部位ごとに、コイルとウレタンの反発力を最適化しています。</p>
+      <p><span class="marker-yellow">肩や腰など部位別に必要な硬さが異なる</span>のが人間の体。エマはそれを設計レベルから実現しており、仰向け寝・横向き寝のどちらでも自然な寝姿勢をキープできます。</p>
+      <div class="info-card">
+        <p class="info-card-title">7ゾーンの体感ポイント</p>
+        <ul class="info-card-list">
+          <li><span class="check-mini">◎</span>肩は適度に沈み、横向き寝でも圧迫感なし</li>
+          <li><span class="check-mini">◎</span>腰はしっかり支え、沈み込みを防ぐ</li>
+          <li><span class="check-mini">◎</span>脚部は適度に反発し、血行を妨げない</li>
+        </ul>
+      </div>
+
+      <h3>② 振動吸収設計：パートナーの動きが伝わりにくい</h3>
+      <p>独立したポケットコイル＋ウレタンの組み合わせで、<span class="marker-yellow">隣で寝ている人の寝返りや動きが伝わりにくい設計</span>。エマの公式PVでもよく「グラスを置いて飛び跳ねても倒れない」というデモが行われるほどです。</p>
+      <p>夫婦・カップル・親子で同じベッドを使う方に特に好相性。「自分の眠りはパートナーに乱されたくない」という方の決定打になる機能です。</p>
+
+      <h3>③ 5層ハイブリッド構造：27cm極厚で底つき感ゼロ</h3>
+      <p>マットレス内部は <span class="text-navy-bold">「ウレタン4層＋ポケットコイル」のハイブリッド構造</span>。一般的なポケットコイル単体よりも体圧分散性能が高く、ウレタン単体よりも反発力があります。</p>
+
+      <p class="layer-intro"><strong>5層の構造内訳：</strong></p>
+      <div class="layer-list">
+        <div class="layer-item"><span class="layer-num">1</span><span class="layer-name">Thermosync層（3cm／60N）</span><span class="layer-role">ナノカーボン配合・冷却機能</span></div>
+        <div class="layer-item"><span class="layer-num">2</span><span class="layer-name">Visco Memory層（1.5cm／60N）</span><span class="layer-role">体圧分散</span></div>
+        <div class="layer-item"><span class="layer-num">3</span><span class="layer-name">Comfort層（1.5cm／120N）</span><span class="layer-role">サポート</span></div>
+        <div class="layer-item"><span class="layer-num">4</span><span class="layer-name">フェルト層（0.5cm）</span><span class="layer-role">緩衝</span></div>
+        <div class="layer-item highlight"><span class="layer-num">5</span><span class="layer-name">ポケットコイル層（19.5cm）</span><span class="layer-role"><span class="text-emphasis">1㎡あたり257個の高密度配置</span></span></div>
+      </div>
+
+      <div class="tip-box">
+        <p class="tip-box-title"><span class="tip-icon">🌡️</span>グラファイト粒子で温度調整</p>
+        <p>クーリングカバーには<span class="text-navy-bold">グラファイト粒子</span>を配合。<span class="marker-yellow">温度と湿度を自動的に調整</span>し、日本の高温多湿環境でも蒸れにくい設計になっています。</p>
+      </div>
+
+      <h3>④ 100日返金保証＋10年品質保証：購入リスクをほぼゼロに</h3>
+      <p>エマは <span class="text-navy-bold">100日間の返金トライアル</span> と <span class="text-navy-bold">10年品質保証</span> を提供。実際に毎日寝てみて「やっぱり合わない」と思ったら、<span class="marker-yellow">送料無料で返品可能</span>です。</p>
+      <p>OEKO-TEX STANDARD100認証（低アレルギー）も取得しており、肌が敏感な方・小さなお子様がいる家庭でも安心して使えます。ただし「最低15日試用後」が返金条件、過去にエマ製品の返品歴がある方は対象外なので注意。</p>
+
+      <h2>あなたに向いてる？タイプ別チェック</h2>
+
+      <div class="fit-block fit-good">
+        <p class="fit-title"><span class="fit-icon-good">✓</span>エマ・スリープが<span class="text-navy-bold">向いてる人</span></p>
+        <ul class="fit-list">
+          <li>
+            <p class="fit-target">夫婦・カップルで同じベッドで寝ている</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">振動吸収設計</span>で相手の寝返りが伝わりにくい</p>
+          </li>
+          <li>
+            <p class="fit-target">7ゾーンで部位別にサポートされたい</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">AeroFlex®</span>テクノロジーが頭〜足まで7箇所を最適化</p>
+          </li>
+          <li>
+            <p class="fit-target">100日間じっくり試してから判断したい</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">100日返金保証＋10年品質保証</span>でリスクほぼゼロ</p>
+          </li>
+          <li>
+            <p class="fit-target">夏場の蒸れに悩んでいる</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">グラファイト粒子</span>で温度・湿度を自動調整</p>
+          </li>
+          <li>
+            <p class="fit-target">低アレルギー対応の寝具を探している</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">OEKO-TEX STANDARD100</span>認証で肌に優しい</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="fit-block fit-bad">
+        <p class="fit-title"><span class="fit-icon-bad">✗</span>エマ・スリープが<span class="text-navy-bold">向かない人</span></p>
+        <ul class="fit-list">
+          <li>
+            <p class="fit-target">硬めの高反発マットレスが好み</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>「やや柔らかめ」設計のため、硬さ重視の方には不向き</p>
+          </li>
+          <li>
+            <p class="fit-target">一人でこまめにマットレスを動かしたい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>シングルでも約21kgと重く、運用がやや大変</p>
+          </li>
+          <li>
+            <p class="fit-target">床に直接敷いて使いたい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>ベッドフレーム・すのこ必須（直置きは非推奨）</p>
+          </li>
+          <li>
+            <p class="fit-target">慢性的な腰のコリ・血行不良をケアしたい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>磁気などのアクティブなリカバリー機能はない</p>
+          </li>
+        </ul>
+      </div>
+
+      <h2>実際に使った人の口コミ・評判</h2>
+      <p>主要ECサイトのレビューから、良い口コミ・気になる口コミを20件ずつご紹介します。購入判断の参考にしてください。</p>
+
+      <h3 class="review-h3 good">良い口コミ（全20件）</h3>
+      <div class="review-carousel" data-review-carousel>
+        <div class="review-carousel-track">
+          {goodReviews.map((r) => (
+            <div class="review-carousel-slide">
+              <blockquote class="review-quote good">
+                <p>「{r.text}」</p>
+                <cite>― {r.who}</cite>
+              </blockquote>
+            </div>
+          ))}
+        </div>
+        <div class="review-carousel-controls">
+          <button class="review-carousel-prev" aria-label="前の口コミ">‹</button>
+          <span class="review-carousel-counter">1 / {goodReviews.length}</span>
+          <button class="review-carousel-next" aria-label="次の口コミ">›</button>
+        </div>
+      </div>
+
+      <h3 class="review-h3 bad">気になる口コミ（全20件）</h3>
+      <div class="review-carousel" data-review-carousel>
+        <div class="review-carousel-track">
+          {badReviews.map((r) => (
+            <div class="review-carousel-slide">
+              <blockquote class="review-quote bad">
+                <p>「{r.text}」</p>
+                <cite>― {r.who}</cite>
+              </blockquote>
+            </div>
+          ))}
+        </div>
+        <div class="review-carousel-controls">
+          <button class="review-carousel-prev" aria-label="前の口コミ">‹</button>
+          <span class="review-carousel-counter">1 / {badReviews.length}</span>
+          <button class="review-carousel-next" aria-label="次の口コミ">›</button>
+        </div>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.5rem;">※口コミは個人の感想であり、効果・寝心地を保証するものではありません。</p>
+
+      <h2>詳細スペック</h2>
+      <table>
+        <thead>
+          <tr><th>項目</th><th>内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>商品名</th><td>エマ・スリープ ハイブリッドV3（プレミアム）</td></tr>
+          <tr><th>販売元</th><td>Emma Sleep Japan（ドイツ発スリープテックブランド）</td></tr>
+          <tr><th>サイズ詳細</th><td>シングル：97×195×27cm（21.4kg）／セミダブル：120×195×27cm（27.6kg）／ダブル：140×195×27cm（31.7kg）／クイーン：160×195×27cm（35.2kg）／キング：180×195×27cm（38.7kg）</td></tr>
+          <tr><th>素材・構造</th><td>5層ハイブリッド（Thermosync／Visco Memory／Comfort／フェルト／ポケットコイル）</td></tr>
+          <tr><th>コイル密度</th><td>1㎡あたり257個の高密度ポケットコイル</td></tr>
+          <tr><th>硬さ</th><td>やや柔らかめ（沈み込みすぎず適度なサポート）</td></tr>
+          <tr><th>独自技術</th><td>AeroFlex®（7ゾーン設計）／Airgocell®（高通気フォーム）／グラファイト粒子（温度調整）</td></tr>
+          <tr><th>カバー</th><td>クーリングカバー（取り外し・洗濯可能・伸縮性生地）</td></tr>
+          <tr><th>認証</th><td>OEKO-TEX STANDARD100（低アレルギー）</td></tr>
+          <tr><th>使い方タイプ</th><td>メイン単体（ベッドフレーム・すのこ推奨／床直置きは非推奨）</td></tr>
+          <tr><th>保証・お試し</th><td>100日返金保証（最低15日試用後）／10年品質保証</td></tr>
+          <tr><th>付属品</th><td>プロテクター無料付属</td></tr>
+          <tr><th>製造国</th><td>中国（ISO認証工場）</td></tr>
+          <tr><th>配送</th><td>送料無料（沖縄除く）・3〜7日以内</td></tr>
+          <tr><th>支払い方法</th><td>クレジットカード（VISA/Mastercard/JCB）／Apple Pay／Google Pay／Paidy（分割払い）</td></tr>
+        </tbody>
+      </table>
+
+      <h2>よくある質問</h2>
+      <div class="faq-list">
+        {faqs.map((faq, i) => (
+          <div class="faq-item" id={`faq-${i}`}>
+            <button class="faq-question" aria-expanded="false" data-faq={i}>
+              <span class="faq-q-icon">Q</span>
+              <span>{faq.q}</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" hidden>
+              <span class="faq-a-icon">A</span>
+              <p>{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <a href={affiliateHref} class="rd-cta" target="_blank" rel="noopener noreferrer nofollow" style="display: block; max-width: 480px; margin: 2rem auto;">
+        エマ・スリープ公式サイトで詳細を見る →
+      </a>
+
+      <h2>関連記事</h2>
+      <ul class="related-list">
+        <li><a href="/review/kumo-yasuragi/">雲のやすらぎプレミアム モデル3Rを徹底レビュー｜腰部超高反発260Nの寝心地は？</a></li>
+        <li><a href="/review/reveria/">REVERIAは本当に体のコリに効く？医療機器認証マットレスを検証</a></li>
+        <li><a href="/review/nell/">NELLマットレスを正直レビュー｜1,173個ポケットコイルと120日返金保証を試した</a></li>
+      </ul>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll('[data-review-carousel]').forEach(carousel => {
+    const carouselEl = carousel as HTMLElement;
+    const track = carousel.querySelector('.review-carousel-track') as HTMLElement;
+    const slides = Array.from(carousel.querySelectorAll('.review-carousel-slide')) as HTMLElement[];
+    const counter = carousel.querySelector('.review-carousel-counter') as HTMLElement;
+    const prevBtn = carousel.querySelector('.review-carousel-prev') as HTMLButtonElement;
+    const nextBtn = carousel.querySelector('.review-carousel-next') as HTMLButtonElement;
+    let current = 0;
+    const total = slides.length;
+
+    function initSlides() {
+      const w = carouselEl.offsetWidth;
+      slides.forEach(s => { s.style.width = w + 'px'; });
+    }
+    initSlides();
+    window.addEventListener('resize', () => { initSlides(); goTo(current); });
+
+    function goTo(n: number) {
+      current = (n + total) % total;
+      const w = carouselEl.offsetWidth;
+      track.style.transform = `translateX(-${current * w}px)`;
+      if (counter) counter.textContent = `${current + 1} / ${total}`;
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', (e: TouchEvent) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  });
+
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling as HTMLElement;
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.classList.toggle('open', !expanded);
+      if (expanded) { answer.hidden = true; }
+      else { answer.hidden = false; }
+    });
+  });
+</script>
+
+<style>
+  .article-body h2 { margin-top: 2.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #1B3A5C; font-size: 1.4rem; }
+  .article-body h3 { margin-top: 1.75rem; padding-left: 0.75rem; border-left: 4px solid #C9A84C; font-size: 1.15rem; }
+  .article-body p { line-height: 1.9; margin: 0.75rem 0; }
+  .article-body ul, .article-body ol { line-height: 1.9; padding-left: 1.25rem; }
+  .article-body table { width: 100%; margin: 1rem 0; border-collapse: collapse; }
+  .article-body table th, .article-body table td { border: 1px solid #e5e7eb; padding: 0.5rem 0.75rem; text-align: left; }
+  .article-body table tbody th { background: #F7F4EC; color: #1B3A5C; font-weight: 700; width: 30%; text-align: left; vertical-align: middle; }
+  .article-body table thead th { background: #1B3A5C; color: #fff; text-align: center; font-weight: 700; }
+
+  .marker-yellow { background: linear-gradient(transparent 60%, #FFF066 60%); padding: 0 2px; }
+  .text-navy { color: #1B3A5C; }
+  .text-navy-bold { color: #1B3A5C; font-weight: 700; }
+  .text-emphasis { color: #1B3A5C; font-weight: 700; background: linear-gradient(transparent 88%, #C9A84C 88%, #C9A84C 96%, transparent 96%); padding: 0 2px; }
+  .badge-gold { display: inline-block; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.9em; font-weight: 700; margin: 0 0.15rem; }
+
+  .conclusion-box { margin: 1.25rem 0 2rem; padding: 1.5rem 1.75rem; background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border: 2px solid #C9A84C; border-radius: 14px; box-shadow: 0 6px 20px rgba(201, 168, 76, 0.12); position: relative; }
+  .conclusion-box::before { content: "結論"; position: absolute; top: -14px; left: 1.25rem; background: #1B3A5C; color: #fff; padding: 0.2rem 0.9rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; }
+  .conclusion-list { list-style: none; padding: 0; margin: 1rem 0; }
+  .conclusion-list li { padding: 0.6rem 0; border-bottom: 1px dashed #e5d8b3; display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.8; }
+  .conclusion-list li:last-child { border-bottom: none; }
+  .check-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: #C9A84C; color: #fff; border-radius: 50%; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  .score-box { margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: linear-gradient(135deg, #F7F4EC 0%, #ffffff 100%); border: 2px solid #C9A84C; border-radius: 12px; }
+  .score-box-title { font-weight: 700; color: #1B3A5C; margin: 0 0 0.5rem; }
+  .score-box-total { margin: 0 0 0.75rem; }
+  .score-box-num { font-size: 2.2rem; font-weight: 800; color: #1B3A5C; }
+  .score-box-max { margin-left: 0.25rem; color: var(--color-text-muted); }
+  .score-box-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
+  .score-box-list li { display: flex; justify-content: space-between; padding: 0.25rem 0; border-bottom: 1px dashed #e5e7eb; }
+  .score-box-list strong { color: #C9A84C; }
+
+  .rd-cta { background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; text-align: center; padding: 1rem 1.5rem; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 6px 16px rgba(201,168,76,0.35); }
+  .rd-cta:hover { opacity: 0.9; }
+
+  .related-list { list-style: none; padding: 0; }
+  .related-list li { padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; }
+  .related-list a { color: #1B3A5C; text-decoration: none; font-weight: 600; }
+  .related-list a:hover { text-decoration: underline; }
+
+  .fit-block { margin: 1.25rem 0; padding: 1.25rem 1.5rem; border-radius: 12px; }
+  .fit-good { background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border: 2px solid #C9A84C; box-shadow: 0 4px 14px rgba(201, 168, 76, 0.12); }
+  .fit-bad { background: #FBF6F3; border: 2px solid #E5C8B8; }
+  .fit-title { margin: 0 0 1rem; font-size: 1.1rem; font-weight: 700; color: #1B3A5C; display: flex; align-items: center; gap: 0.5rem; }
+  .fit-icon-good, .fit-icon-bad { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; color: #fff; font-weight: 700; }
+  .fit-icon-good { background: #C9A84C; }
+  .fit-icon-bad { background: #C46B4E; }
+  .fit-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.85rem; }
+  .fit-list li { padding: 0.85rem 1rem; background: #fff; border-radius: 8px; border-left: 4px solid #C9A84C; }
+  .fit-bad .fit-list li { border-left-color: #C46B4E; }
+  .fit-target { margin: 0 0 0.4rem; font-weight: 700; color: #1B3A5C; line-height: 1.5; }
+  .fit-reason { margin: 0; font-size: 0.92rem; line-height: 1.7; color: #333; display: flex; align-items: flex-start; gap: 0.5rem; }
+  .reason-label { display: inline-block; background: #C9A84C; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.55rem; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .reason-label.warn { background: #C46B4E; }
+
+  .layer-intro { margin-top: 1.25rem; }
+  .layer-list { margin: 0.75rem 0 1.25rem; display: grid; gap: 0.4rem; }
+  .layer-item { display: flex; align-items: center; gap: 0.7rem; padding: 0.5rem 0.85rem; background: #F7F4EC; border-left: 4px solid #C9A84C; border-radius: 6px; }
+  .layer-item.highlight { background: linear-gradient(135deg, #FFFBF0 0%, #FFF8E0 100%); border-left-color: #1B3A5C; border: 2px solid #C9A84C; }
+  .layer-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: #1B3A5C; color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .layer-item.highlight .layer-num { background: #C9A84C; }
+  .layer-name { font-weight: 700; color: #1B3A5C; font-size: 0.95rem; }
+  .layer-role { font-size: 0.82rem; color: var(--color-text-muted); margin-left: auto; text-align: right; }
+  @media (max-width: 480px) { .layer-role { font-size: 0.78rem; } .layer-name { font-size: 0.9rem; } }
+
+  .tip-box { margin: 1.25rem 0; padding: 1.1rem 1.4rem; background: #FFFAEC; border: 1px dashed #C9A84C; border-radius: 10px; }
+  .tip-box-title { margin: 0 0 0.5rem; font-weight: 700; color: #1B3A5C; display: flex; align-items: center; gap: 0.35rem; }
+  .tip-box p:last-child { margin: 0; }
+  .tip-icon { font-size: 1.1rem; }
+
+  .info-card { margin: 1.25rem 0; padding: 1.1rem 1.4rem; background: #F7F4EC; border-left: 4px solid #1B3A5C; border-radius: 8px; }
+  .info-card-title { font-weight: 700; color: #1B3A5C; margin: 0 0 0.6rem; font-size: 1rem; }
+  .info-card-list { list-style: none; padding: 0; margin: 0; }
+  .info-card-list li { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.35rem 0; line-height: 1.7; }
+  .check-mini { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: #C9A84C; color: #fff; border-radius: 50%; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0 2rem; }
+  .faq-item { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; transition: box-shadow 0.2s; }
+  .faq-item:has(.faq-question.open) { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .faq-question { width: 100%; display: flex; align-items: center; gap: 0.85rem; padding: 1.1rem 1.25rem; background: none; border: none; cursor: pointer; font-size: 0.95rem; font-weight: 600; text-align: left; color: #1B3A5C; transition: background 0.15s; }
+  .faq-question:hover { background: #F7F4EC; }
+  .faq-q-icon { font-size: 0.78rem; font-weight: 700; color: #fff; background: #1B3A5C; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .faq-toggle { margin-left: auto; width: 14px; height: 14px; flex-shrink: 0; position: relative; }
+  .faq-toggle::before, .faq-toggle::after { content: ""; position: absolute; background: #1B3A5C; transition: transform 0.25s; }
+  .faq-toggle::before { top: 50%; left: 0; width: 100%; height: 2px; transform: translateY(-50%); }
+  .faq-toggle::after { left: 50%; top: 0; width: 2px; height: 100%; transform: translateX(-50%); }
+  .faq-question.open .faq-toggle::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+  .faq-answer { display: flex; gap: 0.85rem; padding: 0 1.25rem 1.1rem 1.25rem; }
+  .faq-answer[hidden] { display: none; }
+  .faq-a-icon { font-size: 0.78rem; font-weight: 700; color: #fff; background: #C9A84C; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.2rem; }
+  .faq-answer p { font-size: 0.92rem; line-height: 1.8; margin: 0; color: #333; }
+
+  .article-body h3.review-h3 { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem 0.5rem 0.85rem; margin-top: 1.75rem; border-left: none; border-radius: 999px; font-size: 1rem; color: #fff; }
+  .article-body h3.review-h3::before { content: ""; display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+  .article-body h3.review-h3.good { background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3); }
+  .article-body h3.review-h3.good::before { content: "👍"; background: transparent; font-size: 1rem; }
+  .article-body h3.review-h3.bad { background: linear-gradient(135deg, #C46B4E 0%, #A85A40 100%); box-shadow: 0 4px 12px rgba(196, 107, 78, 0.3); }
+  .article-body h3.review-h3.bad::before { content: "💭"; background: transparent; font-size: 1rem; }
+
+  .review-carousel { position: relative; overflow: hidden; margin: 1rem 0; }
+  .review-carousel-track { display: flex; transition: transform 0.4s ease; }
+  .review-carousel-slide { flex-shrink: 0; padding: 0.5rem; box-sizing: border-box; }
+  .review-quote { margin: 0; padding: 1.25rem 1.5rem; background: #F7F4EC; border-left: 4px solid #C9A84C; border-radius: 8px; min-height: 160px; }
+  .review-quote.bad { background: #FBF6F1; border-left-color: #C46B4E; }
+  .review-quote p { margin: 0 0 0.75rem; line-height: 1.8; }
+  .review-quote cite { font-size: 0.85rem; color: var(--color-text-muted); font-style: normal; }
+  .review-carousel-controls { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 0.75rem; }
+  .review-carousel-prev, .review-carousel-next { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #1B3A5C; background: #fff; color: #1B3A5C; font-size: 1.5rem; line-height: 1; cursor: pointer; transition: background 0.2s; }
+  .review-carousel-prev:hover, .review-carousel-next:hover { background: #1B3A5C; color: #fff; }
+  .review-carousel-counter { font-weight: 700; color: #1B3A5C; min-width: 60px; text-align: center; }
+
+  .hero-placeholder { width: 100%; aspect-ratio: 16/9; max-height: 360px; border-radius: 12px; margin: 0 0 1.5rem; background: linear-gradient(135deg, #1B3A5C 0%, #2C5780 60%, #C9A84C 140%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(27, 58, 92, 0.18); }
+  .hero-placeholder-tag { display: inline-block; background: rgba(255,255,255,0.18); padding: 0.25rem 0.85rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+  .hero-placeholder-title { margin: 0 0 0.4rem; font-size: 1.6rem; font-weight: 800; letter-spacing: 0.02em; }
+  .hero-placeholder-sub { margin: 0; font-size: 0.95rem; opacity: 0.9; }
+  @media (max-width: 480px) { .hero-placeholder-title { font-size: 1.2rem; } .here-placeholder-sub { font-size: 0.85rem; } }
+</style>

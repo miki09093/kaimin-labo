@@ -3,8 +3,32 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const columns = [
+  {
+    cat: 'コラム',
+    title: '腰痛持ちがマットレスを選ぶときの3つのポイント',
+    desc: '朝起きると腰が痛い人必見。硬さ・ゾーン設計・厚みの3つの選び方ポイントを徹底解説。',
+    href: '/column/back-pain-tips/',
+    date: '2026.05.16',
+  },
+  {
+    cat: 'コラム',
+    title: 'マットレスの寿命は何年？買い替えサインを解説',
+    desc: '素材別の寿命の目安と、買い替えるべき5つのサイン、長持ちさせるコツをまとめました。',
+    href: '/column/mattress-lifespan/',
+    date: '2026.05.16',
+  },
+  {
+    cat: 'コラム',
+    title: 'トッパーとメインマットレスの違いは？今の布団に重ねるなら何を選ぶべきか',
+    desc: 'トッパーとメインマットレスの違いと選び方を解説。今の寝具を活かすか買い替えるかの判断基準を紹介。',
+    href: '/column/topper-vs-main/',
+    date: '2026.05.16',
+  },
+];
 ---
-<Layout title="睡眠コラム一覧" description="腰痛・肩こり・不眠など睡眠の悩みを解決するコラム記事一覧です。">
+<Layout title="睡眠コラム一覧" description="腰痛・肩こり・不眠など睡眠の悩みを解決するコラム記事一覧です。マットレス選びのポイント、寿命、トッパーの違いなどを徹底解説。">
   <Header />
   <main>
     <div class="page-header">
@@ -14,9 +38,33 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
         <p>腰痛・肩こり・不眠などの悩み別に、睡眠と寝具に関する情報をお届けします。</p>
       </div>
     </div>
-    <div class="container" style="padding: 2rem 1rem 3rem;">
-      <p style="color: var(--color-text-muted);">記事を準備中です。しばらくお待ちください。</p>
+    <div class="container" style="padding: 2rem 1rem 3rem; max-width: var(--content-width);">
+      <div class="column-list">
+        {columns.map(c => (
+          <a href={c.href} class="column-card">
+            <div class="column-card-header">
+              <span class="column-cat">{c.cat}</span>
+              <span class="column-date">{c.date}</span>
+            </div>
+            <p class="column-title">{c.title}</p>
+            <p class="column-desc">{c.desc}</p>
+            <span class="column-cta">記事を読む →</span>
+          </a>
+        ))}
+      </div>
     </div>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .column-list { display: grid; gap: 1rem; }
+  .column-card { display: block; padding: 1.25rem 1.5rem; background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s; }
+  .column-card:hover { border-color: #C9A84C; box-shadow: 0 6px 18px rgba(201, 168, 76, 0.15); }
+  .column-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .column-cat { display: inline-block; background: #1B3A5C; color: #fff; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.78rem; font-weight: 700; }
+  .column-date { font-size: 0.85rem; color: var(--color-text-muted); }
+  .column-title { margin: 0 0 0.5rem; font-size: 1.15rem; font-weight: 700; color: #1B3A5C; line-height: 1.5; }
+  .column-desc { margin: 0 0 0.75rem; font-size: 0.93rem; line-height: 1.7; color: #555; }
+  .column-cta { font-size: 0.88rem; font-weight: 700; color: #C9A84C; }
+</style>

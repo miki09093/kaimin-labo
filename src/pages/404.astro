@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="ページが見つかりません（404）" description="お探しのページが見つかりませんでした。マットレス徹底レビュー・腰痛対策コラムなど、人気コンテンツから探してみてください。">
+  <Header />
+  <main>
+    <div class="container" style="padding: 3rem 1rem 4rem; max-width: 880px;">
+
+      <div class="nf-hero">
+        <p class="nf-code">404</p>
+        <h1 class="nf-title">お探しのページが見つかりません</h1>
+        <p class="nf-sub">移動・削除されたか、URLが間違っている可能性があります。<br class="hide-sp">下記の人気コンテンツから、お探しの情報をお探しください。</p>
+      </div>
+
+      <h2 class="nf-section-title">人気のコンテンツ</h2>
+
+      <div class="nf-grid">
+        <a href="/mattress/" class="nf-card">
+          <span class="nf-icon">🛏️</span>
+          <p class="nf-card-title">マットレス比較ランキング</p>
+          <p class="nf-card-sub">6商品を30点満点で徹底採点</p>
+        </a>
+        <a href="/review/" class="nf-card">
+          <span class="nf-icon">📝</span>
+          <p class="nf-card-title">レビュー記事一覧</p>
+          <p class="nf-card-sub">各商品の徹底レビュー＋口コミ40件</p>
+        </a>
+        <a href="/column/" class="nf-card">
+          <span class="nf-icon">📚</span>
+          <p class="nf-card-title">睡眠コラム一覧</p>
+          <p class="nf-card-sub">腰痛・寿命・選び方の解説記事</p>
+        </a>
+        <a href="/" class="nf-card">
+          <span class="nf-icon">🏠</span>
+          <p class="nf-card-title">トップページに戻る</p>
+          <p class="nf-card-sub">サイト全体を見渡せます</p>
+        </a>
+      </div>
+
+      <h2 class="nf-section-title">特に注目のレビュー記事</h2>
+
+      <div class="nf-reviews">
+        <a href="/review/kumo-yasuragi/" class="nf-review-card">
+          <span class="nf-rank-badge">1位</span>
+          <p class="nf-review-name">雲のやすらぎプレミアム モデル3R</p>
+          <p class="nf-review-catch">腰部260N超高反発＋100日返金保証</p>
+        </a>
+        <a href="/review/reveria/" class="nf-review-card">
+          <span class="nf-rank-badge">2位</span>
+          <p class="nf-review-name">REVERIA（リヴェリア）</p>
+          <p class="nf-review-catch">医療機器認証＋磁気リカバリー</p>
+        </a>
+        <a href="/review/nell/" class="nf-review-card">
+          <span class="nf-rank-badge">3位</span>
+          <p class="nf-review-name">NELLマットレス</p>
+          <p class="nf-review-catch">1,173個コイル＋120日トライアル</p>
+        </a>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .nf-hero { text-align: center; padding: 3rem 1.5rem 2.5rem; background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border: 2px solid #C9A84C; border-radius: 16px; margin-bottom: 2.5rem; box-shadow: 0 8px 24px rgba(201, 168, 76, 0.12); }
+  .nf-code { margin: 0 0 0.5rem; font-size: 5rem; font-weight: 800; color: #C9A84C; line-height: 1; letter-spacing: 0.05em; }
+  .nf-title { margin: 0 0 0.75rem; color: #1B3A5C; font-size: 1.5rem; font-weight: 700; }
+  .nf-sub { margin: 0; color: #555; line-height: 1.8; font-size: 0.95rem; }
+  .hide-sp { display: inline; }
+
+  .nf-section-title { margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 3px solid #1B3A5C; font-size: 1.2rem; font-weight: 700; color: #1B3A5C; }
+
+  .nf-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem; }
+  .nf-card { display: block; padding: 1.25rem 1rem; background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; text-decoration: none; color: inherit; text-align: center; transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s; }
+  .nf-card:hover { border-color: #C9A84C; box-shadow: 0 6px 18px rgba(201, 168, 76, 0.15); transform: translateY(-2px); }
+  .nf-icon { display: block; font-size: 2.4rem; margin-bottom: 0.5rem; line-height: 1; }
+  .nf-card-title { margin: 0 0 0.3rem; font-weight: 700; color: #1B3A5C; font-size: 0.95rem; }
+  .nf-card-sub { margin: 0; font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.5; }
+
+  .nf-reviews { display: grid; gap: 0.85rem; margin-bottom: 1rem; }
+  .nf-review-card { display: block; padding: 1rem 1.25rem; background: #fff; border: 2px solid #e5e7eb; border-radius: 10px; text-decoration: none; color: inherit; transition: border-color 0.2s; position: relative; padding-left: 4.5rem; }
+  .nf-review-card:hover { border-color: #C9A84C; }
+  .nf-rank-badge { position: absolute; top: 50%; left: 1rem; transform: translateY(-50%); background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; padding: 0.3rem 0.7rem; border-radius: 6px; font-weight: 800; font-size: 0.8rem; box-shadow: 0 2px 6px rgba(201, 168, 76, 0.25); }
+  .nf-review-name { margin: 0 0 0.2rem; font-weight: 700; color: #1B3A5C; font-size: 0.95rem; line-height: 1.4; }
+  .nf-review-catch { margin: 0; font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.5; }
+
+  @media (max-width: 480px) {
+    .nf-code { font-size: 3.5rem; }
+    .nf-title { font-size: 1.15rem; }
+    .nf-sub { font-size: 0.88rem; }
+    .hide-sp { display: none; }
+    .nf-grid { grid-template-columns: 1fr; gap: 0.6rem; }
+    .nf-card { padding: 1rem 0.85rem; }
+    .nf-icon { font-size: 1.8rem; }
+    .nf-card-title { font-size: 0.9rem; }
+    .nf-card-sub { font-size: 0.78rem; }
+    .nf-review-card { padding: 0.85rem 1rem 0.85rem 4rem; }
+    .nf-rank-badge { left: 0.7rem; font-size: 0.74rem; padding: 0.2rem 0.55rem; }
+  }
+</style>
