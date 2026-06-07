@@ -1,0 +1,219 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import '../../../styles/goods-detail.css';
+
+const products = [
+  {
+    rank: 1, name: 'MOGU 気持ちいい抱きまくら', shortName: 'MOGU 抱きまくら', score: 26.0,
+    img: 'bodypillow-mogu-card.png', anchor: 'mogu-review',
+    itemScores: { fit: 5.0, feel: 5.0, side: 4.5, care: 4.0, shape: 4.0, cost: 3.5 },
+    itemTexts: { fit: 'パウダービーズが体にフィット', feel: 'むにゅむにゅの独自感触', side: '横向き・うつ伏せ対応', care: 'カバー洗濯OK', shape: '約50×115×20cm', cost: '8,250円（公式）' },
+    price: '8,250円（公式・税込）', material: 'パウダービーズ®（直径1mm以下）／本体ナイロン85%・ポリウレタン15%', size: '約50×115×20cm（Lサイズあり）', care: 'カバー取り外して洗濯OK',
+    tags: ['パウダービーズ', '横向き寝◎', 'カバー洗える'],
+    summary: '直径1mm以下の超微粒子「パウダービーズ®」を使ったMOGUの定番抱き枕。流動性に優れたビーズが体にぴったりフィットし、「むにゅむにゅ」とした独自の抱き心地が魅力。横向き・うつ伏せ寝にも対応し、カバーは洗えて衛生的です。',
+    affiliateHref: 'https://mogustore.jp/',
+    features: [
+      ['超微粒子パウダービーズ®で体にフィット', '直径1mm以下の超微粒子パウダービーズ®を中材に使用。流動性に優れ、抱きついた体の形に合わせてぴったりフィットします。'],
+      ['「むにゅむにゅ」の独自の抱き心地', 'パウダービーズ®ならではの、ふわふわというより「むにゅむにゅ・もちもち」とした独特の感触。クセになる気持ちよさです。'],
+      ['横向き・うつ伏せ対応＋カバー洗える', '横向き寝はもちろん、うつ伏せにも対応。伸縮性に優れたカバーはファスナーで取り外せて洗えるため、こまめに清潔に保てます。'],
+    ],
+    good: ['横向き寝が多い方', 'むにゅむにゅの感触が好きな方', '体にフィットする抱き枕が欲しい方', 'カバーを洗って清潔に使いたい方'],
+    bad: ['しっかり硬めの抱き枕が好みの方', '大きめ（ロング）が必須の方は要サイズ確認'],
+    miniFaq: [['サイズは？', '標準は約50×115×20cm。長さのあるLサイズもあります。'], ['洗えますか？', 'カバーはファスナーで取り外して洗濯できます。'], ['妊婦でも使えますか？', '横向き寝のサポートに使えますが、使用については体調に合わせてご判断ください。']],
+  },
+  {
+    rank: 2, name: '王様の抱き枕', shortName: '王様の抱き枕', score: 23.5,
+    img: 'bodypillow-king-card.png', anchor: 'king-review',
+    itemScores: { fit: 4.5, feel: 4.5, side: 4.5, care: 3.5, shape: 4.0, cost: 4.0 },
+    itemTexts: { fit: '超極小ビーズが体にフィット', feel: 'ふわふわ感のある抱き心地', side: '流線型で横向き寝サポート', care: 'カバー洗濯OK', shape: '流線型（体のラインに沿う形状）', cost: '9,900円〜（標準サイズ）' },
+    price: '9,900円〜（公式・標準サイズ）', material: '中材：ポリエステル100%（超極小ビーズ＋ポリエステルわた）', size: '標準 約幅30×長さ110×厚み17〜20cm／約1,100g', care: 'カバー取り外して洗濯OK',
+    tags: ['10万人愛用', 'ふわふわ感', '日本製ブランド'],
+    summary: '「王様の夢枕」で知られるブランドの抱き枕。体のラインに沿った流線型デザインで、超極小ビーズとポリエステルわたが体に合わせてフィット。MOGUよりも「ふわふわ感」が加わった抱き心地が特徴で、10万人以上に愛用されるロングセラー。標準9,900円で横向き寝のサポートに適しています。',
+    affiliateHref: 'https://www.beech.co.jp/item/dakimakura/osamabodypillow01.html',
+    features: [
+      ['体のラインに沿う流線型デザイン', 'カラダのラインに沿った流線型の形状で、思わずギュッと抱きしめたくなる優しい抱き心地。頭・腕・脚をあずけてリラックスできます。'],
+      ['超極小ビーズ＋ポリエステルわたで「ふわふわ感」', '超極小ビーズとポリエステルわたを絶妙なバランスで配合。MOGUの「むにゅむにゅ」に対し、王様の抱き枕は「ふわふわ感」が加わった抱き心地です。'],
+      ['10万人以上が愛用するロングセラー＋日本製', '「王様」シリーズの抱き枕として10万人以上に愛用される人気商品。日本製でカバーは取り外して洗える衛生設計です。'],
+    ],
+    good: ['ふわふわ柔らかい抱き心地が好きな方', '横向き寝をサポートしたい方', '人気ブランドの安心感を求める方', 'カバーを洗って使いたい方'],
+    bad: ['硬めでしっかりした抱き枕が好みの方', '価格を最優先したい方'],
+    miniFaq: [['MOGUとの違いは？', 'MOGUは「むにゅむにゅ」、王様の抱き枕は「ふわふわ感」が加わった抱き心地です。カバー素材も異なります。'], ['洗えますか？', 'カバーは取り外して洗濯できます。'], ['どこで買えますか？', '公式サイト・楽天市場などで購入できます。']],
+  },
+  {
+    rank: 3, name: 'ニトリ 抱き枕', shortName: 'ニトリ 抱き枕', score: 20.0,
+    img: 'bodypillow-nitori-card.png', anchor: 'nitori-review',
+    itemScores: { fit: 3.5, feel: 3.5, side: 4.0, care: 4.0, shape: 3.5, cost: 5.0 },
+    itemTexts: { fit: 'タイプにより異なる', feel: 'ビーズ・わたなど選べる', side: '横向き寝対応', care: 'カバー洗濯OK', shape: 'タイプ豊富', cost: '実店舗最安クラス' },
+    price: '公式参照（手頃な価格帯）', material: 'ビーズ／ポリエステルわた など（タイプにより異なる）', size: 'タイプにより異なる', care: 'カバー洗濯OK（タイプによる）',
+    tags: ['全国の店舗で買える', 'コスパ◎', 'タイプ豊富'],
+    summary: '全国のニトリ店舗で手軽に買える抱き枕。ビーズタイプ・わたタイプ・接触冷感タイプなどラインナップが豊富で、予算を抑えて横向き寝をサポートしたい方に最適。実物を店舗で確認してから買えるのも安心です。',
+    affiliateHref: 'https://www.nitori-net.jp/',
+    features: [
+      ['手頃な価格でタイプが豊富', 'ビーズ・わた・接触冷感など多彩なラインナップ。予算と好みに合わせて選べ、価格も手頃です。'],
+      ['全国の店舗で実物を確認できる', '全国のニトリ店舗で実物の感触・サイズを確認してから購入可能。通販で失敗したくない方にも安心です。'],
+      ['まず手軽に試したい方の入門用', '抱き枕を初めて使う方や、気軽に試したい方にぴったりの価格帯。買い替えもしやすいです。'],
+    ],
+    good: ['予算を抑えて抱き枕を試したい方', '全国の店舗で実物を見て買いたい方', '接触冷感など季節で選びたい方', '気軽に買い替えたい方'],
+    bad: ['専門ブランドの抱き心地を求める方', '長期耐久性を重視する方'],
+    miniFaq: [['どんなタイプがありますか？', 'ビーズ・わた・接触冷感などのタイプがあります。店舗・公式サイトでご確認ください。'], ['洗えますか？', 'カバーは洗える商品が多いです。タイプにより異なります。'], ['価格は？', 'サイズ・タイプにより異なります。手頃な価格帯が中心です。']],
+  },
+];
+
+const guide = [
+  ['①', 'フィット感', '抱きついたときに体にどれだけ沿うか。ビーズ系は流動性が高く体にフィットしやすいのが特徴です。', ['ビーズ系は体にフィット', '流動性の高い素材を選ぶ', '頭・腕・脚をあずけられるか']],
+  ['②', '素材・感触', 'パウダービーズ・極小ビーズ・わたなど素材で感触が大きく変わります。好みに合うか確認を。', ['パウダービーズ＝むにゅむにゅ', 'わた＝ふんわり', '実物の感触も確認']],
+  ['③', '横向き寝サポート', '抱き枕の主目的。横向き寝の姿勢を安定させ、肩・腰の負担を軽減できるかが重要です。', ['横向き寝が安定するか', '脚をのせて骨盤を安定', '妊婦・いびき対策にも']],
+  ['④', 'お手入れ（洗える）', '毎日抱くものなのでカバーが洗えると衛生的。取り外しやすさもポイントです。', ['カバーが取り外せて洗える', 'ファスナー付きが便利', '速乾性もチェック']],
+  ['⑤', 'サイズ・形状', '体格や用途に合うサイズ・形状を選ぶことが大切。ロングタイプやくの字型などがあります。', ['体格に合う長さか', 'ストレート／くの字／J字など', '収納スペースも考慮']],
+  ['⑥', '価格・コスパ', '数千円〜が中心。毎日使うものなので、感触・耐久とのバランスで選ぶと満足度が高まります。', ['数千円〜の手頃な価格帯', '感触・耐久とのバランス', 'カバー別売りの有無も確認']],
+];
+
+const faqs = [
+  { q: '抱き枕にはどんな効果がありますか？', a: '抱き枕は横向き寝の姿勢を安定させ、肩や腰への負担を軽減するのに役立ちます。脚をのせることで骨盤が安定し、いびき対策や妊娠中の横向き寝サポートとしても使われます。' },
+  { q: 'ビーズタイプとわたタイプ、どちらがいい？', a: 'ビーズタイプは流動性が高く体にフィットしやすい「むにゅむにゅ・もちもち」の感触、わたタイプは「ふんわり」した抱き心地です。フィット感重視ならビーズ、ふんわり感重視ならわたがおすすめです。' },
+  { q: '抱き枕は洗えますか？', a: '多くの抱き枕はカバーを取り外して洗濯できます。本体（ビーズ・わた）は洗えないものが多いため、カバーをこまめに洗うのがおすすめです。商品ごとの洗濯表示をご確認ください。' },
+  { q: '妊婦でも使えますか？', a: '横向き寝（シムス位）のサポートとして抱き枕を使う妊婦さんは多いです。ただし体調や妊娠の状況には個人差があるため、使用は無理のない範囲でご判断ください。' },
+  { q: '抱き枕の寿命はどれくらい？', a: 'ビーズ・わたのへたりが進むと抱き心地が落ちます。一般的に2〜3年が買い替えの目安です。カバーは消耗したら別売りで買い替えできる商品もあります。' },
+];
+---
+<Layout
+  title="抱き枕おすすめランキング2026｜MOGU・王様の抱き枕を徹底比較"
+  description="抱き枕の人気3商品を徹底比較。MOGU・王様の抱き枕・ニトリを、フィット感・素材・横向き寝サポート・お手入れ・サイズ・価格の6軸で30点満点採点しました。"
+>
+  <Header />
+  <main>
+    <div class="page-header"><div class="container"><Breadcrumb items={[{ label: '睡眠グッズ', href: '/goods/' }, { label: '抱き枕' }]} /></div></div>
+
+    <section class="hero-section"><a href="#top3"><img src="/images/bodypillow-hero.png" alt="抱き枕を徹底比較" class="hero-img" loading="eager" fetchpriority="high" /></a></section>
+
+    <section class="section" id="top3">
+      <div class="container">
+        <h2 class="section-title">横向き寝を快適にする 抱き枕TOP3</h2>
+        <p style="margin-bottom: 1.5rem;">「横向き寝で肩・腰が痛い」「脚をのせて楽に眠りたい」――そんな悩みに応える3つを、編集部が厳選しました。</p>
+        <div class="top3-list">
+          {products.map(p => (
+            <div class="top3-card">
+              <div class="top3-header"><span class={`rank-circle rank-circle-${p.rank}`}>{p.rank}</span><p class="top3-name">{p.name}</p></div>
+              <img src={`/images/${p.img}`} alt={p.name} class="top3-img" loading="lazy" />
+              <div class="top3-score-row"><span class="top3-score">{p.score.toFixed(1)}</span><span class="top3-score-max">/ 30点</span></div>
+              <p class="top3-price">{p.price}</p>
+              <ul class="top3-tags">{p.tags.map(t => <li>#{t}</li>)}</ul>
+              <p class="top3-summary">{p.summary}</p>
+              <div class="top3-cta-row"><a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="top3-cta-btn">公式サイトを見る →</a></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-section">
+      <div class="container">
+        <h2 class="section-title">抱き枕選びで失敗しない6つのポイント</h2>
+        <p class="guide-lead">当サイトはこの6項目を5点満点・合計30点で採点しています。</p>
+        <div class="guide-grid">
+          {guide.map(g => (
+            <div class="guide-card">
+              <p class="guide-num">{g[0]}</p>
+              <h3 class="guide-title">{g[1]}</h3>
+              <p class="guide-text">{g[2]}</p>
+              <div class="guide-check"><p class="guide-check-title">見極め方</p><ul>{(g[3] as string[]).map(c => <li>{c}</li>)}</ul></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="compare">
+      <div class="container">
+        <h2 class="section-title">人気抱き枕 3商品 徹底比較表</h2>
+        <p style="margin-bottom: 1.5rem;">当サイトの採点6項目を軸に、人気抱き枕3商品を一覧で比較できます。</p>
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <colgroup><col class="col-label" />{products.map(() => <col class="col-product" />)}</colgroup>
+            <thead><tr><th class="row-label">項目</th>{products.map(p => <th>{p.shortName}</th>)}</tr></thead>
+            <tbody>
+              <tr><td class="row-label">総合スコア</td>{products.map(p => <td><strong class="score-total">{p.score.toFixed(1)}</strong><span class="score-max">/30点</span></td>)}</tr>
+              <tr><td class="row-label">①フィット感</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.fit)}`}>{p.itemTexts.fit}</td>)}</tr>
+              <tr><td class="row-label">②素材・感触</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.feel)}`}>{p.itemTexts.feel}</td>)}</tr>
+              <tr><td class="row-label">③横向き寝サポート</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.side)}`}>{p.itemTexts.side}</td>)}</tr>
+              <tr><td class="row-label">④お手入れ</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.care)}`}>{p.itemTexts.care}</td>)}</tr>
+              <tr><td class="row-label">⑤サイズ・形状</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.shape)}`}>{p.itemTexts.shape}</td>)}</tr>
+              <tr><td class="row-label">⑥価格・コスパ</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.cost)}`}>{p.itemTexts.cost}</td>)}</tr>
+              <tr><td class="row-label">価格</td>{products.map(p => <td class="compare-info">{p.price}</td>)}</tr>
+              <tr><td class="row-label">素材</td>{products.map(p => <td class="compare-info">{p.material}</td>)}</tr>
+              <tr><td class="row-label">公式サイト</td>{products.map(p => <td><a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="compare-btn">公式へ →</a></td>)}</tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-bg" id="reviews-detail">
+      <div class="container">
+        <h2 class="section-title">TOP3 各商品の詳細レビュー</h2>
+        {products.map(p => (
+          <div class="review-detail-card" id={p.anchor}>
+            <div class="rd-header"><span class={`rd-rank rd-rank-${p.rank}`}>第{p.rank}位</span><h3 class="rd-name">{p.name}</h3><div class="rd-score-block"><span class="rd-score-num">{p.score.toFixed(1)}</span><span class="rd-score-max">/ 30点</span></div></div>
+            <img src={`/images/${p.img}`} alt={p.name} class="rd-hero-img" loading="lazy" />
+            <div class="rd-extra-block rd-extra-block-first">
+              <h4 class="rd-extra-title">こんな人におすすめ／向かない人</h4>
+              <div class="rd-fit-grid">
+                <div class="rd-fit-good"><p class="rd-fit-title">✓ おすすめの人</p><ul>{p.good.map(x => <li>{x}</li>)}</ul></div>
+                <div class="rd-fit-bad"><p class="rd-fit-title">✗ 向かない人</p><ul>{p.bad.map(x => <li>{x}</li>)}</ul></div>
+              </div>
+            </div>
+            <div class="rd-extra-block">
+              <h4 class="rd-extra-title">{p.shortName}の3つの特徴</h4>
+              <div class="rd-feature-list">
+                {p.features.map((f, i) => (
+                  <div class="rd-feature-item"><span class="rd-feature-num">{i + 1}</span><div><p class="rd-feature-name">{f[0]}</p><p class="rd-feature-desc">{f[1]}</p></div></div>
+                ))}
+              </div>
+            </div>
+            <div class="rd-extra-block">
+              <h4 class="rd-extra-title">価格・購入について</h4>
+              <p class="rd-warranty-text">価格は<strong>{p.price}</strong>。素材：{p.material}。{p.care}。</p>
+            </div>
+            <div class="rd-extra-block">
+              <h4 class="rd-extra-title">よくある質問</h4>
+              <dl class="rd-mini-faq">{p.miniFaq.map(q => (<><dt>Q. {q[0]}</dt><dd>{q[1]}</dd></>))}</dl>
+            </div>
+            <div class="rd-cta-row"><a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="rd-cta">{p.shortName}公式サイトを見る →</a></div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section section-bg">
+      <div class="container" style="max-width: 780px;">
+        <h2 class="section-title">よくある質問</h2>
+        <div class="faq-list">
+          {faqs.map((faq, i) => (
+            <div class="faq-item" id={`faq-${i}`}>
+              <button class="faq-question" aria-expanded="false" data-faq={i}><span class="faq-q-icon">Q</span><span>{faq.q}</span><span class="faq-toggle" aria-hidden="true"></span></button>
+              <div class="faq-answer" hidden><span class="faq-a-icon">A</span><p>{faq.a}</p></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section"><div class="container" style="max-width: var(--content-width);"><a href="/goods/" class="back-link">← 睡眠グッズ記事一覧に戻る</a></div></section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling as HTMLElement;
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.classList.toggle('open', !expanded);
+      answer.hidden = expanded;
+    });
+  });
+</script>

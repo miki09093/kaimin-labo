@@ -4,6 +4,84 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 
+const mattressReviews = [
+  {
+    rank: 1,
+    name: '雲のやすらぎプレミアム モデル3R',
+    image: '/images/kumo-yasuragi-hero.png',
+    catch: '腰部260Nの超高反発で「沈ませない」設計',
+    points: ['腰部260N高反発', '5層構造・厚さ23cm', '100日返金保証'],
+    score: 25.5,
+    href: '/review/kumo-yasuragi/',
+  },
+  {
+    rank: 2,
+    name: 'REVERIA（リヴェリア）',
+    image: '/images/reveria-hero.png',
+    catch: '医療機器認証＋磁気リカバリーで血行ケア',
+    points: ['日本初・唯一の医療機器認証', 'ネオジム磁石48個', 'トッパー10cm'],
+    score: 24.0,
+    href: '/review/reveria/',
+  },
+  {
+    rank: 3,
+    name: 'NELLマットレス',
+    image: '/images/nell-hero.png',
+    catch: '1,173個コイル＋120日トライアルの安心感',
+    points: ['1,173個ポケットコイル', 'センターハード構造', '120日トライアル＋10年保証'],
+    score: 23.0,
+    href: '/review/nell/',
+  },
+  {
+    rank: 5,
+    name: 'エマ・プレミアム V2n',
+    image: '/images/emma-hero.png',
+    catch: '7ゾーンAeroFlex®設計＋振動吸収で夫婦・カップルに最適',
+    points: ['7ゾーンAeroFlex®設計', '6層構造・厚さ27cm', '100日返金＋10年保証'],
+    score: 21.5,
+    href: '/review/emma/',
+  },
+  {
+    rank: 6,
+    name: 'GOKUMIN プレミアムスプリング',
+    image: '/images/gokumin-hero.png',
+    catch: '1万円台〜の圧倒的コスパ＋8年保証',
+    points: ['1万円台〜の価格', '6サイズ展開', '8年品質保証'],
+    score: 17.5,
+    href: '/review/gokumin/',
+  },
+];
+
+const pillowReviews = [
+  {
+    rank: 1,
+    name: 'ブレインスリープ ピロー',
+    image: '/images/brain-sleep-hero.png',
+    catch: '「脳が眠る枕」科学設計の最高峰',
+    points: ['3次元ファイバー（90%空気層）', '5段階高さ調整＋形状カスタム', 'シャワー水洗いOK'],
+    score: 26.0,
+    href: '/review/brain-sleep-pillow/',
+  },
+  {
+    rank: 2,
+    name: '王様の夢枕',
+    image: '/images/yume-makura-hero.png',
+    catch: '累計100万個突破のロングセラー枕',
+    points: ['独自開発の極小ビーズ', '日本製の安心感', '手の届く7,000円〜'],
+    score: 22.0,
+    href: '/review/yume-makura/',
+  },
+  {
+    rank: 3,
+    name: 'ヒツジのいらない枕 -至極-',
+    image: '/images/hitsuji-hero.png',
+    catch: 'SNSで話題のTPE素材枕＋30日返金保証',
+    points: ['独自TPEエラストマー素材', '30日間全額返金保証', '楽天レビュー4.6点'],
+    score: 20.0,
+    href: '/review/hitsuji-no-iranai-pillow/',
+  },
+];
+
 const columns = [
   {
     cat: 'コラム',
@@ -28,36 +106,150 @@ const columns = [
   },
 ];
 ---
-<Layout title="睡眠コラム一覧" description="腰痛・肩こり・不眠など睡眠の悩みを解決するコラム記事一覧です。マットレス選びのポイント、寿命、トッパーの違いなどを徹底解説。">
+<Layout title="記事一覧｜レビュー・コラム" description="マットレス・枕の徹底レビュー記事と、睡眠・寝具に関するコラム記事の一覧です。腰痛・肩こり・不眠など悩み別に解決策をお届けします。">
   <Header />
   <main>
     <div class="page-header">
       <div class="container">
-        <Breadcrumb items={[{ label: 'コラム' }]} />
-        <h1>睡眠コラム</h1>
-        <p>腰痛・肩こり・不眠などの悩み別に、睡眠と寝具に関する情報をお届けします。</p>
+        <Breadcrumb items={[{ label: '記事一覧' }]} />
+        <h1>記事一覧</h1>
+        <p>マットレス・枕の徹底レビュー記事と、睡眠・寝具に関するコラム記事をまとめています。</p>
       </div>
     </div>
+
     <div class="container" style="padding: 2rem 1rem 3rem; max-width: var(--content-width);">
-      <div class="column-list">
-        {columns.map(c => (
-          <a href={c.href} class="column-card">
-            <div class="column-card-header">
-              <span class="column-cat">{c.cat}</span>
-              <span class="column-date">{c.date}</span>
-            </div>
-            <p class="column-title">{c.title}</p>
-            <p class="column-desc">{c.desc}</p>
-            <span class="column-cta">記事を読む →</span>
-          </a>
-        ))}
+
+      <!-- カテゴリ目次 -->
+      <div class="cat-nav">
+        <a href="#review-mattress" class="cat-nav-item"><span>🛏️</span>マットレスレビュー（{mattressReviews.length}）</a>
+        <a href="#review-pillow" class="cat-nav-item"><span>😴</span>枕レビュー（{pillowReviews.length}）</a>
+        <a href="#column" class="cat-nav-item"><span>📝</span>コラム（{columns.length}）</a>
       </div>
+
+      <!-- マットレスレビュー -->
+      <section id="review-mattress">
+        <div class="section-head">
+          <h2 class="section-title">マットレス徹底レビュー</h2>
+          <a href="/mattress/" class="section-link">マットレス比較ランキング →</a>
+        </div>
+        <p class="section-desc">腰痛・コリ・寝返り問題を解決する人気5商品を徹底レビュー。ポイント別評価・口コミ・FAQまで網羅しました。</p>
+        <div class="review-list">
+          {mattressReviews.map(r => (
+            <a href={r.href} class="review-card">
+              <span class="review-rank">{r.rank}位</span>
+              {r.image ? (
+                <img src={r.image} alt={r.name} class="review-img" loading="lazy" />
+              ) : (
+                <div class="review-img-placeholder"></div>
+              )}
+              <div class="review-body">
+                <p class="review-name">{r.name}</p>
+                <p class="review-catch">{r.catch}</p>
+                <ul class="review-points">
+                  {r.points.map(pt => <li>✓ {pt}</li>)}
+                </ul>
+                <div class="review-footer">
+                  <span class="review-score">{r.score.toFixed(1)}<span class="review-score-max">/ 30点</span></span>
+                  <span class="review-cta">レビューを見る →</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- 枕レビュー -->
+      <section id="review-pillow" style="margin-top: 3rem;">
+        <div class="section-head">
+          <h2 class="section-title">枕 徹底レビュー</h2>
+          <a href="/pillow/" class="section-link">枕比較ランキング →</a>
+        </div>
+        <p class="section-desc">首こり・肩こり対策に効く人気3商品を徹底レビュー。フィット感・高さ調整・通気性などを6軸で採点しています。</p>
+        <div class="review-list">
+          {pillowReviews.map(r => (
+            <a href={r.href} class="review-card">
+              <span class="review-rank">{r.rank}位</span>
+              {r.image ? (
+                <img src={r.image} alt={r.name} class="review-img" loading="lazy" />
+              ) : (
+                <div class="review-img-placeholder">
+                  <span class="placeholder-icon">😴</span>
+                </div>
+              )}
+              <div class="review-body">
+                <p class="review-name">{r.name}</p>
+                <p class="review-catch">{r.catch}</p>
+                <ul class="review-points">
+                  {r.points.map(pt => <li>✓ {pt}</li>)}
+                </ul>
+                <div class="review-footer">
+                  <span class="review-score">{r.score.toFixed(1)}<span class="review-score-max">/ 30点</span></span>
+                  <span class="review-cta">レビューを見る →</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- コラム -->
+      <section id="column" style="margin-top: 3rem;">
+        <div class="section-head">
+          <h2 class="section-title">睡眠コラム</h2>
+        </div>
+        <p class="section-desc">腰痛・肩こり・不眠などの悩み別に、睡眠と寝具に関する情報をお届けします。</p>
+        <div class="column-list">
+          {columns.map(c => (
+            <a href={c.href} class="column-card">
+              <div class="column-card-header">
+                <span class="column-cat">{c.cat}</span>
+                <span class="column-date">{c.date}</span>
+              </div>
+              <p class="column-title">{c.title}</p>
+              <p class="column-desc">{c.desc}</p>
+              <span class="column-cta">記事を読む →</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
     </div>
   </main>
   <Footer />
 </Layout>
 
 <style>
+  /* カテゴリ目次 */
+  .cat-nav { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 0 0 2rem; padding: 1rem; background: #F7F4EC; border-radius: 10px; }
+  .cat-nav-item { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; background: #fff; border: 2px solid #1B3A5C; border-radius: 999px; font-size: 0.9rem; font-weight: 700; color: #1B3A5C; text-decoration: none; transition: background 0.2s, color 0.2s; }
+  .cat-nav-item:hover { background: #1B3A5C; color: #fff; }
+
+  /* セクション */
+  .section-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 0.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #1B3A5C; }
+  .section-title { margin: 0; font-size: 1.35rem; color: #1B3A5C; font-weight: 700; }
+  .section-link { font-size: 0.88rem; color: #C9A84C; font-weight: 700; text-decoration: none; white-space: nowrap; }
+  .section-link:hover { text-decoration: underline; }
+  .section-desc { color: #555; font-size: 0.92rem; line-height: 1.7; margin: 0.5rem 0 1.5rem; }
+
+  /* レビューカード */
+  .review-list { display: grid; gap: 1rem; }
+  .review-card { display: grid; grid-template-columns: 160px 1fr; gap: 1.25rem; padding: 1.25rem; background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s; position: relative; }
+  .review-card:hover { border-color: #C9A84C; box-shadow: 0 6px 18px rgba(201, 168, 76, 0.15); }
+  .review-rank { position: absolute; top: -10px; left: 14px; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; padding: 0.3rem 0.85rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; box-shadow: 0 2px 6px rgba(201,168,76,0.3); }
+  .review-img { width: 100%; height: 100%; max-height: 160px; object-fit: cover; border-radius: 8px; }
+  .review-img-placeholder { width: 100%; min-height: 140px; max-height: 160px; border-radius: 8px; background: linear-gradient(135deg, #1B3A5C 0%, #2C5780 60%, #C9A84C 140%); display: flex; align-items: center; justify-content: center; }
+  .placeholder-icon { font-size: 3rem; }
+  .review-body { display: flex; flex-direction: column; }
+  .review-name { margin: 0 0 0.4rem; font-weight: 700; color: #1B3A5C; font-size: 1.1rem; line-height: 1.4; }
+  .review-catch { margin: 0 0 0.75rem; font-size: 0.92rem; color: #555; line-height: 1.6; }
+  .review-points { list-style: none; padding: 0; margin: 0 0 0.85rem; }
+  .review-points li { font-size: 0.85rem; color: #333; padding: 0.15rem 0; line-height: 1.5; }
+  .review-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+  .review-score { font-size: 1.5rem; font-weight: 800; color: #C9A84C; }
+  .review-score-max { font-size: 0.85rem; color: var(--color-text-muted); margin-left: 0.25rem; font-weight: 400; }
+  .review-cta { font-size: 0.88rem; font-weight: 700; color: #1B3A5C; }
+
+  /* コラムカード */
   .column-list { display: grid; gap: 1rem; }
   .column-card { display: block; padding: 1.25rem 1.5rem; background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s; }
   .column-card:hover { border-color: #C9A84C; box-shadow: 0 6px 18px rgba(201, 168, 76, 0.15); }
@@ -67,4 +259,19 @@ const columns = [
   .column-title { margin: 0 0 0.5rem; font-size: 1.15rem; font-weight: 700; color: #1B3A5C; line-height: 1.5; }
   .column-desc { margin: 0 0 0.75rem; font-size: 0.93rem; line-height: 1.7; color: #555; }
   .column-cta { font-size: 0.88rem; font-weight: 700; color: #C9A84C; }
+
+  @media (max-width: 640px) {
+    .review-card { grid-template-columns: 100px 1fr; gap: 0.85rem; padding: 1rem; }
+    .review-img, .review-img-placeholder { max-height: 110px; min-height: 110px; }
+    .placeholder-icon { font-size: 2rem; }
+    .review-name { font-size: 1rem; }
+    .review-score { font-size: 1.3rem; }
+    .review-points li { font-size: 0.8rem; }
+    .review-catch { font-size: 0.86rem; }
+    .section-title { font-size: 1.15rem; }
+  }
+  @media (max-width: 400px) {
+    .review-card { grid-template-columns: 1fr; }
+    .review-img, .review-img-placeholder { max-height: 140px; min-height: 110px; }
+  }
 </style>

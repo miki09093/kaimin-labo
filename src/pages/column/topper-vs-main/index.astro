@@ -9,6 +9,7 @@ const articleJsonLd = {
   "@type": "Article",
   "headline": "トッパーとメインマットレスの違いは？今の布団に重ねるなら何を選ぶべきか",
   "description": "マットレストッパーとメインマットレスの違いをわかりやすく解説。判断基準と用途別おすすめ商品をまとめました。",
+  "image": "https://kaimin-labo.net/images/column-topper-vs-main-hero.png",
   "datePublished": "2026-05-16",
   "author": { "@type": "Organization", "name": "快眠ラボ" },
   "publisher": { "@type": "Organization", "name": "快眠ラボ" }
@@ -18,7 +19,7 @@ const topperProducts = [
   {
     rank: 1,
     name: 'REVERIA（リヴェリア）',
-    image: '/images/reveria-feature-3.png',
+    image: '/images/reveria-hero.png',
     catch: '医療機器認証＋磁気でコリの血行ケア',
     points: ['厚さ10cmのトッパータイプ', 'ネオジム磁石48個搭載', '今の寝具にプラスで使える'],
     href: '/review/reveria/',
@@ -37,7 +38,7 @@ const mainProducts = [
   {
     rank: 2,
     name: 'NELLマットレス',
-    image: '/nell.jpg',
+    image: '/images/nell-hero.png',
     catch: '1,173個コイル＋120日トライアルの安心感',
     points: ['厚さ21cm・ポケットコイル独立式', '120日トライアル＋10年保証', 'センターハード構造'],
     href: '/review/nell/',
@@ -60,6 +61,8 @@ const mainProducts = [
     </div>
 
     <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+
+      <img src="/images/column-topper-vs-main-hero.png" alt="トッパーとメインマットレスの違いと選び方" class="article-hero-img" loading="eager" />
 
       <p><span class="marker-yellow">「今の敷布団はまだ捨てたくない」「マットレス丸ごと買い替えは予算的に厳しい」</span>――そんな方に注目されているのが <strong class="text-navy">マットレストッパー</strong> です。</p>
       <p>この記事では、<span class="text-navy-bold">トッパーとメインマットレスの違い</span>、<span class="text-navy-bold">どちらを選ぶべきかの判断基準</span>、そして<span class="text-navy-bold">用途別のおすすめ商品</span>をわかりやすく解説します。</p>
@@ -213,6 +216,7 @@ const mainProducts = [
 </Layout>
 
 <style>
+  .article-hero-img { width: 100%; height: auto; border-radius: 12px; margin: 0 0 1.5rem; box-shadow: 0 8px 24px rgba(27, 58, 92, 0.12); }
   .article-body h2 { margin-top: 2.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #1B3A5C; font-size: 1.4rem; }
   .article-body h3 { margin-top: 1.75rem; padding-left: 0.75rem; border-left: 4px solid #C9A84C; font-size: 1.15rem; }
   .article-body p { line-height: 1.9; margin: 0.75rem 0; }

@@ -9,6 +9,7 @@ const articleJsonLd = {
   "@type": "Article",
   "headline": "腰痛持ちがマットレスを選ぶときの3つのポイント",
   "description": "朝起きると腰が痛い・重だるい人のための、マットレス選びの3つの必須ポイントを解説。",
+  "image": "https://kaimin-labo.net/images/column-back-pain-tips-hero.png",
   "datePublished": "2026-05-16",
   "author": { "@type": "Organization", "name": "快眠ラボ" },
   "publisher": { "@type": "Organization", "name": "快眠ラボ" }
@@ -26,7 +27,7 @@ const recommendedProducts = [
   {
     rank: 2,
     name: 'REVERIA（リヴェリア）',
-    image: '/images/reveria-feature-3.png',
+    image: '/images/reveria-hero.png',
     catch: '医療機器認証＋磁気リカバリーで血行ケア',
     points: ['日本初・唯一の医療機器認証', 'ネオジム磁石48個', 'トッパー10cmで重ね使い可'],
     href: '/review/reveria/',
@@ -34,7 +35,7 @@ const recommendedProducts = [
   {
     rank: 3,
     name: 'NELLマットレス',
-    image: '/nell.jpg',
+    image: '/images/nell-hero.png',
     catch: 'センターハード＋1,173個コイルで寝返り快適',
     points: ['1,173個ポケットコイル', 'センターハード構造', '120日トライアル＋10年保証'],
     href: '/review/nell/',
@@ -57,6 +58,8 @@ const recommendedProducts = [
     </div>
 
     <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+
+      <img src="/images/column-back-pain-tips-hero.png" alt="腰痛持ちがマットレスを選ぶときの3つのポイント" class="article-hero-img" loading="eager" />
 
       <p><span class="marker-yellow">「朝起きると腰が痛い」「寝ても疲れが取れない」</span>――そんな悩みの原因は、じつは <strong class="text-navy">マットレス選びのミスマッチ</strong> かもしれません。</p>
       <p>この記事では、腰痛で悩む方が「失敗しないマットレス選び」で押さえるべき <span class="text-navy-bold">3つのポイント</span> を、わかりやすく解説します。</p>
@@ -163,6 +166,7 @@ const recommendedProducts = [
 </Layout>
 
 <style>
+  .article-hero-img { width: 100%; height: auto; border-radius: 12px; margin: 0 0 1.5rem; box-shadow: 0 8px 24px rgba(27, 58, 92, 0.12); }
   .article-body h2 { margin-top: 2.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #1B3A5C; font-size: 1.4rem; }
   .article-body h3 { margin-top: 1.75rem; padding-left: 0.75rem; border-left: 4px solid #C9A84C; font-size: 1.15rem; }
   .article-body p { line-height: 1.9; margin: 0.75rem 0; }

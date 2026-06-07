@@ -9,6 +9,7 @@ const articleJsonLd = {
   "@type": "Article",
   "headline": "マットレスの寿命は何年？買い替えサインを解説",
   "description": "マットレスの寿命は何年が目安？素材別の耐用年数と買い替えるべき5つのサイン、長持ちさせるコツをまとめました。",
+  "image": "https://kaimin-labo.net/images/column-mattress-lifespan-hero.png",
   "datePublished": "2026-05-16",
   "author": { "@type": "Organization", "name": "快眠ラボ" },
   "publisher": { "@type": "Organization", "name": "快眠ラボ" }
@@ -26,7 +27,7 @@ const recommendedProducts = [
   {
     rank: 2,
     name: 'NELLマットレス',
-    image: '/nell.jpg',
+    image: '/images/nell-hero.png',
     catch: '10年保証付き！3cm以上のヘタリで交換対応',
     points: ['10年品質保証', '120日トライアル', '1,173個ポケットコイル'],
     href: '/review/nell/',
@@ -57,6 +58,8 @@ const recommendedProducts = [
     </div>
 
     <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+
+      <img src="/images/column-mattress-lifespan-hero.png" alt="マットレスの寿命と買い替えサインを解説" class="article-hero-img" loading="eager" />
 
       <p><span class="marker-yellow">「最近、朝起きると腰が痛い」「マットレスが沈んできた気がする」</span>――もしかしたら、それは <strong class="text-navy">マットレスの寿命のサイン</strong> かもしれません。</p>
       <p>この記事では、マットレスの<span class="text-navy-bold">素材別の寿命の目安</span>、<span class="text-navy-bold">買い替えサイン5つ</span>、<span class="text-navy-bold">長持ちさせるコツ</span>をわかりやすく解説します。</p>
@@ -172,6 +175,7 @@ const recommendedProducts = [
 </Layout>
 
 <style>
+  .article-hero-img { width: 100%; height: auto; border-radius: 12px; margin: 0 0 1.5rem; box-shadow: 0 8px 24px rgba(27, 58, 92, 0.12); }
   .article-body h2 { margin-top: 2.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #1B3A5C; font-size: 1.4rem; }
   .article-body h3 { margin-top: 1.75rem; padding-left: 0.75rem; border-left: 4px solid #C9A84C; font-size: 1.15rem; }
   .article-body p { line-height: 1.9; margin: 0.75rem 0; }

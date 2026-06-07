@@ -9,123 +9,162 @@ const products = [
     rank: 1,
     name: 'ブレインスリープ ピロー',
     score: 26.0,
-    price: '11,000円〜33,000円',
-    priceS: '11,000円', priceM: '13,000円', priceL: '33,000円',
-    material: '3次元ファイバー',
+    itemScores: { fit: 5.0, height: 4.5, breath: 5.0, durability: 4.5, care: 4.5, cost: 2.5 },
+    itemTexts: {
+      fit: '3LAYER×9GRADATION構造',
+      height: '3サイズ（LOW/STD/HIGH）',
+      breath: '90%以上が空気でできた素材',
+      durability: 'サステナブル素材',
+      care: '中材まで水洗いOK',
+      cost: 'やや高めだが性能で納得',
+    },
+    price: '33,000円（公式）',
+    material: '3LAYER×9GRADATION構造（特許技術パーソナルフィット）',
     firmness: 'やや硬め',
-    height: '高さ5段階＋形状カスタム',
-    care: 'シャワー水洗いOK',
-    warranty: '原則保証なし',
+    height: 'LOW/STANDARD/HIGHの3サイズ',
+    care: '本体（中材）まで水洗いOK',
+    warranty: '30日以内サイズ交換1回無料',
     recommend: '通気性・衛生面・首こり対策を重視する人',
     worry: '首こり・蒸れ・衛生',
-    summary: '「脳が眠る枕」をコンセプトに開発された科学設計枕。90%空気層の3次元ファイバー素材で通気性に優れ、シャワーで水洗い可能。5段階高さ調整＋形状カスタムで首にぴったりフィット。',
-    goodPoints: ['90%空気層で抜群の通気性', '5段階高さ調整＋形状カスタム可能', 'シャワー水洗いOKの衛生設計'],
-    badPoints: ['価格はやや高め（1万円超〜）', '原則として返金保証なし'],
-    tags: ['医師推奨', '通気性抜群', '高さ調整可'],
+    summary: '「速く、深く、脳が眠る」をコンセプトに、スタンフォード式睡眠メソッドを集約した枕。90%以上が空気でできた独自素材＋3LAYER×9GRADATION構造で「黄金の90分」を上質に。中材まで水洗いOK＋LOW/STANDARD/HIGHの3サイズ展開で自分に合う高さが選べます。',
+    goodPoints: ['90%以上が空気でできた独自素材で抜群の通気性', '3サイズ展開＋30日サイズ交換無料', 'カバー＋中材まで水洗いOKの衛生設計'],
+    badPoints: ['価格はやや高め（33,000円）', '原則として返金保証なし'],
+    tags: ['スタンフォード式', '通気性抜群', '高さ選べる3サイズ'],
     href: '/review/brain-sleep-pillow/',
     affiliateHref: '#',
   },
   {
     rank: 2,
-    name: '王様の夢枕',
+    name: '王様の夢枕2',
     score: 22.0,
-    price: '7,000円〜10,000円',
-    priceS: '7,000円〜', priceM: '8,000円〜', priceL: '10,000円〜',
-    material: '極小ビーズ',
-    firmness: 'やわらかめ',
-    height: '付属シートで簡易調整',
-    care: 'カバーのみ洗濯可',
-    warranty: '販売店により異なる',
-    recommend: '初めての高機能枕を試したい人',
-    worry: '初購入・コスパ重視',
-    summary: '累計販売100万個超のロングセラー枕。極小ビーズ素材で頭の形にフィットし、ふわっとした寝心地。「初めての高機能枕」としても入りやすい価格設定。',
-    goodPoints: ['累計100万個販売の信頼性', '7,000円〜の手の届く価格', '日本製の安心感'],
-    badPoints: ['本体は洗濯不可（カバーのみ）', '高さ調整は簡易的'],
-    tags: ['累計100万個突破', '日本製', 'コスパ◎'],
+    itemScores: { fit: 4.5, height: 3.5, breath: 3.5, durability: 4.0, care: 3.0, cost: 4.0 },
+    itemTexts: {
+      fit: '従来比1.5倍ワイドで寝返り時もフィット',
+      height: '標準／低めの2バリエーション',
+      breath: 'テンセル混カバーで肌当たり◎',
+      durability: '日本製＋1年品質保証',
+      care: 'カバー取り外し可（パイピング仕様）',
+      cost: '8,800円（公式）',
+    },
+    price: '8,800円（公式・税込）',
+    material: '超極小ビーズ95%＋ポリエステルわた5%',
+    firmness: 'かなり硬め',
+    height: '高さ約8cm（最大12cm）／標準・低めの2バリエーション',
+    care: 'カバー：ポリエステル60%＋テンセル40%／日本製',
+    warranty: '1年品質保証',
+    recommend: 'ワイドな枕で寝返り時もフィットさせたい人',
+    worry: 'ワイドサイズ・硬めの寝心地',
+    summary: '王様シリーズの第2世代モデル。従来比1.5倍のワイドサイズ（幅62×奥行40cm）で寝返りしても頭が枕から外れにくい設計。超極小ビーズ95%＋ポリエステルわた5%で「かなり硬め」のしっかりした寝心地。標準・低めの2バリエーション展開で、日本製・1年品質保証付き。',
+    goodPoints: ['従来比1.5倍のワイドサイズで寝返り時もフィット', '超極小ビーズで頸椎にしっかりフィット', '日本製＋1年品質保証の安心感'],
+    badPoints: ['本体洗濯は不可', '高さ調整は2バリエーションから選ぶ形式'],
+    tags: ['1.5倍ワイド', '日本製', '1年品質保証'],
     href: '/review/yume-makura/',
-    affiliateHref: '#',
+    affiliateHref: 'https://www.king-makura.com/products/oy-ii',
   },
   {
     rank: 3,
-    name: 'ヒツジのいらない枕',
+    name: 'ヒツジのいらない枕 -至極-',
     score: 20.0,
-    price: '13,000円〜20,000円',
-    priceS: '13,000円〜', priceM: '15,000円〜', priceL: '20,000円〜',
-    material: '独自TPE素材',
-    firmness: 'やわらかめ',
-    height: '高さ違い種類あり',
-    care: '本体洗濯不可',
-    warranty: '返金保証あり',
-    recommend: 'SNSで話題の枕を試したい人',
+    itemScores: { fit: 4.0, height: 3.0, breath: 3.5, durability: 3.5, care: 4.0, cost: 3.0 },
+    itemTexts: {
+      fit: 'TPE三角格子構造で頭にフィット',
+      height: '上下で異なる設計（8〜10cm）',
+      breath: 'TPE三角格子で空気が通る',
+      durability: '独自TPE＋活性炭配合',
+      care: '本体丸洗いOK（水・ぬるま湯）',
+      cost: '30日間全額返金保証で試せる',
+    },
+    price: '15,800円（税込）',
+    material: 'TPE（スチレン系熱可塑性エラストマー）＋活性炭配合／三角格子構造',
+    firmness: 'やや柔らかめ',
+    height: 'サイズ：約54×35×8〜10cm（上下で高さが異なる）',
+    care: '本体は水・ぬるま湯で丸洗いOK／本体重量約3.2kg',
+    warranty: '30日間全額返金保証',
+    recommend: 'SNSで話題の枕を試したい人／30日返金保証で試したい人',
     worry: '話題性・3Dフィット',
-    summary: 'SNS・YouTubeで急成長した新進ブランド。「Air Fit構造」と呼ばれる独自TPE素材で、頭部のフィット感に特化した3D形状。返金保証付きで試しやすい。',
-    goodPoints: ['SNSで話題の独自TPE素材', '3D形状で頭にしっかりフィット', '返金保証付きで試しやすい'],
-    badPoints: ['素材の好みが分かれる', '通気性は高機能枕の中では平均的'],
-    tags: ['SNS人気', '独自3D形状', '返金保証あり'],
+    summary: 'SNS・YouTubeで話題のTPE枕。TPE素材を独自に三角格子状に加工し、格子の辺で重さを広範囲に分散する構造。活性炭を独自配合し汗のニオイ・加齢臭にも対応。中央くぼみ＋上下で高さが異なる設計（8〜10cm）で寝姿勢が安定。30日間全額返金保証付きで試しやすい。',
+    goodPoints: ['独自TPE三角格子構造で頭にしっかりフィット', '活性炭配合でニオイ対策＋本体丸洗いOK', '30日間全額返金保証で試しやすい'],
+    badPoints: ['本体重量が約3.2kgとやや重め', '通気性は高機能枕の中では平均的'],
+    tags: ['三角格子構造', '活性炭配合', '30日返金保証'],
     href: '/review/hitsuji-no-iranai-pillow/',
     affiliateHref: 'https://hitsuji-zzz.com/products/ht-001',
   },
   {
     rank: 4,
-    name: 'テンピュール オリジナルピロー',
+    name: 'テンピュール® オリジナルピロー',
     score: 18.5,
-    price: '14,000円〜25,000円',
-    priceS: '14,000円〜', priceM: '18,000円〜', priceL: '25,000円〜',
-    material: '低反発ウレタン',
+    itemScores: { fit: 4.0, height: 2.5, breath: 2.0, durability: 4.5, care: 2.5, cost: 3.5 },
+    itemTexts: {
+      fit: '波形形状で頭〜首筋にフィット',
+      height: 'XS/S/M/L（7〜11.5cm）から選ぶ',
+      breath: '低反発のため蒸れやすい',
+      durability: '3年保証＋テンピュール素材',
+      care: 'カバーは60℃以下で洗濯機OK／本体は洗濯不可',
+      cost: '17,600円〜（4サイズ統一価格）',
+    },
+    price: '17,600円〜（4サイズ統一価格）',
+    material: 'テンピュール®素材（低反発）',
     firmness: 'やわらかめ',
-    height: 'サイズ別固定',
-    care: '本体洗濯不可',
-    warranty: '3年品質保証',
+    height: 'XS（7cm）/S（8cm）/M（10cm）/L（11.5cm）',
+    care: 'カバー：ポリエステル99%＋ポリウレタン1%／60℃以下で洗濯機可・本体洗濯不可',
+    warranty: '3年保証',
     recommend: '低反発派・海外ブランド志向',
     worry: '世界的ブランドを使いたい',
-    summary: 'NASAが開発した素材を採用する世界的な低反発枕の定番。頭部の形にゆっくり沈み込む独特の寝心地。海外でも認知度が高い王道ブランド。',
-    goodPoints: ['世界的に認知された老舗ブランド', 'NASA素材の確かな品質', '3年品質保証付き'],
-    badPoints: ['低反発で蒸れやすい', '高さ調整不可', '価格が高め'],
-    tags: ['世界的ブランド', '低反発', 'NASA素材'],
+    summary: 'NASAが承認したマットレス・ピローブランド。1960年代後半にNASAの科学者チームが発明した素材をもとに、テンピュール社が独自に「テンピュール®素材」を開発。波形の独特な形状が頭部から首筋に沿ってフィットし、仰向け・横向きでも背骨が真っ直ぐになるよう設計されています。',
+    goodPoints: ['NASA承認のテンピュール®素材', '波形形状で頭〜首筋にフィット', '3年保証＋4サイズから選べる'],
+    badPoints: ['低反発のため蒸れやすい', '本体は洗濯不可（カバーのみ可）', '高さは購入後に調整不可'],
+    tags: ['NASA承認', '低反発', '3年保証'],
     href: '#',
-    affiliateHref: 'https://jp.tempur.com/',
+    affiliateHref: 'https://jp.tempur.com/pillow/ergonomic/original-pillow-TJP2001M.html',
   },
   {
     rank: 5,
-    name: 'ニトリ Nホテルピロー',
+    name: 'ニトリ ホテルスタイル枕 Nホテル3 スタンダード',
     score: 17.0,
-    price: '1,500円〜3,000円',
-    priceS: '1,500円〜', priceM: '2,500円〜', priceL: '3,000円〜',
-    material: 'ポリエステル綿',
+    itemScores: { fit: 2.5, height: 2.0, breath: 3.0, durability: 2.5, care: 2.0, cost: 5.0 },
+    itemTexts: {
+      fit: 'ふんわり柔らかめ寝心地',
+      height: '高さ20cm（調整不可）',
+      breath: 'ホテルスタイルの標準的設計',
+      durability: '専門枕に比べると標準的',
+      care: '本体洗濯不可',
+      cost: '1,800円（公式・税込）',
+    },
+    price: '1,800円（公式・税込）',
+    material: 'ホテルスタイル枕（ふんわり仕様）',
     firmness: 'やわらかめ',
-    height: '調整不可',
+    height: '高さ20cm（調整不可）',
     care: '本体洗濯不可',
     warranty: 'なし',
     recommend: 'お試し・予算重視・来客用',
     worry: '予算重視・気軽に試したい',
-    summary: 'ホテルの枕のような柔らかい寝心地を再現した、ニトリの定番ベーシック枕。低価格で買い替えやすく、専門枕にこだわらない方の入門用として選ばれる1台。',
-    goodPoints: ['1,500円〜の圧倒的な低価格', 'ニトリの安心感・全国の店舗で実店試し可', '気軽に買い替えできる'],
-    badPoints: ['機能性は専門枕に劣る', '高さ調整不可', '本体は洗濯不可'],
-    tags: ['ホテル仕様', '低価格', 'お試し用'],
+    summary: 'ニトリの「ホテルスタイル枕 Nホテル3 スタンダード」。サイズは幅40×奥行60×高さ20cmと大判で、ホテルのようなふんわり柔らかい寝心地。1,800円という手頃な価格で買い替えやすく、専門枕にこだわらない方の入門・来客用として選ばれる1台。',
+    goodPoints: ['1,800円の手頃な価格', 'ニトリの安心感・全国の店舗で実店試し可', '幅40×奥行60cmの大判サイズ'],
+    badPoints: ['高さ調整不可（固定20cm）', '本体は洗濯不可', '機能性は専門枕に劣る'],
+    tags: ['ホテル仕様', '大判サイズ', '低価格'],
     href: '#',
-    affiliateHref: 'https://www.nitori-net.jp/',
+    affiliateHref: 'https://www.nitori-net.jp/ec/product/7550721s/',
   },
 ];
 
 const typeRankings = {
   soft: [
-    { rank: 1, name: '王様の夢枕', point: '極小ビーズで包み込まれる柔らか感', href: '/review/yume-makura/' },
-    { rank: 2, name: 'テンピュール オリジナル', point: '低反発でゆっくり沈み込む寝心地', href: '#' },
-    { rank: 3, name: 'ヒツジのいらない枕', point: '独自TPE素材で頭にフィット', href: '/review/hitsuji-no-iranai-pillow/' },
+    { rank: 1, name: 'テンピュール® オリジナルピロー', point: '低反発でゆっくり沈み込む寝心地', href: '#' },
+    { rank: 2, name: 'ヒツジのいらない枕 -至極-', point: '独自TPE素材で頭にフィット', href: '/review/hitsuji-no-iranai-pillow/' },
   ],
   firm: [
-    { rank: 1, name: 'ブレインスリープ ピロー', point: '3次元ファイバーで適度な硬さ＋反発', href: '/review/brain-sleep-pillow/' },
-    { rank: 2, name: '王様の夢枕', point: 'ビーズの量で硬さ調整可能', href: '/review/yume-makura/' },
+    { rank: 1, name: 'ブレインスリープ ピロー', point: '90%以上が空気でできた独自素材で適度な硬さ＋反発', href: '/review/brain-sleep-pillow/' },
+    { rank: 2, name: '王様の夢枕2', point: '超極小ビーズで「かなり硬め」の寝心地', href: '/review/yume-makura/' },
   ],
   cool: [
-    { rank: 1, name: 'ブレインスリープ ピロー', point: '90%空気層で抜群の通気性', href: '/review/brain-sleep-pillow/' },
-    { rank: 2, name: '王様の夢枕', point: 'ビーズ素材で蒸れにくい', href: '/review/yume-makura/' },
-    { rank: 3, name: 'ニトリ Nホテルピロー', point: '化繊綿で通気性は標準的', href: '#' },
+    { rank: 1, name: 'ブレインスリープ ピロー', point: '90%空気でできた素材で抜群の通気性', href: '/review/brain-sleep-pillow/' },
+    { rank: 2, name: '王様の夢枕2', point: 'テンセル混カバーで肌当たり◎', href: '/review/yume-makura/' },
+    { rank: 3, name: 'ニトリ ホテルスタイル枕 Nホテル3', point: '化繊綿で通気性は標準的', href: '#' },
   ],
   cospa: [
-    { rank: 1, name: 'ニトリ Nホテルピロー', point: '1,500円〜の圧倒的コスパ', href: '#' },
-    { rank: 2, name: '王様の夢枕', point: '7,000円〜で本格機能枕', href: '/review/yume-makura/' },
-    { rank: 3, name: 'ヒツジのいらない枕', point: '返金保証付きでリスクゼロ', href: '/review/hitsuji-no-iranai-pillow/' },
+    { rank: 1, name: 'ニトリ ホテルスタイル枕 Nホテル3', point: '1,800円のコスパ', href: '#' },
+    { rank: 2, name: '王様の夢枕2', point: '8,800円で日本製＋1年品質保証', href: '/review/yume-makura/' },
+    { rank: 3, name: 'ヒツジのいらない枕 -至極-', point: '30日返金保証付きでリスクゼロ', href: '/review/hitsuji-no-iranai-pillow/' },
   ],
 };
 
@@ -133,14 +172,14 @@ const faqs = [
   { q: '枕の選び方で一番重要なポイントは何ですか？', a: '「高さ」と「素材」の2点です。高さは仰向け・横向き寝で首の自然なカーブを支えられる高さを選び、素材は通気性・お手入れ性・寝心地の好みで決めましょう。' },
   { q: '高機能枕（1万円超）と普通の枕、何が違いますか？', a: '高機能枕は「素材」「高さ調整」「お手入れ性」「耐久性」が大きく異なります。1日30分以上頭を乗せる時間が長いほど投資効果が大きく、長期的にはコスパが良い場合も。' },
   { q: '枕の寿命は何年くらいですか？', a: '一般的に2〜3年が目安です。ヘタリ・カビ・嫌な臭いが出てきたら買い替えのサイン。ブレインスリープのような高機能枕でも、寿命の目安は3年程度です。' },
-  { q: '横向き寝でも使える枕はどれですか？', a: '高さ調整＋頭にフィットする素材の枕がおすすめ。ブレインスリープ（5段階調整）、王様の夢枕（ビーズが流動的にフィット）が横向き寝でも使いやすい設計です。' },
-  { q: '本体を丸洗いできる枕はありますか？', a: 'ブレインスリープ ピローはシャワーで水洗いが可能です。他の枕は基本的にカバーのみ洗濯可能で、本体は陰干しでケアします。' },
+  { q: '横向き寝でも使える枕はどれですか？', a: '体格・寝姿勢に合うサイズや素材の枕がおすすめ。ブレインスリープ（LOW/STANDARD/HIGHの3サイズ展開）、王様の夢枕2（従来比1.5倍ワイドで寝返りしても外れにくい）が横向き寝でも使いやすい設計です。' },
+  { q: '本体を丸洗いできる枕はありますか？', a: 'ブレインスリープ ピローはシャワーで水洗い可能、ヒツジのいらない枕 -至極- も水・ぬるま湯で本体丸洗いOKです。テンピュール・王様の夢枕2・ニトリの枕は本体洗濯不可で、カバーのみ洗濯可（または陰干しでケア）となります。' },
   { q: '低反発と高反発、どちらが首こりに効きますか？', a: '個人差がありますが、首こりには「適度な硬さがあり、頭の重さで沈み込みすぎない」設計がおすすめ。テンピュール（低反発）よりブレインスリープ（やや硬め）の方が首コリ対策には向くケースが多いです。' },
 ];
 ---
 <Layout
   title="枕おすすめランキング2026｜首こり・肩こり対策で徹底比較"
-  description="首こり・肩こりに効く枕5商品を徹底比較。ブレインスリープ・王様の夢枕など人気枕を、フィット感・高さ調整・通気性・お手入れ・価格の6軸で30点満点採点しました。"
+  description="首こり・肩こりに効く枕5商品を徹底比較。ブレインスリープ・王様の夢枕2など人気枕を、フィット感・高さ調整・通気性・お手入れ・価格の6軸で30点満点採点しました。"
 >
   <Header />
   <main>
@@ -154,47 +193,9 @@ const faqs = [
 
     <!-- ===== HERO ===== -->
     <section class="hero-section">
-      <div class="container">
-        <div class="hero-content">
-          <p class="hero-badge">PILLOW RANKING 2026</p>
-          <h1 class="hero-title">首こり・肩こりに効く<br><span class="hero-title-em">枕</span>を徹底比較</h1>
-          <p class="hero-sub">人気5商品を6つの基準で30点満点採点。<br class="hide-sp">あなたに合う1台が見つかります。</p>
-          <a href="#top3" class="hero-cta">ランキングを見る ↓</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== 悩み別ナビ ===== -->
-    <section class="worry-nav-section">
-      <div class="container">
-        <p class="worry-nav-heading">あなたの悩みはどれですか？</p>
-        <div class="worry-nav-grid">
-          <a href="#brain-sleep-review" class="worry-nav-card">
-            <div class="worry-nav-icon">💤</div>
-            <p class="worry-nav-title">朝の首こり・肩こり</p>
-            <p class="worry-nav-desc">科学設計＋通気性で首をサポート</p>
-            <span class="worry-nav-btn">この悩みを改善する →</span>
-          </a>
-          <a href="#yume-review" class="worry-nav-card">
-            <div class="worry-nav-icon">💰</div>
-            <p class="worry-nav-title">予算1万円以下で良い枕</p>
-            <p class="worry-nav-desc">累計100万個のロングセラー</p>
-            <span class="worry-nav-btn">この悩みを改善する →</span>
-          </a>
-          <a href="#brain-sleep-review" class="worry-nav-card">
-            <div class="worry-nav-icon">🌬️</div>
-            <p class="worry-nav-title">枕の蒸れ・暑さが気になる</p>
-            <p class="worry-nav-desc">90%空気層の通気性抜群素材</p>
-            <span class="worry-nav-btn">おすすめを見る →</span>
-          </a>
-          <a href="#compare" class="worry-nav-card worry-nav-card--neutral">
-            <div class="worry-nav-icon">📊</div>
-            <p class="worry-nav-title">スペックで比べたい</p>
-            <p class="worry-nav-desc">5商品を一覧で徹底比較</p>
-            <span class="worry-nav-btn">比較表を見る →</span>
-          </a>
-        </div>
-      </div>
+      <a href="#top3">
+        <img src="/images/pillow-hero.png" alt="首こり・肩こりに効く枕を徹底比較" class="hero-img" loading="eager" fetchpriority="high" />
+      </a>
     </section>
 
     <!-- ===== TOP3 ===== -->
@@ -205,11 +206,11 @@ const faqs = [
         <div class="top3-list">
           {products.slice(0, 3).map(p => (
             <div class="top3-card">
-              <div class="top3-rank">
+              <div class="top3-header">
                 <span class={`rank-circle rank-circle-${p.rank}`}>{p.rank}</span>
-                <span class="rank-emoji">{p.rank === 1 ? '🥇' : p.rank === 2 ? '🥈' : '🥉'}</span>
+                <p class="top3-name">{p.name}</p>
               </div>
-              <p class="top3-name">{p.name}</p>
+              <img src={`/images/${p.rank === 1 ? 'brain-sleep' : p.rank === 2 ? 'yume-makura' : 'hitsuji'}-card.png`} alt={p.name} class="top3-img" loading="lazy" />
               <div class="top3-score-row">
                 <span class="top3-score">{p.score.toFixed(1)}</span>
                 <span class="top3-score-max">/ 30点</span>
@@ -220,9 +221,6 @@ const faqs = [
               </ul>
               <p class="top3-summary">{p.summary}</p>
               <div class="top3-cta-row">
-                {p.href !== '#' && (
-                  <a href={p.href} class="top3-review-btn">レビュー記事 →</a>
-                )}
                 <a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="top3-cta-btn">
                   公式サイトを見る →
                 </a>
@@ -233,36 +231,161 @@ const faqs = [
       </div>
     </section>
 
-    <!-- ===== タブ別ランキング ===== -->
-    <section class="section section-bg">
+    <!-- ===== 枕選びで失敗しない6つのポイント ===== -->
+    <section class="section pillow-guide-section">
       <div class="container">
-        <h2 class="section-title">タイプ別おすすめ枕</h2>
-        <p style="margin-bottom: 1.5rem;">寝心地の好みや重視ポイントで、おすすめの枕は変わります。あなたに合うタイプから選んでみてください。</p>
+        <h2 class="section-title">枕選びで失敗しない6つのポイント</h2>
+        <p class="pillow-guide-lead">枕選びで失敗しないために押さえるべき6つのポイント。当サイトはこの6項目を5点満点・合計30点で採点しています。</p>
 
-        <div class="tab-wrap">
-          <div class="tab-btns" role="tablist">
-            <button class="tab-btn active" data-tab="soft">やわらか系</button>
-            <button class="tab-btn" data-tab="firm">しっかり系</button>
-            <button class="tab-btn" data-tab="cool">通気性重視</button>
-            <button class="tab-btn" data-tab="cospa">コスパ重視</button>
+        <div class="pillow-guide-grid">
+          <!-- ① フィット感 -->
+          <div class="pillow-guide-card">
+            <div class="pillow-guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="pillow-guide-svg">
+                <!-- 横向き寝の人物＋枕（首がフィットしている図） -->
+                <rect x="6" y="32" width="44" height="12" rx="5" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
+                <rect x="14" y="22" width="20" height="14" rx="6" fill="#FFF" stroke="#C9A84C" stroke-width="2"/>
+                <circle cx="40" cy="20" r="6" fill="#1B3A5C" opacity="0.25"/>
+                <path d="M34 28 Q38 25 42 28" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+            <p class="pillow-guide-num">①</p>
+            <h3 class="pillow-guide-title">首・肩へのフィット感</h3>
+            <p class="pillow-guide-text">立ったときの首のS字カーブをそのまま保てる枕が理想。首と枕にすき間ができないフィット感が、朝の首こり・肩こりを防ぐ最大のポイントです。</p>
+            <div class="pillow-guide-check">
+              <p class="pillow-guide-check-title">見極め方</p>
+              <ul>
+                <li>仰向け寝で首と枕にすき間ができない</li>
+                <li>横向き寝でも肩に圧迫感がなく、首・背骨が一直線になる</li>
+                <li>寝返り後も頭の位置がすぐに安定する</li>
+              </ul>
+            </div>
           </div>
 
-          {Object.entries(typeRankings).map(([key, list]) => (
-            <div class={`tab-content ${key === 'soft' ? 'active' : ''}`} data-content={key}>
-              <div class="type-ranking-list">
-                {list.map(item => (
-                  <a href={item.href} class="type-ranking-item">
-                    <span class={`type-ranking-rank rank-${item.rank}`}>{item.rank}</span>
-                    <div>
-                      <p class="type-ranking-name">{item.name}</p>
-                      <p class="type-ranking-point">{item.point}</p>
-                    </div>
-                    {item.href !== '#' && <span class="type-ranking-arrow">›</span>}
-                  </a>
-                ))}
-              </div>
+          <!-- ② 高さ調整・カスタム性 -->
+          <div class="pillow-guide-card">
+            <div class="pillow-guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="pillow-guide-svg">
+                <!-- 高さ調整：枕＋上下矢印 -->
+                <rect x="12" y="26" width="32" height="14" rx="6" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
+                <path d="M28 8 L28 22 M22 14 L28 8 L34 14" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M28 44 L28 50 M22 44 L28 50 L34 44" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
             </div>
-          ))}
+            <p class="pillow-guide-num">②</p>
+            <h3 class="pillow-guide-title">高さ調整・カスタム性</h3>
+            <p class="pillow-guide-text">最適な高さは体格・性別・寝姿勢で異なります。購入後に調整できる枕を選ぶと、自分にぴったりの寝心地に近づけられます。</p>
+            <div class="pillow-guide-check">
+              <p class="pillow-guide-check-title">見極め方</p>
+              <ul>
+                <li>中材の量を増減できる</li>
+                <li>高さ調整シートが付属している</li>
+                <li>数段階の高さから選べる</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ③ 通気性 -->
+          <div class="pillow-guide-card">
+            <div class="pillow-guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="pillow-guide-svg">
+                <!-- 通気性：枕＋風の流れ -->
+                <rect x="8" y="30" width="40" height="14" rx="5" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
+                <path d="M10 14 Q18 10 26 14 T46 14" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <path d="M12 22 Q20 18 28 22 T48 22" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+                <circle cx="16" cy="37" r="1.5" fill="#1B3A5C" opacity="0.3"/>
+                <circle cx="24" cy="37" r="1.5" fill="#1B3A5C" opacity="0.3"/>
+                <circle cx="32" cy="37" r="1.5" fill="#1B3A5C" opacity="0.3"/>
+                <circle cx="40" cy="37" r="1.5" fill="#1B3A5C" opacity="0.3"/>
+              </svg>
+            </div>
+            <p class="pillow-guide-num">③</p>
+            <h3 class="pillow-guide-title">通気性・蒸れにくさ</h3>
+            <p class="pillow-guide-text">頭部に熱・湿気がこもると睡眠の質が落ちます。日本の高温多湿な気候では、通気性の高い素材を選ぶことが快眠のカギです。</p>
+            <div class="pillow-guide-check">
+              <p class="pillow-guide-check-title">見極め方</p>
+              <ul>
+                <li>3次元ファイバー・パイプ・ビーズ系は通気性◎</li>
+                <li>低反発ウレタンは通気性△</li>
+                <li>カバーにメッシュ素材を使っている</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ④ 素材・耐久性 -->
+          <div class="pillow-guide-card">
+            <div class="pillow-guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="pillow-guide-svg">
+                <!-- 耐久性：枕＋砂時計 -->
+                <rect x="8" y="30" width="30" height="14" rx="5" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
+                <path d="M40 12 L52 12 L46 22 L52 32 L40 32 L46 22 Z" fill="#FFF" stroke="#C9A84C" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M44 14 L48 14 L46 20 Z" fill="#C9A84C" opacity="0.7"/>
+                <path d="M44 30 L48 30 L46 24 Z" fill="#C9A84C" opacity="0.4"/>
+                <line x1="38" y1="12" x2="54" y2="12" stroke="#1B3A5C" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="38" y1="32" x2="54" y2="32" stroke="#1B3A5C" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p class="pillow-guide-num">④</p>
+            <h3 class="pillow-guide-title">素材・耐久性</h3>
+            <p class="pillow-guide-text">素材によって寿命は1〜10年と大きく差があります。ヘタりにくい素材を選ぶと、結果的にコスパも良くなります。</p>
+            <div class="pillow-guide-check">
+              <p class="pillow-guide-check-title">見極め方</p>
+              <ul>
+                <li>高品質ウレタン・3次元ファイバーは3〜5年持つ</li>
+                <li>パイプ・ビーズは2〜3年が目安</li>
+                <li>復元率や販売実績の長さも判断材料</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ⑤ お手入れ -->
+          <div class="pillow-guide-card">
+            <div class="pillow-guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="pillow-guide-svg">
+                <!-- 洗濯：枕＋水滴＋洗濯マーク -->
+                <rect x="14" y="32" width="28" height="14" rx="5" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
+                <path d="M18 12 Q14 18 14 22 Q14 26 18 26 Q22 26 22 22 Q22 18 18 12Z" fill="#C9A84C" opacity="0.85"/>
+                <path d="M38 12 Q34 18 34 22 Q34 26 38 26 Q42 26 42 22 Q42 18 38 12Z" fill="#C9A84C" opacity="0.5"/>
+                <circle cx="28" cy="18" r="5" stroke="#1B3A5C" stroke-width="1.5" fill="none"/>
+                <path d="M24 18 L27 21 L32 16" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <p class="pillow-guide-num">⑤</p>
+            <h3 class="pillow-guide-title">お手入れ（洗濯・衛生性）</h3>
+            <p class="pillow-guide-text">枕には毎晩、汗や皮脂が付着します。カバーだけでなく本体も洗える枕なら、長期間清潔に保てて衛生的です。</p>
+            <div class="pillow-guide-check">
+              <p class="pillow-guide-check-title">見極め方</p>
+              <ul>
+                <li>本体丸洗いOK（シャワー水洗い・洗濯機可）</li>
+                <li>カバーが取り外して洗える</li>
+                <li>速乾性のある素材か</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ⑥ 価格 -->
+          <div class="pillow-guide-card">
+            <div class="pillow-guide-icon-wrap">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="pillow-guide-svg">
+                <!-- 価格：枕＋円マーク -->
+                <rect x="6" y="30" width="30" height="14" rx="5" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
+                <circle cx="42" cy="20" r="10" fill="#C9A84C" opacity="0.18"/>
+                <circle cx="42" cy="20" r="9" stroke="#C9A84C" stroke-width="2" fill="none"/>
+                <path d="M38 15 L42 21 L46 15 M37 21 L47 21 M37 25 L47 25 M42 21 L42 27" stroke="#1B3A5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <p class="pillow-guide-num">⑥</p>
+            <h3 class="pillow-guide-title">価格（コスパ）</h3>
+            <p class="pillow-guide-text">高機能枕は高価に見えても、3〜5年使えば1日あたり10円程度。長期的にコスパが良いケースも多くあります。</p>
+            <div class="pillow-guide-check">
+              <p class="pillow-guide-check-title">見極め方</p>
+              <ul>
+                <li>1日あたりコストで計算する</li>
+                <li>「合わなかったら返金保証」付きならリスクが低い</li>
+                <li>価格と機能のバランスを総合判断</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -271,7 +394,7 @@ const faqs = [
     <section class="section" id="compare">
       <div class="container">
         <h2 class="section-title">人気枕 5商品 徹底比較表</h2>
-        <p style="margin-bottom: 1.5rem;">価格・素材・高さ・お手入れ・保証など、購入判断に必要な情報を一覧化しました。</p>
+        <p style="margin-bottom: 1.5rem;">当サイトの採点6項目を軸に、人気枕5商品を一覧で比較できます。スコアが高いほどおすすめです。</p>
         <div class="compare-wrap">
           <table class="compare-table">
             <thead>
@@ -283,31 +406,39 @@ const faqs = [
             <tbody>
               <tr>
                 <td class="row-label">総合スコア</td>
-                {products.map(p => <td><strong>{p.score.toFixed(1)}</strong>/30点</td>)}
+                {products.map(p => <td><strong class="score-total">{p.score.toFixed(1)}</strong><span class="score-max">/30点</span></td>)}
+              </tr>
+              <tr>
+                <td class="row-label">①フィット感</td>
+                {products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.fit)}`}>{p.itemTexts.fit}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">②高さ調整</td>
+                {products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.height)}`}>{p.itemTexts.height}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">③通気性</td>
+                {products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.breath)}`}>{p.itemTexts.breath}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">④素材・耐久性</td>
+                {products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.durability)}`}>{p.itemTexts.durability}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">⑤お手入れ</td>
+                {products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.care)}`}>{p.itemTexts.care}</td>)}
+              </tr>
+              <tr>
+                <td class="row-label">⑥価格（コスパ）</td>
+                {products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.cost)}`}>{p.itemTexts.cost}</td>)}
               </tr>
               <tr>
                 <td class="row-label">価格</td>
-                {products.map(p => <td>{p.price}</td>)}
+                {products.map(p => <td class="compare-info">{p.price}</td>)}
               </tr>
               <tr>
-                <td class="row-label">素材</td>
-                {products.map(p => <td>{p.material}</td>)}
-              </tr>
-              <tr>
-                <td class="row-label">硬さ</td>
-                {products.map(p => <td>{p.firmness}</td>)}
-              </tr>
-              <tr>
-                <td class="row-label">高さ調整</td>
-                {products.map(p => <td>{p.height}</td>)}
-              </tr>
-              <tr>
-                <td class="row-label">お手入れ</td>
-                {products.map(p => <td>{p.care}</td>)}
-              </tr>
-              <tr>
-                <td class="row-label">保証</td>
-                {products.map(p => <td>{p.warranty}</td>)}
+                <td class="row-label">主な素材</td>
+                {products.map(p => <td class="compare-info">{p.material}</td>)}
               </tr>
               <tr>
                 <td class="row-label">公式サイト</td>
@@ -337,38 +468,480 @@ const faqs = [
               </div>
             </div>
 
-            <p class="rd-summary">{p.summary}</p>
+            {p.rank === 1 && (
+              <>
+                <img src="/images/brain-sleep-hero.png" alt="ブレインスリープ ピロー" class="rd-hero-img" loading="lazy" />
 
-            <div class="rd-tags">
-              {p.tags.map(tag => <span class="tag">{tag}</span>)}
-            </div>
+                <!-- こんな人におすすめ／向かない人（ヒーロー直下） -->
+                <div class="rd-extra-block rd-extra-block-first">
+                  <h4 class="rd-extra-title">こんな人におすすめ／向かない人</h4>
+                  <div class="rd-fit-grid">
+                    <div class="rd-fit-good">
+                      <p class="rd-fit-title">✓ おすすめの人</p>
+                      <ul>
+                        <li>朝起きると首・肩がだるい方</li>
+                        <li>汗っかきで枕の蒸れが気になる方</li>
+                        <li>衛生面を重視して長く使いたい方</li>
+                        <li>自分仕様にカスタマイズしたい方</li>
+                      </ul>
+                    </div>
+                    <div class="rd-fit-bad">
+                      <p class="rd-fit-title">✗ 向かない人</p>
+                      <ul>
+                        <li>1万円以下の予算で枕を選びたい方</li>
+                        <li>柔らかい低反発寝心地が好みの方</li>
+                        <li>返金保証付きで試してから判断したい方</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
 
-            <div class="rd-spec-grid">
-              <div class="rd-spec-row"><span class="rd-spec-label">価格</span><span class="rd-spec-val">{p.price}</span></div>
-              <div class="rd-spec-row"><span class="rd-spec-label">素材</span><span class="rd-spec-val">{p.material}</span></div>
-              <div class="rd-spec-row"><span class="rd-spec-label">高さ調整</span><span class="rd-spec-val">{p.height}</span></div>
-              <div class="rd-spec-row"><span class="rd-spec-label">お手入れ</span><span class="rd-spec-val">{p.care}</span></div>
-            </div>
+            {p.rank === 2 && (
+              <>
+                <img src="/images/yume-makura-hero.png" alt="王様の夢枕2" class="rd-hero-img" loading="lazy" />
 
-            <div class="rd-points">
-              <div class="rd-point-good">
-                <p class="rd-point-title">✓ 良い点</p>
-                <ul>
-                  {p.goodPoints.map(pt => <li>{pt}</li>)}
-                </ul>
-              </div>
-              <div class="rd-point-bad">
-                <p class="rd-point-title">✗ 気になる点</p>
-                <ul>
-                  {p.badPoints.map(pt => <li>{pt}</li>)}
-                </ul>
-              </div>
-            </div>
+                <!-- こんな人におすすめ／向かない人 -->
+                <div class="rd-extra-block rd-extra-block-first">
+                  <h4 class="rd-extra-title">こんな人におすすめ／向かない人</h4>
+                  <div class="rd-fit-grid">
+                    <div class="rd-fit-good">
+                      <p class="rd-fit-title">✓ おすすめの人</p>
+                      <ul>
+                        <li>硬めのしっかりした寝心地が好きな方</li>
+                        <li>寝返りが多くて頭が枕から外れがちな方</li>
+                        <li>ワイドサイズの枕が欲しい方</li>
+                        <li>1万円以下で日本製の本格枕を試したい方</li>
+                        <li>1年品質保証付きで長く使いたい方</li>
+                      </ul>
+                    </div>
+                    <div class="rd-fit-bad">
+                      <p class="rd-fit-title">✗ 向かない人</p>
+                      <ul>
+                        <li>ふんわり柔らかい寝心地が好きな方</li>
+                        <li>高さを細かく調整したい方</li>
+                        <li>本体ごと丸洗いしたい方</li>
+                        <li>30日以上の長期返金保証で試したい方</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3つの特徴 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">王様の夢枕2の3つの特徴</h4>
+                  <div class="rd-feature-list">
+                    <div class="rd-feature-item">
+                      <span class="rd-feature-num">1</span>
+                      <div>
+                        <p class="rd-feature-name">従来比1.5倍のワイドサイズ（幅62×奥行40cm）</p>
+                        <p class="rd-feature-desc">旧モデル「王様の夢枕」の約1.5倍にあたるワイドサイズに進化。寝返りを打っても頭が枕から外れにくく、ゆったり快適に眠れる設計です。最大高さ12cm、中央部34cmで頸椎にフィット。</p>
+                      </div>
+                    </div>
+                    <div class="rd-feature-item">
+                      <span class="rd-feature-num">2</span>
+                      <div>
+                        <p class="rd-feature-name">超極小ビーズ95%＋ポリエステルわた5%の「かなり硬め」設計</p>
+                        <p class="rd-feature-desc">中材は超極小ビーズ95%とポリエステルわた5%の独自配合。「かなり硬め」のしっかりした寝心地で、頸椎の形状にフィットして安定したサポート感を実現します。</p>
+                      </div>
+                    </div>
+                    <div class="rd-feature-item">
+                      <span class="rd-feature-num">3</span>
+                      <div>
+                        <p class="rd-feature-name">日本製＋1年品質保証＋2バリエーション展開</p>
+                        <p class="rd-feature-desc">中材・カバーともに日本製で、1年間の品質保証付き。カバーはポリエステル60%＋再生繊維（テンセル™）40%でなめらかな肌当たり。「標準バリエーション」「低めバリエーション」の2種類から選べます。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 購入者口コミ -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">購入者口コミ</h4>
+                  <div class="rd-carousel" data-carousel>
+                    <div class="rd-carousel-track">
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">楽天</span>
+                        </div>
+                        <p class="rd-review-profile">女性</p>
+                        <p class="rd-review-text">「すごく頭にフィットし、かつ高さもすごく具合がいいです。中に入っている超極小ビーズ素材にあると思います。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">楽天</span>
+                        </div>
+                        <p class="rd-review-profile">購入者</p>
+                        <p class="rd-review-text">「ソフトで首へのあたりもよく、ぐっすり眠れました。朝の首筋の凝りもよくなりました。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">楽天</span>
+                        </div>
+                        <p class="rd-review-profile">女性</p>
+                        <p class="rd-review-text">「とっても気持ち良く快適に眠れます。すでに肩こりが少し楽になってきました。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                          <span class="rd-review-source">楽天</span>
+                        </div>
+                        <p class="rd-review-profile">女性</p>
+                        <p class="rd-review-text">「確かに柔らかいが、そのためにすぐ中身が偏ってしまい、夜中に何度も位置を調整することになる。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                          <span class="rd-review-source">楽天</span>
+                        </div>
+                        <p class="rd-review-profile">男性</p>
+                        <p class="rd-review-text">「感触は気持ちはいいけど、どうしても良い位置や高さが出来ず寝返りばかり。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                          <span class="rd-review-source">Yahoo!ショッピング</span>
+                        </div>
+                        <p class="rd-review-profile">男性</p>
+                        <p class="rd-review-text">「到着して使用一日目、二日目は、今まで使っていた枕より朝起きた時に肩、首が痛かった。」</p>
+                      </div>
+                    </div>
+                    <div class="rd-carousel-footer">
+                      <button class="rd-carousel-btn prev-btn" aria-label="前へ">‹</button>
+                      <div class="rd-carousel-center">
+                        <div class="rd-carousel-dots"></div>
+                        <span class="rd-carousel-counter">1 / 6</span>
+                      </div>
+                      <button class="rd-carousel-btn next-btn" aria-label="次へ">›</button>
+                    </div>
+                    <p class="rd-carousel-hint">‹ ボタンまたはスワイプで他の口コミを確認 ›</p>
+                  </div>
+                  <p class="rd-review-note">※口コミは楽天市場・Yahoo!ショッピングの実際の購入者レビューを参照しています。</p>
+                </div>
+
+                <!-- お手入れ方法 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">お手入れ方法</h4>
+                  <ol class="rd-care-steps">
+                    <li>カバーは取り外して洗濯（パイピング仕様で着脱可）</li>
+                    <li>本体は陰干しでケア（直射日光は避ける）</li>
+                    <li>使用後はこまめに形を整えて長持ちさせる</li>
+                  </ol>
+                  <p class="rd-care-note">本体・カバーともに日本製。長く使える品質設計です。</p>
+                </div>
+
+                <!-- 保証 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">返品・保証について</h4>
+                  <p class="rd-warranty-text">公式サイトでの購入の場合、<strong>1年品質保証</strong>が付きます。価格は<strong>8,800円（公式・税込）</strong>と、高機能枕の中では入門しやすい設定。日本製で長期使用にも安心です。</p>
+                </div>
+
+                <!-- よくある質問 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">よくある質問</h4>
+                  <dl class="rd-mini-faq">
+                    <dt>Q. サイズはどのくらい？</dt>
+                    <dd>幅62×奥行40cm（中央部34cm）の従来比1.5倍ワイドサイズです。高さは約8cm（最大12cm）。</dd>
+                    <dt>Q. 高さ調整できますか？</dt>
+                    <dd>標準バリエーション／低めバリエーションの2種類から選ぶ形式です。購入後の中材調整はできません。</dd>
+                    <dt>Q. 保証は？</dt>
+                    <dd>公式サイトでの購入で1年品質保証が付きます。</dd>
+                  </dl>
+                </div>
+              </>
+            )}
+
+            {p.rank === 3 && (
+              <>
+                <img src="/images/hitsuji-hero.png" alt="ヒツジのいらない枕 -至極-" class="rd-hero-img" loading="lazy" />
+
+                <!-- こんな人におすすめ／向かない人 -->
+                <div class="rd-extra-block rd-extra-block-first">
+                  <h4 class="rd-extra-title">こんな人におすすめ／向かない人</h4>
+                  <div class="rd-fit-grid">
+                    <div class="rd-fit-good">
+                      <p class="rd-fit-title">✓ おすすめの人</p>
+                      <ul>
+                        <li>SNSで話題の最新素材を試したい方</li>
+                        <li>横向き寝で肩こりが気になる方</li>
+                        <li>30日返金保証で気軽に試したい方</li>
+                        <li>本体まで丸洗いしたい衛生重視の方</li>
+                        <li>中央くぼみのフィット感が好きな方</li>
+                      </ul>
+                    </div>
+                    <div class="rd-fit-bad">
+                      <p class="rd-fit-title">✗ 向かない人</p>
+                      <ul>
+                        <li>ふわふわ系の柔らかい枕が好みの方</li>
+                        <li>軽量な枕がほしい方（本体約3.2kg）</li>
+                        <li>高さ調整が必要な方</li>
+                        <li>TPE素材の独特な感触が苦手な方</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3つの特徴 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">ヒツジのいらない枕 -至極- の3つの特徴</h4>
+                  <div class="rd-feature-list">
+                    <div class="rd-feature-item">
+                      <span class="rd-feature-num">1</span>
+                      <div>
+                        <p class="rd-feature-name">TPE三角格子構造で頭にぴったりフィット</p>
+                        <p class="rd-feature-desc">スチレン系のTPE（熱可塑性エラストマー）を独自に三角格子状に加工。格子の辺で重さを支える設計により、頭部の重さを広範囲に分散しながら、やさしく包み込むフィット感を実現します。</p>
+                      </div>
+                    </div>
+                    <div class="rd-feature-item">
+                      <span class="rd-feature-num">2</span>
+                      <div>
+                        <p class="rd-feature-name">中央くぼみ＋ウェーブ形状で寝姿勢を安定</p>
+                        <p class="rd-feature-desc">中央が窪んだ形状＋人間工学に基づいたウェーブ表面設計で、仰向け・横向きのどちらの寝姿勢でも頭が落ちにくく安眠をサポート。上下で高さが異なる設計（8〜10cm）。</p>
+                      </div>
+                    </div>
+                    <div class="rd-feature-item">
+                      <span class="rd-feature-num">3</span>
+                      <div>
+                        <p class="rd-feature-name">本体丸洗いOK＋活性炭配合で衛生的</p>
+                        <p class="rd-feature-desc">TPE素材は水またはぬるま湯で本体を丸洗い可能。さらに本体に活性炭を独自配合しており、汗のニオイや加齢臭にも対応。専用カバー（ポリエステル70%・テンセル30%）が付属し、届いたその日から使えます。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 購入者口コミ -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">購入者口コミ</h4>
+                  <div class="rd-carousel" data-carousel>
+                    <div class="rd-carousel-track">
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">X（旧Twitter）</span>
+                        </div>
+                        <p class="rd-review-profile">@rkscp</p>
+                        <p class="rd-review-text">「ヒツジのいらない枕を買ってから2週間経ったんですが睡眠の質は向上したように思う。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">X（旧Twitter）</span>
+                        </div>
+                        <p class="rd-review-profile">@kira_DX_kira</p>
+                        <p class="rd-review-text">「ヒツジのいらない枕やば…！起きた時の首と方の痛みがなくてすっきり起きれた。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">楽天</span>
+                        </div>
+                        <p class="rd-review-profile">女性</p>
+                        <p class="rd-review-text">「重くてずれないから良い。寝心地が良くて首が楽になりました。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">楽天</span>
+                        </div>
+                        <p class="rd-review-profile">購入者</p>
+                        <p class="rd-review-text">「首の痛みに悩まされていた部分も解消されました。すぐに眠れるようになって満足です。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                          <span class="rd-review-source">X（旧Twitter）</span>
+                        </div>
+                        <p class="rd-review-profile">@vankoro</p>
+                        <p class="rd-review-text">「ぷよぷよ柔らか過ぎてなんか疲れた。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                          <span class="rd-review-source">X（旧Twitter）</span>
+                        </div>
+                        <p class="rd-review-profile">@kumaco_yume100</p>
+                        <p class="rd-review-text">「頭と首が冷たすぎて…慣れるまで時間がかかりそう。」</p>
+                      </div>
+                    </div>
+                    <div class="rd-carousel-footer">
+                      <button class="rd-carousel-btn prev-btn" aria-label="前へ">‹</button>
+                      <div class="rd-carousel-center">
+                        <div class="rd-carousel-dots"></div>
+                        <span class="rd-carousel-counter">1 / 6</span>
+                      </div>
+                      <button class="rd-carousel-btn next-btn" aria-label="次へ">›</button>
+                    </div>
+                    <p class="rd-carousel-hint">‹ ボタンまたはスワイプで他の口コミを確認 ›</p>
+                  </div>
+                  <p class="rd-review-note">※口コミは楽天市場・X（旧Twitter）の実際のユーザー投稿を参照しています。</p>
+                </div>
+
+                <!-- お手入れ方法 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">お手入れ方法</h4>
+                  <ol class="rd-care-steps">
+                    <li>カバーを取り外して洗濯</li>
+                    <li>本体は水またはぬるま湯で丸洗いOK</li>
+                    <li>水気を切って陰干し</li>
+                  </ol>
+                  <p class="rd-care-note">本体はTPE（スチレン系）の三角格子構造で水洗いOK＋活性炭配合でニオイ対策◎。専用カバー（ポリエステル70%・テンセル30%）が付属し、届いたその日から使えます。</p>
+                </div>
+
+                <!-- 保証 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">返品・保証について</h4>
+                  <p class="rd-warranty-text">公式サイトでの購入の場合、<strong>30日間全額返金保証</strong>が付きます。「合わなかったら返金できる」という安心感で気軽に試せるのが大きな魅力。価格は<strong>15,800円（税込）</strong>です。</p>
+                </div>
+
+                <!-- よくある質問 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">よくある質問</h4>
+                  <dl class="rd-mini-faq">
+                    <dt>Q. 本体は洗えますか？</dt>
+                    <dd>はい、水またはぬるま湯で本体を丸洗いできます。カバーは取り外して洗濯機OKです。</dd>
+                    <dt>Q. 高さ調整できますか？</dt>
+                    <dd>高さ調整機能はありません。上下で異なる高さ設計（8〜10cm）になっており、お好みの面を選んで使えます。</dd>
+                    <dt>Q. 返金保証は？</dt>
+                    <dd>公式サイトで購入の場合、30日間全額返金保証が付きます。</dd>
+                  </dl>
+                </div>
+              </>
+            )}
+
+            {p.rank === 1 && (
+              <>
+                <!-- 【新①】3つの特徴を詳しく -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">ブレインスリープ ピローの3つの特徴</h4>
+                  <div class="rd-feature-list">
+                    <div class="rd-feature-item">
+                      <span class="rd-feature-num">1</span>
+                      <div>
+                        <p class="rd-feature-name">「90%以上が空気でできた」独自素材</p>
+                        <p class="rd-feature-desc">枕の中身の90%以上が空気でできた独自素材を採用。ウレタンなど他素材と比較して熱や湿気が枕にこもりにくく、頭部を冷やしながら眠れる設計です。100%再生可能なサステナブル素材を使用しています。</p>
+                      </div>
+                    </div>
+                    <div class="rd-feature-item">
+                      <span class="rd-feature-num">2</span>
+                      <div>
+                        <p class="rd-feature-name">3LAYER × 9GRADATION 構造（特許技術パーソナルフィット）</p>
+                        <p class="rd-feature-desc">縦の3層構造（アジャスト層・サポート層・ベース層）と、横の9段階グラデーション設計を組み合わせ。真ん中が一番柔らかく、サイドにいくほど密度が上がる設計で、頭の大きさ・重さ・寝姿勢にフィット。スタンフォード式睡眠メソッドが提唱する「黄金の90分」を上質にする設計です。</p>
+                      </div>
+                    </div>
+                    <div class="rd-feature-item">
+                      <span class="rd-feature-num">3</span>
+                      <div>
+                        <p class="rd-feature-name">LOW / STANDARD / HIGH の3サイズ展開</p>
+                        <p class="rd-feature-desc">体格や寝姿勢に合わせて選べる3サイズ展開。商品到着から30日以内であればサイズ交換が1回無料なので、購入後に「合わなかった」というリスクを抑えられます。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 【新】購入者の口コミ -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">購入者口コミ</h4>
+                  <div class="rd-carousel" data-carousel>
+                    <div class="rd-carousel-track">
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">Amazon</span>
+                        </div>
+                        <p class="rd-review-profile">女性</p>
+                        <p class="rd-review-text">「圧倒的に暑くならない！暑がりで寝ているときに暑くなって冷たいところを探すことあったんですが、それがなくて朝までぐっすり。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">楽天</span>
+                        </div>
+                        <p class="rd-review-profile">男性</p>
+                        <p class="rd-review-text">「妻への誕生日プレゼントに購入。眠りが浅い体質だったが、これを使ってからなんか違うらしい。もうあの頃には戻れない。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">楽天</span>
+                        </div>
+                        <p class="rd-review-profile">女性</p>
+                        <p class="rd-review-text">「全然熱がこもらず初日から快眠でした。顕著に爆睡できたので驚いています。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">Yahoo!ショッピング</span>
+                        </div>
+                        <p class="rd-review-profile">女性</p>
+                        <p class="rd-review-text">「朝起きてから首を動かす時コキコキ鳴るのが無くなりました。夜中の眠りの浅い時に起きてしまうのも無くなりました。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars">★★★★★</span>
+                          <span class="rd-review-source">楽天</span>
+                        </div>
+                        <p class="rd-review-profile">女性</p>
+                        <p class="rd-review-text">「ほぼ毎日5時間の睡眠時間ですが、スッキリ起きれるので私には合っていると思います。」</p>
+                      </div>
+                      <div class="rd-carousel-slide rd-review-item rd-review-item--warn">
+                        <div class="rd-review-head">
+                          <span class="rd-review-stars rd-review-stars--low">★★☆☆☆</span>
+                          <span class="rd-review-source">Amazon</span>
+                        </div>
+                        <p class="rd-review-profile">男性</p>
+                        <p class="rd-review-text">「お値段の割に大したことないというのが率直な感想です。交換も返品もできないみたいで、その点高い枕の意味がよく理解できません。」</p>
+                      </div>
+                    </div>
+                    <div class="rd-carousel-footer">
+                      <button class="rd-carousel-btn prev-btn" aria-label="前へ">‹</button>
+                      <div class="rd-carousel-center">
+                        <div class="rd-carousel-dots"></div>
+                        <span class="rd-carousel-counter">1 / 6</span>
+                      </div>
+                      <button class="rd-carousel-btn next-btn" aria-label="次へ">›</button>
+                    </div>
+                    <p class="rd-carousel-hint">‹ ボタンまたはスワイプで他の口コミを確認 ›</p>
+                  </div>
+                  <p class="rd-review-note">※口コミは楽天市場・Amazon・Yahoo!ショッピングの実際の購入者レビューを参照しています。</p>
+                </div>
+
+                <!-- 【新④】お手入れ方法 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">お手入れ方法</h4>
+                  <ol class="rd-care-steps">
+                    <li>カバーを取り外して洗濯</li>
+                    <li>中材も水洗いOK（独自素材で速乾性が高い）</li>
+                    <li>風通しの良い場所で陰干し</li>
+                  </ol>
+                  <p class="rd-care-note">公式は「カバーのお洗濯はもちろん、中材まで水洗いOK」と明記。速乾性も高い設計です。</p>
+                </div>
+
+                <!-- 【新⑤】返品・保証の詳細 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">サイズ交換・保証について</h4>
+                  <p class="rd-warranty-text">公式サイトでの購入の場合、<strong>商品到着から30日以内であればサイズ交換が1回無料</strong>です。「LOW/STANDARD/HIGHのうちどれが自分に合うか」迷っても、購入後に交換できる安心設計です。</p>
+                </div>
+
+                <!-- 【新⑥】よくある質問 -->
+                <div class="rd-extra-block">
+                  <h4 class="rd-extra-title">よくある質問</h4>
+                  <dl class="rd-mini-faq">
+                    <dt>Q. 本体は丸洗いできますか？</dt>
+                    <dd>はい。公式は「カバーのお洗濯はもちろん、中材まで水洗いOK」と明記しています。速乾性も高い設計です。</dd>
+                    <dt>Q. 高さ調整は？</dt>
+                    <dd>LOW / STANDARD / HIGH の3サイズ展開から自分に合う高さを選びます。購入後30日以内ならサイズ交換1回無料です。</dd>
+                    <dt>Q. 価格はいくら？</dt>
+                    <dd>公式サイトでは33,000円（税込）。カバーの種類で価格が変動します。詳細は公式サイトでご確認ください。</dd>
+                  </dl>
+                </div>
+              </>
+            )}
 
             <div class="rd-cta-row">
-              {p.href !== '#' && (
-                <a href={p.href} class="rd-review-btn">徹底レビューを読む →</a>
-              )}
               <a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="rd-cta">
                 {p.name}公式サイトを見る →
               </a>
@@ -378,29 +951,62 @@ const faqs = [
       </div>
     </section>
 
-    <!-- ===== 悩みから選ぶ ===== -->
-    <section class="section">
+    <!-- ===== 悩み別ナビ ===== -->
+    <section class="worry-nav-section">
       <div class="container">
-        <h2 class="section-title">悩みから選ぶ</h2>
-        <p style="margin-bottom: 1.25rem;">あなたの状況に合う枕がすぐ見つかります。</p>
-        <div class="trouble-grid">
-          {[
-            { tag: '首こり', label: '朝起きると首が痛い・だるい', sub: '3次元ファイバー＋5段階高さ調整のブレインスリープ', href: '/review/brain-sleep-pillow/' },
-            { tag: '蒸れ', label: '枕が蒸れる・暑い', sub: '90%空気層のブレインスリープが圧倒的に通気性◎', href: '/review/brain-sleep-pillow/' },
-            { tag: '初心者', label: '初めての高機能枕を試したい', sub: '累計100万個・7,000円〜の王様の夢枕', href: '/review/yume-makura/' },
-            { tag: '横向き寝', label: '横向き寝で肩が痛い', sub: '高さ調整＋頭フィット感のブレインスリープ', href: '/review/brain-sleep-pillow/' },
-            { tag: '予算', label: 'なるべく安く試したい', sub: '1,500円〜のニトリ Nホテルピローから検討', href: '#compare' },
-            { tag: 'ギフト', label: 'プレゼント用に選びたい', sub: '知名度・信頼性◎の王様の夢枕がおすすめ', href: '/review/yume-makura/' },
-          ].map(item => (
-            <a href={item.href} class="trouble-card">
-              <span class="trouble-tag">{item.tag}</span>
-              <div>
-                <p class="trouble-label">{item.label}</p>
-                <p class="trouble-sub">{item.sub}</p>
-              </div>
-              <span class="trouble-arrow">›</span>
-            </a>
-          ))}
+        <p class="worry-nav-heading">あなたの悩みはどれですか？</p>
+        <div class="worry-nav-grid">
+          <a href="#brain-sleep-review" class="worry-nav-card">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="worry-nav-svg">
+              <!-- 首こり：人物の頭・首・肩シルエット＋首部分ゴールド強調 -->
+              <circle cx="24" cy="11" r="6" fill="#1B3A5C" opacity="0.25"/>
+              <rect x="20" y="17" width="8" height="6" rx="2" fill="#C9A84C" opacity="0.9"/>
+              <path d="M30 19 L35 17 M30 19 L35 21" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 30 Q12 24 18 23 L30 23 Q36 24 36 30 L36 38 L12 38 Z" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
+            </svg>
+            <p class="worry-nav-title">朝の首こり・肩こり</p>
+            <p class="worry-nav-desc">科学設計＋通気性で首をサポート</p>
+            <span class="worry-nav-btn">この悩みを改善する →</span>
+          </a>
+          <a href="#yume-review" class="worry-nav-card">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="worry-nav-svg">
+              <!-- 予算：コイン＋円マーク -->
+              <circle cx="24" cy="24" r="16" fill="#C9A84C" opacity="0.2"/>
+              <circle cx="24" cy="24" r="14" stroke="#C9A84C" stroke-width="2" fill="none"/>
+              <path d="M19 18 L24 24 L29 18 M16 24 L32 24 M16 28 L32 28 M24 24 L24 31" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <p class="worry-nav-title">予算1万円以下で良い枕</p>
+            <p class="worry-nav-desc">日本製＋1年品質保証で長く使える</p>
+            <span class="worry-nav-btn">この悩みを改善する →</span>
+          </a>
+          <a href="#brain-sleep-review" class="worry-nav-card">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="worry-nav-svg">
+              <!-- 通気性：枕＋風の流れ -->
+              <rect x="8" y="22" width="32" height="14" rx="4" fill="#EBF2FA" stroke="#1B3A5C" stroke-width="1.5"/>
+              <path d="M12 14 Q18 11 24 14 T36 14" stroke="#C9A84C" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M14 18 Q20 15 26 18 T38 18" stroke="#C9A84C" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+              <circle cx="16" cy="29" r="1.5" fill="#1B3A5C" opacity="0.3"/>
+              <circle cx="22" cy="29" r="1.5" fill="#1B3A5C" opacity="0.3"/>
+              <circle cx="28" cy="29" r="1.5" fill="#1B3A5C" opacity="0.3"/>
+              <circle cx="34" cy="29" r="1.5" fill="#1B3A5C" opacity="0.3"/>
+            </svg>
+            <p class="worry-nav-title">枕の蒸れ・暑さが気になる</p>
+            <p class="worry-nav-desc">90%空気層の通気性抜群素材</p>
+            <span class="worry-nav-btn">おすすめを見る →</span>
+          </a>
+          <a href="#compare" class="worry-nav-card worry-nav-card--neutral">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="worry-nav-svg">
+              <!-- 比較：棒グラフ -->
+              <rect x="6" y="30" width="9" height="14" rx="2" fill="#1B3A5C" opacity="0.3"/>
+              <rect x="19" y="20" width="9" height="24" rx="2" fill="#1B3A5C" opacity="0.5"/>
+              <rect x="32" y="10" width="9" height="34" rx="2" fill="#C9A84C" opacity="0.9"/>
+              <line x1="4" y1="44" x2="44" y2="44" stroke="#1B3A5C" stroke-width="1.5" opacity="0.25"/>
+              <path d="M33 17 L36 14 L43 21" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.5"/>
+            </svg>
+            <p class="worry-nav-title">スペックで比べたい</p>
+            <p class="worry-nav-desc">5商品を一覧で徹底比較</p>
+            <span class="worry-nav-btn">比較表を見る →</span>
+          </a>
         </div>
       </div>
     </section>
@@ -432,6 +1038,54 @@ const faqs = [
 </Layout>
 
 <script>
+  // 口コミカルーセル
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const carouselEl = carousel as HTMLElement;
+    const track = carousel.querySelector('.rd-carousel-track') as HTMLElement;
+    const slides = Array.from(carousel.querySelectorAll('.rd-carousel-slide')) as HTMLElement[];
+    const dotsContainer = carousel.querySelector('.rd-carousel-dots') as HTMLElement;
+    const counter = carousel.querySelector('.rd-carousel-counter') as HTMLElement;
+    let current = 0;
+    const total = slides.length;
+
+    function initSlides() {
+      const w = carouselEl.offsetWidth;
+      slides.forEach(s => { s.style.width = w + 'px'; });
+    }
+    initSlides();
+    window.addEventListener('resize', () => { initSlides(); goTo(current); });
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'rd-carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `${i + 1}番目の口コミ`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(n: number) {
+      current = (n + total) % total;
+      const w = carouselEl.offsetWidth;
+      track.style.transform = `translateX(-${current * w}px)`;
+      if (counter) counter.textContent = `${current + 1} / ${total}`;
+      carousel.querySelectorAll('.rd-carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    carousel.querySelector('.prev-btn')?.addEventListener('click', () => goTo(current - 1));
+    carousel.querySelector('.next-btn')?.addEventListener('click', () => goTo(current + 1));
+
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', (e: TouchEvent) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  });
+
   // タブ切り替え
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
@@ -460,31 +1114,83 @@ const faqs = [
 
 <style>
   /* ===== Hero ===== */
-  .hero-section { background: linear-gradient(135deg, #1B3A5C 0%, #2C5780 60%, #C9A84C 200%); color: #fff; padding: 3rem 1rem; }
-  .hero-content { max-width: 720px; margin: 0 auto; text-align: center; }
-  .hero-badge { display: inline-block; background: rgba(255,255,255,0.18); padding: 0.3rem 1rem; border-radius: 999px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.15em; margin: 0 0 1.25rem; }
-  .hero-title { margin: 0 0 1rem; font-size: 2.2rem; font-weight: 800; line-height: 1.4; letter-spacing: 0.02em; }
-  .hero-title-em { color: #FFD966; }
-  .hero-sub { margin: 0 0 1.75rem; font-size: 1rem; line-height: 1.8; opacity: 0.95; }
-  .hide-sp { display: inline; }
-  .hero-cta { display: inline-block; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; padding: 0.85rem 2rem; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,0.18); transition: transform 0.15s; }
-  .hero-cta:hover { transform: translateY(-2px); text-decoration: none; }
-  @media (max-width: 640px) {
-    .hero-title { font-size: 1.5rem; }
-    .hero-sub { font-size: 0.92rem; }
-    .hide-sp { display: none; }
-  }
+  .hero-section { width: 100%; line-height: 0; }
+  .hero-section a { display: block; }
+  .hero-img { width: 100%; height: auto; display: block; }
 
-  /* ===== 悩み別ナビ ===== */
-  .worry-nav-section { background: #F7F4EC; padding: 2.5rem 1rem; }
-  .worry-nav-heading { text-align: center; font-size: 1.2rem; font-weight: 700; color: #1B3A5C; margin: 0 0 1.5rem; }
-  .worry-nav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1080px; margin: 0 auto; }
-  .worry-nav-card { display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem; background: #fff; border: 2px solid transparent; border-radius: 12px; text-align: center; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s; }
-  .worry-nav-card:hover { border-color: #C9A84C; transform: translateY(-3px); box-shadow: 0 6px 16px rgba(201,168,76,0.18); text-decoration: none; }
-  .worry-nav-icon { font-size: 2.4rem; margin-bottom: 0.5rem; line-height: 1; }
-  .worry-nav-title { margin: 0 0 0.4rem; font-weight: 700; font-size: 0.95rem; color: #1B3A5C; line-height: 1.4; }
-  .worry-nav-desc { margin: 0 0 0.85rem; font-size: 0.82rem; color: #555; line-height: 1.55; }
-  .worry-nav-btn { font-size: 0.78rem; color: #C9A84C; font-weight: 700; margin-top: auto; }
+  /* ===== 悩み別ナビ（TOPページと統一） ===== */
+  .worry-nav-section {
+    background: var(--color-bg-gray);
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .worry-nav-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.12em;
+    margin-bottom: 1.5rem;
+  }
+  .worry-nav-heading::before,
+  .worry-nav-heading::after {
+    content: '';
+    flex: 1;
+    max-width: 72px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #C9A84C);
+  }
+  .worry-nav-heading::after {
+    background: linear-gradient(to left, transparent, #C9A84C);
+  }
+  .worry-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .worry-nav-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 0.75rem;
+    text-decoration: none;
+    gap: 0.4rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .worry-nav-card:hover {
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .worry-nav-svg { width: 52px; height: 52px; flex-shrink: 0; }
+  .worry-nav-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0.25rem 0 0;
+    line-height: 1.5;
+  }
+  .worry-nav-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .worry-nav-btn {
+    margin-top: 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    white-space: nowrap;
+  }
   @media (max-width: 768px) {
     .worry-nav-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -499,13 +1205,13 @@ const faqs = [
   .top3-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
   .top3-card { background: #fff; border: 2px solid #e5e7eb; border-radius: 14px; padding: 1.5rem 1.25rem; position: relative; transition: border-color 0.2s, box-shadow 0.2s; }
   .top3-card:hover { border-color: #C9A84C; box-shadow: 0 8px 20px rgba(201,168,76,0.15); }
-  .top3-rank { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
-  .rank-circle { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: #fff; font-weight: 800; font-size: 1.2rem; }
+  .top3-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; }
+  .rank-circle { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; color: #fff; font-weight: 800; font-size: 1.2rem; flex-shrink: 0; }
   .rank-circle-1 { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); box-shadow: 0 3px 8px rgba(255,165,0,0.35); }
   .rank-circle-2 { background: linear-gradient(135deg, #C0C0C0 0%, #808080 100%); box-shadow: 0 3px 8px rgba(128,128,128,0.3); }
   .rank-circle-3 { background: linear-gradient(135deg, #CD7F32 0%, #8B4513 100%); box-shadow: 0 3px 8px rgba(139,69,19,0.3); }
-  .rank-emoji { font-size: 1.4rem; }
-  .top3-name { margin: 0 0 0.5rem; font-weight: 700; color: #1B3A5C; font-size: 1.05rem; line-height: 1.4; }
+  .top3-name { margin: 0; font-weight: 700; color: #1B3A5C; font-size: 1.05rem; line-height: 1.4; }
+  .top3-img { width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; border-radius: 8px; margin-bottom: 0.85rem; background: #F7F4EC; }
   .top3-score-row { display: flex; align-items: baseline; gap: 0.3rem; margin-bottom: 0.4rem; }
   .top3-score { font-size: 1.8rem; font-weight: 800; color: #C9A84C; }
   .top3-score-max { font-size: 0.85rem; color: var(--color-text-muted); }
@@ -539,6 +1245,29 @@ const faqs = [
   .type-ranking-point { margin: 0; font-size: 0.85rem; color: #555; }
   .type-ranking-arrow { margin-left: auto; color: #C9A84C; font-size: 1.4rem; }
 
+  /* ===== 枕選びで失敗しない6つのポイント ===== */
+  .pillow-guide-section { background: #F7F4EC; }
+  .pillow-guide-lead { text-align: center; margin: 0.5rem 0 2rem; color: #555; line-height: 1.85; font-size: 0.95rem; }
+  .pillow-guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .pillow-guide-card { background: #fff; border-radius: 14px; padding: 1.5rem 1.25rem; box-shadow: 0 4px 14px rgba(27, 58, 92, 0.08); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+  .pillow-guide-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(27, 58, 92, 0.14); }
+  .pillow-guide-icon-wrap { display: flex; align-items: center; justify-content: center; height: 72px; margin-bottom: 0.75rem; }
+  .pillow-guide-svg { width: 72px; height: 72px; }
+  .pillow-guide-num { display: inline-block; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%; font-weight: 800; font-size: 1rem; margin: 0 auto 0.5rem; align-self: center; box-shadow: 0 2px 6px rgba(201, 168, 76, 0.3); }
+  .pillow-guide-title { margin: 0 0 0.75rem; font-size: 1.05rem; font-weight: 700; color: #1B3A5C; text-align: center; line-height: 1.45; }
+  .pillow-guide-text { margin: 0 0 1rem; font-size: 0.88rem; line-height: 1.75; color: #333; flex: 1; }
+  .pillow-guide-check { background: #F7F4EC; border-radius: 8px; padding: 0.85rem 1rem; margin-top: auto; }
+  .pillow-guide-check-title { margin: 0 0 0.4rem; font-size: 0.82rem; font-weight: 700; color: #1B3A5C; letter-spacing: 0.04em; }
+  .pillow-guide-check ul { margin: 0; padding-left: 0; list-style: none; }
+  .pillow-guide-check li { font-size: 0.82rem; line-height: 1.6; color: #555; padding: 0.2rem 0 0.2rem 1.1rem; position: relative; }
+  .pillow-guide-check li::before { content: "✓"; position: absolute; left: 0; color: #C9A84C; font-weight: 700; }
+  @media (max-width: 900px) {
+    .pillow-guide-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .pillow-guide-grid { grid-template-columns: 1fr; }
+  }
+
   /* ===== 比較表 ===== */
   .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .compare-table { min-width: 720px; width: 100%; border-collapse: collapse; }
@@ -547,6 +1276,17 @@ const faqs = [
   .compare-table .row-label { background: #F7F4EC; color: #1B3A5C; font-weight: 700; text-align: left; }
   .compare-btn { display: inline-block; padding: 0.4rem 0.8rem; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; border-radius: 6px; font-size: 0.78rem; font-weight: 700; text-decoration: none; }
   .compare-btn:hover { opacity: 0.9; text-decoration: none; }
+
+  /* スコアセル */
+  .score-total { font-size: 1.15rem; color: #C9A84C; font-weight: 800; }
+  .score-max { font-size: 0.78rem; color: var(--color-text-muted); margin-left: 0.15rem; }
+  .score-cell-bg { font-size: 0.85rem; font-weight: 600; line-height: 1.5; }
+  .score-bg-5 { background: #FFF6D6; color: #8B6F1F; font-weight: 700; }
+  .score-bg-4 { background: #FFFBEC; color: #1B3A5C; }
+  .score-bg-3 { background: #FAFAFA; color: #555; }
+  .score-bg-2 { background: #FBEDE8; color: #A85A40; }
+  .score-bg-1 { background: #FBEDE8; color: #A85A40; }
+  .compare-info { font-size: 0.82rem; color: #555; }
 
   /* ===== 詳細レビューカード ===== */
   .review-detail-card { background: #fff; border: 2px solid #e5e7eb; border-radius: 14px; padding: 1.75rem; margin-bottom: 1.5rem; }
@@ -572,7 +1312,78 @@ const faqs = [
   .rd-point-bad { background: #FBF6F3; border-left: 4px solid #C46B4E; }
   .rd-point-title { margin: 0 0 0.5rem; font-weight: 700; color: #1B3A5C; font-size: 0.92rem; }
   .rd-point-good ul, .rd-point-bad ul { margin: 0; padding-left: 1.1rem; font-size: 0.86rem; line-height: 1.7; color: #333; }
-  .rd-cta-row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+  /* 1位ヒーロー画像 */
+  .rd-hero-img { width: 100%; max-width: 720px; height: auto; aspect-ratio: 1200/630; object-fit: cover; border-radius: 12px; margin: 0.5rem auto 1.25rem; display: block; box-shadow: 0 6px 18px rgba(27, 58, 92, 0.12); }
+
+  /* 1位拡張ブロック */
+  .rd-extra-block { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed #e5d8b3; }
+  .rd-extra-block-first { margin-top: 0.5rem; padding-top: 0; border-top: none; }
+  .rd-extra-title { margin: 0 0 0.85rem; font-size: 1.05rem; font-weight: 700; color: #1B3A5C; padding-left: 0.6rem; border-left: 4px solid #C9A84C; }
+
+  /* 3つの特徴 */
+  .rd-feature-list { display: grid; gap: 0.85rem; }
+  .rd-feature-item { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.9rem 1rem; background: #F7F4EC; border-radius: 8px; }
+  .rd-feature-num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; border-radius: 50%; font-weight: 800; font-size: 0.92rem; flex-shrink: 0; }
+  .rd-feature-name { margin: 0 0 0.3rem; font-weight: 700; color: #1B3A5C; font-size: 0.95rem; line-height: 1.5; }
+  .rd-feature-desc { margin: 0; font-size: 0.88rem; line-height: 1.75; color: #333; }
+
+  /* メディア掲載リスト */
+  .rd-record-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+  .rd-record-list li { display: flex; align-items: center; gap: 0.65rem; padding: 0.6rem 1rem; background: #FFFBF0; border-left: 3px solid #C9A84C; border-radius: 6px; font-size: 0.92rem; color: #333; }
+  .rd-record-icon { font-size: 1.15rem; }
+
+  /* おすすめ／向かない人 */
+  .rd-fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .rd-fit-good, .rd-fit-bad { padding: 1rem 1.1rem; border-radius: 8px; }
+  .rd-fit-good { background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border: 2px solid #C9A84C; }
+  .rd-fit-bad { background: #FBF6F3; border: 2px solid #E5C8B8; }
+  .rd-fit-title { margin: 0 0 0.5rem; font-weight: 700; font-size: 0.95rem; color: #1B3A5C; }
+  .rd-fit-bad .rd-fit-title { color: #A85A40; }
+  .rd-fit-good ul, .rd-fit-bad ul { margin: 0; padding-left: 1.1rem; font-size: 0.88rem; line-height: 1.75; color: #333; }
+  @media (max-width: 640px) {
+    .rd-fit-grid { grid-template-columns: 1fr; }
+  }
+
+  /* お手入れ手順 */
+  .rd-care-steps { margin: 0 0 0.75rem; padding-left: 1.5rem; font-size: 0.92rem; line-height: 1.85; color: #333; }
+  .rd-care-steps li { padding: 0.2rem 0; }
+  .rd-care-note { margin: 0; padding: 0.7rem 1rem; background: #F7F4EC; border-radius: 6px; font-size: 0.85rem; color: #555; }
+
+  /* 返品・保証 */
+  .rd-warranty-text { margin: 0 0 0.75rem; line-height: 1.85; font-size: 0.92rem; color: #333; }
+  .rd-warranty-note { padding: 0.75rem 1rem; background: #FFFBF0; border-left: 3px solid #C9A84C; border-radius: 6px; font-size: 0.85rem; color: #1B3A5C; font-weight: 600; }
+
+  /* 口コミカルーセル */
+  .rd-carousel { position: relative; overflow: hidden; }
+  .rd-carousel-track { display: flex; transition: transform 0.4s ease; }
+  .rd-carousel-slide { flex-shrink: 0; padding: 0 0.25rem; box-sizing: border-box; }
+  .rd-review-item { background: linear-gradient(135deg, #FFFBF0 0%, #FFFFFF 100%); border-left: 4px solid #C9A84C; border-radius: 8px; padding: 1.1rem 1.25rem; }
+  .rd-review-item--warn { background: #FBF6F3; border-left-color: #C46B4E; }
+  .rd-review-head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.45rem; }
+  .rd-review-stars { color: #C9A84C; font-size: 1rem; letter-spacing: 0.05em; font-weight: 700; }
+  .rd-review-stars--low { color: #C46B4E; }
+  .rd-review-source { background: #1B3A5C; color: #fff; padding: 0.15rem 0.55rem; border-radius: 4px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; }
+  .rd-review-profile { margin: 0 0 0.5rem; font-size: 0.82rem; color: var(--color-text-muted); font-weight: 600; }
+  .rd-review-text { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #333; }
+  .rd-carousel-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-top: 0.85rem; }
+  .rd-carousel-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #e5e7eb; background: #fff; color: #1B3A5C; font-size: 1.25rem; line-height: 1; cursor: pointer; flex-shrink: 0; transition: background 0.2s, border-color 0.2s; }
+  .rd-carousel-btn:hover { background: #F7F4EC; border-color: #C9A84C; }
+  .rd-carousel-center { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; flex: 1; }
+  .rd-carousel-dots { display: flex; gap: 0.3rem; align-items: center; }
+  .rd-carousel-dot { width: 7px; height: 7px; padding: 0; border-radius: 50%; border: none; background: #d1d5db; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+  .rd-carousel-dot.active { background: #C9A84C; transform: scale(1.3); }
+  .rd-carousel-counter { font-size: 0.8rem; color: var(--color-text-muted); font-weight: 600; }
+  .rd-carousel-hint { text-align: center; font-size: 0.75rem; color: var(--color-text-muted); margin: 0.5rem 0 0; }
+  .rd-review-note { font-size: 0.75rem; color: var(--color-text-muted); margin: 0.5rem 0 0; text-align: right; }
+
+  /* ミニFAQ */
+  .rd-mini-faq { margin: 0; }
+  .rd-mini-faq dt { font-weight: 700; color: #1B3A5C; font-size: 0.92rem; padding-top: 0.6rem; }
+  .rd-mini-faq dt:first-child { padding-top: 0; }
+  .rd-mini-faq dd { margin: 0.25rem 0 0.5rem; padding-bottom: 0.6rem; padding-left: 1rem; font-size: 0.88rem; line-height: 1.75; color: #333; border-bottom: 1px dashed #e5e7eb; }
+  .rd-mini-faq dd:last-child { border-bottom: none; }
+
+  .rd-cta-row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin-top: 1.5rem; }
   .rd-review-btn { padding: 0.7rem 1.25rem; background: #fff; color: #1B3A5C; border: 2px solid #1B3A5C; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.92rem; }
   .rd-review-btn:hover { background: #1B3A5C; color: #fff; text-decoration: none; }
   .rd-cta { flex: 1; min-width: 220px; padding: 0.85rem 1.25rem; background: linear-gradient(135deg, #C9A84C 0%, #B8973B 100%); color: #fff; border-radius: 8px; font-weight: 700; text-align: center; text-decoration: none; box-shadow: 0 4px 12px rgba(201,168,76,0.3); }

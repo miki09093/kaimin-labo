@@ -17,7 +17,7 @@ const mattressReviews = [
   {
     rank: 2,
     name: 'REVERIA（リヴェリア）',
-    image: '/images/reveria-feature-3.png',
+    image: '/images/reveria-hero.png',
     catch: '医療機器認証＋磁気リカバリーで血行ケア',
     points: ['日本初・唯一の医療機器認証', 'ネオジム磁石48個', 'トッパー10cm'],
     score: 24.0,
@@ -26,7 +26,7 @@ const mattressReviews = [
   {
     rank: 3,
     name: 'NELLマットレス',
-    image: '/nell.jpg',
+    image: '/images/nell-hero.png',
     catch: '1,173個コイル＋120日トライアルの安心感',
     points: ['1,173個ポケットコイル', 'センターハード構造', '120日トライアル＋10年保証'],
     score: 23.0,
@@ -34,10 +34,10 @@ const mattressReviews = [
   },
   {
     rank: 5,
-    name: 'エマ・スリープ ハイブリッドV3',
+    name: 'エマ・プレミアム V2n',
     image: '/images/emma-hero.png',
-    catch: '7ゾーン設計＋振動吸収で夫婦・カップルに最適',
-    points: ['7ゾーン設計（AeroFlex®）', '振動吸収＋極厚27cm', '100日返金＋10年保証'],
+    catch: '7ゾーンAeroFlex®設計＋振動吸収で夫婦・カップルに最適',
+    points: ['7ゾーンAeroFlex®設計', '6層構造・厚さ27cm', '100日返金＋10年保証'],
     score: 21.5,
     href: '/review/emma/',
   },
@@ -56,7 +56,7 @@ const pillowReviews = [
   {
     rank: 1,
     name: 'ブレインスリープ ピロー',
-    image: '',
+    image: '/images/brain-sleep-hero.png',
     catch: '「脳が眠る枕」科学設計の最高峰',
     points: ['3次元ファイバー（90%空気層）', '5段階高さ調整＋形状カスタム', 'シャワー水洗いOK'],
     score: 26.0,
@@ -65,7 +65,7 @@ const pillowReviews = [
   {
     rank: 2,
     name: '王様の夢枕',
-    image: '',
+    image: '/images/yume-makura-hero.png',
     catch: '累計100万個突破のロングセラー枕',
     points: ['独自開発の極小ビーズ', '日本製の安心感', '手の届く7,000円〜'],
     score: 22.0,
@@ -74,7 +74,7 @@ const pillowReviews = [
   {
     rank: 3,
     name: 'ヒツジのいらない枕 -至極-',
-    image: '',
+    image: '/images/hitsuji-hero.png',
     catch: 'SNSで話題のTPE素材枕＋30日返金保証',
     points: ['独自TPEエラストマー素材', '30日間全額返金保証', '楽天レビュー4.6点'],
     score: 20.0,
@@ -152,9 +152,13 @@ const pillowReviews = [
           {pillowReviews.map(r => (
             <a href={r.href} class="review-card">
               <span class="review-rank">{r.rank}位</span>
-              <div class="review-img-placeholder">
-                <span class="placeholder-icon">😴</span>
-              </div>
+              {r.image ? (
+                <img src={r.image} alt={r.name} class="review-img" loading="lazy" />
+              ) : (
+                <div class="review-img-placeholder">
+                  <span class="placeholder-icon">😴</span>
+                </div>
+              )}
               <div class="review-body">
                 <p class="review-name">{r.name}</p>
                 <p class="review-catch">{r.catch}</p>

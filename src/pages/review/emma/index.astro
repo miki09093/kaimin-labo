@@ -4,7 +4,7 @@ import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 
-const affiliateHref = 'https://www.emma-sleep-japan.com/products/mattress-luxury?view_product=mattress-luxury-v2';
+const affiliateHref = 'https://www.emma-sleep-japan.com/products/hybrid-v3?view_product=premium-v2n';
 
 const scores = [
   { label: '①硬さ・反発力', val: 3.5 },
@@ -19,13 +19,14 @@ const total = scores.reduce((a, b) => a + b.val, 0);
 const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "エマ・スリープ ハイブリッドV3（プレミアム）",
-  "description": "ドイツ発のスリープテックブランドが開発した7ゾーン設計のハイブリッドマットレス。ポケットコイル＋ウレタン4層で体圧分散と振動吸収を両立。",
+  "name": "エマ・プレミアム V2n",
+  "image": new URL('/images/emma-hero.png', Astro.site).toString(),
+  "description": "ドイツ発のスリープテックブランドが開発した7ゾーンAeroFlex®設計のハイブリッドマットレス。1㎡あたり257個のポケットコイル＋6層構造で体圧分散と振動吸収を両立。",
   "brand": { "@type": "Brand", "name": "Emma Sleep" },
   "offers": {
     "@type": "Offer",
     "priceCurrency": "JPY",
-    "price": "49630",
+    "price": "85700",
     "availability": "https://schema.org/InStock",
     "url": affiliateHref
   },
@@ -61,7 +62,7 @@ const goodReviews = [
 ];
 
 const badReviews = [
-  { text: '価格はやはり安くないです。セール時は4万円台でしたが、通常価格だと8万円超で、ちょっと躊躇する金額。', who: '30代女性／会社員' },
+  { text: '価格はやはり安くないです。通常価格は8万円超なので、初めての高機能マットレスとしてはちょっと躊躇する金額。セール時を狙うのが賢明。', who: '30代女性／会社員' },
   { text: '製造国が中国というのが少し気になりました。ドイツ発ブランドだから本国製と思ってましたが…品質は問題なし。', who: '40代男性／管理職' },
   { text: '27cm厚はやはり重い。シングルでも21kg、ダブルだと31kg超。一人での移動は厳しいです。', who: '50代女性／主婦' },
   { text: '100日トライアルは「15日以降から受付」が条件。すぐ返品したいと思っても最低2週間は試さないといけません。', who: '30代男性／会社員' },
@@ -105,29 +106,25 @@ const faqJsonLd = {
 };
 ---
 <Layout
-  title="エマ・スリープ ハイブリッドV3 徹底レビュー｜7ゾーン設計＋振動吸収マットレスの実力は？"
-  description="ランキング5位のエマ・スリープ ハイブリッドV3を徹底レビュー。ドイツ発の7ゾーンポケットコイル＋ウレタン4層・100日返金保証＋10年保証の実力を、当サイト独自の評価で検証しました。"
+  title="エマ・プレミアム V2n 徹底レビュー｜7ゾーンAeroFlex®設計＋振動吸収マットレスの実力は？"
+  description="ランキング5位のエマ・プレミアム V2nを徹底レビュー。ドイツ発の7ゾーンAeroFlex®設計＋1㎡あたり257個のポケットコイル＋6層構造、100日返金保証＋10年保証の実力を、当サイト独自の評価で検証しました。"
   jsonLd={[productJsonLd, faqJsonLd]}
 >
   <Header />
   <main>
     <div class="page-header">
       <div class="container">
-        <Breadcrumb items={[{ label: 'レビュー', href: '/review/' }, { label: 'エマ・スリープ ハイブリッドV3' }]} />
-        <h1>エマ・スリープ ハイブリッドV3 徹底レビュー｜7ゾーン設計＋振動吸収マットレスの実力は？</h1>
+        <Breadcrumb items={[{ label: 'レビュー', href: '/review/' }, { label: 'エマ・プレミアム V2n' }]} />
+        <h1>エマ・プレミアム V2n 徹底レビュー｜7ゾーンAeroFlex®設計＋振動吸収マットレスの実力は？</h1>
         <p style="margin-top: 0.5rem; color: var(--color-text-muted);">公開日：2026.05.16 ／ カテゴリ：レビュー</p>
       </div>
     </div>
 
     <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
 
-      <div class="hero-placeholder">
-        <span class="hero-placeholder-tag">レビュー</span>
-        <p class="hero-placeholder-title">エマ・スリープ ハイブリッドV3</p>
-        <p class="hero-placeholder-sub">7ゾーン設計 × 振動吸収 × ドイツ発スリープテック</p>
-      </div>
+      <img src="/images/emma-hero.png" alt="エマ・プレミアム V2n" class="article-hero-img" loading="eager" />
 
-      <p><span class="marker-yellow">「夫婦で寝ても揺れない」「7ゾーンで体全体をしっかり支えてほしい」</span>――そんなカップル・夫婦使用に強いマットレスとして人気のドイツ発ブランドが <strong class="text-navy">エマ・スリープ ハイブリッドV3</strong> です。当サイトランキングでも <span class="badge-gold">5位（30点満点中21.5点）</span> にランクイン。</p>
+      <p><span class="marker-yellow">「夫婦で寝ても揺れない」「7ゾーンで体全体をしっかり支えてほしい」</span>――そんなカップル・夫婦使用に強いマットレスとして人気のドイツ発ブランドが <strong class="text-navy">エマ・プレミアム V2n</strong> です。当サイトランキングでも <span class="badge-gold">5位（30点満点中21.5点）</span> にランクイン。</p>
       <p>この記事では、エマ最大の特徴である「7ゾーン設計」と「100日トライアル＋10年保証」の実際を、ポイント別評価・口コミ・FAQまで掘り下げて検証します。</p>
 
       <h2>結論：夫婦・カップルで「揺れない眠り」を求めるならコレ</h2>
@@ -157,7 +154,7 @@ const faqJsonLd = {
           <tr><th>項目</th><th>内容</th></tr>
         </thead>
         <tbody>
-          <tr><th>価格（税込）</th><td>49,630円〜（セール時）／通常 85,700円〜</td></tr>
+          <tr><th>価格（税込）</th><td>シングル 85,700円〜（通常価格／セール時変動あり）</td></tr>
           <tr><th>サイズ展開</th><td>シングル／セミダブル／ダブル／クイーン／キング</td></tr>
           <tr><th>厚さ</th><td>27cm（極厚ハイブリッド構造）</td></tr>
           <tr><th>硬さ</th><td>やや柔らかめ・高反発</td></tr>
@@ -180,19 +177,21 @@ const faqJsonLd = {
       </div>
 
       <h3>② 振動吸収設計：パートナーの動きが伝わりにくい</h3>
+      <img src="/images/emma-vibration.png" alt="エマの振動吸収設計イメージ" class="article-inline-img" loading="lazy" />
       <p>独立したポケットコイル＋ウレタンの組み合わせで、<span class="marker-yellow">隣で寝ている人の寝返りや動きが伝わりにくい設計</span>。エマの公式PVでもよく「グラスを置いて飛び跳ねても倒れない」というデモが行われるほどです。</p>
       <p>夫婦・カップル・親子で同じベッドを使う方に特に好相性。「自分の眠りはパートナーに乱されたくない」という方の決定打になる機能です。</p>
 
-      <h3>③ 5層ハイブリッド構造：27cm極厚で底つき感ゼロ</h3>
-      <p>マットレス内部は <span class="text-navy-bold">「ウレタン4層＋ポケットコイル」のハイブリッド構造</span>。一般的なポケットコイル単体よりも体圧分散性能が高く、ウレタン単体よりも反発力があります。</p>
+      <h3>③ 6層ハイブリッド構造：27cm極厚で底つき感ゼロ</h3>
+      <p>マットレス内部は <span class="text-navy-bold">「ウレタン4層＋フェルト＋ポケットコイル」の6層ハイブリッド構造</span>。一般的なポケットコイル単体よりも体圧分散性能が高く、ウレタン単体よりも反発力があります。</p>
 
-      <p class="layer-intro"><strong>5層の構造内訳：</strong></p>
+      <p class="layer-intro"><strong>6層の構造内訳：</strong></p>
       <div class="layer-list">
-        <div class="layer-item"><span class="layer-num">1</span><span class="layer-name">Thermosync層（3cm／60N）</span><span class="layer-role">ナノカーボン配合・冷却機能</span></div>
-        <div class="layer-item"><span class="layer-num">2</span><span class="layer-name">Visco Memory層（1.5cm／60N）</span><span class="layer-role">体圧分散</span></div>
-        <div class="layer-item"><span class="layer-num">3</span><span class="layer-name">Comfort層（1.5cm／120N）</span><span class="layer-role">サポート</span></div>
-        <div class="layer-item"><span class="layer-num">4</span><span class="layer-name">フェルト層（0.5cm）</span><span class="layer-role">緩衝</span></div>
-        <div class="layer-item highlight"><span class="layer-num">5</span><span class="layer-name">ポケットコイル層（19.5cm）</span><span class="layer-role"><span class="text-emphasis">1㎡あたり257個の高密度配置</span></span></div>
+        <div class="layer-item"><span class="layer-num">1</span><span class="layer-name">カバー（ポリエステル100%）</span><span class="layer-role">表面・温度調整</span></div>
+        <div class="layer-item"><span class="layer-num">2</span><span class="layer-name">Thermosync™層（3cm）</span><span class="layer-role">グラファイト配合・冷却</span></div>
+        <div class="layer-item"><span class="layer-num">3</span><span class="layer-name">Visco Memory層（1.5cm）</span><span class="layer-role">体圧分散</span></div>
+        <div class="layer-item"><span class="layer-num">4</span><span class="layer-name">Comfort層（1.5cm）</span><span class="layer-role">サポート</span></div>
+        <div class="layer-item"><span class="layer-num">5</span><span class="layer-name">フェルト層（0.5cm）</span><span class="layer-role">緩衝</span></div>
+        <div class="layer-item highlight"><span class="layer-num">6</span><span class="layer-name">ポケットコイル層（19.5cm）</span><span class="layer-role"><span class="text-emphasis">1㎡あたり257個の高密度配置</span></span></div>
       </div>
 
       <div class="tip-box">
@@ -207,7 +206,7 @@ const faqJsonLd = {
       <h2>あなたに向いてる？タイプ別チェック</h2>
 
       <div class="fit-block fit-good">
-        <p class="fit-title"><span class="fit-icon-good">✓</span>エマ・スリープが<span class="text-navy-bold">向いてる人</span></p>
+        <p class="fit-title"><span class="fit-icon-good">✓</span>エマ・プレミアム V2n が<span class="text-navy-bold">向いてる人</span></p>
         <ul class="fit-list">
           <li>
             <p class="fit-target">夫婦・カップルで同じベッドで寝ている</p>
@@ -233,7 +232,7 @@ const faqJsonLd = {
       </div>
 
       <div class="fit-block fit-bad">
-        <p class="fit-title"><span class="fit-icon-bad">✗</span>エマ・スリープが<span class="text-navy-bold">向かない人</span></p>
+        <p class="fit-title"><span class="fit-icon-bad">✗</span>エマ・プレミアム V2n が<span class="text-navy-bold">向かない人</span></p>
         <ul class="fit-list">
           <li>
             <p class="fit-target">硬めの高反発マットレスが好み</p>
@@ -303,10 +302,10 @@ const faqJsonLd = {
           <tr><th>項目</th><th>内容</th></tr>
         </thead>
         <tbody>
-          <tr><th>商品名</th><td>エマ・スリープ ハイブリッドV3（プレミアム）</td></tr>
+          <tr><th>商品名</th><td>エマ・プレミアム V2n</td></tr>
           <tr><th>販売元</th><td>Emma Sleep Japan（ドイツ発スリープテックブランド）</td></tr>
           <tr><th>サイズ詳細</th><td>シングル：97×195×27cm（21.4kg）／セミダブル：120×195×27cm（27.6kg）／ダブル：140×195×27cm（31.7kg）／クイーン：160×195×27cm（35.2kg）／キング：180×195×27cm（38.7kg）</td></tr>
-          <tr><th>素材・構造</th><td>5層ハイブリッド（Thermosync／Visco Memory／Comfort／フェルト／ポケットコイル）</td></tr>
+          <tr><th>素材・構造</th><td>6層ハイブリッド（カバー／Thermosync™／Visco Memory／Comfort／フェルト／ポケットコイル）</td></tr>
           <tr><th>コイル密度</th><td>1㎡あたり257個の高密度ポケットコイル</td></tr>
           <tr><th>硬さ</th><td>やや柔らかめ（沈み込みすぎず適度なサポート）</td></tr>
           <tr><th>独自技術</th><td>AeroFlex®（7ゾーン設計）／Airgocell®（高通気フォーム）／グラファイト粒子（温度調整）</td></tr>
@@ -339,7 +338,7 @@ const faqJsonLd = {
       </div>
 
       <a href={affiliateHref} class="rd-cta" target="_blank" rel="noopener noreferrer nofollow" style="display: block; max-width: 480px; margin: 2rem auto;">
-        エマ・スリープ公式サイトで詳細を見る →
+        エマ・プレミアム V2n 公式サイトで詳細を見る →
       </a>
 
       <h2>関連記事</h2>

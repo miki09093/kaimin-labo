@@ -35,5 +35,5 @@
 
   <!-- 下部ボタン風要素 -->
   <rect x="450" y="510" width="300" height="60" rx="30" fill="url(#goldGrad)"/>
-  <text x="600" y="550" font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">kaimin-labo.com</text>
+  <text x="600" y="550" font-family="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">kaimin-labo.net</text>
 </svg>

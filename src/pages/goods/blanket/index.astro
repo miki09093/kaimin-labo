@@ -1,0 +1,219 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import '../../../styles/goods-detail.css';
+
+const products = [
+  {
+    rank: 1, name: 'ニトリ Nウォーム 2枚合わせ毛布', shortName: 'ニトリ Nウォーム', score: 26.5,
+    img: 'blanket-nitori-card.png', anchor: 'nitori-review',
+    itemScores: { warm: 5.0, touch: 4.5, light: 4.0, mure: 4.0, care: 4.5, cost: 4.5 },
+    itemTexts: { warm: '吸湿発熱素材で自然な暖かさ', touch: 'なめらかな肌ざわり', light: '2枚合わせで適度な重み', mure: '抗菌防臭加工', care: '洗濯機で洗える', cost: '2,990円〜の高コスパ' },
+    price: '2,990円〜（公式・シングル）', material: '吸湿発熱素材（2枚合わせ）', care: '洗濯機で洗える／抗菌防臭加工', made: '—',
+    tags: ['吸湿発熱', '洗える', 'コスパ◎'],
+    summary: '体から出る湿気を熱に変える吸湿発熱素材を使ったニトリの定番毛布。2枚合わせ構造で空気の層を作り、自然なあたたかさをキープ。抗菌防臭加工＋洗濯機で洗える衛生設計で、コスパも抜群の人気No.1モデルです。',
+    affiliateHref: 'https://www.nitori-net.jp/',
+    features: [
+      ['吸湿発熱素材で「自然なあたたかさ」', '体から発せられる湿気を吸収して熱に変える吸湿発熱素材を採用。電気を使わずに自然なあたたかさを生み出します。'],
+      ['2枚合わせ構造＋抗菌防臭加工', '2枚の生地の間に空気の層を作る2枚合わせ構造で保温力アップ。抗菌防臭加工も施され、衛生面にも配慮されています。'],
+      ['洗濯機で洗える＋手頃な価格', '家庭の洗濯機で洗えるため、いつでも清潔に。全国のニトリ店舗で手に取って選べ、価格も手頃でコスパに優れます。'],
+    ],
+    good: ['電気を使わず自然に暖まりたい方', '洗える毛布で清潔に使いたい方', 'コスパを重視する方', '全国の店舗で実物を見て買いたい方'],
+    bad: ['天然素材（ウール等）にこだわる方', '極薄・軽量の毛布が好みの方'],
+    miniFaq: [['電気毛布ですか？', 'いいえ。吸湿発熱素材による自然なあたたかさで、電気は使いません。'], ['洗えますか？', '洗濯機で洗えます。抗菌防臭加工付きで衛生的です。'], ['サイズ展開は？', 'シングル〜各サイズ展開があります。店舗・公式サイトでご確認ください。']],
+  },
+  {
+    rank: 2, name: 'mofua プレミアムマイクロファイバー毛布', shortName: 'mofua マイクロファイバー', score: 24.5,
+    img: 'blanket-mofua-card.png', anchor: 'mofua-review',
+    itemScores: { warm: 4.0, touch: 5.0, light: 4.5, mure: 3.5, care: 4.5, cost: 4.0 },
+    itemTexts: { warm: '極細繊維で空気を含み暖かい', touch: 'シルクより細い繊維のとろふわ感', light: '軽量で扱いやすい', mure: 'マイクロファイバー', care: '洗濯機で洗える', cost: '3,982円（税込）' },
+    price: '3,982円（公式・シングル・税込）', material: 'プレミアムマイクロファイバー（約8μmの極細繊維）', care: '洗濯機で洗える', made: '—',
+    tags: ['とろふわ肌触り', '軽量', '洗える'],
+    summary: 'シルクよりも細いプレミアムマイクロファイバーを使った、累計販売数の多い人気毛布。「とろふわ」と表現されるなめらかな肌ざわりが最大の魅力。軽量で扱いやすく、洗濯機で洗えるためお手入れも簡単です。',
+    affiliateHref: 'https://mofua.jp/products/5000',
+    features: [
+      ['シルクより細いプレミアムマイクロファイバー', 'シルクよりも細い極細繊維を使用し、「とろっとろ」「ふわふわ」と表現されるなめらかな肌ざわりを実現。肌に吸い付くような心地よさが特徴です。'],
+      ['空気を含んで軽く暖かい', '繊維と繊維の間に空気を含むことで、軽いのにしっかり暖かい。重い毛布が苦手な方にも快適です。'],
+      ['洗濯機で洗えてお手入れ簡単', '家庭の洗濯機で洗えるため、いつでも清潔に保てます。豊富なカラー展開も人気のポイントです。'],
+    ],
+    good: ['とろふわのなめらかな肌触りが好きな方', '軽い毛布が好みの方', '洗えてお手入れしやすい毛布が欲しい方', 'カラーを選びたい方'],
+    bad: ['吸湿発熱など機能性を最重視する方', '天然素材にこだわる方'],
+    miniFaq: [['毛玉になりませんか？', 'マイクロファイバーは比較的毛玉ができにくい素材ですが、洗濯ネットの使用がおすすめです。'], ['静電気は起きますか？', '化繊のため乾燥時に静電気が起きることがあります。柔軟剤の使用で軽減できます。'], ['洗えますか？', '洗濯機で洗えます。']],
+  },
+  {
+    rank: 3, name: '無印良品 あたたかファイバー ムレにくい厚手毛布', shortName: '無印 あたたかファイバー', score: 22.5,
+    img: 'blanket-muji-card.png', anchor: 'muji-review',
+    itemScores: { warm: 4.0, touch: 4.0, light: 4.0, mure: 5.0, care: 4.0, cost: 4.5 },
+    itemTexts: { warm: 'マイクロファイバーで暖かい', touch: 'なめらかな肌ざわり', light: '厚手でも扱いやすい', mure: 'リヨセル配合でムレにくい', care: '洗濯対応', cost: '3,990円〜（シングル）' },
+    price: '3,990円〜（公式・シングル）', material: 'マイクロファイバーポリエステル＋リヨセル', care: '洗濯対応', made: '—',
+    tags: ['ムレにくい', '無印品質', '全国の店舗で買える'],
+    summary: '無印良品のあたたかファイバー毛布。マイクロファイバーポリエステルにリヨセルをプラスして編むことで「ムレにくいのに暖かい」を実現。シングル3,990円とコスパも良く、シンプルなデザインでどんな寝室にもなじみます。',
+    affiliateHref: 'https://www.muji.com/jp/ja/store/cmdty/section/T20009',
+    features: [
+      ['リヨセル配合で「ムレにくいのに暖かい」', 'マイクロファイバーポリエステルにリヨセル（再生繊維）をプラスして編むことで、暖かさを保ちつつ蒸れにくさを実現。汗ばむ夜でも快適です。'],
+      ['なめらかな肌ざわりの厚手毛布', '厚手ながらなめらかな肌ざわりで、しっかりとした暖かさ。シンプルで主張しすぎないデザインはどんな寝室にもなじみます。'],
+      ['シングル3,990円＋全国の店舗で買える', 'シングル3,990円と手頃な価格。全国の無印良品店舗で実物を確認してから買える安心感も魅力です。'],
+    ],
+    good: ['暖かいのにムレにくい毛布が欲しい方', 'シンプルなデザインが好みの方', '全国の店舗で買いたい方', '手頃な価格を求める方'],
+    bad: ['最強クラスの暖かさを求める方', '吸湿発熱機能を重視する方'],
+    miniFaq: [['ムレにくいのはなぜ？', 'リヨセル（再生繊維）を配合することで吸放湿性が高まり、暖かさを保ちながらムレを軽減します。'], ['価格は？', 'シングル3,990円〜です。'], ['店舗で買えますか？', '全国の無印良品店舗・公式ネットストアで購入できます。']],
+  },
+];
+
+const guide = [
+  ['①', '暖かさ（保温性）', '毛布の最重要ポイント。吸湿発熱素材やマイクロファイバー、ウールなど素材によって暖かさの仕組みが異なります。', ['吸湿発熱素材＝電気なしで暖かい', 'マイクロファイバー＝空気を含んで保温', '2枚合わせは保温力が高い']],
+  ['②', '肌触り', '毎晩肌に触れるものなので肌ざわりは重要。マイクロファイバーはとろふわ、綿・ウールは自然な風合いです。', ['マイクロファイバー＝とろふわ', '綿・ウール＝自然な肌ざわり', '実物の手触りも確認']],
+  ['③', '軽さ', '重い毛布は寝返りの妨げに。軽くて暖かい素材ほど快眠につながります。', ['マイクロファイバーは軽量', '2枚合わせは適度な重み', '重い毛布が苦手なら軽量タイプ']],
+  ['④', 'ムレにくさ', '暖かくても蒸れると不快。リヨセル配合や吸放湿性のある素材がムレを防ぎます。', ['リヨセル・吸放湿素材はムレにくい', '化繊100%は蒸れやすい場合も', '汗っかきの人は重視']],
+  ['⑤', 'お手入れ（洗える）', '直接肌に触れる毛布は清潔に保ちたいもの。洗濯機で洗えるタイプが便利です。', ['洗濯機対応か確認', '洗濯ネットの使用がおすすめ', '速乾性もチェック']],
+  ['⑥', '価格・コスパ', '毛布は数千円〜が中心。機能性と価格のバランスで選ぶと満足度が高まります。', ['数千円〜の手頃な価格帯', '機能と価格のバランスで判断', '毎年使う消耗品として考える']],
+];
+
+const faqs = [
+  { q: '吸湿発熱毛布と電気毛布の違いは？', a: '吸湿発熱毛布は体から出る湿気を熱に変える素材で、電気を使わず自然に暖まります。電気毛布はヒーターで温めるタイプ。電気代をかけたくない・自然な暖かさが好きなら吸湿発熱毛布、強力にすぐ暖まりたいなら電気毛布が向いています。' },
+  { q: 'マイクロファイバー毛布は静電気が起きませんか？', a: '化学繊維のため、乾燥した季節は静電気が起きることがあります。洗濯時に柔軟剤を使う、加湿するなどで軽減できます。' },
+  { q: '毛布は掛け布団の上と下、どちらに使う？', a: '一般的には「肌に近い側（掛け布団の下）」に使うと毛布の暖かさを直接感じられます。吸湿発熱毛布は肌に近い方が効果的です。羽毛布団の場合は上に掛けると羽毛のふくらみを潰さず暖かさを逃しません。' },
+  { q: '毛布は洗えますか？', a: '本ページで紹介している3商品はいずれも洗濯機で洗えます。洗濯表示に従い、洗濯ネットの使用がおすすめです。' },
+  { q: '毛布の寿命はどれくらい？', a: '一般的に3〜5年が買い替えの目安です。毛玉が増えた・暖かさが減った・肌触りが落ちたと感じたら買い替えのサインです。' },
+];
+---
+<Layout
+  title="毛布おすすめランキング2026｜ニトリNウォーム・mofuaを徹底比較"
+  description="毛布の人気3商品を徹底比較。ニトリNウォーム・mofua・無印良品を、暖かさ・肌触り・軽さ・ムレにくさ・お手入れ・価格の6軸で30点満点採点しました。"
+>
+  <Header />
+  <main>
+    <div class="page-header"><div class="container"><Breadcrumb items={[{ label: '睡眠グッズ', href: '/goods/' }, { label: '毛布・ブランケット' }]} /></div></div>
+
+    <section class="hero-section"><a href="#top3"><img src="/images/blanket-hero.png" alt="あたたかい毛布を徹底比較" class="hero-img" loading="eager" fetchpriority="high" /></a></section>
+
+    <section class="section" id="top3">
+      <div class="container">
+        <h2 class="section-title">冬の快眠を支える 毛布TOP3</h2>
+        <p style="margin-bottom: 1.5rem;">「冬は暖かく、でも蒸れずに眠りたい」「洗える毛布がいい」――そんな悩みに応える3枚を、編集部が厳選しました。</p>
+        <div class="top3-list">
+          {products.map(p => (
+            <div class="top3-card">
+              <div class="top3-header"><span class={`rank-circle rank-circle-${p.rank}`}>{p.rank}</span><p class="top3-name">{p.name}</p></div>
+              <img src={`/images/${p.img}`} alt={p.name} class="top3-img" loading="lazy" />
+              <div class="top3-score-row"><span class="top3-score">{p.score.toFixed(1)}</span><span class="top3-score-max">/ 30点</span></div>
+              <p class="top3-price">{p.price}</p>
+              <ul class="top3-tags">{p.tags.map(t => <li>#{t}</li>)}</ul>
+              <p class="top3-summary">{p.summary}</p>
+              <div class="top3-cta-row"><a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="top3-cta-btn">公式サイトを見る →</a></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-section">
+      <div class="container">
+        <h2 class="section-title">毛布選びで失敗しない6つのポイント</h2>
+        <p class="guide-lead">当サイトはこの6項目を5点満点・合計30点で採点しています。</p>
+        <div class="guide-grid">
+          {guide.map(g => (
+            <div class="guide-card">
+              <p class="guide-num">{g[0]}</p>
+              <h3 class="guide-title">{g[1]}</h3>
+              <p class="guide-text">{g[2]}</p>
+              <div class="guide-check"><p class="guide-check-title">見極め方</p><ul>{(g[3] as string[]).map(c => <li>{c}</li>)}</ul></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="compare">
+      <div class="container">
+        <h2 class="section-title">人気毛布 3商品 徹底比較表</h2>
+        <p style="margin-bottom: 1.5rem;">当サイトの採点6項目を軸に、人気毛布3商品を一覧で比較できます。</p>
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <colgroup><col class="col-label" />{products.map(() => <col class="col-product" />)}</colgroup>
+            <thead><tr><th class="row-label">項目</th>{products.map(p => <th>{p.shortName}</th>)}</tr></thead>
+            <tbody>
+              <tr><td class="row-label">総合スコア</td>{products.map(p => <td><strong class="score-total">{p.score.toFixed(1)}</strong><span class="score-max">/30点</span></td>)}</tr>
+              <tr><td class="row-label">①暖かさ</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.warm)}`}>{p.itemTexts.warm}</td>)}</tr>
+              <tr><td class="row-label">②肌触り</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.touch)}`}>{p.itemTexts.touch}</td>)}</tr>
+              <tr><td class="row-label">③軽さ</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.light)}`}>{p.itemTexts.light}</td>)}</tr>
+              <tr><td class="row-label">④ムレにくさ</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.mure)}`}>{p.itemTexts.mure}</td>)}</tr>
+              <tr><td class="row-label">⑤お手入れ</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.care)}`}>{p.itemTexts.care}</td>)}</tr>
+              <tr><td class="row-label">⑥価格・コスパ</td>{products.map(p => <td class={`score-cell-bg score-bg-${Math.round(p.itemScores.cost)}`}>{p.itemTexts.cost}</td>)}</tr>
+              <tr><td class="row-label">価格</td>{products.map(p => <td class="compare-info">{p.price}</td>)}</tr>
+              <tr><td class="row-label">素材</td>{products.map(p => <td class="compare-info">{p.material}</td>)}</tr>
+              <tr><td class="row-label">公式サイト</td>{products.map(p => <td><a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="compare-btn">公式へ →</a></td>)}</tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-bg" id="reviews-detail">
+      <div class="container">
+        <h2 class="section-title">TOP3 各商品の詳細レビュー</h2>
+        {products.map(p => (
+          <div class="review-detail-card" id={p.anchor}>
+            <div class="rd-header"><span class={`rd-rank rd-rank-${p.rank}`}>第{p.rank}位</span><h3 class="rd-name">{p.name}</h3><div class="rd-score-block"><span class="rd-score-num">{p.score.toFixed(1)}</span><span class="rd-score-max">/ 30点</span></div></div>
+            <img src={`/images/${p.img}`} alt={p.name} class="rd-hero-img" loading="lazy" />
+            <div class="rd-extra-block rd-extra-block-first">
+              <h4 class="rd-extra-title">こんな人におすすめ／向かない人</h4>
+              <div class="rd-fit-grid">
+                <div class="rd-fit-good"><p class="rd-fit-title">✓ おすすめの人</p><ul>{p.good.map(x => <li>{x}</li>)}</ul></div>
+                <div class="rd-fit-bad"><p class="rd-fit-title">✗ 向かない人</p><ul>{p.bad.map(x => <li>{x}</li>)}</ul></div>
+              </div>
+            </div>
+            <div class="rd-extra-block">
+              <h4 class="rd-extra-title">{p.shortName}の3つの特徴</h4>
+              <div class="rd-feature-list">
+                {p.features.map((f, i) => (
+                  <div class="rd-feature-item"><span class="rd-feature-num">{i + 1}</span><div><p class="rd-feature-name">{f[0]}</p><p class="rd-feature-desc">{f[1]}</p></div></div>
+                ))}
+              </div>
+            </div>
+            <div class="rd-extra-block">
+              <h4 class="rd-extra-title">価格・購入について</h4>
+              <p class="rd-warranty-text">価格は<strong>{p.price}</strong>。素材：{p.material}。{p.care}。</p>
+            </div>
+            <div class="rd-extra-block">
+              <h4 class="rd-extra-title">よくある質問</h4>
+              <dl class="rd-mini-faq">{p.miniFaq.map(q => (<><dt>Q. {q[0]}</dt><dd>{q[1]}</dd></>))}</dl>
+            </div>
+            <div class="rd-cta-row"><a href={p.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="rd-cta">{p.shortName}公式サイトを見る →</a></div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section section-bg">
+      <div class="container" style="max-width: 780px;">
+        <h2 class="section-title">よくある質問</h2>
+        <div class="faq-list">
+          {faqs.map((faq, i) => (
+            <div class="faq-item" id={`faq-${i}`}>
+              <button class="faq-question" aria-expanded="false" data-faq={i}><span class="faq-q-icon">Q</span><span>{faq.q}</span><span class="faq-toggle" aria-hidden="true"></span></button>
+              <div class="faq-answer" hidden><span class="faq-a-icon">A</span><p>{faq.a}</p></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section"><div class="container" style="max-width: var(--content-width);"><a href="/goods/" class="back-link">← 睡眠グッズ記事一覧に戻る</a></div></section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling as HTMLElement;
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.classList.toggle('open', !expanded);
+      answer.hidden = expanded;
+    });
+  });
+</script>

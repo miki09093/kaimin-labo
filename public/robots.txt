@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kaimin-labo.com/sitemap-index.xml
+Sitemap: https://kaimin-labo.net/sitemap-index.xml

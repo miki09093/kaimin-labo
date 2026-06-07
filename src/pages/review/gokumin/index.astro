@@ -66,6 +66,7 @@ const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "GOKUMIN プレミアムスプリングマットレス",
+  "image": new URL('/images/gokumin-hero.png', Astro.site).toString(),
   "description": "1万円台で買える高反発スプリング＋ウレタンのハイブリッド構造。極厚20cm・8年保証・6サイズ展開のコスパ重視マットレス。",
   "brand": { "@type": "Brand", "name": "GOKUMIN" },
   "offers": {
@@ -121,11 +122,7 @@ const faqJsonLd = {
 
     <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
 
-      <div class="hero-placeholder">
-        <span class="hero-placeholder-tag">レビュー</span>
-        <p class="hero-placeholder-title">GOKUMIN プレミアムスプリング</p>
-        <p class="hero-placeholder-sub">極厚20cm × 8年保証付き × 1万円台〜</p>
-      </div>
+      <img src="/images/gokumin-hero.png" alt="GOKUMIN プレミアムスプリングマットレス" class="article-hero-img" loading="eager" />
 
       <p><span class="marker-yellow">「マットレスにそんなにお金かけられない」「とりあえず試したい」</span>――そんな方の入門マットレスとして人気なのが <strong class="text-navy">GOKUMINプレミアムスプリングマットレス</strong>。<span class="text-navy-bold">1万円台〜で買える</span> 高反発スプリングとして、累計2,000万枚販売の実績を誇ります。</p>
       <p>この記事では、当サイトランキング <span class="badge-gold">6位（30点満点中17.5点）</span> のGOKUMINが「価格相応か、それ以上か」を、ポイント別評価・口コミ・FAQまで掘り下げて検証します。</p>
@@ -167,8 +164,9 @@ const faqJsonLd = {
 
       <h2>ポイント別に実際どうなの？を本音で評価</h2>
 
-      <h3>① 圧倒的コスパ：1万円台〜で買える高反発スプリング</h3>
-      <p>GOKUMINの最大のウリは、<span class="marker-yellow">この価格帯で「高反発スプリング＋極厚20cm＋8年保証」が揃う</span>こと。同価格帯（2万円前後）の他社製品はウレタンのみ・厚み10cm前後のものが多いなかで、<span class="text-navy-bold">スプリングと長期保証が両方ついている</span>のは希少です。</p>
+      <h3>① 圧倒的コスパ：1万円台〜で買える「496個の高密度ポケットコイル」</h3>
+      <img src="/images/gokumin-cospa.png" alt="GOKUMINの圧倒的コスパ・496個の高密度ポケットコイル" class="article-inline-img" loading="lazy" />
+      <p>GOKUMINの最大のウリは、<span class="marker-yellow">2万円前後の価格帯で「496個の高密度ポケットコイル」を採用している</span>こと。同価格帯の他社製品は<span class="text-navy-bold">ウレタン単体のマットレスが大半</span>で、これだけのコイル数を備えたスプリングマットレスが手に届く価格で買えるのは希少です。</p>
       <p>「とりあえずマットレスがほしい」「学生・一人暮らしで予算が限られている」「来客用にもう1台必要」というニーズにピッタリの価格設定です。</p>
       <div class="info-card">
         <p class="info-card-title">こんな購入シーンに最適</p>
@@ -179,24 +177,25 @@ const faqJsonLd = {
         </ul>
       </div>
 
-      <h3>② ハイブリッド構造：ポケットコイル＋高反発ウレタン</h3>
-      <p>GOKUMINは <span class="text-navy-bold">ポケットコイル（シングル496個）＋高反発ウレタン（密度32D・180N）</span> のハイブリッド構造。ウレタン単体のマットレスに比べて<span class="marker-yellow">寝返りがしやすく、コイルの反発で体をしっかり支えてくれます</span>。</p>
-      <p>表面生地はレーヨン35%＋ポリエステル65%の<span class="text-navy-bold">高級ニット</span>、抗菌・防臭・低ホルムアルデヒド仕様で、汗っかきや子供のいる家庭でも安心。</p>
+      <h3>② 8層構造：極厚20cmで底つき感ゼロのしっかり設計</h3>
+      <img src="/images/gokumin-8layer.png" alt="GOKUMINの8層構造図" class="article-inline-img" loading="lazy" />
+      <p>GOKUMINは <span class="text-navy-bold">8層構造の極厚20cm</span> 設計。生地・中綿・3Dメッシュ・ウレタン・ポケットコイル・サポート材を緻密に重ねており、<span class="marker-yellow">床に直接敷いても底つき感がない</span>厚みとサポート力を実現しています。</p>
 
-      <h3>③ 6サイズ展開：スリム80cmからキング180cmまで対応</h3>
-      <p>シングル・セミダブル・ダブル・クイーン・キングの主要5サイズに加え、<span class="text-navy-bold">スリム（幅80cm）</span> までラインナップ。<span class="marker-yellow">ワンルームの狭い部屋から、家族で並んで寝るキングまで、あらゆる住環境に対応</span>できます。</p>
-
-      <p class="layer-intro"><strong>サイズ一覧：</strong></p>
-      <div class="layer-list">
-        <div class="layer-item"><span class="layer-num">1</span><span class="layer-name">スリム</span><span class="layer-role">幅80cm／約18.5kg</span></div>
-        <div class="layer-item"><span class="layer-num">2</span><span class="layer-name">シングル</span><span class="layer-role">幅97cm／約22kg</span></div>
-        <div class="layer-item"><span class="layer-num">3</span><span class="layer-name">セミダブル</span><span class="layer-role">幅120cm／約26.5kg</span></div>
-        <div class="layer-item"><span class="layer-num">4</span><span class="layer-name">ダブル</span><span class="layer-role">幅140cm／約31kg</span></div>
-        <div class="layer-item"><span class="layer-num">5</span><span class="layer-name">クイーン</span><span class="layer-role">幅160cm／約36kg</span></div>
-        <div class="layer-item"><span class="layer-num">6</span><span class="layer-name">キング</span><span class="layer-role">幅180cm／約39kg</span></div>
+      <h3>③ 優れた体圧分散：腰・肩への負担を点で支える設計</h3>
+      <img src="/images/gokumin-pressure.png" alt="GOKUMINの体圧分散イメージ" class="article-inline-img" loading="lazy" />
+      <p>496個の高密度ポケットコイルが<span class="text-navy-bold">「点」で体を支える</span>ことで、<span class="marker-yellow">腰や肩などの一点に体重が集中するのを防ぎ、自然な寝姿勢をキープ</span>します。各コイルが独立して沈み込むため、体の凹凸に合わせて細かくフィットしてくれる構造です。</p>
+      <p>密度32D・180Nの高反発ウレタンが組み合わさることで、コイルの反発をやさしく吸収し、<span class="text-navy-bold">硬すぎず・沈み込みすぎない絶妙なバランス</span>を実現。腰痛持ちの方からの「朝の腰の重さが軽くなった」という口コミも多数あります。</p>
+      <div class="info-card">
+        <p class="info-card-title">体圧分散による3つのメリット</p>
+        <ul class="info-card-list">
+          <li><span class="check-mini">◎</span>腰・肩への圧力集中を防ぎ、寝起きの体の重さを軽減</li>
+          <li><span class="check-mini">◎</span>横向き寝・仰向け寝のどちらでも寝姿勢が崩れにくい</li>
+          <li><span class="check-mini">◎</span>体の凹凸にコイルが点でフィットし、ぐっすり眠れる</li>
+        </ul>
       </div>
 
       <h3>④ 8年品質保証：累計2,000万枚突破の販売実績</h3>
+      <img src="/images/gokumin-warranty.png" alt="GOKUMINの8年品質保証と販売実績" class="article-inline-img" loading="lazy" />
       <p>低価格帯マットレスにありがちな「保証が短い」というデメリットがGOKUMINにはなく、<span class="text-navy-bold">8年間の品質保証</span> 付き。<span class="marker-yellow">累計2,000万枚の販売実績</span>がブランドとしての信頼性を裏付けています。</p>
       <div class="tip-box">
         <p class="tip-box-title"><span class="tip-icon">📦</span>当日スピード発送</p>

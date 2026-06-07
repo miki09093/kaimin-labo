@@ -66,7 +66,7 @@ const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "NELLマットレス",
-  "image": new URL('/nell.jpg', Astro.site).toString(),
+  "image": new URL('/images/nell-hero.png', Astro.site).toString(),
   "description": "シングル1,173個のポケットコイル独立式とセンターハード構造で寝返りをサポート。120日トライアル＋10年品質保証付き。",
   "brand": { "@type": "Brand", "name": "NELL" },
   "offers": {
@@ -122,7 +122,7 @@ const faqJsonLd = {
 
     <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
 
-      <img src="/nell.jpg" alt="NELLマットレス" class="article-hero-img" loading="eager" />
+      <img src="/images/nell-hero.png" alt="NELLマットレス" class="article-hero-img" loading="eager" />
 
       <p><span class="marker-yellow">「寝返りで何度も目が覚める」「マットレス選びで失敗したくない」</span>――そんな悩みを持つ方の選択肢として人気なのが <strong class="text-navy">NELLマットレス</strong>。シングルだけで <span class="text-navy-bold">1,173個のポケットコイル</span> を採用し、当サイトランキングでも <span class="badge-gold">3位（30点満点中23.0点）</span> を獲得しています。</p>
       <p>この記事では、NELL最大の強みである「寝返りサポート設計」「業界最長クラスの120日トライアル＆10年保証」の実際を、ポイント別評価・口コミ・FAQまで掘り下げて検証します。</p>
@@ -162,27 +162,23 @@ const faqJsonLd = {
         </tbody>
       </table>
 
-      <h2>ポイント別に実際どうなの？を本音で評価</h2>
+      <h2>NELLマットレスの3つの強みを本音で評価</h2>
 
-      <h3>① 寝返りサポート設計：1,173個のコイルが「揺れない・起こさない」</h3>
-      <p>NELLが世に広めたコンセプトが「寝返りのしやすさ」。シングルでも <span class="text-navy-bold">1,173個のポケットコイル</span> が独立して動くため、<span class="marker-yellow">隣の人の動きが伝わりにくく、寝返りで自分も目が覚めない</span>構造になっています。</p>
-      <p>一般的なポケットコイルマットレスのコイル数は500〜800個程度。NELLの1,173個は <span class="text-navy-bold">業界最高水準のコイル密度</span>で、体の凹凸を細かく拾って支えてくれます。</p>
+      <h3>① 13層構造×1,173個ポケットコイル：寝返りも体圧分散もこれ1台で</h3>
+      <img src="/images/nell-coil-structure.png" alt="NELLマットレスの13層構造と1,173個ポケットコイル" class="article-inline-img" loading="lazy" />
+      <p>NELL最大のウリは、<span class="text-navy-bold">1,173個の独立ポケットコイル</span>を中心とした<span class="text-navy-bold">13層構造</span>。一般的なポケットコイルマットレスは500〜800個程度なので、<span class="marker-yellow">業界最高水準のコイル密度</span>で体の凹凸を細かく拾って支えます。</p>
+      <p>各コイルは不織布の袋に1つずつ包まれて独立しているため、<span class="marker-yellow">隣で寝ている人の寝返りで自分が目を覚ますことがほぼなく</span>、夫婦・カップルでの使用にも最適。コイル同士が干渉しないので、ギシギシ音もしません。<span class="text-navy-bold">JIS規格合格</span>＋医師推奨という客観的な裏付けもあります。</p>
       <div class="info-card">
-        <p class="info-card-title">寝返りがラクになる仕組み</p>
+        <p class="info-card-title">NELLが選ばれている3つの理由</p>
         <ul class="info-card-list">
-          <li><span class="check-mini">◎</span>コイルが独立して動く → 体重移動の力が最小限</li>
-          <li><span class="check-mini">◎</span>センターハードで腰の沈み込みを防ぐ</li>
+          <li><span class="check-mini">◎</span>1,173個のコイル独立構造で寝返り時の力が最小限</li>
+          <li><span class="check-mini">◎</span>13層構造で体圧分散＋耐久性を両立</li>
           <li><span class="check-mini">◎</span>振動が隣に伝わらず、夫婦・カップルでも快適</li>
         </ul>
       </div>
 
-      <h3>② 13層構造×1,173個ポケットコイル：圧倒的な構造美</h3>
-      <img src="/nell-feature-coil-pc.jpg" alt="NELLマットレスのポケットコイル構造" class="article-inline-img" loading="lazy" />
-      <p>マットレス内部は <span class="text-navy-bold">13層構造</span> で、上層のクッション素材・中層のポケットコイル・下層のサポート材が積み重なる設計。<span class="marker-yellow">体圧分散と耐久性を両立</span>しています。</p>
-      <p>各コイルは「不織布の袋」に1つずつ包まれて独立。これにより、点で体を支えながらも、コイル同士の干渉でギシギシ音がする心配がありません。<span class="text-navy-bold">JIS規格合格</span>＋医師推奨という客観的な裏付けもあります。</p>
-
-      <h3>③ センターハード構造：腰が沈まず寝姿勢キープ</h3>
-      <img src="/nell-feature-center-pc.jpg" alt="NELLマットレスのセンターハード構造" class="article-inline-img" loading="lazy" />
+      <h3>② センターハード構造：腰が沈まず寝姿勢キープ</h3>
+      <img src="/images/nell-center-hard.png" alt="NELLマットレスのセンターハード構造" class="article-inline-img" loading="lazy" />
       <p>NELLの大きな特徴がこの「センターハード」。<span class="marker-yellow">マットレス中央（腰部）のコイルだけ硬めにすることで、腰の沈み込みを防ぎ、自然なS字カーブを保つ</span>設計です。</p>
       <p>柔らかいマットレスだと腰が深く沈み込んで背骨がくの字になりますが、NELLは中央が踏ん張ってくれるので、<span class="text-navy-bold">仰向け寝・横向き寝のどちらでも寝姿勢が崩れにくい</span>仕様になっています。</p>
       <div class="tip-box">
@@ -190,7 +186,8 @@ const faqJsonLd = {
         <p>NELLは複数の医師が推奨する寝姿勢サポート設計。腰痛・肩こりに悩む方の「寝姿勢の改善」に着目して設計されています。</p>
       </div>
 
-      <h3>④ 120日トライアル＋10年保証：業界最長クラスの安心感</h3>
+      <h3>③ 120日トライアル＋10年保証：業界最長クラスの安心感</h3>
+      <img src="/images/nell-warranty.png" alt="NELLマットレスの120日トライアル＋10年品質保証" class="article-inline-img" loading="lazy" />
       <p>NELLが他社と一線を画すのが、<span class="text-navy-bold">120日トライアル</span> と <span class="text-navy-bold">10年品質保証</span> の組み合わせ。「実際に寝てみないとわからない」というマットレス選びの不安を、両方の保証で完全にカバーします。</p>
       <p class="layer-intro"><strong>保証の内訳：</strong></p>
       <div class="layer-list">

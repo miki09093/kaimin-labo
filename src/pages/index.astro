@@ -61,7 +61,7 @@ const products = [
   {
     rank: 3,
     name: 'NELLマットレス',
-    image: '/nell.jpg',
+    image: '/images/nell-hero.png',
     score: 23.0,
     price: '67,915円〜（シングル・セール中）',
     priceS: '67,915円〜', priceSD: '要確認', priceD: '要確認',
@@ -114,30 +114,30 @@ const products = [
   },
   {
     rank: 5,
-    name: 'エマ・スリープ ハイブリッドV3',
-    image: '/images/emma.jpg',
+    name: 'エマ・プレミアム V2n',
+    image: '/images/emma-hero.png',
     score: 21.5,
-    price: '49,630円〜（シングル・セール中）',
-    priceS: '49,630円〜', priceSD: '要確認', priceD: '要確認',
+    price: '85,700円〜（シングル）',
+    priceS: '85,700円〜', priceSD: '要確認', priceD: '要確認',
     trial: '100日間',
     warranty: '10年保証',
-    structure: 'ポケットコイル＋ウレタン3層（7ゾーン設計）',
-    thickness: '26cm',
+    structure: '6層ハイブリッド（ポケットコイル＋ウレタン4層）',
+    thickness: '27cm',
     recommend: 'カップル・2人利用の方',
     worry: '2人使い・体圧分散',
-    firmness: 'やわらかめ',
-    zoneDesign: '7ゾーン設計',
+    firmness: 'やや柔らかめ',
+    zoneDesign: '7ゾーンAeroFlex®',
     rebound: '高反発',
     trialWarranty: '100日返金／10年保証',
-    firmnessRebound: 'やわらかめ・高反発',
+    firmnessRebound: 'やや柔らかめ・高反発',
     recoveryFunction: 'なし',
-    usageType: 'メイン単体（26cm）',
+    usageType: 'メイン単体（27cm）',
     warrantyBadge: '100日返金／10年保証',
-    tags: ['ポケットコイル', '7ゾーン設計', 'ドイツ発'],
-    summary: 'ドイツ発スリープテックブランドのハイブリッドマットレス。7ゾーンポケットコイル＋3層フォームで体圧を均等に分散。振動が伝わりにくく、2人で使用する場合にも向いている。',
-    goodPoints: ['7ゾーン設計で体圧分散が優秀', '振動が伝わりにくく2人利用に最適', '100日お試し・10年保証付き'],
+    tags: ['7ゾーンAeroFlex®', '振動吸収設計', 'ドイツ発'],
+    summary: 'ドイツ発スリープテックブランドのハイブリッドマットレス。7ゾーンAeroFlex®ポケットコイル（1㎡あたり257個）＋ウレタン4層の6層構造で体圧を均等に分散。振動吸収設計で2人使用にも向く。',
+    goodPoints: ['7ゾーンAeroFlex®設計で体圧分散が優秀', '振動吸収で2人利用にも最適', '100日お試し・10年保証付き'],
     badPoints: ['夏場に蒸れる感じがある', '設置・移動は大人2人必要'],
-    affiliateHref: 'https://www.emma-sleep-japan.com/products/mattress-luxury?view_product=mattress-luxury-v2',
+    affiliateHref: 'https://www.emma-sleep-japan.com/products/hybrid-v3?view_product=premium-v2n',
   },
   {
     rank: 6,
@@ -171,12 +171,12 @@ const products = [
 const typeRankings = {
   soft: [
     { rank: 1, name: '雲のやすらぎプレミアム 3R', point: '5層構造で体をやさしく包み込む', href: '/review/kumo-yasuragi/' },
-    { rank: 2, name: 'エマ・スリープ ハイブリッドV3', point: '7ゾーン設計で全身の圧迫感を分散', href: '/review/emma/' },
+    { rank: 2, name: 'エマ・プレミアム V2n', point: '7ゾーンAeroFlex®で全身の圧迫感を分散', href: '/review/emma/' },
   ],
   firm: [
     { rank: 1, name: 'NELLマットレス', point: 'センターハード設計で腰を力強くサポート', href: '/review/nell/' },
     { rank: 2, name: 'GOKUMIN プレミアムスプリング', point: 'スプリング構造でしっかりした反発力', href: '/review/gokumin/' },
-    { rank: 3, name: 'エマ・スリープ ハイブリッドV3', point: '7ゾーンポケットコイルで寝返りしやすい', href: '/review/emma/' },
+    { rank: 3, name: 'エマ・プレミアム V2n', point: '7ゾーンAeroFlex®ポケットコイルで寝返りしやすい', href: '/review/emma/' },
   ],
   recovery: [
     { rank: 1, name: 'REVERIA（リヴェリア）', point: '医療機器認証取得・こりの改善・血行改善', href: '/review/reveria/' },
@@ -186,7 +186,7 @@ const typeRankings = {
   cospa: [
     { rank: 1, name: 'GOKUMIN プレミアムスプリング', point: '1万円台で極厚20cm・8年保証付き', href: '/review/gokumin/' },
     { rank: 2, name: 'NELLマットレス', point: 'セール時6万円台でポケットコイル＋10年保証', href: '/review/nell/' },
-    { rank: 3, name: 'エマ・スリープ ハイブリッドV3', point: 'セール時4万円台でポケットコイル＋10年保証', href: '/review/emma/' },
+    { rank: 3, name: 'エマ・プレミアム V2n', point: 'セール時に手頃価格＋ポケットコイル＋10年保証', href: '/review/emma/' },
   ],
 };
 
@@ -201,7 +201,7 @@ const faqs = [
   },
   {
     q: '今使っている布団に重ねて使えるマットレスはありますか？',
-    a: 'はい、厚さ10cmの『REVERIA』はトッパー（重ねて使う）タイプとして設計されています。今の敷布団・マットレスをそのまま活かしつつ、硬め高反発＋磁気リカバリー機能を追加できるので、「マットレス一式を買い替えるのはハードルが高い」という方に向いています。一方、雲のやすらぎ（23cm）・NELL（21cm）・エマ（26cm）はメイン単体で使うタイプです。',
+    a: 'はい、厚さ10cmの『REVERIA』はトッパー（重ねて使う）タイプとして設計されています。今の敷布団・マットレスをそのまま活かしつつ、硬め高反発＋磁気リカバリー機能を追加できるので、「マットレス一式を買い替えるのはハードルが高い」という方に向いています。一方、雲のやすらぎ（23cm）・NELL（21cm）・エマ（27cm）はメイン単体で使うタイプです。',
   },
   {
     q: 'お試し期間・返金保証はありますか？',
@@ -1078,7 +1078,7 @@ const faqs = [
               <span class="rd-rank-num">3</span>
             </div>
             <h3 class="rd-name">NELLマットレス</h3>
-            <img src="/nell.jpg" alt="NELLマットレス" class="rd-product-img" loading="lazy" />
+            <img src="/images/nell-hero.png" alt="NELLマットレス" class="rd-product-img" loading="lazy" />
             <p class="rd-catch">腰痛・肩こり両方が気になる方へ。センターハード設計で腰を支え、寝返りをサポートする上質な寝心地</p>
             <div class="rd-score-wrap">
               <span class="rd-score-num">23.0</span>
@@ -1298,6 +1298,7 @@ const faqs = [
             { cat: 'レビュー', title: 'REVERIAは本当に体のコリに効く？医療機器認証マットレスを検証', href: '/review/reveria/', isNew: true },
             { cat: 'レビュー', title: 'NELLマットレスを正直レビュー｜1,173個ポケットコイルと120日返金保証を試した', href: '/review/nell/', isNew: true },
             { cat: 'レビュー', title: 'GOKUMINは安いのに使える？1万円台マットレスの実力を採点', href: '/review/gokumin/', isNew: false },
+            { cat: 'レビュー', title: 'エマ・プレミアム V2n 徹底レビュー｜7ゾーンAeroFlex®設計＋振動吸収の実力は？', href: '/review/emma/', isNew: false },
             { cat: 'コラム', title: 'マットレスの寿命は何年？買い替えサインを解説', href: '/column/mattress-lifespan/', isNew: false },
             { cat: 'コラム', title: 'トッパーとメインマットレスの違いは？今の布団に重ねるなら何を選ぶべきか', href: '/column/topper-vs-main/', isNew: false },
             { cat: 'コラム', title: '腰痛持ちがマットレスを選ぶときの3つのポイント', href: '/column/back-pain-tips/', isNew: false },

@@ -1,0 +1,178 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const goodsCategories = [
+  {
+    icon: '🛌',
+    title: '掛け布団',
+    desc: '羽毛・温度調整わたなど人気の掛け布団を徹底比較。ニトリ・西川・無印良品の3商品を6軸で採点しました。',
+    href: '/goods/kakebuton/',
+    tag: '高需要',
+    status: 'ready',
+  },
+  {
+    icon: '🟫',
+    title: 'マットレストッパー',
+    desc: '今のマットレスに重ねるだけで寝心地が変わるトッパーを比較。エアウィーヴ・トゥルースリーパー・ニトリの3商品を6軸で採点。',
+    href: '/goods/topper/',
+    tag: '高需要',
+    status: 'ready',
+  },
+  {
+    icon: '🧣',
+    title: '毛布・ブランケット',
+    desc: 'ニトリNウォーム・mofua・無印良品など人気毛布を比較。冬の冷えを防ぐあったか素材を6軸で採点しました。',
+    href: '/goods/blanket/',
+    tag: '冬季人気',
+    status: 'ready',
+  },
+  {
+    icon: '🛏️',
+    title: 'シーツ・カバー類',
+    desc: 'ボックスシーツの選び方と人気ブランド比較。無印良品・ニトリ・西川の3商品を6軸で採点しました。',
+    href: '/goods/sheets/',
+    status: 'ready',
+  },
+  {
+    icon: '🫂',
+    title: '抱き枕',
+    desc: '横向き寝・妊婦・いびき対策に効く抱き枕を比較。MOGU・王様の抱き枕・ニトリの3商品を6軸で採点しました。',
+    href: '/goods/body-pillow/',
+    status: 'ready',
+  },
+  {
+    icon: '🪵',
+    title: 'ベッドフレーム',
+    desc: 'すのこ・収納付き・ローベッドを比較。ニトリ・無印良品・LOWYAの3ブランドを6軸で採点しました。',
+    href: '/goods/bed-frame/',
+    status: 'ready',
+  },
+  {
+    icon: '👕',
+    title: 'パジャマ・寝間着（リカバリーウェア）',
+    desc: '一般医療機器のリカバリーウェアを比較。BAKUNE・VENEX・リフランスの3ブランドを6軸で採点しました。',
+    href: '/goods/pajamas/',
+    tag: '注目',
+    status: 'ready',
+  },
+  {
+    icon: '👁️',
+    title: 'アイマスク・耳栓',
+    desc: '光と音を遮断して睡眠の質を高めるグッズ。めぐりズム・MYTREX・ナイトミンの3商品を6軸で採点しました。',
+    href: '/goods/eye-mask/',
+    status: 'ready',
+  },
+];
+---
+<Layout
+  title="睡眠グッズ記事一覧｜掛け布団・トッパー・毛布など徹底比較"
+  description="掛け布団・マットレストッパー・毛布・抱き枕・ベッドフレーム・パジャマなど、快眠を支える睡眠グッズの比較記事一覧。素材・価格・機能を徹底検証します。"
+>
+  <Header />
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <Breadcrumb items={[{ label: '睡眠グッズ' }]} />
+        <h1>睡眠グッズ</h1>
+        <p>掛け布団・トッパー・毛布・抱き枕など、快眠を支える睡眠グッズの比較記事をまとめています。</p>
+      </div>
+    </div>
+
+    <div class="container" style="padding: 2rem 1rem 3rem; max-width: var(--content-width);">
+
+      <!-- リード文 -->
+      <p class="goods-lead">マットレス・枕・敷布団以外にも、快眠を支えるアイテムはたくさんあります。各カテゴリで人気商品を徹底比較していますので、ぜひ参考にしてください。</p>
+
+      <!-- カテゴリカード一覧 -->
+      <div class="goods-grid">
+        {goodsCategories.map(c => (
+          c.status === 'coming' ? (
+            <div class="goods-card goods-card--coming">
+              <div class="goods-icon">{c.icon}</div>
+              <div class="goods-body">
+                <div class="goods-header">
+                  <p class="goods-title">{c.title}</p>
+                  {c.tag && <span class="goods-tag">{c.tag}</span>}
+                </div>
+                <p class="goods-desc">{c.desc}</p>
+                <span class="goods-status">準備中</span>
+              </div>
+            </div>
+          ) : (
+            <a href={c.href} class="goods-card">
+              <div class="goods-icon">{c.icon}</div>
+              <div class="goods-body">
+                <div class="goods-header">
+                  <p class="goods-title">{c.title}</p>
+                  {c.tag && <span class="goods-tag">{c.tag}</span>}
+                </div>
+                <p class="goods-desc">{c.desc}</p>
+                <span class="goods-cta">記事を見る →</span>
+              </div>
+            </a>
+          )
+        ))}
+      </div>
+
+      <!-- 関連リンク -->
+      <div class="goods-related">
+        <h2 class="related-title">こちらもチェック</h2>
+        <div class="related-grid">
+          <a href="/mattress/" class="related-card">
+            <span class="related-emoji">🛏️</span>
+            <p class="related-name">マットレスランキング</p>
+          </a>
+          <a href="/pillow/" class="related-card">
+            <span class="related-emoji">😴</span>
+            <p class="related-name">枕ランキング</p>
+          </a>
+          <a href="/futon/" class="related-card">
+            <span class="related-emoji">🌙</span>
+            <p class="related-name">敷布団ランキング</p>
+          </a>
+          <a href="/column/" class="related-card">
+            <span class="related-emoji">📝</span>
+            <p class="related-name">記事一覧</p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .goods-lead { color: #555; line-height: 1.85; font-size: 0.95rem; margin: 0 0 2rem; }
+
+  .goods-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .goods-card { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.25rem 1.5rem; background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+  .goods-card:hover { border-color: #C9A84C; box-shadow: 0 6px 18px rgba(201, 168, 76, 0.15); transform: translateY(-2px); }
+  .goods-card--coming { opacity: 0.7; cursor: default; }
+  .goods-card--coming:hover { border-color: #e5e7eb; box-shadow: none; transform: none; }
+  .goods-icon { font-size: 2.4rem; line-height: 1; flex-shrink: 0; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: #F7F4EC; border-radius: 12px; }
+  .goods-body { flex: 1; min-width: 0; }
+  .goods-header { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .goods-title { margin: 0; font-size: 1.1rem; font-weight: 700; color: #1B3A5C; line-height: 1.4; }
+  .goods-tag { display: inline-block; background: #C9A84C; color: #fff; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.72rem; font-weight: 700; }
+  .goods-desc { margin: 0 0 0.6rem; font-size: 0.88rem; line-height: 1.75; color: #555; }
+  .goods-cta { font-size: 0.85rem; font-weight: 700; color: #C9A84C; }
+  .goods-status { display: inline-block; padding: 0.2rem 0.7rem; background: #f0f0f0; color: #888; border-radius: 4px; font-size: 0.78rem; font-weight: 700; }
+
+  /* 関連リンク */
+  .goods-related { margin-top: 3rem; padding-top: 2rem; border-top: 1px dashed #e5d8b3; }
+  .related-title { margin: 0 0 1rem; font-size: 1.15rem; color: #1B3A5C; font-weight: 700; }
+  .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+  .related-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; padding: 1rem 0.5rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.2s; }
+  .related-card:hover { border-color: #C9A84C; transform: translateY(-2px); }
+  .related-emoji { font-size: 1.6rem; }
+  .related-name { margin: 0; font-size: 0.85rem; font-weight: 700; color: #1B3A5C; text-align: center; }
+
+  @media (max-width: 768px) {
+    .goods-grid { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

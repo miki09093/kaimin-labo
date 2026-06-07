@@ -20,7 +20,8 @@ const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "ヒツジのいらない枕 -至極-",
-  "description": "SNS・YouTubeで急成長した話題の枕。独自TPE素材の3Dウェーブ構造で頭部にしっかりフィット。30日間全額返金保証付きで試しやすい。",
+  "image": new URL('/images/hitsuji-hero.png', Astro.site).toString(),
+  "description": "SNS・YouTubeで話題のTPE枕。スチレン系TPEを三角格子状に加工し、格子の辺で重さを広範囲に分散。活性炭を独自配合し汗のニオイ・加齢臭にも対応。30日間全額返金保証付き。",
   "brand": { "@type": "Brand", "name": "ヒツジのいらない枕" },
   "offers": {
     "@type": "Offer",
@@ -87,7 +88,7 @@ const faqs = [
   { q: '30日間返金保証はどんな仕組みですか？', a: '商品到着から30日以内であれば、合わなかった場合に全額返金が受けられる制度です。返品時の梱包・送料負担条件は公式サイトで事前にご確認ください。' },
   { q: 'カバーは付属していますか？', a: '本体には基本のカバーが付属していますが、肌触りにこだわる方には別売りの「テンセル素材カバー（ブラックレーベル）」がおすすめです。' },
   { q: '横向き寝でも使えますか？', a: 'はい、横向き寝に対応する3D形状の設計です。肩への圧迫感を逃がしながら、頭部をしっかりサポートします。' },
-  { q: '本体は洗濯できますか？', a: '本体（TPE素材）は丸洗いできません。表面を濡れタオルで拭き取りお手入れします。カバーは取り外して洗濯機OKです。' },
+  { q: '本体は洗濯できますか？', a: '本体（TPE素材）は水またはぬるま湯で丸洗いOKです。カバーも取り外して洗濯機OK。活性炭配合でニオイ対策も万全です。' },
   { q: '高さ調整はできますか？', a: '本体自体の高さ調整機能はありません。サイズ違いの種類選びや、お好みで枕パッドを下に敷くことで調整可能です。' },
   { q: '何年くらい使えますか？', a: '通常使用で1〜2年程度が目安です。TPE素材のへたりが目立ち始めたら買い替え検討のタイミングです。' },
   { q: '配送はどれくらいで届きますか？', a: '送料無料で、注文から2〜5日程度で配送されるのが目安です。地域・在庫により変動します。' },
@@ -106,7 +107,7 @@ const faqJsonLd = {
 ---
 <Layout
   title="ヒツジのいらない枕 -至極- 徹底レビュー｜SNSで話題のTPE素材枕の実力は？"
-  description="ランキング3位のヒツジのいらない枕を徹底レビュー。独自TPE素材＋3Dウェーブ構造＋30日間返金保証の実力を、当サイト独自の30点満点で採点しました。"
+  description="ランキング3位のヒツジのいらない枕 -至極- を徹底レビュー。TPE三角格子構造＋活性炭配合＋本体丸洗いOK＋30日間返金保証の実力を、当サイト独自の30点満点で採点しました。"
   jsonLd={[productJsonLd, faqJsonLd]}
 >
   <Header />
@@ -121,11 +122,7 @@ const faqJsonLd = {
 
     <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
 
-      <div class="hero-placeholder">
-        <span class="hero-placeholder-tag">レビュー</span>
-        <p class="hero-placeholder-title">ヒツジのいらない枕 -至極-</p>
-        <p class="hero-placeholder-sub">独自TPE素材 × 30日間返金保証 × SNSで話題</p>
-      </div>
+      <img src="/images/hitsuji-hero.png" alt="ヒツジのいらない枕 -至極-" class="article-hero-img" loading="eager" />
 
       <p><span class="marker-yellow">「SNSで話題の枕、本当に効果あるの？」「返金保証があるなら試してみたい」</span>――そんな声に応えるのが <strong class="text-navy">ヒツジのいらない枕 -至極-</strong>。YouTubeやインスタで急成長したブランドで、当サイトの枕ランキングでは <span class="badge-gold">3位（30点満点中20.0点）</span> にランクイン。</p>
       <p>この記事では、ヒツジのいらない枕の最大の特徴である「独自TPE素材」「3D形状」「30日間返金保証」の実際を、ポイント別評価・口コミ・FAQまで掘り下げて検証します。</p>
@@ -158,18 +155,19 @@ const faqJsonLd = {
         </thead>
         <tbody>
           <tr><th>価格（税込）</th><td>15,800円</td></tr>
-          <tr><th>素材</th><td>独自TPEエラストマー（3Dウェーブ構造）</td></tr>
-          <tr><th>カバー</th><td>テンセル素材（別売りオプションあり）</td></tr>
-          <tr><th>お手入れ</th><td>本体不可／カバーのみ洗濯可</td></tr>
+          <tr><th>サイズ</th><td>約54×35×8〜10cm（上下で高さが異なる）</td></tr>
+          <tr><th>重量</th><td>約3.2kg</td></tr>
+          <tr><th>本体素材</th><td>TPE（スチレン系熱可塑性エラストマー）＋活性炭配合／三角格子構造</td></tr>
+          <tr><th>カバー</th><td>ポリエステル70%＋再生繊維（テンセル）30%</td></tr>
+          <tr><th>お手入れ</th><td>本体は水・ぬるま湯で丸洗いOK／カバーは洗濯機OK</td></tr>
           <tr><th>保証</th><td>30日間全額返金保証</td></tr>
         </tbody>
       </table>
 
       <h2>ポイント別に実際どうなの？を本音で評価</h2>
 
-      <h3>① 独自TPE素材：弾力と通気性を両立する3Dウェーブ構造</h3>
-      <p>ヒツジのいらない枕最大の特徴が、<span class="text-navy-bold">「TPEエラストマー」</span>という独自の素材。<span class="marker-yellow">低反発のような沈み込みもなく、パイプのような硬さもない、中間的な弾力感</span>が新感覚です。</p>
-      <p>3Dウェーブ構造により、頭部の凹凸に「点」でフィットしながらも、必要な部分はしっかり支える設計。海外の人気枕（米国「Purple」など）に通じる先進的なアプローチです。</p>
+      <h3>① 独自TPE素材＋三角格子構造で頭にしっかりフィット</h3>
+      <p>ヒツジのいらない枕 -至極- 最大の特徴が、<span class="text-navy-bold">スチレン系のTPE（熱可塑性エラストマー）</span>を独自に三角格子状に加工した構造。<span class="marker-yellow">格子の辺で重さを支える設計</span>により、頭部の重さを広範囲に分散しつつ、低反発のような沈み込みもパイプのような硬さもない、中間的な弾力感を実現しています。</p>
       <div class="info-card">
         <p class="info-card-title">TPE素材の特徴</p>
         <ul class="info-card-list">
@@ -187,9 +185,8 @@ const faqJsonLd = {
       <p>3D形状＋TPE素材により、<span class="text-navy-bold">横向き寝での肩への圧迫感を軽減</span>する設計。<span class="marker-yellow">「横向き寝で肩が痛い」「夜中に肩のしびれで目が覚める」</span>という方に好相性です。</p>
       <p>仰向け寝でも頭部にフィットしますが、特に横向き寝が多い方ほど効果を実感しやすい構造になっています。</p>
 
-      <h3>④ SNS発の話題ブランド：楽天レビュー4.6点</h3>
-      <p>ブランドの認知度はTV・YouTube・インスタを中心に急成長。<span class="text-navy-bold">楽天レビュー4.6/5.0点・243件以上</span>のレビューが集まっており、<span class="marker-yellow">73.7%が5つ星評価</span>という高い満足度を獲得しています。</p>
-      <p>新興ブランドゆえに「本当に大丈夫？」と疑う声もありますが、客観データ（レビュー数・評価点）でしっかり裏付けされている数少ない例。</p>
+      <h3>④ 活性炭配合＋本体丸洗いOKで衛生的</h3>
+      <p>公式コピーに「『ヒツジのいらない枕』が黒い理由は<span class="text-navy-bold">活性炭を独自配合</span>しているから」とあるように、TPE本体に活性炭を独自配合。<span class="marker-yellow">汗のニオイや加齢臭にも対応</span>します。さらに本体は水・ぬるま湯で丸洗いOKという衛生面でも嬉しい設計。SNS・YouTubeを中心に話題で、新興ブランドながら高い注目を集めています。</p>
 
       <h2>あなたに向いてる？タイプ別チェック</h2>
 
@@ -209,8 +206,8 @@ const faqJsonLd = {
             <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">中間的な弾力感</span>で、どちらの寝心地でも違和感がある人にちょうど良い</p>
           </li>
           <li>
-            <p class="fit-target">SNS・口コミ評価で枕を選びたい</p>
-            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">楽天レビュー4.6点・243件</span>の高評価で安心感あり</p>
+            <p class="fit-target">衛生面・ニオイ対策を重視したい</p>
+            <p class="fit-reason"><span class="reason-label">理由</span><span class="marker-yellow">活性炭配合＋本体丸洗いOK</span>でニオイ・汚れに対応</p>
           </li>
         </ul>
       </div>
@@ -223,16 +220,16 @@ const faqJsonLd = {
             <p class="fit-reason"><span class="reason-label warn">理由</span>本体での高さ調整機能はなし（パッドでの追加調整は可）</p>
           </li>
           <li>
-            <p class="fit-target">本体を丸洗いして清潔に保ちたい</p>
-            <p class="fit-reason"><span class="reason-label warn">理由</span>TPE素材は丸洗い不可（拭き取りのみ）</p>
+            <p class="fit-target">軽量な枕がほしい</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>本体重量約3.2kgとやや重め</p>
           </li>
           <li>
             <p class="fit-target">通気性最優先で枕を選びたい</p>
-            <p class="fit-reason"><span class="reason-label warn">理由</span>蒸れにくい設計だがブレインスリープの3次元ファイバーには劣る</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>蒸れにくい設計だがブレインスリープの素材には劣る</p>
           </li>
           <li>
-            <p class="fit-target">国産・日本製にこだわりたい</p>
-            <p class="fit-reason"><span class="reason-label warn">理由</span>製造は中国（運営は日本企業）</p>
+            <p class="fit-target">ふわふわ柔らかい寝心地が好み</p>
+            <p class="fit-reason"><span class="reason-label warn">理由</span>TPE素材独特の弾力感は好みが分かれる</p>
           </li>
         </ul>
       </div>
@@ -286,15 +283,15 @@ const faqJsonLd = {
           <tr><th>項目</th><th>内容</th></tr>
         </thead>
         <tbody>
-          <tr><th>商品名</th><td>ヒツジのいらない枕 -至極-</td></tr>
-          <tr><th>販売元</th><td>株式会社33太陽</td></tr>
+          <tr><th>商品名</th><td>ヒツジのいらない枕 -至極-（HT-001）</td></tr>
           <tr><th>価格（税込）</th><td>15,800円</td></tr>
-          <tr><th>素材</th><td>独自TPEエラストマー（3Dウェーブ構造）</td></tr>
-          <tr><th>カバー</th><td>本体付属カバー＋別売りテンセル素材カバー（3,650円〜）</td></tr>
-          <tr><th>お手入れ</th><td>本体は拭き取りのみ／カバーは洗濯機OK</td></tr>
+          <tr><th>サイズ</th><td>約54×35×8〜10cm（上下で高さが異なる）</td></tr>
+          <tr><th>重量</th><td>約3.2kg</td></tr>
+          <tr><th>本体素材</th><td>TPE（スチレン系熱可塑性エラストマー）＋活性炭配合／三角格子構造</td></tr>
+          <tr><th>カバー</th><td>ポリエステル70%＋再生繊維（テンセル）30%</td></tr>
+          <tr><th>お手入れ</th><td>本体は水・ぬるま湯で丸洗いOK／カバーは洗濯機OK</td></tr>
           <tr><th>保証</th><td>30日間全額返金保証</td></tr>
           <tr><th>耐用年数の目安</th><td>1〜2年程度</td></tr>
-          <tr><th>製造国</th><td>中国（運営は日本企業）</td></tr>
           <tr><th>配送</th><td>送料無料／2〜5日程度</td></tr>
           <tr><th>支払い方法</th><td>クレジットカード／PayPay／Apple Pay／Google Pay／各種電子マネー</td></tr>
           <tr><th>評価</th><td>楽天レビュー 4.6/5.0点（243件以上）</td></tr>
