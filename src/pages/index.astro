@@ -81,24 +81,9 @@ const faqs = [
 
     <!-- ===== HERO ===== -->
     <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="container hero-inner">
-        <p class="hero-badge">▼ 本気で痩せたい方へ ▼</p>
-        <h1 class="hero-title">
-          <span class="hero-title-sub">運動・食事制限がつらいなら</span>
-          <span class="hero-title-main">医療の力で<span class="hl">本気で痩せる</span></span>
-        </h1>
-        <p class="hero-desc">脂肪冷却・医療EMS・GLP-1注射など、<br />医療ダイエットを行う人気3クリニックを徹底比較しました。</p>
-        <div class="hero-points">
-          <div class="hero-point"><span class="hero-point-icon">⚕</span><span>医師＋管理栄養士監修</span></div>
-          <div class="hero-point"><span class="hero-point-icon">💰</span><span>無料カウンセリング</span></div>
-          <div class="hero-point"><span class="hero-point-icon">📅</span><span>キャンペーン実施中</span></div>
-        </div>
-        <a href="#ranking" class="hero-cta">
-          人気No.1クリニックを見る
-          <span class="hero-cta-arrow">→</span>
-        </a>
-      </div>
+      <a href="#ranking" class="hero-img-link" aria-label="人気クリニックランキングへ">
+        <img src="/images/hero-mv.png" alt="医療の力で本気で痩せる 医療ダイエット人気3クリニック徹底比較" class="hero-img" loading="eager" fetchpriority="high" />
+      </a>
     </section>
 
     <!-- ===== 悩み訴求 ===== -->
@@ -336,23 +321,11 @@ const faqs = [
 </Layout>
 
 <style>
-  /* ===== HERO ===== */
-  .hero { position: relative; background: linear-gradient(135deg, #133E6B 0%, #1A5489 50%, #2B6CB0 100%); color: #fff; padding: 3rem 1rem 3.5rem; overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(0,196,154,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(255,107,107,0.1) 0%, transparent 50%); pointer-events: none; }
-  .hero-inner { position: relative; text-align: center; max-width: 760px; margin: 0 auto; }
-  .hero-badge { display: inline-block; background: var(--color-accent); color: #fff; padding: 0.35rem 1.2rem; border-radius: 99px; font-size: 0.82rem; font-weight: 700; margin-bottom: 1.25rem; letter-spacing: 0.05em; }
-  .hero-title { color: #fff; margin-bottom: 1.25rem; line-height: 1.4; }
-  .hero-title-sub { display: block; font-size: clamp(0.95rem, 3vw, 1.2rem); font-weight: 500; opacity: 0.85; margin-bottom: 0.5rem; }
-  .hero-title-main { display: block; font-size: clamp(1.6rem, 6vw, 2.6rem); font-weight: 900; }
-  .hl { background: linear-gradient(transparent 60%, rgba(0,196,154,0.45) 60%); padding: 0 0.2em; }
-  .hero-desc { color: rgba(255,255,255,0.92); font-size: clamp(0.95rem, 2.5vw, 1.1rem); margin-bottom: 1.75rem; line-height: 1.85; }
-  .hero-points { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 0.8rem; margin-bottom: 2rem; }
-  .hero-point { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.13); padding: 0.4rem 0.85rem; border-radius: 99px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.25); }
-  .hero-point-icon { font-size: 1.05rem; }
-  .hero-cta { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: linear-gradient(135deg, var(--color-cta) 0%, var(--color-cta-dark) 100%); color: #fff; padding: 1.1rem 2.5rem; border-radius: 99px; font-size: clamp(1rem, 2.5vw, 1.15rem); font-weight: 800; text-decoration: none; box-shadow: 0 8px 24px rgba(255,107,107,0.4); transition: transform 0.15s, box-shadow 0.15s; animation: pulse 2.4s ease-in-out infinite; }
-  .hero-cta:hover { color: #fff; text-decoration: none; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255,107,107,0.5); }
-  .hero-cta-arrow { font-size: 1.2em; }
-  @keyframes pulse { 0%, 100% { box-shadow: 0 8px 24px rgba(255,107,107,0.4); } 50% { box-shadow: 0 8px 28px rgba(255,107,107,0.6); } }
+  /* ===== HERO（画像表示） ===== */
+  .hero { width: 100%; background: var(--color-primary-dark); line-height: 0; }
+  .hero-img-link { display: block; width: 100%; max-width: 760px; margin: 0 auto; transition: opacity 0.15s; }
+  .hero-img-link:hover { opacity: 0.95; text-decoration: none; }
+  .hero-img { width: 100%; height: auto; display: block; }
 
   /* ===== Section共通 ===== */
   .section { padding: 3.5rem 1rem; }
