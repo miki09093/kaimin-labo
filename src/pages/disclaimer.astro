@@ -2,35 +2,30 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Breadcrumb from '../components/Breadcrumb.astro';
 ---
 <Layout title="免責事項">
   <Header />
   <main>
-    <div class="page-header">
-      <div class="container">
-        <Breadcrumb items={[{ label: '免責事項' }]} />
-        <h1>免責事項</h1>
-      </div>
-    </div>
-    <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+    <div class="page-header"><div class="container"><h1>免責事項</h1></div></div>
+    <div class="container container-sm" style="padding: 2rem 1rem 4rem; line-height: 1.95;">
 
-      <h2>情報の正確性について</h2>
-      <p>当サイトに掲載している情報は、できる限り正確な情報を提供するよう努めておりますが、正確性・完全性・最新性を保証するものではありません。掲載情報を利用したことにより生じた損害等については、当サイトは一切の責任を負いかねます。</p>
+      <h2 style="color: var(--color-primary); border-left: 4px solid var(--color-accent); padding-left: 0.75rem; margin: 1.5rem 0 1rem;">情報の正確性について</h2>
+      <p>メディダイエット比較ラボでは、掲載クリニックの公式サイトをもとに正確な情報の提供に努めていますが、情報の完全性・最新性を保証するものではありません。料金・施術内容・キャンペーン情報等は予告なく変更される場合があります。最新情報は必ず各クリニックの公式サイトでご確認ください。</p>
 
-      <h2>商品・サービスの価格について</h2>
-      <p>当サイトに掲載している価格は、記事執筆時点の情報です。実際の価格はメーカー・販売店のサイトをご確認ください。</p>
+      <h2 style="color: var(--color-primary); border-left: 4px solid var(--color-accent); padding-left: 0.75rem; margin: 1.5rem 0 1rem;">医療行為について</h2>
+      <p>本サイトに掲載されている情報は、各クリニックを比較するための参考情報であり、医療行為や治療効果を保証するものではありません。効果には個人差があり、実際の施術内容・治療方針は医師による診察・カウンセリングを経て決定されます。</p>
 
-      <h2>アフィリエイト広告について</h2>
-      <p>当サイトはアフィリエイトプログラムを利用しています。商品リンクには「PR」表記を行っており、リンク経由での購入・申し込みにより当サイトに報酬が発生することがあります。ただし、報酬が評価・ランキングに影響することはなく、ユーザーへの追加費用は一切発生しません。</p>
+      <h2 style="color: var(--color-primary); border-left: 4px solid var(--color-accent); padding-left: 0.75rem; margin: 1.5rem 0 1rem;">アフィリエイト広告について</h2>
+      <p>当サイトはアフィリエイト広告を含みます。掲載リンクを経由してサービスを利用された場合、当サイトに広告主から成果報酬が支払われることがあります。なお、報酬の有無や金額が、サイト内のランキングや評価に影響を与えることはありません。</p>
 
-      <h2>健康・医療情報について</h2>
-      <p>当サイトの情報は一般的な参考情報であり、医療アドバイスではありません。健康に関する判断は必ず専門医にご相談ください。</p>
+      <h2 style="color: var(--color-primary); border-left: 4px solid var(--color-accent); padding-left: 0.75rem; margin: 1.5rem 0 1rem;">損害賠償について</h2>
+      <p>当サイトの利用により発生した、いかなる損害（直接的・間接的を問わず）についても、当サイトは一切の責任を負いません。サービスのご利用は、各自の責任のもとでお願いいたします。</p>
 
-      <h2>リンクについて</h2>
-      <p>当サイトからリンクしている外部サイトの内容については、当サイトは責任を負いかねます。</p>
+      <h2 style="color: var(--color-primary); border-left: 4px solid var(--color-accent); padding-left: 0.75rem; margin: 1.5rem 0 1rem;">著作権について</h2>
+      <p>本サイト上のコンテンツ（文章・画像・デザイン等）の著作権は、当サイトまたは権利者に帰属します。無断転載・複製を禁じます。</p>
 
-      <p class="text-muted" style="margin-top: 2rem; font-size: 0.85rem;">制定日：2024年1月1日</p>
+      <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--color-text-muted);">最終更新日：2026年6月</p>
+
     </div>
   </main>
   <Footer />

@@ -2,42 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Breadcrumb from '../components/Breadcrumb.astro';
 ---
 <Layout title="運営者情報">
   <Header />
   <main>
-    <div class="page-header">
-      <div class="container">
-        <Breadcrumb items={[{ label: '運営者情報' }]} />
-        <h1>運営者情報</h1>
-      </div>
-    </div>
-    <div class="container article-body" style="max-width: var(--content-width); padding: 2rem 1rem 4rem;">
+    <div class="page-header"><div class="container"><h1>運営者情報</h1></div></div>
+    <div class="container container-sm" style="padding: 2rem 1rem 4rem;">
 
-      <h2>サイトについて</h2>
-      <p>快眠ラボは、枕・マットレス・布団などの寝具を実際に購入・使用して徹底的に比較するメディアです。腰痛・肩こり・不眠など睡眠の悩みを抱える方が、自分に合った寝具を選べるよう情報をお届けします。</p>
+      <h2 style="color: var(--color-primary); border-left: 4px solid var(--color-accent); padding-left: 0.75rem; margin-bottom: 1rem;">サイトについて</h2>
+      <p style="margin-bottom: 2rem; line-height: 1.95;">メディダイエット比較ラボは、医療ダイエットを行うクリニックを徹底比較する情報メディアです。本気で痩せたい方が、自分に合ったクリニックを選べるよう、料金・施術内容・サービスを比較してお届けします。</p>
 
-      <h2>運営者情報</h2>
-      <table>
-        <tr><th>サイト名</th><td>快眠ラボ</td></tr>
-        <tr><th>運営者名</th><td>（運営者名を記入してください）</td></tr>
-        <tr><th>所在地</th><td>（所在地を記入してください）</td></tr>
-        <tr><th>お問い合わせ</th><td><a href="/contact/">お問い合わせフォーム</a></td></tr>
+      <h2 style="color: var(--color-primary); border-left: 4px solid var(--color-accent); padding-left: 0.75rem; margin-bottom: 1rem;">運営者情報</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
+        <tr><th style="background: var(--color-bg-gray); padding: 0.85rem 1rem; text-align: left; width: 30%; border-bottom: 1px solid var(--color-border);">サイト名</th><td style="padding: 0.85rem 1rem; border-bottom: 1px solid var(--color-border);">メディダイエット比較ラボ</td></tr>
+        <tr><th style="background: var(--color-bg-gray); padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--color-border);">運営者名</th><td style="padding: 0.85rem 1rem; border-bottom: 1px solid var(--color-border);">（運営者名を記入してください）</td></tr>
+        <tr><th style="background: var(--color-bg-gray); padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--color-border);">所在地</th><td style="padding: 0.85rem 1rem; border-bottom: 1px solid var(--color-border);">（所在地を記入してください）</td></tr>
+        <tr><th style="background: var(--color-bg-gray); padding: 0.85rem 1rem; text-align: left;">お問い合わせ</th><td style="padding: 0.85rem 1rem;"><a href="/contact" style="color: var(--color-primary); font-weight: 700;">お問い合わせフォーム</a></td></tr>
       </table>
 
-      <h2>評価・比較の方針</h2>
-      <p>当サイトでは、すべての商品を実際に購入・使用した上で評価しています。以下の7項目を各5点満点（合計35点）で採点し、公正な評価を心がけています。</p>
-      <ul>
-        <li>寝心地・体圧分散</li>
-        <li>硬さ</li>
-        <li>素材・品質</li>
-        <li>価格帯（コスパ）</li>
-        <li>耐久性・保証期間</li>
-        <li>サイズ展開</li>
-        <li>返品・お試し制度</li>
-      </ul>
-      <p>アフィリエイト報酬の有無によって評価が変わることはありません。</p>
+      <h2 style="color: var(--color-primary); border-left: 4px solid var(--color-accent); padding-left: 0.75rem; margin-bottom: 1rem;">情報掲載の方針</h2>
+      <p style="line-height: 1.95;">当サイトでは、掲載クリニックの公式サイトをもとに、正確な情報の提供に努めています。料金・施術内容・キャンペーン情報は変更される可能性があるため、最新情報は各クリニック公式サイトでご確認ください。</p>
 
     </div>
   </main>

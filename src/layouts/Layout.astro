@@ -7,12 +7,12 @@ interface Props {
 }
 const {
   title,
-  description = '快眠ラボは枕・マットレス・布団などの寝具を徹底比較するメディアです。睡眠の悩みを解決する商品選びをサポートします。',
+  description = '医療ダイエット人気3クリニックを徹底比較。脂肪冷却・医療EMS・GLP-1注射など本格的な医療痩身を、料金・実績・サービスで比べて選べる比較サイト。',
   ogImage = '/og-default.png',
   jsonLd,
 } = Astro.props;
 
-const siteName = '快眠ラボ';
+const siteName = 'メディダイエット比較ラボ';
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
