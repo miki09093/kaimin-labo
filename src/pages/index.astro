@@ -86,6 +86,32 @@ const faqs = [
       </a>
     </section>
 
+    <!-- ===== 当サイトおすすめクリニック ===== -->
+    <section class="osusume-section">
+      <div class="container container-sm">
+        <p class="osusume-heading">
+          <span class="osusume-heading-deco">/</span>
+          当サイトおすすめクリニック
+          <span class="osusume-heading-deco">\</span>
+        </p>
+        <div class="osusume-card">
+          <div class="osusume-logo-wrap">
+            <img src="/images/dio-logo.png" alt="ディオクリニック ロゴ" class="osusume-logo" loading="lazy" />
+          </div>
+          <h2 class="osusume-name">ディオクリニック</h2>
+          <p class="osusume-desc">
+            <strong>外来実績80万件以上。</strong><br />
+            LINEであなただけのプラン・料金がわかる
+          </p>
+          <a href="#" class="osusume-cta" aria-label="ディオクリニック 無料カウンセリングへ">
+            <span class="osusume-cta-text">無料カウンセリングへ</span>
+            <span class="osusume-cta-arrow">→</span>
+          </a>
+          <p class="osusume-cta-sub">＼ LINEで簡単30秒・完全無料 ／</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== 悩み訴求 ===== -->
     <section class="section section-bg" id="problems">
       <div class="container">
@@ -321,6 +347,123 @@ const faqs = [
 </Layout>
 
 <style>
+  /* ===== 当サイトおすすめクリニック ===== */
+  .osusume-section {
+    padding: 2.5rem 1rem 2rem;
+    background: linear-gradient(180deg, #fff 0%, var(--color-bg-gray) 100%);
+  }
+  .osusume-heading {
+    text-align: center;
+    font-size: clamp(1rem, 3.2vw, 1.2rem);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0 0 1.25rem;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .osusume-heading-deco {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 1.2em;
+    display: inline-block;
+    transform: scale(1.2, 1.6);
+    opacity: 0.85;
+  }
+  .osusume-card {
+    background: #fff;
+    border: 2px solid var(--color-accent);
+    border-radius: var(--radius-xl);
+    padding: 1.75rem 1.5rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(19, 62, 107, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .osusume-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-cta) 100%);
+  }
+  .osusume-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 280px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    padding: 0.75rem;
+    background: var(--color-bg-gray);
+    border-radius: var(--radius-lg);
+    border: 1px dashed var(--color-border);
+  }
+  .osusume-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    width: auto;
+    height: auto;
+  }
+  .osusume-name {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    font-weight: 900;
+    color: var(--color-primary);
+    margin: 0 0 0.75rem;
+  }
+  .osusume-desc {
+    font-size: 0.98rem;
+    line-height: 1.85;
+    color: #333;
+    margin: 0 0 1.5rem;
+  }
+  .osusume-desc strong {
+    color: var(--color-cta);
+    font-size: 1.1em;
+    font-weight: 900;
+    background: linear-gradient(transparent 60%, rgba(255, 215, 0, 0.35) 60%);
+    padding: 0 0.2em;
+  }
+  .osusume-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 1.1rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-cta) 0%, var(--color-cta-dark) 100%);
+    color: #fff;
+    border-radius: 99px;
+    text-decoration: none;
+    font-size: clamp(1rem, 2.8vw, 1.15rem);
+    font-weight: 800;
+    box-shadow: 0 8px 22px rgba(255, 107, 107, 0.4);
+    transition: transform 0.15s, box-shadow 0.15s;
+    animation: pulse-osusume 2.4s ease-in-out infinite;
+  }
+  .osusume-cta:hover {
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(255, 107, 107, 0.5);
+  }
+  .osusume-cta-arrow { font-size: 1.3em; font-weight: 900; }
+  .osusume-cta-sub {
+    margin: 0.75rem 0 0;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+  @keyframes pulse-osusume {
+    0%, 100% { box-shadow: 0 8px 22px rgba(255, 107, 107, 0.4); }
+    50% { box-shadow: 0 8px 28px rgba(255, 107, 107, 0.6); }
+  }
+
   /* ===== HERO（画像表示・画面端まで） ===== */
   .hero {
     width: 100vw;
