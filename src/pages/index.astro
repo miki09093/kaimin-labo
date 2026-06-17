@@ -322,10 +322,13 @@ const faqs = [
 
 <style>
   /* ===== HERO（画像表示） ===== */
-  .hero { width: 100%; background: var(--color-primary-dark); line-height: 0; }
-  .hero-img-link { display: block; width: 100%; max-width: 760px; margin: 0 auto; transition: opacity 0.15s; }
+  .hero { width: 100%; margin: 0; padding: 0; line-height: 0; background: transparent; }
+  .hero-img-link { display: block; width: 100%; margin: 0; padding: 0; transition: opacity 0.15s; }
   .hero-img-link:hover { opacity: 0.95; text-decoration: none; }
-  .hero-img { width: 100%; height: auto; display: block; }
+  .hero-img { width: 100%; height: auto; display: block; margin: 0; padding: 0; }
+  @media (min-width: 768px) {
+    .hero-img-link { max-width: 540px; margin: 0 auto; }
+  }
 
   /* ===== Section共通 ===== */
   .section { padding: 3.5rem 1rem; }
