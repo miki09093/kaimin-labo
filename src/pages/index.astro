@@ -321,8 +321,17 @@ const faqs = [
 </Layout>
 
 <style>
-  /* ===== HERO（画像表示） ===== */
-  .hero { width: 100%; margin: 0; padding: 0; line-height: 0; background: transparent; }
+  /* ===== HERO（画像表示・画面端まで） ===== */
+  .hero {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    padding: 0;
+    line-height: 0;
+    background: transparent;
+    overflow: hidden;
+  }
   .hero-img-link { display: block; width: 100%; margin: 0; padding: 0; transition: opacity 0.15s; }
   .hero-img-link:hover { opacity: 0.95; text-decoration: none; }
   .hero-img { width: 100%; height: auto; display: block; margin: 0; padding: 0; }
