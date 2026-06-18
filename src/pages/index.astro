@@ -146,32 +146,27 @@ const faqs = [
 
           <div class="howto-card">
             <div class="howto-num">1</div>
-            <h3 class="howto-title">施術メニューの豊富さ</h3>
-            <p class="howto-desc">体質や悩みは人それぞれ。<strong>脂肪冷却・医療EMS・GLP-1・脂肪溶解注射・食事指導</strong>など、複数のアプローチを組み合わせられるクリニックなら、あなたに最適なプランが組めます。</p>
-            <div class="howto-warn">
-              <p class="howto-warn-title">⚠ こんなクリニックは要注意</p>
-              <p>1種類の施術のみ／オプションが少ない／結局効果が出ずに高額追加…の悪循環</p>
-            </div>
+            <h3 class="howto-title">豊富な施術メニューでオーダーメイドプランが組めるか</h3>
+            <p class="howto-desc">体質や生活習慣は人によって異なるため、<strong>内服薬から医療機器、食事指導まで「治療の選択肢が豊富」</strong>なクリニックを選びましょう。</p>
+            <p class="howto-desc">マニュアル通りの処方ではなく、<strong>遺伝子検査のデータに基づいて「なぜその治療が有効なのか」</strong>を論理的に説明し、オーダーメイドのプランを提案してくれるかが鍵となります。</p>
           </div>
 
           <div class="howto-card">
             <div class="howto-num">2</div>
-            <h3 class="howto-title">料金の明朗さ・無料カウンセリング</h3>
-            <p class="howto-desc">医療ダイエットの料金トラブルは年々増加。<strong>総額の明示・無料カウンセリングの有無・契約前のクーリングオフ説明</strong>がしっかりしているクリニックを選びましょう。</p>
-            <div class="howto-warn">
-              <p class="howto-warn-title">⚠ こんなクリニックは要注意</p>
-              <p>「総額〇〇万円」が曖昧／カウンセリング当日に強引な契約／追加料金が次々に発生</p>
+            <h3 class="howto-title">料金の総額がわかるか？</h3>
+            <p class="howto-desc">広告の「月額〇〇円〜」という安さだけで決めるのではなく、<strong>必ず「総額」を提示してくれるクリニック</strong>を選びましょう。</p>
+            <p class="howto-desc">診察料やお薬代だけでなく、<strong>血液検査や注射針などの消耗品代、さらには解約時のルール</strong>まで、事前にしっかり説明してくれるかどうかが信頼の証拠です。</p>
+            <div class="howto-tip">
+              <p class="howto-tip-title">★ ポイント</p>
+              <p>「対面だと無理に勧誘されそうで不安」「店舗に行くのが面倒」という方は、<strong>事前にLINEでプランや費用のシミュレーション</strong>ができるクリニックがおすすめです。</p>
             </div>
           </div>
 
           <div class="howto-card">
             <div class="howto-num">3</div>
-            <h3 class="howto-title">症例数・実績の透明性</h3>
-            <p class="howto-desc">公式サイトに<strong>累計症例数・成功率・口コミ</strong>を明示しているかは、自信の表れ。数字で実績を示しているクリニックほど、過去の実例に基づいた施術・指導が受けられます。</p>
-            <div class="howto-warn">
-              <p class="howto-warn-title">⚠ こんなクリニックは要注意</p>
-              <p>実績の数字が出ていない／症例写真がない／口コミが極端に少ない・偏っている</p>
-            </div>
+            <h3 class="howto-title">症例や実績が公開されているか</h3>
+            <p class="howto-desc">医療ダイエットの結果は<strong>医師の実績に大きく左右されます</strong>。公式サイトやSNSで「実際の症例」が公開されているか確認しましょう。</p>
+            <p class="howto-desc">単なる「〇万件の実績」という数字だけでなく、<strong>ビフォーアフターの写真や体重の変化など、具体的な実績</strong>がわかるかが重要です。</p>
           </div>
 
         </div>
@@ -949,24 +944,30 @@ const faqs = [
     padding: 0 0.15em;
     font-weight: 800;
   }
-  .howto-warn {
-    background: #FFF5F5;
-    border-left: 4px solid var(--color-cta);
-    padding: 0.85rem 1rem;
+  .howto-tip {
+    background: linear-gradient(135deg, #FFFBEC 0%, #FFF8D9 100%);
+    border-left: 4px solid #E0A200;
+    padding: 0.9rem 1.1rem;
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    margin-top: 0.75rem;
+    margin-top: 0.85rem;
   }
-  .howto-warn-title {
-    margin: 0 0 0.35rem;
-    font-size: 0.85rem;
+  .howto-tip-title {
+    margin: 0 0 0.4rem;
+    font-size: 0.9rem;
     font-weight: 800;
-    color: var(--color-cta-dark);
+    color: #8B6F1F;
   }
-  .howto-warn p:last-child {
+  .howto-tip p:last-child {
     margin: 0;
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: #5a3535;
+    font-size: 0.88rem;
+    line-height: 1.85;
+    color: #5A4A1F;
+  }
+  .howto-tip strong {
+    color: #8B6F1F;
+    background: linear-gradient(transparent 60%, rgba(224,162,0,0.25) 60%);
+    padding: 0 0.15em;
+    font-weight: 800;
   }
   .howto-conclusion {
     max-width: 760px; margin: 2.5rem auto 0;
