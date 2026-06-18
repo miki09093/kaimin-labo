@@ -498,6 +498,53 @@ const faqs = [
       </div>
     </section>
 
+    <!-- ===== 関連コラム ===== -->
+    <section class="section related-columns-section" id="related-columns">
+      <div class="container container-sm">
+        <div class="ad-heading ad-heading-single">
+          <p class="ad-heading-main">関連コラム</p>
+        </div>
+        <div class="column-grid">
+          <a href="/column/about/" class="column-card">
+            <div class="column-card-icon">📖</div>
+            <div class="column-card-body">
+              <p class="column-card-cat">コラム</p>
+              <h3 class="column-card-title">医療ダイエットとは</h3>
+              <p class="column-card-desc">医師の管理のもと行うダイエット治療の特徴を解説します</p>
+              <span class="column-card-arrow">記事を読む →</span>
+            </div>
+          </a>
+          <a href="/column/merit/" class="column-card">
+            <div class="column-card-icon">✨</div>
+            <div class="column-card-body">
+              <p class="column-card-cat">コラム</p>
+              <h3 class="column-card-title">医療ダイエットのメリット</h3>
+              <p class="column-card-desc">自己流ダイエットとの違い・5つのメリットを紹介します</p>
+              <span class="column-card-arrow">記事を読む →</span>
+            </div>
+          </a>
+          <a href="/column/taishitsu/" class="column-card">
+            <div class="column-card-icon">🍽</div>
+            <div class="column-card-body">
+              <p class="column-card-cat">コラム</p>
+              <h3 class="column-card-title">太りやすい体質とは</h3>
+              <p class="column-card-desc">太りやすい人の特徴と体質改善のためのアプローチ</p>
+              <span class="column-card-arrow">記事を読む →</span>
+            </div>
+          </a>
+          <a href="/column/cooling/" class="column-card">
+            <div class="column-card-icon">❄</div>
+            <div class="column-card-body">
+              <p class="column-card-cat">コラム</p>
+              <h3 class="column-card-title">脂肪冷却の仕組み</h3>
+              <p class="column-card-desc">部分痩せで人気の脂肪冷却の原理と施術の流れ</p>
+              <span class="column-card-arrow">記事を読む →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </Layout>
@@ -1061,6 +1108,36 @@ const faqs = [
   .final-cta-btn-name { font-size: 1.05rem; font-weight: 800; line-height: 1.5; text-align: left; }
   .final-cta-btn-arrow { font-size: 1.5rem; }
   .final-cta-note { margin-top: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+
+  /* ===== 関連コラム ===== */
+  .related-columns-section { background: var(--color-bg-gray); padding: 2.5rem 1rem 3rem; }
+  .column-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  .column-card {
+    display: flex; gap: 0.85rem;
+    background: #fff; padding: 1rem;
+    border-radius: var(--radius-lg);
+    text-decoration: none; color: inherit;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
+  }
+  .column-card:hover {
+    text-decoration: none; transform: translateY(-2px);
+    box-shadow: var(--shadow-md); border-color: var(--color-accent);
+  }
+  .column-card-icon {
+    flex-shrink: 0; width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--color-accent-light) 0%, #fff 100%);
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+  }
+  .column-card-body { flex: 1; min-width: 0; }
+  .column-card-cat { margin: 0 0 0.2rem; font-size: 0.7rem; color: var(--color-accent-dark); font-weight: 800; letter-spacing: 0.05em; }
+  .column-card-title { margin: 0 0 0.4rem; font-size: 0.92rem; font-weight: 800; color: var(--color-primary); line-height: 1.45; }
+  .column-card-desc { margin: 0 0 0.45rem; font-size: 0.78rem; line-height: 1.55; color: var(--color-text-muted); }
+  .column-card-arrow { font-size: 0.75rem; font-weight: 700; color: var(--color-accent-dark); }
+  @media (max-width: 480px) { .column-grid { grid-template-columns: 1fr; } }
 
   @media (max-width: 640px) {
     .section { padding: 2.5rem 1rem; }
