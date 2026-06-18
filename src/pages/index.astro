@@ -172,132 +172,129 @@ const faqs = [
     <!-- ===== ビジュアル比較表 ===== -->
     <section class="section vcompare-section">
       <div class="container">
-        <h2 class="section-title">人気クリニック ひと目でわかる比較表</h2>
+
+        <!-- 統一した広告風見出し -->
+        <div class="ad-heading">
+          <p class="ad-heading-sub">目的・予算でカンタンに選ぶ</p>
+          <p class="ad-heading-main">人気クリニック3選 徹底比較</p>
+        </div>
+
         <p class="vcompare-scroll-hint">← 横にスクロールできます →</p>
         <div class="vcompare-wrap">
           <table class="vcompare-tbl">
             <thead>
               <tr>
                 <th class="vc-label">クリニック</th>
-                <th>
-                  <div class="vc-photo vc-photo-1"><img src="/images/dio-logo.jpg" alt="ディオクリニック" /></div>
-                  <div class="vc-cname"><span class="vc-rank-mini" style="background:#FFD700">1位</span><br />ディオクリニック</div>
+                <th class="vc-col vc-col-top">
+                  <div class="vc-rank-badge vc-rank-1">1位</div>
+                  <div class="vc-photo"><img src="/images/dio-logo.jpg" alt="ディオクリニック" /></div>
+                  <div class="vc-cname">ディオクリニック</div>
                 </th>
-                <th>
-                  <div class="vc-photo vc-photo-2"><img src="/images/lieto-logo.jpg" alt="リエートクリニック" onerror="this.style.display='none'" /></div>
-                  <div class="vc-cname"><span class="vc-rank-mini" style="background:#C0C0C0">2位</span><br />リエートクリニック</div>
+                <th class="vc-col">
+                  <div class="vc-rank-badge vc-rank-2">2位</div>
+                  <div class="vc-photo"><img src="/images/lieto-logo.jpg" alt="リエートクリニック" onerror="this.style.display='none'" /></div>
+                  <div class="vc-cname">リエートクリニック</div>
                 </th>
-                <th>
-                  <div class="vc-photo vc-photo-3"><img src="/images/fire-logo.jpg" alt="ファイヤークリニック" onerror="this.style.display='none'" /></div>
-                  <div class="vc-cname"><span class="vc-rank-mini" style="background:#CD7F32">3位</span><br />ファイヤークリニック</div>
+                <th class="vc-col">
+                  <div class="vc-rank-badge vc-rank-3">3位</div>
+                  <div class="vc-photo"><img src="/images/fire-logo.jpg" alt="ファイヤークリニック" onerror="this.style.display='none'" /></div>
+                  <div class="vc-cname">ファイヤークリニック</div>
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th class="vc-label vc-label-rate">総合評価</th>
-                <td><p class="vc-rate vc-rate-top">4.9</p><p class="vc-stars">★★★★★</p></td>
-                <td><p class="vc-rate">4.7</p><p class="vc-stars">★★★★★</p></td>
-                <td><p class="vc-rate">4.6</p><p class="vc-stars">★★★★★</p></td>
+                <th class="vc-label">総合評価</th>
+                <td class="vc-col-top"><p class="vc-rate vc-rate-top">4.9<span class="vc-rate-unit">/5.0</span></p><p class="vc-stars">★★★★★</p></td>
+                <td><p class="vc-rate">4.7<span class="vc-rate-unit">/5.0</span></p><p class="vc-stars">★★★★★</p></td>
+                <td><p class="vc-rate">4.6<span class="vc-rate-unit">/5.0</span></p><p class="vc-stars">★★★★★</p></td>
               </tr>
               <tr>
-                <th class="vc-label vc-label-machine">機械の<br />種類</th>
-                <td>
-                  <p class="vc-circle vc-circle-best">◎</p>
-                  <p class="vc-count">【5種類】</p>
-                  <ul class="vc-chips">
-                    <li class="on">脂肪冷却</li>
-                    <li class="on">医療EMS</li>
-                    <li class="on">医療ハイフ</li>
-                    <li class="on">電磁場EMS</li>
-                    <li class="on">直流EMS</li>
+                <th class="vc-label">機械の<br />種類</th>
+                <td class="vc-col-top">
+                  <p class="vc-count vc-count-best">5種類 ◎</p>
+                  <ul class="vc-list">
+                    <li>脂肪冷却</li>
+                    <li>医療EMS</li>
+                    <li>医療ハイフ</li>
+                    <li>電磁場EMS</li>
+                    <li>直流EMS</li>
                   </ul>
                 </td>
                 <td>
-                  <p class="vc-circle vc-circle-mid">◯</p>
-                  <p class="vc-count">【3種類】</p>
-                  <ul class="vc-chips">
-                    <li class="on">脂肪冷却</li>
-                    <li class="on">医療EMS</li>
-                    <li class="on">医療機器施術</li>
-                    <li class="off">医療ハイフ</li>
-                    <li class="off">直流EMS</li>
+                  <p class="vc-count">3種類</p>
+                  <ul class="vc-list">
+                    <li>脂肪冷却</li>
+                    <li>医療EMS</li>
+                    <li>医療機器施術</li>
                   </ul>
                 </td>
                 <td>
-                  <p class="vc-circle vc-circle-mid">◯</p>
-                  <p class="vc-count">【3種類】</p>
-                  <ul class="vc-chips">
-                    <li class="on">医療EMS</li>
-                    <li class="on">脂肪溶解注射</li>
-                    <li class="on">GLP-1</li>
-                    <li class="off">脂肪冷却</li>
-                    <li class="off">医療ハイフ</li>
+                  <p class="vc-count">3種類</p>
+                  <ul class="vc-list">
+                    <li>医療EMS</li>
+                    <li>脂肪溶解注射</li>
+                    <li>GLP-1</li>
                   </ul>
                 </td>
               </tr>
               <tr>
-                <th class="vc-label vc-label-menu">その他の<br />メニュー</th>
-                <td>
-                  <p class="vc-circle vc-circle-best">◎</p>
-                  <p class="vc-count">【4種類】</p>
-                  <ul class="vc-chips">
-                    <li class="on">ダイエット注射</li>
-                    <li class="on">GLP-1</li>
-                    <li class="on">ダイエット薬</li>
-                    <li class="on">食事指導</li>
+                <th class="vc-label">その他<br />メニュー</th>
+                <td class="vc-col-top">
+                  <p class="vc-count vc-count-best">4種類 ◎</p>
+                  <ul class="vc-list">
+                    <li>ダイエット注射</li>
+                    <li>GLP-1</li>
+                    <li>ダイエット薬</li>
+                    <li>食事指導</li>
                   </ul>
                 </td>
                 <td>
-                  <p class="vc-circle vc-circle-mid">◯</p>
-                  <p class="vc-count">【2種類】</p>
-                  <ul class="vc-chips">
-                    <li class="on">ダイエット注射</li>
-                    <li class="on">食事指導</li>
-                    <li class="off">ダイエット薬</li>
-                    <li class="off">GLP-1</li>
+                  <p class="vc-count">2種類</p>
+                  <ul class="vc-list">
+                    <li>ダイエット注射</li>
+                    <li>食事指導</li>
                   </ul>
                 </td>
                 <td>
-                  <p class="vc-circle vc-circle-best">◎</p>
-                  <p class="vc-count">【3種類】</p>
-                  <ul class="vc-chips">
-                    <li class="on">カベリン</li>
-                    <li class="on">ダイエット薬</li>
-                    <li class="on">食事指導</li>
-                    <li class="off">遺伝子検査</li>
+                  <p class="vc-count">3種類</p>
+                  <ul class="vc-list">
+                    <li>カベリン</li>
+                    <li>ダイエット薬</li>
+                    <li>食事指導</li>
                   </ul>
                 </td>
               </tr>
               <tr>
-                <th class="vc-label vc-label-price">価格・<br />キャンペーン</th>
-                <td>
-                  <p class="vc-price-old">初回 <s>9,800円</s></p>
-                  <p class="vc-price-new">→ 12ヶ月分<strong>0円</strong></p>
+                <th class="vc-label">価格</th>
+                <td class="vc-col-top">
+                  <p class="vc-price-highlight">12ヶ月分0円</p>
+                  <p class="vc-price-sub">初回 9,800円〜</p>
                 </td>
                 <td>
-                  <p class="vc-price-old">カウンセリング無料</p>
-                  <p class="vc-price-new">→ 15ヶ月<strong>0円</strong></p>
+                  <p class="vc-price-highlight">15ヶ月0円</p>
+                  <p class="vc-price-sub">カウンセリング無料</p>
                 </td>
                 <td>
-                  <p class="vc-price-new">月額 <strong>4,200円</strong>〜</p>
+                  <p class="vc-price-highlight">月額 4,200円〜</p>
+                  <p class="vc-price-sub">─</p>
                 </td>
               </tr>
               <tr>
-                <th class="vc-label vc-label-result">実績</th>
-                <td><p class="vc-strong">累計外来<br />80万件以上<span class="ref">※</span></p></td>
+                <th class="vc-label">実績</th>
+                <td class="vc-col-top"><p class="vc-strong vc-strong-top">累計外来<br />80万件以上<span class="ref">※</span></p></td>
                 <td><p class="vc-strong">体質改善で<br />リバウンド対策</p></td>
                 <td><p class="vc-strong">2ヶ月で<br />平均-8kg</p></td>
               </tr>
               <tr>
-                <th class="vc-label vc-label-osusume">推し<br />ポイント</th>
-                <td><p class="vc-osusume vc-osusume-top">医師＋管理栄養士<br />監修プラン</p></td>
+                <th class="vc-label">推し<br />ポイント</th>
+                <td class="vc-col-top"><p class="vc-osusume">医師＋管理栄養士<br />監修プラン</p></td>
                 <td><p class="vc-osusume">細胞レベルで<br />体質改善</p></td>
                 <td><p class="vc-osusume">FIREメソッド<br />5本柱</p></td>
               </tr>
               <tr>
                 <th class="vc-label">公式</th>
-                <td><a href="https://dioclinic.jp/lp2-s/" target="_blank" rel="noopener noreferrer nofollow" class="vc-btn">公式へ →</a></td>
+                <td class="vc-col-top"><a href="https://dioclinic.jp/lp2-s/" target="_blank" rel="noopener noreferrer nofollow" class="vc-btn vc-btn-top">公式へ →</a></td>
                 <td><a href="https://lietoclinic.com/lpbot/lpbot07b18" target="_blank" rel="noopener noreferrer nofollow" class="vc-btn">公式へ →</a></td>
                 <td><a href="https://fire-method.com/lp/af_a8/" target="_blank" rel="noopener noreferrer nofollow" class="vc-btn">公式へ →</a></td>
               </tr>
@@ -760,94 +757,142 @@ const faqs = [
     .howto-desc { font-size: 0.9rem; }
   }
 
-  /* ===== ビジュアル比較表 ===== */
-  .vcompare-section { padding: 3rem 1rem 3.5rem; background: #fff; }
+  /* ===== ビジュアル比較表（シンプル版） ===== */
+  .vcompare-section { padding: 2.5rem 1rem 3rem; background: var(--color-bg-gray); }
   .vcompare-scroll-hint {
-    text-align: center; font-size: 0.85rem; color: var(--color-text-muted);
-    margin: -0.5rem 0 1.25rem; font-weight: 600;
+    text-align: center; font-size: 0.8rem; color: var(--color-text-muted);
+    margin: 0.5rem 0 1.25rem; font-weight: 600;
   }
   .vcompare-wrap {
     overflow-x: auto; -webkit-overflow-scrolling: touch;
     background: #fff; border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md); padding: 0;
+    box-shadow: var(--shadow-sm); padding: 0;
     max-width: 880px; margin: 0 auto;
+    border: 1px solid var(--color-border);
   }
   .vcompare-tbl {
-    width: 100%; min-width: 720px;
-    border-collapse: separate; border-spacing: 0;
+    width: 100%; min-width: 640px;
+    border-collapse: collapse;
     background: #fff;
   }
   .vcompare-tbl th, .vcompare-tbl td {
-    padding: 0.85rem 0.6rem; text-align: center;
-    border: 1px solid #e5e7eb; vertical-align: middle;
+    padding: 0.85rem 0.7rem; text-align: center;
+    border: 1px solid var(--color-border); vertical-align: middle;
+    background: #fff;
   }
+
+  /* 行ラベル（左端）：薄いグレー一色のみ */
   .vc-label {
-    background: linear-gradient(180deg, #FFF7E6 0%, #FFE9C2 100%) !important;
-    color: #6B4A1E; font-weight: 800; font-size: 0.82rem;
-    width: 88px; white-space: nowrap;
+    background: var(--color-bg-gray) !important;
+    color: var(--color-primary); font-weight: 700; font-size: 0.82rem;
+    width: 92px; white-space: nowrap;
   }
-  .vc-label-rate { background: linear-gradient(180deg, #FFE6E6 0%, #FFCCCC 100%) !important; color: #8B2C2C; }
-  .vc-label-machine { background: linear-gradient(180deg, #E6F4FF 0%, #C7E5FF 100%) !important; color: #1B4D7A; }
-  .vc-label-menu { background: linear-gradient(180deg, #F0E6FF 0%, #DAC2FF 100%) !important; color: #4A1E7A; }
-  .vc-label-price { background: linear-gradient(180deg, #FFF0E6 0%, #FFD9B8 100%) !important; color: #7A3E1B; }
-  .vc-label-result { background: linear-gradient(180deg, #FFE6F0 0%, #FFB8D9 100%) !important; color: #7A1B4A; }
-  .vc-label-osusume { background: linear-gradient(180deg, #E6FFE9 0%, #B8FFC7 100%) !important; color: #1B7A2C; }
-  .vcompare-tbl thead th:not(.vc-label) { padding: 0.85rem 0.5rem; background: #fff; min-width: 140px; }
+
+  /* ヘッダー（クリニック列） */
+  .vcompare-tbl thead th { padding: 1rem 0.6rem 0.85rem; min-width: 150px; }
+  .vc-col-top {
+    background: linear-gradient(180deg, #FFFBEC 0%, #fff 100%) !important;
+  }
+  .vc-rank-badge {
+    display: inline-block;
+    padding: 0.15rem 0.65rem;
+    border-radius: 99px;
+    font-size: 0.7rem; font-weight: 900;
+    color: #fff; margin-bottom: 0.5rem;
+  }
+  .vc-rank-1 { background: linear-gradient(135deg, #FFC93C 0%, #E0A200 100%); }
+  .vc-rank-2 { background: linear-gradient(135deg, #B0B7C3 0%, #8A93A1 100%); }
+  .vc-rank-3 { background: linear-gradient(135deg, #CD7F32 0%, #A0612A 100%); }
+
   .vc-photo {
-    width: 70px; height: 70px; margin: 0 auto 0.5rem;
+    width: 64px; height: 64px; margin: 0 auto 0.45rem;
     border-radius: var(--radius-md); overflow: hidden;
-    background: linear-gradient(135deg, #FFE5EC 0%, #FFC7D5 100%);
+    background: #F5F7FA;
     display: flex; align-items: center; justify-content: center;
-    border: 2px solid #fff; box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border: 1px solid var(--color-border);
   }
-  .vc-photo img { width: 100%; height: 100%; object-fit: contain; padding: 4px; background: #fff; }
-  .vc-photo-2 { background: linear-gradient(135deg, #E5F0FF 0%, #C7DDFF 100%); }
-  .vc-photo-3 { background: linear-gradient(135deg, #FFF5E5 0%, #FFE0B8 100%); }
+  .vc-photo img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
   .vc-cname {
-    font-size: 0.78rem; font-weight: 800; color: var(--color-primary); line-height: 1.4;
+    font-size: 0.82rem; font-weight: 800; color: var(--color-primary); line-height: 1.4;
   }
-  .vc-rank-mini {
-    display: inline-block; padding: 0.1rem 0.45rem;
-    border-radius: 99px; color: #fff;
-    font-size: 0.65rem; font-weight: 900;
-    margin-bottom: 0.25rem;
+
+  /* 総合評価 */
+  .vc-rate {
+    font-size: 1.6rem; font-weight: 900; color: var(--color-primary);
+    margin: 0; line-height: 1.1;
   }
-  .vc-rate { font-size: 1.4rem; font-weight: 900; color: #FF7A7A; margin: 0; line-height: 1.1; }
-  .vc-rate-top { color: #FF3D3D; font-size: 1.55rem; }
-  .vc-stars { color: #FFC107; font-size: 0.78rem; letter-spacing: 1px; margin: 0.1rem 0 0; }
-  .vc-circle {
-    font-size: 2rem; font-weight: 900; margin: 0 0 0.2rem; line-height: 1;
-  }
-  .vc-circle-best { color: #FF3D6F; }
-  .vc-circle-mid { color: #FFA64D; }
-  .vc-circle-low { color: #9BB7D4; font-size: 1.6rem; }
+  .vc-rate-top { color: var(--color-cta); }
+  .vc-rate-unit { font-size: 0.65rem; color: var(--color-text-muted); font-weight: 600; margin-left: 0.15rem; }
+  .vc-stars { color: #F5B041; font-size: 0.85rem; letter-spacing: 1px; margin: 0.15rem 0 0; }
+
+  /* 件数表示 */
   .vc-count {
-    display: inline-block; font-size: 0.7rem; font-weight: 700;
-    color: var(--color-text-muted); margin: 0 0 0.45rem;
+    display: inline-block;
+    font-size: 0.85rem; font-weight: 800;
+    color: var(--color-primary);
+    margin: 0 0 0.5rem;
+    padding: 0.15rem 0.6rem;
+    background: var(--color-bg-gray);
+    border-radius: 99px;
   }
-  .vc-chips { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.25rem; }
-  .vc-chips li {
-    padding: 0.22rem 0.5rem; border-radius: 4px;
-    font-size: 0.72rem; font-weight: 700; line-height: 1.3;
+  .vc-count-best {
+    background: var(--color-accent-light);
+    color: var(--color-accent-dark);
+    font-weight: 900;
   }
-  .vc-chips li.on { background: #FFD9DD; color: #8B2C2C; }
-  .vc-chips li.off { background: #ECECEC; color: #999; text-decoration: line-through; }
-  .vc-price-old { font-size: 0.78rem; color: var(--color-text-muted); margin: 0 0 0.2rem; }
-  .vc-price-new { font-size: 0.82rem; color: #FF3D6F; font-weight: 800; margin: 0; line-height: 1.4; }
-  .vc-price-new strong { font-size: 1.15em; }
-  .vc-strong { font-size: 0.82rem; font-weight: 800; color: var(--color-primary); margin: 0; line-height: 1.5; }
-  .vc-osusume { font-size: 0.78rem; font-weight: 700; color: #333; margin: 0; line-height: 1.5; }
-  .vc-osusume-top { color: #FF3D6F; font-size: 0.82rem; font-weight: 900; }
+
+  /* 施術リスト：シンプルなテキストのみ */
+  .vc-list { list-style: none; padding: 0; margin: 0; }
+  .vc-list li {
+    padding: 0.18rem 0;
+    font-size: 0.78rem;
+    color: #333;
+    line-height: 1.4;
+    border-bottom: 1px dotted #f0f0f0;
+  }
+  .vc-list li:last-child { border-bottom: none; }
+
+  /* 価格 */
+  .vc-price-highlight {
+    font-size: 1rem; font-weight: 900; color: var(--color-cta);
+    margin: 0 0 0.2rem; line-height: 1.3;
+  }
+  .vc-price-sub {
+    font-size: 0.72rem; color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* 実績・推しポイント */
+  .vc-strong {
+    font-size: 0.85rem; font-weight: 700; color: var(--color-primary);
+    margin: 0; line-height: 1.55;
+  }
+  .vc-strong-top { color: var(--color-cta); font-weight: 900; }
+  .vc-osusume {
+    font-size: 0.8rem; font-weight: 700; color: var(--color-primary);
+    margin: 0; line-height: 1.55;
+  }
+
+  /* 公式ボタン */
   .vc-btn {
-    display: inline-block; padding: 0.45rem 0.85rem;
-    background: linear-gradient(135deg, var(--color-cta) 0%, var(--color-cta-dark) 100%);
-    color: #fff; border-radius: 99px;
-    font-size: 0.75rem; font-weight: 800; text-decoration: none;
-    box-shadow: 0 2px 6px rgba(255, 107, 107, 0.3);
+    display: inline-block; padding: 0.5rem 0.85rem;
+    background: #fff;
+    color: var(--color-primary);
+    border: 1.5px solid var(--color-primary);
+    border-radius: 99px;
+    font-size: 0.78rem; font-weight: 700; text-decoration: none;
+    transition: background 0.15s, color 0.15s;
   }
-  .vc-btn:hover { color: #fff; text-decoration: none; opacity: 0.92; }
+  .vc-btn:hover { background: var(--color-primary); color: #fff; text-decoration: none; }
+  .vc-btn-top {
+    background: linear-gradient(135deg, var(--color-cta) 0%, var(--color-cta-dark) 100%);
+    color: #fff; border-color: var(--color-cta);
+    box-shadow: 0 3px 10px rgba(255,107,107,0.3);
+  }
+  .vc-btn-top:hover { background: var(--color-cta-dark); color: #fff; }
+
   .vcompare-note {
-    max-width: 880px; margin: 1rem auto 0;
+    max-width: 880px; margin: 0.75rem auto 0;
     text-align: right; font-size: 0.72rem; color: var(--color-text-muted);
   }
 
