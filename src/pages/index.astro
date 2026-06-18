@@ -334,13 +334,6 @@ const faqs = [
                 <div class="ranking-card-img">
                   <img src={`/images/${c.rank === 1 ? 'dio' : c.rank === 2 ? 'lieto' : 'fire'}-banner.png`} alt={`${c.name} イメージ`} loading="lazy" onerror="this.parentElement.style.display='none'" />
                 </div>
-                <ul class="ranking-card-tags">
-                  {c.tags.map(t => <li><span class="ranking-tag-check">✓</span>{t}</li>)}
-                </ul>
-                <div class="ranking-card-spec">
-                  <div><dt>料金</dt><dd>{c.price}</dd></div>
-                  <div><dt>カウンセリング</dt><dd>{c.counsel}</dd></div>
-                </div>
                 <div class="ranking-card-points">
                   <h4 class="ranking-card-points-title">▼ おすすめポイント</h4>
                   <ul>
