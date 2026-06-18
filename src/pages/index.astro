@@ -63,6 +63,16 @@ const clinics = [
   },
 ];
 
+const dioReviews = [
+  '予算の関係で3ヶ月（私は約100万でしたが条件やコースによって色々変動するようです）と短いコースではありましたが、ストレスなく8キロ痩せることができました！みなさん親切で丁寧なスタッフさんで、女性の方は患者と同じ薬を服用している、あるいは服用した経験のある方が多いようで、みなさんお綺麗でした。説明を聞きにいった初回の対応をしてくださった方と、栄養士さんが特に女性から好かれる人柄でした。院内もとても綺麗でした。広告で謳われているほどの破格の値段ではありませんが、ほぼ努力や我慢もなくこの金額でこの成果なら妥当な金額だと思います。金銭的に余裕ができたらまた通いたいです。',
+  'ネットのモニター広告を見て、試しに行ってみたところ、親身に相談にのって頂き、施術を受ける事になりました。思いの外順調に体重が落ちていて、初めて良かったと思っています。このまま、理想の体重を目指したいと思います。',
+  '施術や食事指導など説明が分かりやすく、分からなくても最後に質問を聞いてくれる。小さいことでも真剣に聞いてくれるから相談しやすかった。施術も体の負担に寄り添いながら実施して頂けたので不安は無かった。計画以上の減量が出来て、とても満足。今までギリギリで着用していたパンツにゆとりが出来て減量の実感があった。',
+  'スタッフの方が皆さん優しかったです。医療ダイエットは色々と不安な面も多かったのですが、色々とお声かけいただいて、安心して施術を受けることができました。目標体重をかなり大きく設定したので、目標達成とまではいきませんでしたが、標準体型までは戻せたのと、かなり見た目に変化があった（めっちゃ痩せたね！と言われる）ので概ね満足です。スケジュールの変動がかなりある職種のため、予約の変更が簡単に行えたのもよかったです。',
+  '20代の体型が復活しました！！！自分に自信を取り戻せました。今まで色々なダイエットに失敗してはお金を無駄にしてきましたが、このクリニックに通う決断をした自分を褒めてあげたいです。4ヶ月のコースを終え、期待以上の結果に「満足×100」の気持ちです！以前は体型のせいで昔の友人に会うのが嫌で避けていましたが、今は自信を持って会えるようになりました。履けなくなったパンツがまた履けるようになり、20代の頃の体型に戻れたことが本当に嬉しいです。自炊をしない私に、管理栄養士さんが無理なく続けられる情報をたくさんくださったおかげで、一度も挫折することなく、一生モノの知識も身につきました。最初は半信半疑でしたが、あの時思い切って一歩踏み出して本当に良かったです。',
+  '健康診断で脂質異常が出たことと、写真で見る自分の姿に落胆して、ダイエット目的で通いました。リベルサスによる食欲抑制・減退がかなりメンタル的につらかったですが、おかげさまで数値も見た目も劇的に変化しました。何よりスタッフの皆さまが本当にお綺麗で優しくて、毎回通院が楽しみでした😊 当初は少しでも痩せられたらという気持ちでしたが、大きな変化を与えてもらえたので満足しております。スタッフの皆さまにも大変感謝しています。どうもありがとうございました✨💫',
+  '駅近で通いやすく、クリニック内もとても綺麗です。スタッフの皆さんとてもフレンドリーで相談もしやすく楽しく通えました。自分の食欲を抑える薬とカロリー計算のアプリには助けられて薬をなくしてもアプリのおかげで普通の日はそれなりにコントロールできてると思っています。あまり我慢が効かない私なので健康的に苦労せずにコンスタントに痩せるには良かったと思う。',
+];
+
 const faqs = [
   { q: '医療ダイエットとはどんな治療ですか？', a: '医療機関で行うダイエット治療です。脂肪冷却・医療EMS・GLP-1受容体作動薬・脂肪溶解注射など、医師の管理のもとで行う痩身アプローチを指します。自己流の食事制限・運動と異なり、医学的根拠と医師のサポートが受けられるのが特徴です。' },
   { q: '本当に痩せますか？効果は人によって違いますか？', a: '効果には個人差があります。医療ダイエットは医学的なアプローチでサポートしますが、生活習慣や体質、目標により結果は異なります。各クリニックでは無料カウンセリングを実施しているので、まずは現状の体型・目標に合わせた治療プランを相談することをおすすめします。' },
@@ -114,6 +124,34 @@ const faqs = [
           </a>
         </div>
         <p class="osusume-note">※ 2020年11月〜2026年2月の累計</p>
+
+        <!-- 口コミカルーセル -->
+        <div class="reviews-block">
+          <p class="reviews-block-title">▼ 利用者の口コミ</p>
+          <div class="reviews-carousel" data-reviews-carousel>
+            <div class="reviews-track">
+              {dioReviews.map(text => (
+                <div class="reviews-slide">
+                  <div class="reviews-card">
+                    <div class="reviews-card-head">
+                      <span class="reviews-stars">★★★★★</span>
+                      <span class="reviews-source">Googleマップ</span>
+                    </div>
+                    <p class="reviews-text">「{text}」</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div class="reviews-controls">
+              <button class="reviews-prev" aria-label="前の口コミ">‹</button>
+              <span class="reviews-counter">1 / {dioReviews.length}</span>
+              <button class="reviews-next" aria-label="次の口コミ">›</button>
+            </div>
+            <div class="reviews-dots"></div>
+          </div>
+          <p class="reviews-disclaimer">※ Googleマップに投稿された実際の利用者の声を引用しています。効果には個人差があります。</p>
+        </div>
+
       </div>
     </section>
 
@@ -515,6 +553,58 @@ const faqs = [
   <Footer />
 </Layout>
 
+<script>
+  document.querySelectorAll('[data-reviews-carousel]').forEach(carousel => {
+    const carouselEl = carousel as HTMLElement;
+    const track = carousel.querySelector('.reviews-track') as HTMLElement;
+    const slides = Array.from(carousel.querySelectorAll('.reviews-slide')) as HTMLElement[];
+    const counter = carousel.querySelector('.reviews-counter') as HTMLElement;
+    const prevBtn = carousel.querySelector('.reviews-prev') as HTMLButtonElement;
+    const nextBtn = carousel.querySelector('.reviews-next') as HTMLButtonElement;
+    const dotsContainer = carousel.querySelector('.reviews-dots') as HTMLElement;
+    let current = 0;
+    const total = slides.length;
+    if (!track || total === 0) return;
+
+    function setWidth() {
+      const w = carouselEl.offsetWidth;
+      slides.forEach(s => { s.style.width = w + 'px'; });
+    }
+    setWidth();
+    window.addEventListener('resize', () => { setWidth(); goTo(current); });
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'reviews-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `${i + 1}番目の口コミ`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(n: number) {
+      current = (n + total) % total;
+      const w = carouselEl.offsetWidth;
+      track.style.transform = `translateX(-${current * w}px)`;
+      if (counter) counter.textContent = `${current + 1} / ${total}`;
+      carousel.querySelectorAll('.reviews-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', (e: TouchEvent) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  });
+</script>
+
 <style>
   /* ===== 当サイトおすすめクリニック ===== */
   .osusume-section {
@@ -649,6 +739,75 @@ const faqs = [
     letter-spacing: 0;
   }
   .ref { font-size: 0.7em; color: var(--color-text-muted); vertical-align: super; font-weight: 400; }
+
+  /* ===== 口コミカルーセル ===== */
+  .reviews-block { margin-top: 1.75rem; }
+  .reviews-block-title {
+    font-size: 0.95rem; font-weight: 800; color: var(--color-primary);
+    margin: 0 0 0.85rem; padding-left: 0.5rem;
+    border-left: 4px solid var(--color-accent);
+  }
+  .reviews-carousel { position: relative; overflow: hidden; }
+  .reviews-track { display: flex; transition: transform 0.4s ease; }
+  .reviews-slide { flex: 0 0 100%; min-width: 0; padding: 0 0.2rem; box-sizing: border-box; }
+  .reviews-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.1rem 1.25rem;
+    box-shadow: var(--shadow-sm);
+    min-height: 240px;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+  .reviews-card-head {
+    display: flex; align-items: center; gap: 0.6rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed var(--color-border);
+  }
+  .reviews-stars { color: #F5B041; font-size: 1.05rem; letter-spacing: 1px; font-weight: 700; }
+  .reviews-source {
+    font-size: 0.7rem; font-weight: 700;
+    background: var(--color-primary); color: #fff;
+    padding: 0.15rem 0.55rem; border-radius: 4px;
+  }
+  .reviews-text {
+    margin: 0; font-size: 0.86rem; line-height: 1.85;
+    color: #333;
+    white-space: pre-wrap;
+  }
+  .reviews-controls {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 0.75rem; margin-top: 0.85rem;
+  }
+  .reviews-prev, .reviews-next {
+    width: 36px; height: 36px;
+    border-radius: 50%; border: 1px solid var(--color-border);
+    background: #fff; color: var(--color-primary);
+    font-size: 1.15rem; line-height: 1; cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .reviews-prev:hover, .reviews-next:hover {
+    background: var(--color-primary); color: #fff; border-color: var(--color-primary);
+  }
+  .reviews-counter { font-size: 0.82rem; font-weight: 700; color: var(--color-text-muted); }
+  .reviews-dots {
+    display: flex; justify-content: center; gap: 0.35rem;
+    margin-top: 0.6rem;
+  }
+  .reviews-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%; border: none;
+    background: #d1d5db; cursor: pointer;
+    padding: 0; transition: background 0.15s, transform 0.15s;
+  }
+  .reviews-dot.active { background: var(--color-accent); transform: scale(1.35); }
+  .reviews-disclaimer {
+    margin-top: 0.65rem; font-size: 0.7rem;
+    color: var(--color-text-muted);
+    text-align: center;
+  }
   @keyframes pulse-osusume {
     0%, 100% { box-shadow: 0 8px 22px rgba(255, 107, 107, 0.4); }
     50% { box-shadow: 0 8px 28px rgba(255, 107, 107, 0.6); }
