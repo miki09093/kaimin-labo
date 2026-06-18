@@ -308,8 +308,12 @@ const faqs = [
     <!-- ===== ランキング ===== -->
     <section class="section" id="ranking">
       <div class="container">
-        <h2 class="section-title">医療ダイエット<br />おすすめ人気クリニックTOP3</h2>
-        <p class="ranking-lead">編集部が「施術内容」「料金」「サポート体制」で厳選した3クリニックを発表！</p>
+
+        <!-- 統一した広告風見出し -->
+        <div class="ad-heading">
+          <p class="ad-heading-sub">編集部が厳選</p>
+          <p class="ad-heading-main">医療ダイエット<br />おすすめ人気クリニックTOP3</p>
+        </div>
 
         <div class="ranking-list">
           {clinics.map(c => (
@@ -320,17 +324,18 @@ const faqs = [
                   <span class="ranking-card-rank-num">{c.rank}</span>
                   <span class="ranking-card-rank-label">位</span>
                 </div>
-                <div>
-                  <p class="ranking-card-tagline">{c.feature}</p>
+                <div class="ranking-card-namebox">
                   <h3 class="ranking-card-name">{c.name}</h3>
-                  <p class="ranking-card-catch">「{c.catchphrase}」</p>
+                  <div class="ranking-card-score-inline">
+                    <span class="ranking-card-stars">{c.star}</span>
+                    <span class="ranking-card-score-num">{c.score.toFixed(1)}</span>
+                    <span class="ranking-card-score-max">/ 5.0</span>
+                  </div>
                 </div>
               </header>
               <div class="ranking-card-body">
-                <div class="ranking-card-score">
-                  <span class="ranking-card-stars">{c.star}</span>
-                  <span class="ranking-card-score-num">{c.score.toFixed(1)}</span>
-                  <span class="ranking-card-score-max">/ 5.0</span>
+                <div class="ranking-card-img">
+                  <img src={`/images/${c.rank === 1 ? 'dio' : c.rank === 2 ? 'lieto' : 'fire'}-banner.jpg`} alt={`${c.name} イメージ`} loading="lazy" onerror="this.parentElement.style.display='none'" />
                 </div>
                 <ul class="ranking-card-tags">
                   {c.tags.map(t => <li><span class="ranking-tag-check">✓</span>{t}</li>)}
@@ -903,14 +908,21 @@ const faqs = [
   .ranking-card-rank { flex-shrink: 0; width: 76px; height: 76px; background: linear-gradient(135deg, var(--rank-color, var(--color-accent)) 0%, color-mix(in srgb, var(--rank-color) 70%, black) 100%); color: #fff; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; box-shadow: var(--shadow-md); font-weight: 900; }
   .ranking-card-rank-label { font-size: 0.65rem; }
   .ranking-card-rank-num { font-size: 1.8rem; }
-  .ranking-card-tagline { margin: 0; font-size: 0.78rem; color: var(--color-accent-dark); font-weight: 700; letter-spacing: 0.05em; }
-  .ranking-card-name { margin: 0.15rem 0 0.35rem; font-size: 1.4rem; font-weight: 900; color: var(--color-primary); }
-  .ranking-card-catch { margin: 0; font-size: 0.92rem; color: #555; font-style: italic; }
+  .ranking-card-namebox { flex: 1; min-width: 0; }
+  .ranking-card-name { margin: 0 0 0.3rem; font-size: 1.4rem; font-weight: 900; color: var(--color-primary); line-height: 1.35; }
+  .ranking-card-score-inline { display: flex; align-items: baseline; gap: 0.35rem; flex-wrap: wrap; }
+  .ranking-card-stars { color: #F5B041; font-size: 1.05rem; letter-spacing: 1px; }
+  .ranking-card-score-num { font-size: 1.35rem; font-weight: 900; color: var(--color-cta); line-height: 1; }
+  .ranking-card-score-max { font-size: 0.78rem; color: var(--color-text-muted); }
   .ranking-card-body { padding: 1.5rem; }
-  .ranking-card-score { display: flex; align-items: baseline; gap: 0.5rem; justify-content: center; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px dashed var(--color-border); }
-  .ranking-card-stars { color: #F5B041; font-size: 1.4rem; letter-spacing: 2px; }
-  .ranking-card-score-num { font-size: 1.8rem; font-weight: 900; color: var(--color-primary); }
-  .ranking-card-score-max { font-size: 0.85rem; color: var(--color-text-muted); }
+  .ranking-card-img {
+    margin: -0.25rem 0 1.25rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    line-height: 0;
+    background: var(--color-bg-gray);
+  }
+  .ranking-card-img img { width: 100%; height: auto; display: block; }
   .ranking-card-tags { list-style: none; padding: 0; margin: 0 0 1.25rem; display: grid; gap: 0.5rem; }
   .ranking-card-tags li { display: flex; align-items: flex-start; gap: 0.6rem; background: var(--color-accent-light); padding: 0.6rem 0.85rem; border-radius: var(--radius-md); font-size: 0.92rem; font-weight: 600; color: #1A5A4A; }
   .ranking-tag-check { color: var(--color-accent-dark); font-weight: 900; }
