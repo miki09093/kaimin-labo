@@ -354,47 +354,6 @@ const faqs = [
       </div>
     </section>
 
-    <!-- ===== 比較表 ===== -->
-    <section class="section section-bg" id="compare">
-      <div class="container">
-        <h2 class="section-title">3クリニック かんたん比較表</h2>
-        <p class="ranking-lead">気になるクリニックを横並びでチェック！</p>
-        <div class="compare-wrap">
-          <table class="compare-tbl">
-            <thead>
-              <tr>
-                <th></th>
-                {clinics.map(c => <th>
-                  <div class="compare-th-rank" style={`background: ${c.color}`}>第{c.rank}位</div>
-                  <div class="compare-th-name">{c.name}</div>
-                </th>)}
-              </tr>
-            </thead>
-            <tbody>
-              <tr><th>総合評価</th>{clinics.map(c => <td><span class="compare-stars">{c.star}</span><br /><strong>{c.score.toFixed(1)}</strong> / 5.0</td>)}</tr>
-              <tr><th>特徴</th>{clinics.map(c => <td>{c.feature}</td>)}</tr>
-              <tr><th>料金</th>{clinics.map(c => <td><strong>{c.price}</strong></td>)}</tr>
-              <tr><th>カウンセリング</th>{clinics.map(_ => <td>無料</td>)}</tr>
-              <tr><th>公式サイト</th>{clinics.map(c => <td><a href={c.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="compare-btn">無料相談 →</a></td>)}</tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== 利用の流れ ===== -->
-    <section class="section" id="flow">
-      <div class="container container-sm">
-        <h2 class="section-title">無料カウンセリングまでの流れ</h2>
-        <div class="flow-list">
-          <div class="flow-item"><div class="flow-num">1</div><div><h3 class="flow-title">公式サイトから予約</h3><p class="flow-desc">気になるクリニックの公式サイトで、希望の日時と来院希望院を選んで予約します。</p></div></div>
-          <div class="flow-item"><div class="flow-num">2</div><div><h3 class="flow-title">クリニックへ来院</h3><p class="flow-desc">予約日にクリニックを訪問。受付で問診票を記入します。</p></div></div>
-          <div class="flow-item"><div class="flow-num">3</div><div><h3 class="flow-title">医師による無料カウンセリング</h3><p class="flow-desc">体型・目標・予算をヒアリング。最適な施術プランを提案してもらえます。</p></div></div>
-          <div class="flow-item"><div class="flow-num">4</div><div><h3 class="flow-title">納得したら治療スタート</h3><p class="flow-desc">プラン・料金に納得したら治療を開始。もちろん契約しない選択もOKです。</p></div></div>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== FAQ ===== -->
     <section class="section section-bg" id="faq">
       <div class="container container-sm">
