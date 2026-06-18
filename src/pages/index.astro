@@ -125,33 +125,6 @@ const faqs = [
         </div>
         <p class="osusume-note">※ 2020年11月〜2026年2月の累計</p>
 
-        <!-- 口コミカルーセル -->
-        <div class="reviews-block">
-          <p class="reviews-block-title">▼ 利用者の口コミ</p>
-          <div class="reviews-carousel" data-reviews-carousel>
-            <div class="reviews-track">
-              {dioReviews.map(text => (
-                <div class="reviews-slide">
-                  <div class="reviews-card">
-                    <div class="reviews-card-head">
-                      <span class="reviews-stars">★★★★★</span>
-                      <span class="reviews-source">Googleマップ</span>
-                    </div>
-                    <p class="reviews-text">「{text}」</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div class="reviews-controls">
-              <button class="reviews-prev" aria-label="前の口コミ">‹</button>
-              <span class="reviews-counter">1 / {dioReviews.length}</span>
-              <button class="reviews-next" aria-label="次の口コミ">›</button>
-            </div>
-            <div class="reviews-dots"></div>
-          </div>
-          <p class="reviews-disclaimer">※ Googleマップに投稿された実際の利用者の声を引用しています。効果には個人差があります。</p>
-        </div>
-
       </div>
     </section>
 
@@ -375,6 +348,33 @@ const faqs = [
                     {c.points.map(p => <li>{p}</li>)}
                   </ul>
                 </div>
+                {c.rank === 1 && (
+                  <div class="reviews-block">
+                    <p class="reviews-block-title">▼ 利用者の口コミ</p>
+                    <div class="reviews-carousel" data-reviews-carousel>
+                      <div class="reviews-track">
+                        {dioReviews.map(text => (
+                          <div class="reviews-slide">
+                            <div class="reviews-card">
+                              <div class="reviews-card-head">
+                                <span class="reviews-stars">★★★★★</span>
+                                <span class="reviews-source">Googleマップ</span>
+                              </div>
+                              <p class="reviews-text">「{text}」</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div class="reviews-controls">
+                        <button class="reviews-prev" aria-label="前の口コミ">‹</button>
+                        <span class="reviews-counter">1 / {dioReviews.length}</span>
+                        <button class="reviews-next" aria-label="次の口コミ">›</button>
+                      </div>
+                      <div class="reviews-dots"></div>
+                    </div>
+                    <p class="reviews-disclaimer">※ Googleマップに投稿された実際の利用者の声を引用しています。効果には個人差があります。</p>
+                  </div>
+                )}
                 <div class="ranking-card-cta">
                   <a href={c.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="cta-main">
                     <span class="cta-main-label">{c.name}の<br /><strong>無料カウンセリング</strong>はこちら</span>
