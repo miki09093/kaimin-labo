@@ -102,17 +102,18 @@ const faqs = [
             <div class="osusume-text">
               <h2 class="osusume-name">ディオクリニック</h2>
               <p class="osusume-desc">
-                <strong>外来実績80万件以上。</strong><br />
+                <strong>外来実績80万件以上<span class="ref">※</span>。</strong><br />
                 LINEであなただけのプラン・料金がわかる
               </p>
             </div>
           </div>
-          <a href="#" class="osusume-cta" aria-label="ディオクリニック 無料カウンセリングへ">
-            <span class="osusume-cta-text">無料カウンセリングへ</span>
+          <p class="osusume-cta-sub">＼ LINEで簡単30秒・完全無料 ／</p>
+          <a href="#" class="osusume-cta" aria-label="ディオクリニック 無料プラン診断へ">
+            <span class="osusume-cta-text">無料プラン診断へ</span>
             <span class="osusume-cta-arrow">→</span>
           </a>
-          <p class="osusume-cta-sub">＼ LINEで簡単30秒・完全無料 ／</p>
         </div>
+        <p class="osusume-note">※ 2020年11月〜2026年2月の累計</p>
       </div>
     </section>
 
@@ -470,11 +471,20 @@ const faqs = [
   }
   .osusume-cta-arrow { font-size: 1.3em; font-weight: 900; }
   .osusume-cta-sub {
-    margin: 0.75rem 0 0;
+    margin: 0 0 0.5rem;
     font-size: 0.8rem;
     color: var(--color-text-muted);
     font-weight: 600;
+    text-align: center;
   }
+  .osusume-note {
+    margin: 0.75rem 0 0;
+    text-align: right;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0;
+  }
+  .ref { font-size: 0.7em; color: var(--color-text-muted); vertical-align: super; font-weight: 400; }
   @keyframes pulse-osusume {
     0%, 100% { box-shadow: 0 8px 22px rgba(255, 107, 107, 0.4); }
     50% { box-shadow: 0 8px 28px rgba(255, 107, 107, 0.6); }
