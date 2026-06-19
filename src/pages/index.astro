@@ -12,9 +12,10 @@ const clinics = [
     star: '★★★★★',
     tags: ['累計外来80万件', '通院者の99%が成果実感', '12ヶ月分0円キャンペーン'],
     points: [
-      '脂肪冷却・医療EMS・医療ハイフ・GLP-1注射など豊富な施術メニュー',
-      '医師＋管理栄養士監修のオーダーメイドプラン',
-      '初回9,800円〜・12ヶ月分0円のキャンペーン実施中',
+      '脂肪冷却・医療EMS・医療ハイフ・GLP-1注射など<mark>豊富な施術メニュー</mark>',
+      '医師＋管理栄養士監修の<mark>オーダーメイドプラン</mark>',
+      '<mark>初回9,800円〜・12ヶ月分0円</mark>のキャンペーン実施中',
+      'LINEで<mark>プランや費用のシミュレーション</mark>が可能',
     ],
     price: '初回 9,800円〜',
     counsel: '無料カウンセリング受付中',
@@ -322,7 +323,7 @@ const faqs = [
                 <div class="ranking-card-points">
                   <h4 class="ranking-card-points-title">▼ おすすめポイント</h4>
                   <ul>
-                    {c.points.map(p => <li>{p}</li>)}
+                    {c.points.map(p => <li set:html={p}></li>)}
                   </ul>
                 </div>
                 {c.rank === 1 && (
@@ -1314,6 +1315,12 @@ const faqs = [
   .ranking-card-points ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.45rem; }
   .ranking-card-points li { padding-left: 1.4rem; position: relative; font-size: 0.9rem; line-height: 1.7; color: #333; }
   .ranking-card-points li::before { content: '◆'; position: absolute; left: 0; color: var(--color-accent); font-size: 0.7rem; top: 0.45rem; }
+  .ranking-card-points li mark {
+    background: linear-gradient(transparent 60%, rgba(255,215,0,0.55) 60%);
+    color: var(--color-primary);
+    font-weight: 800;
+    padding: 0 0.1em;
+  }
   .ranking-card-osusume { background: var(--color-primary-light); border-radius: var(--radius-md); padding: 1rem 1.1rem; margin-bottom: 1.5rem; }
   .ranking-card-osusume ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
   .ranking-card-osusume li { font-size: 0.9rem; display: flex; align-items: flex-start; gap: 0.5rem; }
