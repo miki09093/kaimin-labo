@@ -148,6 +148,9 @@ const faqs = [
           <div class="howto-card">
             <div class="howto-num">1</div>
             <h3 class="howto-title">豊富な施術メニューでオーダーメイドプランが組めるか</h3>
+            <div class="howto-img">
+              <img src="/images/howto-1.png" alt="豊富な施術メニュー" loading="lazy" onerror="this.parentElement.style.display='none'" />
+            </div>
             <p class="howto-desc">体質や生活習慣は人によって異なるため、<strong>内服薬から医療機器、食事指導まで「治療の選択肢が豊富」</strong>なクリニックを選びましょう。</p>
             <p class="howto-desc">マニュアル通りの処方ではなく、<strong>遺伝子検査のデータに基づいて「なぜその治療が有効なのか」</strong>を論理的に説明し、オーダーメイドのプランを提案してくれるかが鍵となります。</p>
           </div>
@@ -1024,6 +1027,13 @@ const faqs = [
     padding-bottom: 0.6rem;
     border-bottom: 2px dashed var(--color-border);
   }
+  .howto-img {
+    margin: 0 -1.4rem 1.1rem;
+    overflow: hidden;
+    line-height: 0;
+    background: var(--color-bg-gray);
+  }
+  .howto-img img { width: 100%; height: auto; display: block; }
   .howto-desc { font-size: 0.95rem; line-height: 1.95; color: #333; margin: 0 0 1.25rem; }
   .howto-desc strong {
     color: var(--color-primary);
