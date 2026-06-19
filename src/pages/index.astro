@@ -335,6 +335,36 @@ const faqs = [
                     {c.points.map(p => <li set:html={p}></li>)}
                   </ul>
                 </div>
+                {c.rank === 2 && (
+                  <div class="ba-block">
+                    <p class="ba-block-title">▼ ビフォーアフター症例</p>
+                    <div class="ba-carousel" data-ba-carousel>
+                      <div class="ba-track">
+                        {[1,2].map(n => (
+                          <div class="ba-slide">
+                            <img src={`/images/lieto-ba${n}.png`} alt={`リエートクリニック 症例${n}`} loading="lazy" onerror="this.style.display='none'" />
+                          </div>
+                        ))}
+                      </div>
+                      <div class="ba-controls">
+                        <button class="ba-prev" aria-label="前の症例">‹</button>
+                        <span class="ba-counter">1 / 2</span>
+                        <button class="ba-next" aria-label="次の症例">›</button>
+                      </div>
+                      <div class="ba-dots"></div>
+                    </div>
+                  </div>
+                )}
+                {c.rank === 2 && (
+                  <div class="stat-block">
+                    <p class="stat-block-title">▼ 数字で見るリエートクリニックの実績</p>
+                    <p class="stat-block-lead">＼ 通いやすさと始めやすさを両立 ／</p>
+                    <div class="stat-img">
+                      <img src="/images/lieto-stat.png" alt="リエートクリニックの実績" loading="lazy" onerror="this.parentElement.style.display='none'" />
+                    </div>
+                    <p class="stat-block-text">リエートクリニックは<strong>横浜・名古屋・池袋の3院</strong>で展開し、通いやすい立地と医師＋管理栄養士のWサポートを提供。さらに今だけ<strong>最大15ヶ月分0円キャンペーン</strong>を実施中で、費用面の不安もしっかりサポート。「続けられるか不安」「リバウンドしたくない」という方も、<strong>無理なく始められる体質改善</strong>を目指せます。</p>
+                  </div>
+                )}
                 {c.rank === 1 && (
                   <div class="ba-block">
                     <p class="ba-block-title">▼ ビフォーアフター症例</p>
