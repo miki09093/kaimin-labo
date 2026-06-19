@@ -425,10 +425,20 @@ const faqs = [
                   </div>
                 )}
                 <div class="ranking-card-cta">
-                  <a href={c.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="cta-main">
-                    <span class="cta-main-label">{c.name}の<br /><strong>無料カウンセリング</strong>はこちら</span>
-                    <span class="cta-main-arrow">→</span>
-                  </a>
+                  {c.rank === 1 ? (
+                    <a href={c.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="howto-line-cta">
+                      <span class="howto-line-cta-text">
+                        <span class="howto-line-cta-main">＼ いますぐ無料診断 ／</span>
+                        <span class="howto-line-cta-sub">LINEで簡単シミュレーション</span>
+                      </span>
+                      <span class="howto-line-cta-arrow">›</span>
+                    </a>
+                  ) : (
+                    <a href={c.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="cta-main">
+                      <span class="cta-main-label">{c.name}の<br /><strong>無料カウンセリング</strong>はこちら</span>
+                      <span class="cta-main-arrow">→</span>
+                    </a>
+                  )}
                   <p class="cta-sub">＼ 公式サイトへ移動します ／</p>
                 </div>
               </div>
