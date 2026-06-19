@@ -409,6 +409,21 @@ const faqs = [
                     <p class="reviews-disclaimer">※ Googleマップに投稿された実際の利用者の声を引用しています。効果には個人差があります。</p>
                   </div>
                 )}
+                {c.rank === 1 && (
+                  <div class="campaign-block">
+                    <p class="campaign-block-title">▼ 今だけのお得なキャンペーン情報</p>
+                    <p class="campaign-block-lead">＼ 始めるなら今がチャンス ／</p>
+                    <div class="campaign-img">
+                      <img src="/images/dio-campaign.png" alt="ディオクリニック キャンペーン情報" loading="lazy" onerror="this.parentElement.style.display='none'" />
+                    </div>
+                    <p class="campaign-block-text">「いきなり店舗は不安」「まずは費用感を知りたい」──そんな方こそ、まずはLINEから。</p>
+                    <ul class="campaign-merits">
+                      <li><span class="campaign-merit-check">✓</span><span><strong>プランや費用を気軽にシミュレーション</strong></span></li>
+                      <li><span class="campaign-merit-check">✓</span><span><strong>LINE限定の特別特典</strong>を受け取れる</span></li>
+                    </ul>
+                    <p class="campaign-block-text">店舗に行かなくても、自分にピッタリのプランと料金が事前にわかるから安心。<strong>お得に始めたい方は今すぐLINEをチェック</strong>するのがおすすめです。</p>
+                  </div>
+                )}
                 <div class="ranking-card-cta">
                   <a href={c.affiliateHref} target="_blank" rel="noopener noreferrer nofollow" class="cta-main">
                     <span class="cta-main-label">{c.name}の<br /><strong>無料カウンセリング</strong>はこちら</span>
@@ -994,6 +1009,69 @@ const faqs = [
     color: var(--color-primary);
     background: linear-gradient(transparent 60%, rgba(0,196,154,0.25) 60%);
     padding: 0 0.15em;
+    font-weight: 800;
+  }
+
+  /* ===== キャンペーン情報 ===== */
+  .campaign-block { margin-top: 1.75rem; }
+  .campaign-block-title {
+    font-size: 0.95rem; font-weight: 800; color: var(--color-primary);
+    margin: 0 0 0.4rem; padding-left: 0.5rem;
+    border-left: 4px solid var(--color-cta);
+  }
+  .campaign-block-lead {
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--color-cta);
+    margin: 0 0 0.85rem;
+    letter-spacing: 0.02em;
+  }
+  .campaign-img {
+    margin: 0 -1.5rem 1rem;
+    overflow: hidden;
+    line-height: 0;
+    background: var(--color-bg-gray);
+  }
+  .campaign-img img { width: 100%; height: auto; display: block; }
+  .campaign-block-text {
+    font-size: 0.95rem;
+    line-height: 1.95;
+    color: #333;
+    margin: 0 0 0.85rem;
+  }
+  .campaign-block-text strong {
+    color: var(--color-primary);
+    background: linear-gradient(transparent 60%, rgba(255,215,0,0.5) 60%);
+    padding: 0 0.15em;
+    font-weight: 800;
+  }
+  .campaign-merits {
+    list-style: none;
+    padding: 1rem 1.1rem;
+    margin: 0 0 0.85rem;
+    background: linear-gradient(135deg, #FFFBEC 0%, #FFF8D9 100%);
+    border-left: 4px solid #E0A200;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    display: grid;
+    gap: 0.55rem;
+  }
+  .campaign-merits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.93rem;
+    line-height: 1.7;
+    color: #3a3a3a;
+  }
+  .campaign-merit-check {
+    flex-shrink: 0;
+    color: var(--color-cta);
+    font-weight: 900;
+    margin-top: 0.1rem;
+  }
+  .campaign-merits li strong {
+    color: var(--color-primary);
     font-weight: 800;
   }
 
