@@ -160,6 +160,14 @@ const faqs = [
               <p class="howto-tip-title">★ ポイント</p>
               <p>「対面だと無理に勧誘されそうで不安」「店舗に行くのが面倒」という方は、<strong>事前にLINEでプランや費用のシミュレーション</strong>ができるクリニックがおすすめです。</p>
             </div>
+            <a href="https://dioclinic.jp/lp2-s/" target="_blank" rel="noopener noreferrer nofollow" class="howto-line-cta">
+              <span class="howto-line-cta-icon">LINE</span>
+              <span class="howto-line-cta-text">
+                <span class="howto-line-cta-main">＼ いますぐ無料診断 ／</span>
+                <span class="howto-line-cta-sub">LINEで簡単シミュレーション</span>
+              </span>
+              <span class="howto-line-cta-arrow">›</span>
+            </a>
           </div>
 
           <div class="howto-card">
@@ -935,9 +943,66 @@ const faqs = [
     font-size: 1.1em;
     font-weight: 900;
   }
+  /* ===== LINE無料診断 CTA ===== */
+  .howto-line-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 1rem;
+    padding: 0.9rem 1.1rem;
+    background: linear-gradient(135deg, #06C755 0%, #05B14C 100%);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    box-shadow: 0 8px 20px -8px rgba(6,199,85,0.55), 0 2px 6px rgba(6,199,85,0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .howto-line-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px -8px rgba(6,199,85,0.6), 0 3px 8px rgba(6,199,85,0.22);
+  }
+  .howto-line-cta-icon {
+    flex-shrink: 0;
+    background: #fff;
+    color: #06C755;
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    padding: 0.35rem 0.55rem;
+    border-radius: 6px;
+    line-height: 1;
+  }
+  .howto-line-cta-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+    color: #fff;
+  }
+  .howto-line-cta-main {
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+  }
+  .howto-line-cta-sub {
+    font-size: 0.78rem;
+    font-weight: 600;
+    opacity: 0.95;
+    margin-top: 0.15rem;
+  }
+  .howto-line-cta-arrow {
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
   @media (max-width: 640px) {
     .howto-card { padding: 1.85rem 1.1rem 1.25rem; }
     .howto-desc { font-size: 0.9rem; }
+    .howto-line-cta { padding: 0.8rem 0.9rem; gap: 0.65rem; }
+    .howto-line-cta-main { font-size: 0.92rem; }
+    .howto-line-cta-sub { font-size: 0.72rem; }
   }
 
   /* ===== ビジュアル比較表（シンプル版） ===== */
