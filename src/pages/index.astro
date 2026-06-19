@@ -397,6 +397,24 @@ const faqs = [
                     <p class="stat-block-text">リエートクリニックでは今だけ<strong>モニター割引</strong>を実施中。<strong>脂肪冷却・医療電磁場機器・脂肪溶解注射・医療ダイエット薬</strong>といった次世代医療機器のフル施術が、毎月の負担を抑えてスタートできます。<strong>横浜・名古屋・池袋の3院</strong>で通いやすく、「費用がネックで踏み出せなかった」「本格的な医療痩身を試してみたい」という方も、無理なく始められます。</p>
                   </div>
                 )}
+                {c.rank === 3 && (
+                  <div class="ba-block">
+                    <p class="ba-block-title">▼ ビフォーアフター症例</p>
+                    <div class="ba-img">
+                      <img src="/images/fire-ba1.png" alt="ファイヤークリニック 症例" loading="lazy" onerror="this.parentElement.style.display='none'" />
+                    </div>
+                  </div>
+                )}
+                {c.rank === 3 && (
+                  <div class="stat-block">
+                    <p class="stat-block-title">▼ ファイヤークリニックの安心ポイント</p>
+                    <p class="stat-block-lead">＼ 21日間全額返金保証で安心スタート ／</p>
+                    <div class="stat-img">
+                      <img src="/images/fire-stat.png" alt="ファイヤークリニックの保証制度" loading="lazy" onerror="this.parentElement.style.display='none'" />
+                    </div>
+                    <p class="stat-block-text">ファイヤークリニックの最大の魅力は、業界でも珍しい<strong>21日間全額返金保証</strong>。「効果があるか不安」「いきなり契約が怖い」という方も、万が一の場合は<strong>費用面のリスクなく始められる安心の仕組み</strong>です。我慢しすぎないダイエットを、納得した上でスタートできるのがファイヤーならではの強みです。</p>
+                  </div>
+                )}
                 {c.rank === 1 && (
                   <div class="ba-block">
                     <p class="ba-block-title">▼ ビフォーアフター症例</p>
@@ -985,6 +1003,13 @@ const faqs = [
     margin: 0.85rem 0 0; font-size: 0.75rem; color: var(--color-text-muted);
     line-height: 1.7;
   }
+  .ba-img {
+    margin: 0 -1.5rem;
+    overflow: hidden;
+    line-height: 0;
+    background: var(--color-bg-gray);
+  }
+  .ba-img img { width: 100%; height: auto; display: block; }
 
   /* ===== 数字で見る実績 ===== */
   .stat-block { margin-top: 1.75rem; }
