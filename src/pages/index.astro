@@ -14,7 +14,7 @@ const clinics = [
     points: [
       '脂肪冷却・医療EMS・医療ハイフ・GLP-1注射など<mark>豊富な施術メニュー</mark>',
       '医師＋管理栄養士監修の<mark>オーダーメイドプラン</mark>',
-      '<mark>初回9,800円〜・12ヶ月分0円</mark>のキャンペーン実施中',
+      '<mark>月額4,900円〜</mark><span class="ref">※1</span>・<mark>12ヶ月分0円キャンペーン</mark><span class="ref">※2</span>実施中',
       'LINEで<mark>プランや費用のシミュレーション</mark>が可能',
     ],
     price: '初回 9,800円〜',
@@ -360,6 +360,15 @@ const faqs = [
                   <ul>
                     {c.points.map(p => <li set:html={p}></li>)}
                   </ul>
+                  {c.rank === 1 && (
+                    <div class="points-note">
+                      <details class="points-note-more">
+                        <summary>注釈を見る</summary>
+                        <p>※1 指定コース契約時申出限定 ※特典併用不可 ※現金販売価格190,000円(税込) ※分割支払例：月々4,900円×23回(初回6,500円 頭金90,000円)、支払回数24回、実質年率9.6%、割賦販売価格209,200円(税込) ※自由診療、副作用：内出血等 ※効果個人差あり ※定員に達し次第、予告なく終了する場合がございます。</p>
+                        <p>※2 ※3ヶ月以上コース契約時申出限定 ※特典併用不可 ※当院指定コースの分割支払額（60回払）の12ヶ月分相当を総額より割引（36,000円〜500,000円相当）※初月より月額発生 ※定員に達し次第、予告なく終了する場合がございます ※自由診療、副作用：内出血等 ※効果個人差あり</p>
+                      </details>
+                    </div>
+                  )}
                 </div>
                 {c.rank === 2 && (
                   <div class="ba-block">
@@ -1784,6 +1793,48 @@ const faqs = [
     font-weight: 800;
     padding: 0 0.1em;
   }
+  .ranking-card-points li .ref {
+    font-size: 0.7em;
+    color: var(--color-text-muted);
+    margin: 0 0.1em;
+    vertical-align: super;
+    font-weight: 600;
+  }
+  .points-note {
+    margin-top: 0.85rem;
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+  .points-note-more > summary {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.35rem 0.85rem;
+    background: var(--color-bg-gray);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.72rem;
+    list-style: none;
+    user-select: none;
+    transition: background 0.2s ease;
+  }
+  .points-note-more > summary::-webkit-details-marker { display: none; }
+  .points-note-more > summary:hover { background: var(--color-accent-light); }
+  .points-note-more > summary::after {
+    content: '▼';
+    font-size: 0.6rem;
+    transition: transform 0.2s ease;
+  }
+  .points-note-more[open] > summary::after { transform: rotate(180deg); }
+  .points-note-more[open] > summary {
+    background: var(--color-accent-light);
+    border-color: var(--color-accent);
+  }
+  .points-note-more > p { margin: 0.5rem 0 0; }
   .ranking-card-osusume { background: var(--color-primary-light); border-radius: var(--radius-md); padding: 1rem 1.1rem; margin-bottom: 1.5rem; }
   .ranking-card-osusume ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
   .ranking-card-osusume li { font-size: 0.9rem; display: flex; align-items: flex-start; gap: 0.5rem; }
