@@ -314,9 +314,12 @@ const faqs = [
         </div>
         <div class="vcompare-note">
           <p>※1 2020年11月〜2026年2月の累計。</p>
-          <p>※2 3ヶ月以上コース契約時申出限定 ※遺伝子検査1回分無料付帯 ※初回来院時に実施し、結果は後日お渡し</p>
-          <p>※3 指定コース契約時申出限定 ※特典併用不可 ※現金販売価格190,000円(税込) ※分割支払例：月々4,900円×23回(初回6,500円 頭金90,000円)、支払回数24回、実質年率9.6%、割賦販売価格209,200円(税込) ※自由診療、副作用：内出血等 ※効果個人差あり ※定員に達し次第、予告なく終了する場合がございます。</p>
-          <p>※4 ※3ヶ月以上コース契約時申出限定 ※特典併用不可 ※当院指定コースの分割支払額（60回払）の12ヶ月分相当を総額より割引（36,000円〜500,000円相当）※初月より月額発生 ※定員に達し次第、予告なく終了する場合がございます ※自由診療、副作用：内出血等 ※効果個人差あり</p>
+          <details class="vcompare-note-more">
+            <summary>注釈をすべて見る</summary>
+            <p>※2 3ヶ月以上コース契約時申出限定 ※遺伝子検査1回分無料付帯 ※初回来院時に実施し、結果は後日お渡し</p>
+            <p>※3 指定コース契約時申出限定 ※特典併用不可 ※現金販売価格190,000円(税込) ※分割支払例：月々4,900円×23回(初回6,500円 頭金90,000円)、支払回数24回、実質年率9.6%、割賦販売価格209,200円(税込) ※自由診療、副作用：内出血等 ※効果個人差あり ※定員に達し次第、予告なく終了する場合がございます。</p>
+            <p>※4 ※3ヶ月以上コース契約時申出限定 ※特典併用不可 ※当院指定コースの分割支払額（60回払）の12ヶ月分相当を総額より割引（36,000円〜500,000円相当）※初月より月額発生 ※定員に達し次第、予告なく終了する場合がございます ※自由診療、副作用：内出血等 ※効果個人差あり</p>
+          </details>
         </div>
       </div>
     </section>
@@ -670,9 +673,12 @@ const faqs = [
         </div>
         <div class="vcompare-note">
           <p>※1 2020年11月〜2026年2月の累計。</p>
-          <p>※2 3ヶ月以上コース契約時申出限定 ※遺伝子検査1回分無料付帯 ※初回来院時に実施し、結果は後日お渡し</p>
-          <p>※3 指定コース契約時申出限定 ※特典併用不可 ※現金販売価格190,000円(税込) ※分割支払例：月々4,900円×23回(初回6,500円 頭金90,000円)、支払回数24回、実質年率9.6%、割賦販売価格209,200円(税込) ※自由診療、副作用：内出血等 ※効果個人差あり ※定員に達し次第、予告なく終了する場合がございます。</p>
-          <p>※4 ※3ヶ月以上コース契約時申出限定 ※特典併用不可 ※当院指定コースの分割支払額（60回払）の12ヶ月分相当を総額より割引（36,000円〜500,000円相当）※初月より月額発生 ※定員に達し次第、予告なく終了する場合がございます ※自由診療、副作用：内出血等 ※効果個人差あり</p>
+          <details class="vcompare-note-more">
+            <summary>注釈をすべて見る</summary>
+            <p>※2 3ヶ月以上コース契約時申出限定 ※遺伝子検査1回分無料付帯 ※初回来院時に実施し、結果は後日お渡し</p>
+            <p>※3 指定コース契約時申出限定 ※特典併用不可 ※現金販売価格190,000円(税込) ※分割支払例：月々4,900円×23回(初回6,500円 頭金90,000円)、支払回数24回、実質年率9.6%、割賦販売価格209,200円(税込) ※自由診療、副作用：内出血等 ※効果個人差あり ※定員に達し次第、予告なく終了する場合がございます。</p>
+            <p>※4 ※3ヶ月以上コース契約時申出限定 ※特典併用不可 ※当院指定コースの分割支払額（60回払）の12ヶ月分相当を総額より割引（36,000円〜500,000円相当）※初月より月額発生 ※定員に達し次第、予告なく終了する場合がございます ※自由診療、副作用：内出血等 ※効果個人差あり</p>
+          </details>
         </div>
       </div>
     </section>
@@ -1706,6 +1712,38 @@ const faqs = [
   }
   .vcompare-note p { margin: 0 0 0.4rem; }
   .vcompare-note p:last-child { margin-bottom: 0; }
+  .vcompare-note-more {
+    margin-top: 0.5rem;
+  }
+  .vcompare-note-more > summary {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.35rem 0.85rem;
+    background: var(--color-bg-gray);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.72rem;
+    list-style: none;
+    user-select: none;
+    transition: background 0.2s ease;
+  }
+  .vcompare-note-more > summary::-webkit-details-marker { display: none; }
+  .vcompare-note-more > summary:hover { background: var(--color-accent-light); }
+  .vcompare-note-more > summary::after {
+    content: '▼';
+    font-size: 0.6rem;
+    transition: transform 0.2s ease;
+  }
+  .vcompare-note-more[open] > summary::after { transform: rotate(180deg); }
+  .vcompare-note-more[open] > summary {
+    background: var(--color-accent-light);
+    border-color: var(--color-accent);
+  }
+  .vcompare-note-more > p { margin-top: 0.5rem; }
 
   /* ===== ランキングカード ===== */
   .ranking-list { display: flex; flex-direction: column; gap: 2rem; max-width: 760px; margin: 0 auto; }
