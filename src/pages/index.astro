@@ -362,11 +362,8 @@ const faqs = [
                   </ul>
                   {c.rank === 1 && (
                     <div class="points-note">
-                      <details class="points-note-more">
-                        <summary>注釈を見る</summary>
-                        <p>※1 指定コース契約時申出限定 ※特典併用不可 ※現金販売価格190,000円(税込) ※分割支払例：月々4,900円×23回(初回6,500円 頭金90,000円)、支払回数24回、実質年率9.6%、割賦販売価格209,200円(税込) ※自由診療、副作用：内出血等 ※効果個人差あり ※定員に達し次第、予告なく終了する場合がございます。</p>
-                        <p>※2 ※3ヶ月以上コース契約時申出限定 ※特典併用不可 ※当院指定コースの分割支払額（60回払）の12ヶ月分相当を総額より割引（36,000円〜500,000円相当）※初月より月額発生 ※定員に達し次第、予告なく終了する場合がございます ※自由診療、副作用：内出血等 ※効果個人差あり</p>
-                      </details>
+                      <p>※1 指定コース契約時申出限定 ※特典併用不可 ※現金販売価格190,000円(税込) ※分割支払例：月々4,900円×23回(初回6,500円 頭金90,000円)、支払回数24回、実質年率9.6%、割賦販売価格209,200円(税込) ※自由診療、副作用：内出血等 ※効果個人差あり ※定員に達し次第、予告なく終了する場合がございます。</p>
+                      <p>※2 ※3ヶ月以上コース契約時申出限定 ※特典併用不可 ※当院指定コースの分割支払額（60回払）の12ヶ月分相当を総額より割引（36,000円〜500,000円相当）※初月より月額発生 ※定員に達し次第、予告なく終了する場合がございます ※自由診療、副作用：内出血等 ※効果個人差あり</p>
                     </div>
                   )}
                 </div>
@@ -1788,10 +1785,10 @@ const faqs = [
   .ranking-card-points li { padding-left: 1.4rem; position: relative; font-size: 0.9rem; line-height: 1.7; color: #333; }
   .ranking-card-points li::before { content: '◆'; position: absolute; left: 0; color: var(--color-accent); font-size: 0.7rem; top: 0.45rem; }
   .ranking-card-points li mark {
-    background: linear-gradient(transparent 60%, rgba(255,215,0,0.55) 60%);
+    background: linear-gradient(transparent 60%, rgba(0,196,154,0.25) 60%);
     color: var(--color-primary);
     font-weight: 800;
-    padding: 0 0.1em;
+    padding: 0 0.15em;
   }
   .ranking-card-points li .ref {
     font-size: 0.55em;
@@ -1807,35 +1804,8 @@ const faqs = [
     color: var(--color-text-muted);
     line-height: 1.7;
   }
-  .points-note-more > summary {
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 0.35rem 0.85rem;
-    background: var(--color-bg-gray);
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    color: var(--color-primary);
-    font-weight: 700;
-    font-size: 0.72rem;
-    list-style: none;
-    user-select: none;
-    transition: background 0.2s ease;
-  }
-  .points-note-more > summary::-webkit-details-marker { display: none; }
-  .points-note-more > summary:hover { background: var(--color-accent-light); }
-  .points-note-more > summary::after {
-    content: '▼';
-    font-size: 0.6rem;
-    transition: transform 0.2s ease;
-  }
-  .points-note-more[open] > summary::after { transform: rotate(180deg); }
-  .points-note-more[open] > summary {
-    background: var(--color-accent-light);
-    border-color: var(--color-accent);
-  }
-  .points-note-more > p { margin: 0.5rem 0 0; }
+  .points-note p { margin: 0 0 0.4rem; }
+  .points-note p:last-child { margin-bottom: 0; }
   .ranking-card-osusume { background: var(--color-primary-light); border-radius: var(--radius-md); padding: 1rem 1.1rem; margin-bottom: 1.5rem; }
   .ranking-card-osusume ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
   .ranking-card-osusume li { font-size: 0.9rem; display: flex; align-items: flex-start; gap: 0.5rem; }
