@@ -75,31 +75,8 @@ const resultsJson = JSON.stringify(results);
 >
   <main class="shindan">
 
-    <!-- ===== スタート画面 ===== -->
-    <section class="sh-screen sh-start" data-screen="start">
-      <div class="sh-inner">
-        <div class="sh-hero-img">
-          <img src="/images/shindan-hero.png" alt="痩せられない原因タイプ診断" loading="eager" onerror="this.parentElement.style.display='none'" />
-        </div>
-        <p class="sh-start-tag">🔍 かんたん60秒診断</p>
-        <h1 class="sh-start-title">
-          あなたが<span class="sh-em">痩せられない</span><br />
-          本当の原因は？
-        </h1>
-        <p class="sh-start-lead">
-          4つの質問に答えるだけ。<br />
-          あなたのタイプに合った「痩せ方」がわかります。
-        </p>
-        <button class="sh-btn sh-btn-start" data-start>
-          <span>診断をはじめる</span>
-          <span class="sh-btn-arrow">→</span>
-        </button>
-        <p class="sh-start-note">※ 登録不要・無料でできます</p>
-      </div>
-    </section>
-
     <!-- ===== 質問画面 ===== -->
-    <section class="sh-screen sh-quiz" data-screen="quiz" hidden>
+    <section class="sh-screen sh-quiz" data-screen="quiz">
       <div class="sh-inner">
         <div class="sh-progress">
           <div class="sh-progress-info">
@@ -133,12 +110,7 @@ const resultsJson = JSON.stringify(results);
     <!-- ===== 結果画面 ===== -->
     <section class="sh-screen sh-result" data-screen="result" hidden>
       <div class="sh-inner">
-        <div class="sh-result-loading" data-result-loading>
-          <div class="sh-spinner"></div>
-          <p>あなたのタイプを診断中...</p>
-        </div>
-
-        <div class="sh-result-content" data-result-content hidden>
+        <div class="sh-result-content" data-result-content>
           <p class="sh-result-tag">診断結果</p>
           <p class="sh-result-label" data-result-label></p>
           <h2 class="sh-result-title" data-result-title></h2>
@@ -172,7 +144,6 @@ const resultsJson = JSON.stringify(results);
 <script define:vars={{ resultsJson }}>
   const results = JSON.parse(resultsJson);
   const screens = {
-    start: document.querySelector('[data-screen="start"]'),
     quiz: document.querySelector('[data-screen="quiz"]'),
     result: document.querySelector('[data-screen="result"]'),
   };
@@ -200,13 +171,8 @@ const resultsJson = JSON.stringify(results);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // スタート
-  document.querySelector('[data-start]')?.addEventListener('click', () => {
-    current = 0;
-    answers.length = 0;
-    showScreen('quiz');
-    showQuestion(0);
-  });
+  // 初期表示
+  showQuestion(0);
 
   // 選択肢クリック
   document.querySelectorAll('.sh-choice').forEach(btn => {
@@ -242,39 +208,30 @@ const resultsJson = JSON.stringify(results);
   }
 
   function finish() {
+    const type = judge();
+    const r = results[type];
+    document.querySelector('[data-result-label]').textContent = r.label;
+    document.querySelector('[data-result-title]').textContent = r.title;
+    document.querySelector('[data-result-lead]').textContent = r.lead;
+    document.querySelector('[data-result-desc]').textContent = r.desc;
+    document.querySelector('[data-result-cta]').textContent = r.cta;
+
+    const imgWrap = document.querySelector('[data-result-img]');
+    const imgEl = document.querySelector('[data-result-img-el]');
+    if (imgEl && imgWrap) {
+      imgWrap.style.display = '';
+      imgEl.setAttribute('src', r.img);
+    }
+
     showScreen('result');
-    const loading = document.querySelector('[data-result-loading]');
-    const content = document.querySelector('[data-result-content]');
-    if (loading) loading.hidden = false;
-    if (content) content.hidden = true;
-
-    setTimeout(() => {
-      const type = judge();
-      const r = results[type];
-      document.querySelector('[data-result-label]').textContent = r.label;
-      document.querySelector('[data-result-title]').textContent = r.title;
-      document.querySelector('[data-result-lead]').textContent = r.lead;
-      document.querySelector('[data-result-desc]').textContent = r.desc;
-      document.querySelector('[data-result-cta]').textContent = r.cta;
-
-      const imgWrap = document.querySelector('[data-result-img]');
-      const imgEl = document.querySelector('[data-result-img-el]');
-      if (imgEl && imgWrap) {
-        imgWrap.style.display = '';
-        imgEl.setAttribute('src', r.img);
-      }
-
-      if (loading) loading.hidden = true;
-      if (content) content.hidden = false;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1400);
   }
 
   // もう一度
   document.querySelector('[data-retry]')?.addEventListener('click', () => {
     current = 0;
     answers.length = 0;
-    showScreen('start');
+    showScreen('quiz');
+    showQuestion(0);
   });
 </script>
 
@@ -297,75 +254,6 @@ const resultsJson = JSON.stringify(results);
     max-width: 560px;
     margin: 0 auto;
   }
-
-  /* ===== スタート ===== */
-  .sh-start { text-align: center; }
-  .sh-hero-img {
-    margin: 0 auto 1.5rem;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    line-height: 0;
-    box-shadow: var(--shadow-md);
-  }
-  .sh-hero-img img { width: 100%; height: auto; }
-  .sh-start-tag {
-    display: inline-block;
-    background: rgba(0,196,154,0.1);
-    color: var(--color-accent-dark);
-    font-weight: 800;
-    font-size: 0.85rem;
-    padding: 0.4rem 1.1rem;
-    border-radius: 999px;
-    border: 1px solid rgba(0,196,154,0.28);
-    margin-bottom: 1.25rem;
-  }
-  .sh-start-title {
-    font-size: clamp(1.6rem, 6.5vw, 2.2rem);
-    font-weight: 900;
-    color: var(--color-primary);
-    line-height: 1.45;
-    margin: 0 0 1.1rem;
-    letter-spacing: -0.01em;
-  }
-  .sh-em {
-    background: linear-gradient(180deg, transparent 60%, rgba(255,107,107,0.32) 60%);
-    padding: 0 0.1em;
-  }
-  .sh-start-lead {
-    font-size: 1rem;
-    line-height: 1.85;
-    color: #3a4456;
-    margin: 0 0 2rem;
-  }
-  .sh-start-note {
-    margin-top: 1rem;
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-  }
-
-  /* ===== 共通ボタン ===== */
-  .sh-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    width: 100%;
-    max-width: 400px;
-    padding: 1.15rem 1.5rem;
-    border: none;
-    border-radius: 999px;
-    font-family: inherit;
-    font-size: 1.15rem;
-    font-weight: 900;
-    color: #fff;
-    cursor: pointer;
-    background: linear-gradient(135deg, var(--color-cta) 0%, var(--color-cta-dark) 100%);
-    box-shadow: 0 10px 26px -8px rgba(255,107,107,0.6);
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-  }
-  .sh-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(255,107,107,0.65); }
-  .sh-btn:active { transform: translateY(0); }
-  .sh-btn-arrow { font-size: 1.2rem; }
 
   /* ===== プログレス ===== */
   .sh-progress { margin-bottom: 2rem; }
@@ -463,23 +351,6 @@ const resultsJson = JSON.stringify(results);
     padding: 0.5rem;
   }
   .sh-back:hover { color: var(--color-primary); }
-
-  /* ===== 結果ローディング ===== */
-  .sh-result-loading {
-    text-align: center;
-    padding: 4rem 1rem;
-    color: var(--color-primary);
-    font-weight: 700;
-  }
-  .sh-spinner {
-    width: 52px; height: 52px;
-    margin: 0 auto 1.25rem;
-    border: 5px solid #DCE5EF;
-    border-top-color: var(--color-accent);
-    border-radius: 50%;
-    animation: sh-spin 0.8s linear infinite;
-  }
-  @keyframes sh-spin { to { transform: rotate(360deg); } }
 
   /* ===== 結果 ===== */
   .sh-result-content { text-align: center; }
