@@ -83,6 +83,9 @@ const resultsJson = JSON.stringify(results);
     <!-- ===== 質問画面 ===== -->
     <section class="sh-screen sh-quiz" data-screen="quiz">
       <div class="sh-inner">
+        <div class="sh-topbanner">
+          <img src="/images/shindan-hero.png" alt="痩せられない原因タイプ診断" loading="eager" onerror="this.parentElement.style.display='none'" />
+        </div>
         <div class="sh-progress">
           <div class="sh-progress-info">
             <span class="sh-progress-current" data-progress-current>1</span>
@@ -339,6 +342,16 @@ const resultsJson = JSON.stringify(results);
   }
   .sh-question.is-anim { animation: sh-fade-up 0.42s cubic-bezier(0.22,0.61,0.36,1); }
   .sh-result-content.is-reveal { animation: sh-reveal 0.55s cubic-bezier(0.22,0.61,0.36,1); }
+
+  /* ===== 上部バナー（設問中は常時表示） ===== */
+  .sh-topbanner {
+    margin: 0 0 1.5rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    line-height: 0;
+    box-shadow: var(--shadow-md);
+  }
+  .sh-topbanner img { width: 100%; height: auto; display: block; }
 
   /* ===== プログレス ===== */
   .sh-progress { margin-bottom: 2rem; }
