@@ -713,6 +713,17 @@ const faqs = [
       </div>
     </section>
 
+    <!-- ===== 未承認医薬品に関する注意事項 ===== -->
+    <section class="drug-notice-section">
+      <div class="container container-sm">
+        <div class="drug-notice">
+          <p>※未承認医薬品等（適応外使用）本診療で使用するマンジャロは、2型糖尿病治療薬として厚生労働省に承認されているが、肥満治療目的での使用は国内未承認。重篤な副作用発生時は医薬品副作用被害救済制度の対象外。 ※入手経路：国内医薬品販売代理店を通じて入手。 ※国内承認医薬品：同成分の注射剤が肥満症治療薬として承認。 ※海外承認状況：米国FDAで2型糖尿病治療薬として承認。 ※副作用：吐き気、胸やけ、下痢、便秘などの胃腸症状、まれに急性膵炎の報告あり。症状が強い場合は使用中止し医師へ相談。 ※注意事項：糖尿病治療中、甲状腺・膵臓疾患のある方、18歳未満・70歳以上、妊娠・授乳・妊活中の方は投与不可。マンジャロ皮下注射は原則、肥満、肥満症が疑わしい方への処方となる。</p>
+          <p>※本治療で使用するリベルサスは、日本で2型糖尿病治療薬として承認済みだが、肥満症治療薬としては未承認薬である。当院は国内の医薬品卸業者より仕入れている。肥満症治療薬としては国内承認薬はなく、米国では同一成分の注射製剤がFDAで肥満症治療薬として承認済みである。副作用として低血糖、吐気、便秘などの報告あり。重篤な副作用が生じても国の医薬品副作用被害救済制度の対象外となる。費用：¥11,800／月(3mg・28錠)</p>
+          <p>下記に当てはまる方は施術を受けられません。<br />体重40kg以下 / BMI18.5以下 / 19歳以下・70歳以上 / がん / 妊娠中 / 授乳中 / 産後3ヶ月以内の方</p>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </Layout>
@@ -1894,6 +1905,22 @@ const faqs = [
     text-decoration: underline;
   }
   .related-list a:hover { color: #004a99; }
+
+  /* ===== 未承認医薬品に関する注意事項 ===== */
+  .drug-notice-section { background: #fff; padding: 0 1rem 2rem; }
+  .drug-notice {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 1rem 1.1rem;
+    background: var(--color-bg-gray);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.65rem;
+    line-height: 1.75;
+  }
+  .drug-notice p { margin: 0 0 0.6rem; }
+  .drug-notice p:last-child { margin-bottom: 0; }
 
   @media (max-width: 640px) {
     .section { padding: 2.5rem 1rem; }
