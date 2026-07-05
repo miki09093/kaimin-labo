@@ -116,10 +116,6 @@ const resultsJson = JSON.stringify(results);
           <h2 class="sh-result-title" data-result-title></h2>
           <p class="sh-result-lead" data-result-lead></p>
 
-          <div class="sh-result-img" data-result-img>
-            <img src="" alt="診断結果" data-result-img-el onerror="this.parentElement.style.display='none'" />
-          </div>
-
           <div class="sh-result-desc">
             <p data-result-desc></p>
           </div>
@@ -215,13 +211,6 @@ const resultsJson = JSON.stringify(results);
     document.querySelector('[data-result-lead]').textContent = r.lead;
     document.querySelector('[data-result-desc]').textContent = r.desc;
     document.querySelector('[data-result-cta]').textContent = r.cta;
-
-    const imgWrap = document.querySelector('[data-result-img]');
-    const imgEl = document.querySelector('[data-result-img-el]');
-    if (imgEl && imgWrap) {
-      imgWrap.style.display = '';
-      imgEl.setAttribute('src', r.img);
-    }
 
     showScreen('result');
   }
@@ -385,14 +374,6 @@ const resultsJson = JSON.stringify(results);
     color: var(--color-cta);
     margin: 0 0 1.5rem;
   }
-  .sh-result-img {
-    margin: 0 auto 1.5rem;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    line-height: 0;
-    box-shadow: var(--shadow-md);
-  }
-  .sh-result-img img { width: 100%; height: auto; }
   .sh-result-desc {
     background: #fff;
     border-radius: var(--radius-lg);
