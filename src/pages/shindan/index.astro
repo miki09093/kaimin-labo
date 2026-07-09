@@ -43,7 +43,7 @@ const questions = [
 const results = {
   A: {
     label: 'TYPE A',
-    emblem: '🔥',
+    emblem: 'A',
     title: '「食欲コントロール暴走型」タイプ',
     lead: '食欲中枢の乱れが原因かも',
     descHtml: '<p>「お昼はちゃんと我慢できたのに、夜になると何か食べたくなる」<br />「ストレスが溜まった日ほど、気づいたらお菓子の袋が空いてる」<br />そんな心当たり、ありませんか？</p><p>それを今まで意志が弱いせいだと思ってきたなら、たぶん違います。あなたの場合、我慢やストレスの反動で食欲のブレーキが一時的に効かなくなっているだけ。しかもこの食欲は、気合いで抑え込もうとするほど反動が強くなることが分かっています。</p><p>頑張るほど食べたくなる仕組みを相手に、ずっと素手で戦ってきたようなものです。負けて当然だったんです。</p>',
@@ -51,7 +51,7 @@ const results = {
   },
   B: {
     label: 'TYPE B',
-    emblem: '❄️',
+    emblem: 'B',
     title: '「代謝低下型」タイプ',
     lead: 'エネルギー消費の効率がカギ',
     descHtml: '<p>「食べる量は明らかに減らしてるのに、体重が動かない」<br />「同じものを食べてる友達は太らないのに、なぜか自分だけ」<br />そんな心当たり、ありませんか？</p><p>それをまだ努力が足りないせいだと思ってきたなら、たぶん逆です。食事を減らすと、体は飢餓が来たと判断して消費を抑える省エネモードに入ります。しかもこのモードはダイエットを繰り返すほど強化されていくので、真面目に頑張ってきた人ほど陥りやすい状態なんです。</p><p>燃費が良くなりすぎた体で、さらにガソリンだけ絞ってきたようなもの。体重が動かなくて当然だったんです。</p>',
@@ -59,7 +59,7 @@ const results = {
   },
   C: {
     label: 'TYPE C',
-    emblem: '🌱',
+    emblem: 'C',
     title: '「自力改善型（高ポテンシャル）」タイプ',
     lead: 'あと一歩で結果が出せる',
     descHtml: '<p>「月曜から本気出す」と決めた週の金曜、もう忘れてる。<br />ジムは契約した。行ってないだけ。<br />耳が痛かったらごめんなさい。でも、安心してください。それだけなんです。</p><p>あなたの体は、食欲が暴走しているわけでも代謝が落ちきっているわけでもなく、正しく続けさえすればちゃんと結果が出る状態です。そして続かないのは飽き性だからではなく、成果が見えるまでが長いやり方を選びがちだから。人は、効いてる実感のないことを続けられるようにはできていません。</p><p>足りないのは根性ではなく、「これなら続く」と思える自分に合ったやり方のほうだったんです。</p>',
@@ -98,12 +98,12 @@ const resultsJson = JSON.stringify(results);
 
         {questions.map((question, qi) => (
           <div class="sh-question" data-question={qi} hidden={qi !== 0}>
-            <p class="sh-q-num">Q{qi + 1}</p>
+            <p class="sh-q-num">Question {String(qi + 1).padStart(2, '0')}</p>
             <h2 class="sh-q-text">{question.q}</h2>
             <div class="sh-choices">
-              {question.choices.map(choice => (
+              {question.choices.map((choice, ci) => (
                 <button class="sh-choice" data-type={choice.type} data-qi={qi}>
-                  <span class="sh-choice-emoji">{choice.emoji}</span>
+                  <span class="sh-choice-num">{String(ci + 1).padStart(2, '0')}</span>
                   <span class="sh-choice-text">{choice.text}</span>
                   <span class="sh-choice-check" aria-hidden="true">✓</span>
                 </button>
@@ -275,10 +275,11 @@ const resultsJson = JSON.stringify(results);
   .shindan {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(180deg, #EAF1F8 0%, #F5F8FC 45%, #FDF0F0 100%);
+    background: linear-gradient(175deg, #FBF3F0 0%, #FDF9F6 45%, #F8ECE7 100%);
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    color: #4D403C;
   }
 
   /* ===== 背景の浮遊グロー ===== */
@@ -291,26 +292,26 @@ const resultsJson = JSON.stringify(results);
   .sh-glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.55;
-    animation: sh-float 14s ease-in-out infinite;
+    filter: blur(70px);
+    opacity: 0.5;
+    animation: sh-float 16s ease-in-out infinite;
   }
   .sh-glow-1 {
     top: -80px; right: -60px;
-    width: 280px; height: 280px;
-    background: radial-gradient(circle, rgba(0,196,154,0.5) 0%, transparent 70%);
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(224,150,138,0.5) 0%, transparent 70%);
   }
   .sh-glow-2 {
-    top: 40%; left: -90px;
-    width: 260px; height: 260px;
-    background: radial-gradient(circle, rgba(19,62,107,0.35) 0%, transparent 70%);
-    animation-delay: -5s;
+    top: 42%; left: -100px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(197,168,201,0.4) 0%, transparent 70%);
+    animation-delay: -6s;
   }
   .sh-glow-3 {
-    bottom: -70px; right: 10%;
-    width: 240px; height: 240px;
-    background: radial-gradient(circle, rgba(255,107,107,0.4) 0%, transparent 70%);
-    animation-delay: -9s;
+    bottom: -80px; right: 8%;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(240,196,170,0.5) 0%, transparent 70%);
+    animation-delay: -11s;
   }
   @keyframes sh-float {
     0%, 100% { transform: translate(0, 0) scale(1); }
@@ -354,10 +355,10 @@ const resultsJson = JSON.stringify(results);
   /* ===== 上部バナー（設問中は常時表示） ===== */
   .sh-topbanner {
     margin: 0 0 1.5rem;
-    border-radius: var(--radius-lg);
+    border-radius: 18px;
     overflow: hidden;
     line-height: 0;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 14px 34px -18px rgba(150, 95, 85, 0.4);
   }
   .sh-topbanner img { width: 100%; height: auto; display: block; }
 
@@ -367,20 +368,27 @@ const resultsJson = JSON.stringify(results);
     display: flex;
     align-items: baseline;
     justify-content: center;
-    gap: 0.3rem;
-    margin-bottom: 0.6rem;
+    gap: 0.35rem;
+    margin-bottom: 0.7rem;
   }
   .sh-progress-current {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--color-accent-dark);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #C9766B;
     line-height: 1;
   }
-  .sh-progress-total { font-size: 0.95rem; font-weight: 700; color: var(--color-text-muted); }
+  .sh-progress-total {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #B39C95;
+  }
   .sh-progress-bar {
     position: relative;
-    height: 9px;
-    background: #DCE5EF;
+    height: 6px;
+    background: #F0DFD9;
     border-radius: 999px;
     overflow: hidden;
   }
@@ -388,7 +396,7 @@ const resultsJson = JSON.stringify(results);
     position: relative;
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    background: linear-gradient(90deg, #D8897E 0%, #EDB39D 100%);
     border-radius: 999px;
     transition: width 0.45s cubic-bezier(0.22,0.61,0.36,1);
     overflow: hidden;
@@ -397,9 +405,9 @@ const resultsJson = JSON.stringify(results);
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(100deg, transparent 20%, rgba(255,255,255,0.65) 50%, transparent 80%);
+    background: linear-gradient(100deg, transparent 20%, rgba(255,255,255,0.6) 50%, transparent 80%);
     transform: translateX(-100%);
-    animation: sh-shine 2s ease-in-out infinite;
+    animation: sh-shine 2.4s ease-in-out infinite;
   }
   @keyframes sh-shine {
     to { transform: translateX(200%); }
@@ -408,82 +416,90 @@ const resultsJson = JSON.stringify(results);
   /* ===== 質問 ===== */
   .sh-q-num {
     text-align: center;
-    font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 0.15em;
-    color: var(--color-accent-dark);
-    margin: 0 0 0.5rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.82rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #C9766B;
+    margin: 0 0 0.6rem;
   }
   .sh-q-text {
     text-align: center;
-    font-size: clamp(1.2rem, 4.8vw, 1.5rem);
-    font-weight: 900;
-    color: var(--color-primary);
-    line-height: 1.5;
+    font-size: clamp(1.15rem, 4.6vw, 1.45rem);
+    font-weight: 700;
+    color: #4D403C;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
     margin: 0 0 1.75rem;
   }
-  .sh-choices { display: grid; gap: 0.85rem; }
+  .sh-choices { display: grid; gap: 0.8rem; }
   .sh-choice {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 0.9rem;
+    gap: 1rem;
     width: 100%;
-    padding: 1.1rem 1.15rem;
-    background: rgba(255,255,255,0.72);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 2px solid rgba(255,255,255,0.9);
-    border-radius: var(--radius-lg);
+    padding: 1.05rem 1.15rem;
+    background: #fff;
+    border: 1.5px solid #F0E1DB;
+    border-radius: 16px;
     font-family: inherit;
     text-align: left;
     cursor: pointer;
-    box-shadow: 0 6px 18px -10px rgba(19,62,107,0.35);
+    box-shadow: 0 8px 20px -14px rgba(150, 95, 85, 0.35);
     transition: border-color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease, background 0.18s ease;
   }
   .sh-choice:hover {
-    border-color: var(--color-accent);
+    border-color: #DFA095;
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px -12px rgba(0,196,154,0.55);
-    background: rgba(255,255,255,0.92);
+    box-shadow: 0 14px 28px -14px rgba(200, 118, 107, 0.45);
   }
   .sh-choice:active { transform: translateY(0); }
-  .sh-choice-emoji {
+  .sh-choice-num {
     flex-shrink: 0;
-    width: 46px; height: 46px;
+    width: 38px; height: 38px;
     display: flex; align-items: center; justify-content: center;
-    background: var(--color-bg-gray);
+    border: 1.5px solid #E8C8C0;
     border-radius: 50%;
-    font-size: 1.4rem;
-    transition: transform 0.2s ease;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #C9766B;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
   .sh-choice-text {
     flex: 1;
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    line-height: 1.5;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #4D403C;
+    line-height: 1.55;
   }
   .sh-choice-check {
     flex-shrink: 0;
-    width: 26px; height: 26px;
+    width: 24px; height: 24px;
     display: flex; align-items: center; justify-content: center;
-    background: var(--color-accent);
+    background: #C9766B;
     color: #fff;
     border-radius: 50%;
-    font-size: 0.85rem;
-    font-weight: 900;
+    font-size: 0.78rem;
+    font-weight: 700;
     opacity: 0;
     transform: scale(0);
     transition: opacity 0.15s ease;
   }
   /* 選択時フィードバック */
   .sh-choice.is-selected {
-    border-color: var(--color-accent);
-    background: var(--color-accent-light);
-    box-shadow: 0 12px 26px -10px rgba(0,196,154,0.6);
+    border-color: #C9766B;
+    background: #FBF0ED;
+    box-shadow: 0 14px 28px -12px rgba(201, 118, 107, 0.5);
   }
-  .sh-choice.is-selected .sh-choice-emoji { transform: scale(1.1); }
+  .sh-choice.is-selected .sh-choice-num {
+    background: #C9766B;
+    border-color: #C9766B;
+    color: #fff;
+  }
   .sh-choice.is-selected .sh-choice-check {
     opacity: 1;
     animation: sh-pop 0.3s ease forwards;
@@ -493,129 +509,129 @@ const resultsJson = JSON.stringify(results);
     margin: 1.75rem auto 0;
     background: none;
     border: none;
-    color: var(--color-text-muted);
+    color: #B39C95;
     font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.88rem;
+    font-weight: 500;
     cursor: pointer;
     padding: 0.5rem;
   }
-  .sh-back:hover { color: var(--color-primary); }
+  .sh-back:hover { color: #4D403C; }
 
   /* ===== 結果（タイプ別カラーテーマ） ===== */
   .sh-result-content {
     text-align: center;
-    --type-color: var(--color-cta);
-    --type-color-dark: var(--color-cta-dark);
-    --type-soft: rgba(255,107,107,0.1);
+    --type-color: #CE6E6B;
+    --type-color-dark: #B25955;
+    --type-soft: rgba(206, 110, 107, 0.12);
   }
   .sh-result-content[data-type="A"] {
-    --type-color: #FF6B6B; --type-color-dark: #E55A5A; --type-soft: rgba(255,107,107,0.12);
+    --type-color: #CE6E6B; --type-color-dark: #B25955; --type-soft: rgba(206,110,107,0.12);
   }
   .sh-result-content[data-type="B"] {
-    --type-color: #3B82F6; --type-color-dark: #2563EB; --type-soft: rgba(59,130,246,0.12);
+    --type-color: #8291B9; --type-color-dark: #67779F; --type-soft: rgba(130,145,185,0.14);
   }
   .sh-result-content[data-type="C"] {
-    --type-color: #22C55E; --type-color-dark: #16A34A; --type-soft: rgba(34,197,94,0.12);
+    --type-color: #8CA98B; --type-color-dark: #71916F; --type-soft: rgba(140,169,139,0.16);
   }
 
   .sh-result-tag {
     display: inline-block;
-    background: var(--color-primary);
-    color: #fff;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.15em;
-    padding: 0.35rem 1rem;
+    background: #F7E3DE;
+    color: #B25955;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    padding: 0.4rem 1.1rem;
     border-radius: 999px;
     margin-bottom: 1.25rem;
   }
   .sh-result-emblem {
-    width: 92px; height: 92px;
+    width: 88px; height: 88px;
     margin: 0 auto 1rem;
     display: flex; align-items: center; justify-content: center;
-    font-size: 2.6rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 2.4rem;
+    color: #fff;
     background: linear-gradient(135deg, var(--type-color) 0%, var(--type-color-dark) 100%);
     border-radius: 50%;
-    box-shadow: 0 14px 30px -10px var(--type-color);
+    box-shadow: 0 16px 32px -14px var(--type-color);
     animation: sh-pop 0.5s cubic-bezier(0.22,0.61,0.36,1) 0.15s both;
   }
   .sh-result-label {
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
     color: var(--type-color-dark);
     margin: 0 0 0.4rem;
   }
   .sh-result-title {
-    font-size: clamp(1.4rem, 5.5vw, 1.9rem);
-    font-weight: 900;
-    color: var(--color-primary);
-    line-height: 1.45;
+    font-size: clamp(1.35rem, 5.2vw, 1.8rem);
+    font-weight: 800;
+    color: #4D403C;
+    line-height: 1.5;
     margin: 0 0 0.6rem;
   }
   .sh-result-lead {
     display: inline-block;
-    font-size: 0.95rem;
-    font-weight: 800;
+    font-size: 0.9rem;
+    font-weight: 700;
     color: var(--type-color-dark);
     background: var(--type-soft);
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 1.1rem;
     border-radius: 999px;
     margin: 0 0 1.5rem;
   }
   .sh-result-desc {
     position: relative;
     background: #fff;
-    border-radius: var(--radius-lg);
+    border: 1.5px solid #F0E1DB;
+    border-radius: 18px;
     padding: 1.5rem 1.35rem;
     text-align: left;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 10px 26px -16px rgba(150, 95, 85, 0.35);
     margin-bottom: 1.25rem;
-    border-top: 4px solid var(--type-color);
+    border-top: 3px solid var(--type-color);
   }
   .sh-result-bridge {
     background: #fff;
-    border-radius: var(--radius-lg);
+    border: 1.5px solid #F0E1DB;
+    border-radius: 18px;
     padding: 1.5rem 1.35rem;
     text-align: left;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 10px 26px -16px rgba(150, 95, 85, 0.35);
     margin-bottom: 1.5rem;
   }
   .sh-result-desc p,
   .sh-result-bridge p {
     margin: 0 0 1rem;
     font-size: 0.95rem;
-    line-height: 1.95;
-    color: #333;
+    line-height: 2;
+    color: #574A44;
   }
   .sh-result-desc p:last-child,
   .sh-result-bridge p:last-child { margin-bottom: 0; }
-  .sh-result-desc strong,
-  .sh-result-bridge strong {
-    font-weight: 800;
-    color: var(--color-primary);
-    background: linear-gradient(transparent 62%, var(--type-soft) 62%);
-    padding: 0 0.1em;
-  }
 
   /* ===== 結果CTA ===== */
   .sh-result-cta-box {
-    background: linear-gradient(135deg, rgba(6,199,85,0.08) 0%, rgba(19,62,107,0.06) 100%);
-    border: 1px solid rgba(6,199,85,0.22);
-    border-radius: var(--radius-lg);
+    background: #FDFAF7;
+    border: 1.5px solid #F0E1DB;
+    border-radius: 18px;
     padding: 1.5rem 1.35rem;
     margin-bottom: 1.5rem;
   }
   .sh-cta-note {
     margin: 0.6rem 0 0;
     font-size: 0.78rem;
-    color: var(--color-text-muted);
+    color: #B39C95;
   }
   .sh-line-cta-sub {
     font-size: 0.9rem;
-    font-weight: 800;
-    color: #06B94E;
+    font-weight: 700;
+    color: #1FA45C;
     margin: 0 0 0.5rem;
   }
   .sh-line-cta {
@@ -629,47 +645,47 @@ const resultsJson = JSON.stringify(results);
     border-radius: 999px;
     text-decoration: none;
     cursor: pointer;
-    box-shadow: 0 10px 24px -8px rgba(6,199,85,0.55);
+    box-shadow: 0 10px 22px -10px rgba(6,199,85,0.5);
     transition: transform 0.18s ease, box-shadow 0.18s ease;
-    animation: sh-cta-pulse 2.4s ease-in-out infinite;
+    animation: sh-cta-pulse 2.8s ease-in-out infinite;
   }
   @keyframes sh-cta-pulse {
-    0%, 100% { box-shadow: 0 10px 24px -8px rgba(6,199,85,0.55); }
-    50% { box-shadow: 0 10px 34px -6px rgba(6,199,85,0.85); }
+    0%, 100% { box-shadow: 0 10px 22px -10px rgba(6,199,85,0.5); }
+    50% { box-shadow: 0 10px 30px -8px rgba(6,199,85,0.75); }
   }
   .sh-line-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 28px -8px rgba(6,199,85,0.6);
+    box-shadow: 0 14px 26px -10px rgba(6,199,85,0.55);
     text-decoration: none;
   }
   .sh-line-cta-main {
     color: #fff;
-    font-size: 1.1rem;
-    font-weight: 900;
+    font-size: 1.08rem;
+    font-weight: 800;
   }
   .sh-line-cta-arrow {
     color: #fff;
-    font-size: 1.5rem;
-    font-weight: 900;
+    font-size: 1.4rem;
+    font-weight: 800;
     line-height: 1;
   }
   .sh-retry {
     background: none;
     border: none;
-    color: var(--color-text-muted);
+    color: #B39C95;
     font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.88rem;
+    font-weight: 500;
     cursor: pointer;
     padding: 0.5rem;
     text-decoration: underline;
   }
-  .sh-retry:hover { color: var(--color-primary); }
+  .sh-retry:hover { color: #4D403C; }
   .sh-result-notes {
     margin-top: 1.5rem;
     text-align: left;
     font-size: 0.7rem;
-    color: var(--color-text-muted);
+    color: #A78F88;
     line-height: 1.7;
   }
   .sh-result-notes p { margin: 0 0 0.25rem; }
@@ -678,7 +694,7 @@ const resultsJson = JSON.stringify(results);
     margin: 2rem 0 0;
     text-align: center;
     font-size: 0.7rem;
-    color: var(--color-text-muted);
+    color: #A78F88;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -688,8 +704,9 @@ const resultsJson = JSON.stringify(results);
 
   @media (max-width: 480px) {
     .sh-screen { padding: 1.5rem 1rem 2.5rem; }
-    .sh-choice-text { font-size: 0.92rem; }
-    .sh-choice-emoji { width: 42px; height: 42px; font-size: 1.25rem; }
-    .sh-result-emblem { width: 82px; height: 82px; font-size: 2.3rem; }
+    .sh-choice { padding: 0.95rem 1rem; gap: 0.85rem; }
+    .sh-choice-text { font-size: 0.9rem; }
+    .sh-choice-num { width: 34px; height: 34px; font-size: 0.82rem; }
+    .sh-result-emblem { width: 78px; height: 78px; font-size: 2.1rem; }
   }
 </style>
